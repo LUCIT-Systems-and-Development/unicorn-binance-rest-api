@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# File: client.py
+# File: unicorn_binance_rest_api_manager.py
 #
 # Part of ‘UNICORN Binance REST API’
 # Project website: https://github.com/oliver-zehentleitner/unicorn-binance-rest-api
@@ -39,11 +39,11 @@ import hmac
 import requests
 import time
 from operator import itemgetter
-from .helpers import date_to_milliseconds, interval_to_milliseconds
-from .exceptions import BinanceAPIException, BinanceRequestException, BinanceWithdrawException
+from .unicorn_binance_rest_api_helpers import date_to_milliseconds, interval_to_milliseconds
+from .unicorn_binance_rest_api_exceptions import BinanceAPIException, BinanceRequestException, BinanceWithdrawException
 
 
-class Client(object):
+class BinanceRestApiManager(object):
 
     API_URL = 'https://api.binance.{}/api'
     WITHDRAW_API_URL = 'https://api.binance.{}/wapi'
@@ -134,7 +134,7 @@ class Client(object):
     MINING_TO_USDT_FUTURE = "MINING_UMFUTURE"
     MINING_TO_FIAT = "MINING_C2C"
 
-    def __init__(self, api_key=None, api_secret=None, requests_params=None, tld='com'):
+    def __init__(self, api_key=None, api_secret=None, requests_params=None, tld="com"):
         """Binance API Client constructor
 
         :param api_key: Api Key

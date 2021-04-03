@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# File: helpers.py
+# File: unicorn_binance_rest_api_helpers.py
 #
 # Part of ‘UNICORN Binance REST API’
 # Project website: https://github.com/oliver-zehentleitner/unicorn-binance-rest-api

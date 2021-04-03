@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# File: enums.py
+# File: unicorn_binance_rest_api_enums.py
 #
 # Part of ‘UNICORN Binance REST API’
 # Project website: https://github.com/oliver-zehentleitner/unicorn-binance-rest-api
@@ -88,7 +88,3 @@ TIME_IN_FORCE_GTX = 'GTX'  # Post only order
 ORDER_RESP_TYPE_ACK = 'ACK'
 ORDER_RESP_TYPE_RESULT = 'RESULT'
 ORDER_RESP_TYPE_FULL = 'FULL'
-
-WEBSOCKET_DEPTH_5 = '5'
-WEBSOCKET_DEPTH_10 = '10'
-WEBSOCKET_DEPTH_20 = '20'

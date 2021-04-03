@@ -41,7 +41,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
      name='unicorn_binance_rest_api',
-     version='0.0.0',
+     version='0.1.0',
      author="Oliver Zehentleitner",
      url="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api",
      description="An unofficial Python API to use the Binance REST API`s.",

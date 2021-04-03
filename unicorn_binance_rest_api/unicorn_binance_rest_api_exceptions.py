@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# File: exceptions.py
+# File: unicorn_binance_rest_api_exceptions.py
 #
 # Part of ‘UNICORN Binance REST API’
 # Project website: https://github.com/oliver-zehentleitner/unicorn-binance-rest-api
@@ -35,7 +35,6 @@
 # IN THE SOFTWARE.
 
 class BinanceAPIException(Exception):
-
     def __init__(self, response):
         self.code = 0
         try:

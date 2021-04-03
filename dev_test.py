@@ -34,11 +34,11 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 # IN THE SOFTWARE.
 
-from unicorn_binance_rest_api.client import Client
+from unicorn_binance_rest_api.unicorn_binance_rest_api_manager import BinanceRestApiManager
 
 api_key = "aaa"
 api_secret = "bbb"
-client = Client(api_key, api_secret)
+client = BinanceRestApiManager(api_key, api_secret)
 
 # get market depth
 depth = client.get_order_book(symbol='BNBBTC')
