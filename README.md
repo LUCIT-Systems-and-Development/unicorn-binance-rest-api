@@ -14,17 +14,22 @@
 
 # UNICORN Binance REST API
 
-[Description](#description) | [Live Demo](#live-demo) | [Installation](#installation-and-upgrade) | [How To](#howto) |
+[Description](#description) | [Installation](#installation-and-upgrade) | [How To](#howto) |
 [Documentation](#documentation) | [Examples](#examples) | [Change Log](#change-log) | [Wiki](#wiki) | [Social](#social) |
 [Notifications](#receive-notifications) | [Bugs](#how-to-report-bugs-or-suggest-improvements) | 
 [Contributing](#contributing) | [Commercial Support](#commercial-support) | [Donate](#donate)
 
-An unofficial Python API to use the Binance REST API`s (com+testnet) in a easy, fast, flexible, robust and fully-featured way. 
+An unofficial Python API to use the Binance REST API`s (com+testnet) in a easy, fast, flexible, robust and 
+fully-featured way. 
+
+Part of ['UNICORN Binance Suite'](https://github.com/oliver-zehentleitner/unicorn-binance-suite)
 
 ## Description
+This is a fork of Sam McHardy`s [python-binance v0.7.10](https://github.com/sammchardy/python-binance) - package. 
+cleaned up and reduced to pure REST tasks, with PRs added and improved, but still 100% compatible with 
+[python-binance v0.7.10](https://github.com/sammchardy/python-binance).
 
 ## Installation and Upgrade
-
 The current dependencies are listed 
 [here](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/blob/master/requirements.txt).
 
@@ -38,10 +43,10 @@ Run in bash:
 
 `pip install https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/archive/$(curl -s https://api.github.com/repos/oliver-zehentleitner/unicorn-binance-rest-api/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")').tar.gz --upgrade`
 #### Windows
-Use the below command with the version (such as 1.27.0) you determined 
+Use the below command with the version (such as 1.0.0) you determined 
 [here](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/releases/latest):
 
-`pip install https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/archive/1.27.0.tar.gz --upgrade`
+`pip install https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/archive/1.0.0.tar.gz --upgrade`
 ### From the latest source (dev-stage) with PIP from [Github](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api)
 This is not a release version and can not be considered to be stable!
 
@@ -74,6 +79,8 @@ or the [current master branch](https://github.com/oliver-zehentleitner/unicorn-b
 
 ## Social
 - [https://t.me/unicorndevs](https://t.me/unicorndevs)
+- [Twitter](https://twitter.com/DevsUnicorn)
+- [unicorn-coding-club](https://github.com/oliver-zehentleitner/unicorn-coding-club)
 - [https://dev.binance.vision](https://dev.binance.vision)
 - [https://community.binance.org](https://community.binance.org)
 
