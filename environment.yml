@@ -1,0 +1,11 @@
+name: unicorn-binance-rest-api
+dependencies:
+- python>=3.6.1
+- pip:
+  - certifi
+  - cryptography
+  - dateparser
+  - pyOpenSSL
+  - requests
+  - service-identity
+  - ujson

@@ -1,0 +1,7 @@
+certifi
+cryptography
+dateparser
+pyOpenSSL
+requests
+service-identity
+ujson
