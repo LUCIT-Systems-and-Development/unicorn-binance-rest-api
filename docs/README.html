@@ -1,0 +1,381 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UNICORN Binance REST API &#8212; unicorn-binance-rest-api 1.29.0 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pydoctheme.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="copyright" title="Copyright" href="copyright.html" />
+    <link rel="next" title="unicorn_binance_websocket_api" href="modules.html" />
+    <link rel="prev" title="Welcome to unicorn-binance-rest-api’s documentation!" href="index.html" />
+    <link rel="shortcut icon" type="image/png" href="_static/py.png" />
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    
+    <script type="text/javascript" src="_static/copybutton.js"></script>
+    
+     
+
+  </head><body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="unicorn_binance_websocket_api"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to unicorn-binance-rest-api’s documentation!"
+             accesskey="P">previous</a> |</li>
+    
+    <li><img src="_static/github-logo.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api">unicorn-binance-rest-api</a> &#187;</li>
+    
+    
+    <a href="index.html">unicorn-binance-rest-api 1.29.0 documentation</a> &#187;
+    
+
+        <li class="nav-item nav-item-this"><a href="">UNICORN Binance REST API</a></li>
+    <li class="right">
+        <a href="search.html" title="Search">search</a>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p><a class="reference external" href="https://pypi.org/project/unicorn-binance-rest-api/"><img alt="GitHub release" src="https://img.shields.io/github/release/oliver-zehentleitner/unicorn-binance-rest-api.svg" /></a>
+<a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/blob/master/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/oliver-zehentleitner/unicorn-binance-rest-api.svg?color=blue" /></a>
+<a class="reference external" href="https://www.python.org/downloads/"><img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/unicorn-binance-rest-api.svg" /></a>
+<a class="reference external" href="https://pepy.tech/project/unicorn-binance-rest-api"><img alt="Downloads" src="https://pepy.tech/badge/unicorn-binance-rest-api" /></a>
+<a class="reference external" href="https://pypi.org/project/unicorn-binance-rest-api/"><img alt="PyPI - Wheel" src="https://img.shields.io/pypi/wheel/unicorn-binance-rest-api.svg?label=PyPI%20wheel" /></a>
+<a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/issues"><img alt="PyPI - Status" src="https://img.shields.io/pypi/status/unicorn-binance-rest-api.svg" /></a>
+<a class="reference external" href="https://travis-ci.com/oliver-zehentleitner/unicorn-binance-rest-api"><img alt="Build Status" src="https://travis-ci.com/oliver-zehentleitner/unicorn-binance-rest-api.svg?branch=master" /></a>
+<a class="reference external" href="https://lgtm.com/projects/g/oliver-zehentleitner/unicorn-binance-rest-api/alerts/"><img alt="Total alerts" src="https://img.shields.io/lgtm/alerts/g/oliver-zehentleitner/unicorn-binance-rest-api.svg?logo=lgtm&amp;logoWidth=18" /></a>
+<a class="reference external" href="https://lgtm.com/projects/g/oliver-zehentleitner/unicorn-binance-rest-api/context:python"><img alt="Language grade: Python" src="https://img.shields.io/lgtm/grade/python/g/oliver-zehentleitner/unicorn-binance-rest-api.svg?logo=lgtm&amp;logoWidth=18" /></a>
+<a class="reference external" href="https://coveralls.io/github/oliver-zehentleitner/unicorn-binance-rest-api?branch=master"><img alt="Coverage Status" src="https://coveralls.io/repos/github/oliver-zehentleitner/unicorn-binance-rest-api/badge.svg?branch=master" /></a>
+<a class="reference external" href="https://t.me/unicorndevs"><img alt="Telegram" src="https://img.shields.io/badge/chat-telegram-yellow.svg" /></a>
+<a class="reference external" href="https://liberapay.com/oliver-zehentleitner/donate"><img alt="Donations/week" src="http://img.shields.io/liberapay/receives/oliver-zehentleitner.svg?logo=liberapay" /></a>
+<a class="reference external" href="https://liberapay.com/oliver-zehentleitner/donate"><img alt="Patrons" src="http://img.shields.io/liberapay/patrons/oliver-zehentleitner.svg?logo=liberapay" /></a></p>
+<div class="section" id="unicorn-binance-rest-api">
+<h1>UNICORN Binance REST API<a class="headerlink" href="#unicorn-binance-rest-api" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="#description">Description</a> | <a class="reference external" href="#installation-and-upgrade">Installation</a> | <a class="reference external" href="#howto">How To</a> |
+<a class="reference external" href="#documentation">Documentation</a> | <a class="reference external" href="#examples">Examples</a> | <a class="reference external" href="#change-log">Change Log</a> | <a class="reference external" href="#wiki">Wiki</a> | <a class="reference external" href="#social">Social</a> |
+<a class="reference external" href="#receive-notifications">Notifications</a> | <a class="reference external" href="#how-to-report-bugs-or-suggest-improvements">Bugs</a> |
+<a class="reference external" href="#contributing">Contributing</a> | <a class="reference external" href="#commercial-support">Commercial Support</a> | <a class="reference external" href="#donate">Donate</a></p>
+<p>An unofficial Python API to use the Binance REST API`s (com+testnet) in a easy, fast, flexible, robust and
+fully-featured way.</p>
+<p>Part of <a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-suite">‘UNICORN Binance Suite’</a></p>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>This is a fork of Sam McHardy`s <a class="reference external" href="https://github.com/sammchardy/python-binance">python-binance v0.7.10</a> - package.
+cleaned up and reduced to pure REST tasks, with PRs added and improved, but still 100% compatible with
+<a class="reference external" href="https://github.com/sammchardy/python-binance">python-binance v0.7.10</a>.</p>
+</div>
+<div class="section" id="installation-and-upgrade">
+<h2>Installation and Upgrade<a class="headerlink" href="#installation-and-upgrade" title="Permalink to this headline">¶</a></h2>
+<p>The current dependencies are listed
+<a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/blob/master/requirements.txt">here</a>.</p>
+<p>If you run into errors during the installation take a look <a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/wiki/Installation">here</a>.</p>
+<div class="section" id="a-wheel-of-the-latest-release-with-pip-from-pypi">
+<h3>A wheel of the latest release with PIP from <a class="reference external" href="https://pypi.org/project/unicorn-binance-rest-api/">PyPI</a><a class="headerlink" href="#a-wheel-of-the-latest-release-with-pip-from-pypi" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">unicorn-binance-rest-api</span> <span class="pre">--upgrade</span></code></p>
+</div>
+<div class="section" id="from-source-of-the-latest-release-with-pip-from-github">
+<h3>From source of the latest release with PIP from <a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api">Github</a><a class="headerlink" href="#from-source-of-the-latest-release-with-pip-from-github" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="linux-macos">
+<h4>Linux, macOS, …<a class="headerlink" href="#linux-macos" title="Permalink to this headline">¶</a></h4>
+<p>Run in bash:</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/archive/$(curl</span> <span class="pre">-s</span> <span class="pre">https://api.github.com/repos/oliver-zehentleitner/unicorn-binance-rest-api/releases/latest</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-oP</span> <span class="pre">'&quot;tag_name&quot;:</span> <span class="pre">&quot;\K(.*)(?=&quot;)').tar.gz</span> <span class="pre">--upgrade</span></code></p>
+</div>
+<div class="section" id="windows">
+<h4>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h4>
+<p>Use the below command with the version (such as 1.0.0) you determined
+<a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/releases/latest">here</a>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/archive/1.0.0.tar.gz</span> <span class="pre">--upgrade</span></code></p>
+</div>
+</div>
+<div class="section" id="from-the-latest-source-dev-stage-with-pip-from-github">
+<h3>From the latest source (dev-stage) with PIP from <a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api">Github</a><a class="headerlink" href="#from-the-latest-source-dev-stage-with-pip-from-github" title="Permalink to this headline">¶</a></h3>
+<p>This is not a release version and can not be considered to be stable!</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/tarball/master</span> <span class="pre">--upgrade</span></code></p>
+</div>
+<div class="section" id="conda-environment-virtualenv-or-plain-python">
+<h3><a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">Conda environment</a>, <a class="reference external" href="https://virtualenv.pypa.io/en/latest/">Virtualenv</a> or plain <a class="reference external" href="https://docs.python.org/2/install/">Python</a><a class="headerlink" href="#conda-environment-virtualenv-or-plain-python" title="Permalink to this headline">¶</a></h3>
+<p>Download the <a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/releases/latest">latest release</a>
+or the <a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/archive/master.zip">current master branch</a>
+and use:</p>
+<ul class="simple">
+<li><p>./environment.yml</p></li>
+<li><p>./requirements.txt</p></li>
+<li><p>./setup.py</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="change-log">
+<h2>Change Log<a class="headerlink" href="#change-log" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/CHANGELOG.html">https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/CHANGELOG.html</a></p>
+</div>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://oliver-zehentleitner.github.io/unicorn-binance-rest-api">General</a></p></li>
+<li><p><a class="reference external" href="https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/unicorn_binance_websocket_api.html">Modules</a></p></li>
+</ul>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="howto">
+<h2>Howto<a class="headerlink" href="#howto" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="project-homepage">
+<h2>Project Homepage<a class="headerlink" href="#project-homepage" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api">https://github.com/oliver-zehentleitner/unicorn-binance-rest-api</a></p>
+</div>
+<div class="section" id="wiki">
+<h2>Wiki<a class="headerlink" href="#wiki" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/wiki">https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/wiki</a></p>
+</div>
+<div class="section" id="social">
+<h2>Social<a class="headerlink" href="#social" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://t.me/unicorndevs">https://t.me/unicorndevs</a></p></li>
+<li><p><a class="reference external" href="https://twitter.com/DevsUnicorn">Twitter</a></p></li>
+<li><p><a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-coding-club">unicorn-coding-club</a></p></li>
+<li><p><a class="reference external" href="https://dev.binance.vision">https://dev.binance.vision</a></p></li>
+<li><p><a class="reference external" href="https://community.binance.org">https://community.binance.org</a></p></li>
+</ul>
+</div>
+<div class="section" id="receive-notifications">
+<h2>Receive Notifications<a class="headerlink" href="#receive-notifications" title="Permalink to this headline">¶</a></h2>
+<p>To receive notifications on available updates you can
+<a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/watchers"><img alt="watch" src="https://raw.githubusercontent.com/oliver-zehentleitner/unicorn-binance-rest-api/master/images/misc/watch.png" /></a>
+the repository on <a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api">GitHub</a>, write your
+<a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/blob/master/example_version_of_this_package.py">own script</a>
+with using
+<a class="reference external" href="https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/unicorn_binance_websocket_api.html#unicorn_binance_websocket_api.unicorn_binance_websocket_api_manager.BinanceWebSocketApiManager.is_update_availabe"><code class="docutils literal notranslate"><span class="pre">is_update_availabe()</span></code></a>
+or you use the
+<a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/wiki/UNICORN-Monitoring-API-Service">monitoring API service</a>.</p>
+<p>To receive news (like inspection windows/maintenance) about the Binance API`s subscribe to their telegram groups:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://t.me/binance_api_announcements">https://t.me/binance_api_announcements</a></p></li>
+<li><p><a class="reference external" href="https://t.me/binance_api_english">https://t.me/binance_api_english</a></p></li>
+<li><p><a class="reference external" href="https://t.me/BinanceExchange">https://t.me/BinanceExchange</a></p></li>
+<li><p><a class="reference external" href="https://t.me/Binance_Jersey">https://t.me/Binance_Jersey</a></p></li>
+<li><p><a class="reference external" href="https://t.me/Binance_USA">https://t.me/Binance_USA</a></p></li>
+<li><p><a class="reference external" href="https://t.me/Binance_JEX_EN">https://t.me/Binance_JEX_EN</a></p></li>
+<li><p><a class="reference external" href="https://t.me/BinanceDEXchange">https://t.me/BinanceDEXchange</a></p></li>
+</ul>
+</div>
+<div class="section" id="how-to-report-bugs-or-suggest-improvements">
+<h2>How to report Bugs or suggest Improvements?<a class="headerlink" href="#how-to-report-bugs-or-suggest-improvements" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement">List of planned features</a> -
+click <img alt="thumbs-up" src="https://raw.githubusercontent.com/oliver-zehentleitner/unicorn-binance-rest-api/master/images/misc/thumbup.png" /> if you need one of them or suggest a new feature!</p>
+<p>Before you report a bug, <a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api#installation-and-upgrade">try the latest release</a>. If the issue still exists, provide the error trace, OS
+and Python version and explain how to reproduce the error. A demo script is appreciated.</p>
+<p>If you dont find an issue related to your topic, please open a new <a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/issues">issue</a>!</p>
+<p><a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/security/policy">Report a security bug!</a></p>
+</div>
+<div class="section" id="contributing">
+<h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api">UNICORN Binance REST API</a> is an open
+source project which welcomes contributions which can be anything from simple documentation fixes and reporting dead links to new features. To
+contribute follow
+<a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/blob/master/CONTRIBUTING.md">this guide</a>.</p>
+<div class="section" id="contributors">
+<h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/graphs/contributors"><img alt="Contributors" src="https://contributors-img.web.app/image?repo=oliver-zehentleitner/unicorn-binance-rest-api" /></a></p>
+<p>We <img alt="love" src="https://raw.githubusercontent.com/oliver-zehentleitner/unicorn-binance-rest-api/master/images/misc/heart.png" /> open source!</p>
+</div>
+</div>
+<div class="section" id="commercial-support">
+<h2>Commercial Support<a class="headerlink" href="#commercial-support" title="Permalink to this headline">¶</a></h2>
+<p>Need a Python developer or consulting?</p>
+<p>Contact <a class="reference external" href="https://about.me/oliver-zehentleitner">me</a> for a non-binding and free consultation via my company
+<a class="reference external" href="https://www.lucit.dev">LUCIT</a> from Vienna (Austria).</p>
+<div class="section" id="donate">
+<h3>Donate<a class="headerlink" href="#donate" title="Permalink to this headline">¶</a></h3>
+<p>Since you are probably a developer yourself, you will understand very well that the creation of open source software is
+not free - it requires technical knowledge, a lot of time and also financial expenditure.</p>
+<p>If you would like to help me to dedicate my time and energy to this project, even small donations are very welcome.</p>
+<p><a class="reference external" href="https://liberapay.com/oliver-zehentleitner/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg" /></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Terra</span> <span class="p">(</span><span class="n">LUNA</span><span class="p">,</span> <span class="n">UST</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span> <span class="n">terra1yt34qmmycextztnj9mpt3mnjzqqvl8jtqqq7g9</span>
+<span class="n">BTC</span><span class="p">:</span> <span class="mi">39</span><span class="n">fS74fvcGnmEk8JUV8bG6P1wkdH29GtsA</span>
+<span class="n">DASH</span><span class="p">:</span> <span class="n">XsRhBuPkXGF9WvifdpkVhTGSmVT4VcuQZ7</span>
+<span class="n">ETH</span><span class="p">:</span> <span class="mh">0x1C15857Bf1E18D122dDd1E536705748aa529fc9C</span>
+<span class="n">LTC</span><span class="p">:</span> <span class="n">LYNzHMFUbee3siyHvNCPaCjqXxjyq8YRGJ</span>
+<span class="n">XMR</span><span class="p">:</span> <span class="mi">85</span><span class="n">dzsTRh6GRPGVSJoUbFDwAf9uwwAdim1HFpiGshLeKHgj2hVqKtYVPXMZvudioLsuLS1AegkUiQ12jwReRwWcFvF7kDAbF</span>
+<span class="n">ZEC</span><span class="p">:</span> <span class="n">t1WvQMPJMriGWD9qkZGDdE9tTJaawvmsBie</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">UNICORN Binance REST API</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#installation-and-upgrade">Installation and Upgrade</a><ul>
+<li><a class="reference internal" href="#a-wheel-of-the-latest-release-with-pip-from-pypi">A wheel of the latest release with PIP from PyPI</a></li>
+<li><a class="reference internal" href="#from-source-of-the-latest-release-with-pip-from-github">From source of the latest release with PIP from Github</a><ul>
+<li><a class="reference internal" href="#linux-macos">Linux, macOS, …</a></li>
+<li><a class="reference internal" href="#windows">Windows</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#from-the-latest-source-dev-stage-with-pip-from-github">From the latest source (dev-stage) with PIP from Github</a></li>
+<li><a class="reference internal" href="#conda-environment-virtualenv-or-plain-python">Conda environment, Virtualenv or plain Python</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#change-log">Change Log</a></li>
+<li><a class="reference internal" href="#documentation">Documentation</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#howto">Howto</a></li>
+<li><a class="reference internal" href="#project-homepage">Project Homepage</a></li>
+<li><a class="reference internal" href="#wiki">Wiki</a></li>
+<li><a class="reference internal" href="#social">Social</a></li>
+<li><a class="reference internal" href="#receive-notifications">Receive Notifications</a></li>
+<li><a class="reference internal" href="#how-to-report-bugs-or-suggest-improvements">How to report Bugs or suggest Improvements?</a></li>
+<li><a class="reference internal" href="#contributing">Contributing</a><ul>
+<li><a class="reference internal" href="#contributors">Contributors</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#commercial-support">Commercial Support</a><ul>
+<li><a class="reference internal" href="#donate">Donate</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to unicorn-binance-rest-api’s documentation!</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="modules.html"
+                        title="next chapter">unicorn_binance_websocket_api</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/README.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+<br />
+    
+<a class="github-button" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api"
+   data-icon="octicon-star" data-show-count="true"
+   aria-label="Star oliver-zehentleitner/unicorn-binance-rest-api on GitHub">Star</a>
+<br />
+<a class="github-button" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/subscription"
+   data-icon="octicon-eye" data-show-count="true"
+   aria-label="Watch oliver-zehentleitner/unicorn-binance-rest-api on GitHub">Watch</a>
+<br />
+<a class="github-button" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/fork"
+   data-icon="octicon-repo-forked" data-show-count="true"
+   aria-label="Fork oliver-zehentleitner/unicorn-binance-rest-api on GitHub">Fork</a>
+<br />
+<a class="github-button" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/issues"
+   data-icon="octicon-issue-opened"
+   data-show-count="true" aria-label="Issue oliver-zehentleitner/unicorn-binance-rest-api on GitHub">Issue</a>
+    
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="unicorn_binance_websocket_api"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to unicorn-binance-rest-api’s documentation!"
+             >previous</a> |</li>
+    
+    <li><img src="_static/github-logo.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api">unicorn-binance-rest-api</a> &#187;</li>
+    
+    
+    <a href="index.html">unicorn-binance-rest-api 1.29.0 documentation</a> &#187;
+    
+
+        <li class="nav-item nav-item-this"><a href="">UNICORN Binance REST API</a></li>
+    <li class="right">
+        <a href="search.html" title="Search">search</a>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="copyright.html">Copyright</a> 2021, Oliver Zehentleitner.
+    <br />
+
+    Last updated on Apr 04 2021 at 01:10 (CET).
+    <a href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/issues">Found a bug</a>?
+    <br />
+
+    <img src="_static/py.png" alt="" style="vertical-align: middle; margin-top: -1px" />
+    The <a href="https://www.python.org">Python</a> Software Foundation is a non-profit corporation.
+    <a href="https://www.python.org/psf/donations/">Please donate.</a>
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 3.5.2
+        with <a href="https://github.com/oliver-zehentleitner/python-docs-theme-technopathy">python-docs-theme-technopathy</a>
+        by <a href="https://about.me/oliver-zehentleitner">Oliver Zehentleitner</a>.
+    <br />
+        <a href="https://www.technopathy.club/2019/11/03/use-python-sphinx-on-github-pages-with-html-and-an-indivdual-theme">
+    Create a GitHub Page like this one!</a>    <br />
+        Powered by <a href="https://www.lucit.co/desktop-and-server-apps.html">LUCIT - Python Development</a>
+    </div>
+
+  </body>
+</html>
