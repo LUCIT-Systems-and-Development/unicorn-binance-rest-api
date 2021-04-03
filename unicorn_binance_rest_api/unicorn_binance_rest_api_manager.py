@@ -135,7 +135,8 @@ class BinanceRestApiManager(object):
     MINING_TO_FIAT = "MINING_C2C"
 
     def __init__(self, api_key=None, api_secret=None, requests_params=None, tld="com"):
-        """Binance API Client constructor
+        """
+        Binance API Client constructor
 
         :param api_key: Api Key
         :type api_key: str.
@@ -210,7 +211,8 @@ class BinanceRestApiManager(object):
         return m.hexdigest()
 
     def _order_params(self, data):
-        """Convert params to list with signature as last element
+        """
+        Convert params to list with signature as last element
 
         :param data:
         :return:
@@ -311,9 +313,11 @@ class BinanceRestApiManager(object):
         return self._request(method, uri, signed, True, **kwargs)
 
     def _handle_response(self):
-        """Internal helper for handling API responses from the Binance server.
+        """
+        Internal helper for handling API responses from the Binance server.
         Raises the appropriate exceptions when necessary; otherwise, returns the
         response.
+
         """
         if not (200 <= self.response.status_code < 300):
             raise BinanceAPIException(self.response)
@@ -337,7 +341,8 @@ class BinanceRestApiManager(object):
     # Exchange Endpoints
 
     def get_products(self):
-        """Return list of products currently listed on Binance
+        """
+        Return list of products currently listed on Binance
 
         Use get_exchange_info() call instead
 
@@ -350,7 +355,8 @@ class BinanceRestApiManager(object):
         return products
 
     def get_exchange_info(self):
-        """Return rate limits and list of symbols
+        """
+        Return rate limits and list of symbols
 
         :returns: list - List of product dictionaries
 
@@ -414,7 +420,8 @@ class BinanceRestApiManager(object):
         return self._get('exchangeInfo', version=self.PRIVATE_API_VERSION)
 
     def get_symbol_info(self, symbol):
-        """Return information about a symbol
+        """
+        Return information about a symbol
 
         :param symbol: required e.g BNBBTC
         :type symbol: str
@@ -465,7 +472,8 @@ class BinanceRestApiManager(object):
     # General Endpoints
 
     def ping(self):
-        """Test connectivity to the Rest API.
+        """
+        Test connectivity to the Rest API.
 
         https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#test-connectivity
 
@@ -481,7 +489,8 @@ class BinanceRestApiManager(object):
         return self._get('ping', version=self.PRIVATE_API_VERSION)
 
     def get_server_time(self):
-        """Test connectivity to the Rest API and get the current server time.
+        """
+        Test connectivity to the Rest API and get the current server time.
 
         https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#check-server-time
 
@@ -501,7 +510,8 @@ class BinanceRestApiManager(object):
     # Market Data Endpoints
 
     def get_all_tickers(self):
-        """Latest price for all symbols.
+        """
+        Latest price for all symbols.
 
         https://www.binance.com/restapipub.html#symbols-price-ticker
 
@@ -526,7 +536,8 @@ class BinanceRestApiManager(object):
         return self._get('ticker/price', version=self.PRIVATE_API_VERSION)
 
     def get_orderbook_tickers(self):
-        """Best price/qty on the order book for all symbols.
+        """
+        Best price/qty on the order book for all symbols.
 
         https://www.binance.com/restapipub.html#symbols-order-book-ticker
 
@@ -557,7 +568,8 @@ class BinanceRestApiManager(object):
         return self._get('ticker/bookTicker', version=self.PRIVATE_API_VERSION)
 
     def get_order_book(self, **params):
-        """Get the Order Book for the market
+        """
+        Get the Order Book for the market
 
         https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#order-book
 
@@ -594,7 +606,8 @@ class BinanceRestApiManager(object):
         return self._get('depth', data=params, version=self.PRIVATE_API_VERSION)
 
     def get_recent_trades(self, **params):
-        """Get recent trades (up to last 500).
+        """
+        Get recent trades (up to last 500).
 
         https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#recent-trades-list
 
@@ -624,7 +637,8 @@ class BinanceRestApiManager(object):
         return self._get('trades', data=params)
 
     def get_historical_trades(self, **params):
-        """Get older trades.
+        """
+        Get older trades.
 
         https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#recent-trades-list
 
@@ -656,7 +670,8 @@ class BinanceRestApiManager(object):
         return self._get('historicalTrades', data=params, version=self.PRIVATE_API_VERSION)
 
     def get_aggregate_trades(self, **params):
-        """Get compressed, aggregate trades. Trades that fill at the time,
+        """
+        Get compressed, aggregate trades. Trades that fill at the time,
         from the same order, with the same price will have the quantity aggregated.
 
         https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#compressedaggregate-trades-list
@@ -695,7 +710,8 @@ class BinanceRestApiManager(object):
         return self._get('aggTrades', data=params, version=self.PRIVATE_API_VERSION)
 
     def aggregate_trade_iter(self, symbol, start_str=None, last_id=None):
-        """Iterate over aggregate trade data from (start_time or last_id) to
+        """
+        Iterate over aggregate trade data from (start_time or last_id) to
         the end of the history so far.
 
         If start_time is specified, start with the first trade after
@@ -715,15 +731,16 @@ class BinanceRestApiManager(object):
         :param symbol: Symbol string e.g. ETHBTC
         :type symbol: str
         :param start_str: Start date string in UTC format or timestamp in milliseconds. The iterator will
-        return the first trade occurring later than this time.
+                          return the first trade occurring later than this time.
         :type start_str: str|int
         :param last_id: aggregate trade ID of the last known aggregate trade.
-        Not a regular trade ID. See https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#compressedaggregate-trades-list.
+                        Not a regular trade ID. See https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#compressedaggregate-trades-list.
 
         :returns: an iterator of JSON objects, one per trade. The format of
-        each object is identical to Client.aggregate_trades().
+                  each object is identical to Client.aggregate_trades().
 
         :type last_id: int
+
         """
         if start_str is not None and last_id is not None:
             raise ValueError(
@@ -781,7 +798,8 @@ class BinanceRestApiManager(object):
             last_id = trades[-1][self.AGG_ID]
 
     def get_klines(self, **params):
-        """Kline/candlestick bars for a symbol. Klines are uniquely identified by their open time.
+        """
+        Kline/candlestick bars for a symbol. Klines are uniquely identified by their open time.
 
         https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#klinecandlestick-data
 
@@ -823,7 +841,8 @@ class BinanceRestApiManager(object):
         return self._get('klines', data=params, version=self.PRIVATE_API_VERSION)
 
     def _get_earliest_valid_timestamp(self, symbol, interval):
-        """Get earliest valid open timestamp from Binance
+        """
+        Get earliest valid open timestamp from Binance
 
         :param symbol: Name of symbol pair e.g BNBBTC
         :type symbol: str
@@ -844,7 +863,8 @@ class BinanceRestApiManager(object):
 
     def get_historical_klines(self, symbol, interval, start_str, end_str=None,
                               limit=500):
-        """Get Historical Klines from Binance
+        """
+        Get Historical Klines from Binance
 
         See dateparser docs for valid start and end string formats http://dateparser.readthedocs.io/en/latest/
 
@@ -928,7 +948,8 @@ class BinanceRestApiManager(object):
         return output_data
 
     def get_historical_klines_generator(self, symbol, interval, start_str, end_str=None):
-        """Get Historical Klines from Binance
+        """
+        Get Historical Klines from Binance
 
         See dateparser docs for valid start and end string formats http://dateparser.readthedocs.io/en/latest/
 
@@ -3375,7 +3396,8 @@ class BinanceRestApiManager(object):
         return self._request_margin_api('post', 'margin/order', signed=True, data=params)
 
     def cancel_margin_order(self, **params):
-        """Cancel an active order for margin account.
+        """
+        Cancel an active order for margin account.
 
         Either orderId or origClientOrderId must be sent.
 
@@ -3395,26 +3417,26 @@ class BinanceRestApiManager(object):
         :type recvWindow: int
 
         :returns: API response
-
-            {
-                "symbol": "LTCBTC",
-                "orderId": 28,
-                "origClientOrderId": "myOrder1",
-                "clientOrderId": "cancelMyOrder1",
-                "transactTime": 1507725176595,
-                "price": "1.00000000",
-                "origQty": "10.00000000",
-                "executedQty": "8.00000000",
-                "cummulativeQuoteQty": "8.00000000",
-                "status": "CANCELED",
-                "timeInForce": "GTC",
-                "type": "LIMIT",
-                "side": "SELL"
-            }
+                    {
+                        "symbol": "LTCBTC",
+                        "orderId": 28,
+                        "origClientOrderId": "myOrder1",
+                        "clientOrderId": "cancelMyOrder1",
+                        "transactTime": 1507725176595,
+                        "price": "1.00000000",
+                        "origQty": "10.00000000",
+                        "executedQty": "8.00000000",
+                        "cummulativeQuoteQty": "8.00000000",
+                        "status": "CANCELED",
+                        "timeInForce": "GTC",
+                        "type": "LIMIT",
+                        "side": "SELL"
+                    }
 
         :raises: BinanceRequestException, BinanceAPIException
 
         """
+
         return self._request_margin_api('delete', 'margin/order', signed=True, data=params)
 
     def get_margin_loan_details(self, **params):
