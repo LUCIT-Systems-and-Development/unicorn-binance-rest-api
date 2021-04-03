@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# File: upload_wheel.sh
+# File: dev_test.py
 #
 # Part of ‘UNICORN Binance REST API’
 # Project website: https://github.com/oliver-zehentleitner/unicorn-binance-rest-api
@@ -33,9 +33,18 @@
 # WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 # IN THE SOFTWARE.
-#
-# create this file:
-# ~/.pypirc
 
+from unicorn_binance_rest_api.client import Client
 
-python3 -m twine upload dist/*
+api_key = "aaa"
+api_secret = "bbb"
+client = Client(api_key, api_secret)
+
+# get market depth
+depth = client.get_order_book(symbol='BNBBTC')
+print(f"{depth}")
+
+# get all symbol prices
+prices = client.get_all_tickers()
+print(f"{prices}")
+

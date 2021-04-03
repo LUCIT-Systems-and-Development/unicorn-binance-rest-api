@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# File: setup.py
+# File: create_wheel.sh
 #
 # Part of ‘UNICORN Binance REST API’
 # Project website: https://github.com/oliver-zehentleitner/unicorn-binance-rest-api

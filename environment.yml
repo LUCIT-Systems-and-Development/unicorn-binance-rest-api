@@ -1,4 +1,4 @@
-name: unicorn-binance-rest-api
+name: unicorn_binance_rest_api
 dependencies:
 - python>=3.6.1
 - pip:

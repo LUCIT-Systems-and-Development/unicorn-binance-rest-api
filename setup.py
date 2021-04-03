@@ -40,7 +40,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-     name='unicorn-binance-rest-api',
+     name='unicorn_binance_rest_api',
      version='0.0.0',
      author="Oliver Zehentleitner",
      url="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api",
