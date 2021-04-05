@@ -85,6 +85,7 @@ or the [current master branch](https://github.com/oliver-zehentleitner/unicorn-b
 
 ## Examples
 - [example_client.py](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/blob/master/example_client.py)
+- [example_version_of_this_package.py](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/blob/master/example_version_of_this_package.py)
 
 ## Howto
 

@@ -3022,6 +3022,20 @@ from the same order, with the same price will have the quantity aggregated.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_latest_release_info">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_latest_release_info</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_latest_release_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get infos about the latest available release
+:return: dict or False</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_latest_version">
+<code class="sig-name descname"><span class="pre">get_latest_version</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_latest_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the version of the latest available release (cache time 1 hour)
+:return: str or False</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_lending_account">
 <code class="sig-name descname"><span class="pre">get_lending_account</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_lending_account" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get Lending Account Details</p>
@@ -4876,6 +4890,13 @@ of symbols currently trading on the exchange.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.is_update_availabe">
+<code class="sig-name descname"><span class="pre">is_update_availabe</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.is_update_availabe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is a new release of this package available?
+:return: bool</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.isolated_margin_stream_close">
 <code class="sig-name descname"><span class="pre">isolated_margin_stream_close</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">symbol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">listenKey</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.isolated_margin_stream_close" title="Permalink to this definition">¶</a></dt>
 <dd><p>Close out an isolated margin data stream.</p>
@@ -6088,7 +6109,7 @@ If the stream becomes invalid a new key is returned.</p>
     &copy; <a href="copyright.html">Copyright</a> 2021, Oliver Zehentleitner.
     <br />
 
-    Last updated on Apr 06 2021 at 01:23 (CET).
+    Last updated on Apr 06 2021 at 01:45 (CET).
     <a href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/issues">Found a bug</a>?
     <br />
 

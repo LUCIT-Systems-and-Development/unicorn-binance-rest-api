@@ -164,7 +164,7 @@ class BinanceRestApiManager(object):
         self._requests_params = requests_params
         self.response = None
         self.timestamp_offset = 0
-        self.version = "1.0.0"
+        self.version = "1.0.0.dev"
 
         # init DNS and SSL cert
         self.ping()
