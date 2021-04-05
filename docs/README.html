@@ -86,12 +86,27 @@
 <a class="reference external" href="#contributing">Contributing</a> | <a class="reference external" href="#commercial-support">Commercial Support</a> | <a class="reference external" href="#donate">Donate</a></p>
 <p>An unofficial Python API to use the Binance REST API`s (com+testnet) in a easy, fast, flexible, robust and
 fully-featured way.</p>
-<p>Part of <a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-suite">‘UNICORN Binance Suite’</a></p>
+<p>Part of <a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-suite">‘UNICORN Binance Suite’</a>.</p>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>This is a fork of Sam McHardy`s <a class="reference external" href="https://github.com/sammchardy/python-binance">python-binance v0.7.10</a> - package.
 cleaned up and reduced to pure REST tasks, with PRs added and improved, but still 100% compatible with
 <a class="reference external" href="https://github.com/sammchardy/python-binance">python-binance v0.7.10</a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">unicorn_binance_rest_api.unicorn_binance_rest_api_manager</span> <span class="kn">import</span> <span class="n">BinanceRestApiManager</span>
+
+<span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;aaa&quot;</span>
+<span class="n">api_secret</span> <span class="o">=</span> <span class="s2">&quot;bbb&quot;</span>
+<span class="n">ubra</span> <span class="o">=</span> <span class="n">BinanceRestApiManager</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">)</span>
+
+<span class="c1"># get market depth</span>
+<span class="n">depth</span> <span class="o">=</span> <span class="n">ubra</span><span class="o">.</span><span class="n">get_order_book</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;BNBBTC&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">depth</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># get all symbol prices</span>
+<span class="n">prices</span> <span class="o">=</span> <span class="n">ubra</span><span class="o">.</span><span class="n">get_all_tickers</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">prices</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="installation-and-upgrade">
 <h2>Installation and Upgrade<a class="headerlink" href="#installation-and-upgrade" title="Permalink to this headline">¶</a></h2>
@@ -141,11 +156,14 @@ and use:</p>
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://oliver-zehentleitner.github.io/unicorn-binance-rest-api">General</a></p></li>
-<li><p><a class="reference external" href="https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/unicorn_binance_websocket_api.html">Modules</a></p></li>
+<li><p><a class="reference external" href="https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/unicorn_binance_rest_api.html">Modules</a></p></li>
 </ul>
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/blob/master/example_client.py">example_client.py</a></p></li>
+</ul>
 </div>
 <div class="section" id="howto">
 <h2>Howto<a class="headerlink" href="#howto" title="Permalink to this headline">¶</a></h2>
@@ -359,7 +377,7 @@ not free - it requires technical knowledge, a lot of time and also financial exp
     &copy; <a href="copyright.html">Copyright</a> 2021, Oliver Zehentleitner.
     <br />
 
-    Last updated on Apr 04 2021 at 01:25 (CET).
+    Last updated on Apr 06 2021 at 01:06 (CET).
     <a href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/issues">Found a bug</a>?
     <br />
 
@@ -368,13 +386,13 @@ not free - it requires technical knowledge, a lot of time and also financial exp
     <a href="https://www.python.org/psf/donations/">Please donate.</a>
     <br />
 
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 3.5.2
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 3.5.3
         with <a href="https://github.com/oliver-zehentleitner/python-docs-theme-technopathy">python-docs-theme-technopathy</a>
         by <a href="https://about.me/oliver-zehentleitner">Oliver Zehentleitner</a>.
     <br />
         <a href="https://www.technopathy.club/2019/11/03/use-python-sphinx-on-github-pages-with-html-and-an-indivdual-theme">
     Create a GitHub Page like this one!</a>    <br />
-        Powered by <a href="https://www.lucit.co/desktop-and-server-apps.html">LUCIT - Python Development</a>
+        Sponsored by <a href="https://www.lucit-development.co">LUCIT - Python Development</a>
     </div>
 
   </body>

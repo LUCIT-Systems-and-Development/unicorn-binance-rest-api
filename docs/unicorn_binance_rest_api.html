@@ -3562,9 +3562,10 @@ of symbols currently trading on the exchange.</p>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><p>API response</p>
-<dl>
-<dt>[</dt><dd><dl class="simple">
+<dd class="field-even"><p><p>API response
+[</p>
+<blockquote>
+<div><dl class="simple">
 <dt>{</dt><dd><p>“clientOrderId”: “qhcZw71gAkCCTv0t0k8LUK”,
 “cummulativeQuoteQty”: “0.00000000”,
 “executedQty”: “0.00000000”,
@@ -3584,8 +3585,7 @@ of symbols currently trading on the exchange.</p>
 </dd>
 </dl>
 <p>}</p>
-</dd>
-</dl>
+</div></blockquote>
 <p>]</p>
 </p>
 </dd>
@@ -4784,6 +4784,13 @@ of symbols currently trading on the exchange.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_version">
+<code class="sig-name descname"><span class="pre">get_version</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the package/module version
+:return: str</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_withdraw_history">
 <code class="sig-name descname"><span class="pre">get_withdraw_history</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_withdraw_history" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fetch withdraw history.</p>
@@ -5094,6 +5101,41 @@ If the stream becomes invalid a new key is returned.</p>
 </dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;tranId&quot;</span><span class="p">:</span><span class="mi">11945860693</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.make_universal_transfer_tmp">
+<code class="sig-name descname"><span class="pre">make_universal_transfer_tmp</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.make_universal_transfer_tmp" title="Permalink to this definition">¶</a></dt>
+<dd><p>User Universal Transfer</p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#user-universal-transfer">https://binance-docs.github.io/apidocs/spot/en/#user-universal-transfer</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> (<em>str</em><em> (</em><em>ENUM</em><em>)</em>) – required</p></li>
+<li><p><strong>asset</strong> (<em>str</em>) – required</p></li>
+<li><p><strong>amount</strong> (<em>str</em>) – required</p></li>
+<li><p><strong>recvWindow</strong> (<em>int</em>) – the number of milliseconds the request is valid for</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">transfer_status</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">make_universal_transfer</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>API response</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;tranId&quot;</span><span class="p">:</span><span class="mi">13526853623</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -6046,7 +6088,7 @@ If the stream becomes invalid a new key is returned.</p>
     &copy; <a href="copyright.html">Copyright</a> 2021, Oliver Zehentleitner.
     <br />
 
-    Last updated on Apr 04 2021 at 01:33 (CET).
+    Last updated on Apr 06 2021 at 01:23 (CET).
     <a href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/issues">Found a bug</a>?
     <br />
 
@@ -6055,13 +6097,13 @@ If the stream becomes invalid a new key is returned.</p>
     <a href="https://www.python.org/psf/donations/">Please donate.</a>
     <br />
 
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 3.5.2
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 3.5.3
         with <a href="https://github.com/oliver-zehentleitner/python-docs-theme-technopathy">python-docs-theme-technopathy</a>
         by <a href="https://about.me/oliver-zehentleitner">Oliver Zehentleitner</a>.
     <br />
         <a href="https://www.technopathy.club/2019/11/03/use-python-sphinx-on-github-pages-with-html-and-an-indivdual-theme">
     Create a GitHub Page like this one!</a>    <br />
-        Powered by <a href="https://www.lucit.co/desktop-and-server-apps.html">LUCIT - Python Development</a>
+        Sponsored by <a href="https://www.lucit-development.co">LUCIT - Python Development</a>
     </div>
 
   </body>

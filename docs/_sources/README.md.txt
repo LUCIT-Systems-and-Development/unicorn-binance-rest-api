@@ -22,12 +22,28 @@
 An unofficial Python API to use the Binance REST API`s (com+testnet) in a easy, fast, flexible, robust and 
 fully-featured way. 
 
-Part of ['UNICORN Binance Suite'](https://github.com/oliver-zehentleitner/unicorn-binance-suite)
+Part of ['UNICORN Binance Suite'](https://github.com/oliver-zehentleitner/unicorn-binance-suite).
 
 ## Description
 This is a fork of Sam McHardy`s [python-binance v0.7.10](https://github.com/sammchardy/python-binance) - package. 
 cleaned up and reduced to pure REST tasks, with PRs added and improved, but still 100% compatible with 
 [python-binance v0.7.10](https://github.com/sammchardy/python-binance).
+
+```
+from unicorn_binance_rest_api.unicorn_binance_rest_api_manager import BinanceRestApiManager
+
+api_key = "aaa"
+api_secret = "bbb"
+ubra = BinanceRestApiManager(api_key, api_secret)
+
+# get market depth
+depth = ubra.get_order_book(symbol='BNBBTC')
+print(f"{depth}")
+
+# get all symbol prices
+prices = ubra.get_all_tickers()
+print(f"{prices}")
+```
 
 ## Installation and Upgrade
 The current dependencies are listed 
@@ -65,9 +81,10 @@ or the [current master branch](https://github.com/oliver-zehentleitner/unicorn-b
 
 ## Documentation
 - [General](https://oliver-zehentleitner.github.io/unicorn-binance-rest-api)
-- [Modules](https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/unicorn_binance_websocket_api.html)
+- [Modules](https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/unicorn_binance_rest_api.html)
 
 ## Examples
+- [example_client.py](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/blob/master/example_client.py)
 
 ## Howto
 

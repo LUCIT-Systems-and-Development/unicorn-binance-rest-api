@@ -3416,7 +3416,7 @@ class BinanceRestApiManager(object):
         :type recvWindow: int
 
         :returns: API response
-                    {
+                  {
                         "symbol": "LTCBTC",
                         "orderId": 28,
                         "origClientOrderId": "myOrder1",
@@ -3430,7 +3430,7 @@ class BinanceRestApiManager(object):
                         "timeInForce": "GTC",
                         "type": "LIMIT",
                         "side": "SELL"
-                    }
+                  }
 
         :raises: BinanceRequestException, BinanceAPIException
 
@@ -3439,7 +3439,8 @@ class BinanceRestApiManager(object):
         return self._request_margin_api('delete', 'margin/order', signed=True, data=params)
 
     def get_margin_loan_details(self, **params):
-        """Query loan record
+        """
+        Query loan record
 
         txId or startTime must be sent. txId takes precedence.
 
@@ -3483,7 +3484,8 @@ class BinanceRestApiManager(object):
         return self._request_margin_api('get', 'margin/loan', signed=True, data=params)
 
     def get_margin_repay_details(self, **params):
-        """Query repay record
+        """
+        Query repay record
 
         txId or startTime must be sent. txId takes precedence.
 
@@ -3579,7 +3581,8 @@ class BinanceRestApiManager(object):
         return self._request_margin_api('get', 'margin/order', signed=True, data=params)
 
     def get_open_margin_orders(self, **params):
-        """Query margin accounts open orders
+        r"""
+        Query margin accounts open orders
 
         If the symbol is not sent, orders for all symbols will be returned in an array (cross-margin only).
 
@@ -3596,32 +3599,28 @@ class BinanceRestApiManager(object):
         :type isIsolated: str
         :param recvWindow: the number of milliseconds the request is valid for
         :type recvWindow: int
-
         :returns: API response
-
-            [
-                {
-                    "clientOrderId": "qhcZw71gAkCCTv0t0k8LUK",
-                    "cummulativeQuoteQty": "0.00000000",
-                    "executedQty": "0.00000000",
-                    "icebergQty": "0.00000000",
-                    "isWorking": true,
-                    "orderId": 211842552,
-                    "origQty": "0.30000000",
-                    "price": "0.00475010",
-                    "side": "SELL",
-                    "status": "NEW",
-                    "stopPrice": "0.00000000",
-                    "symbol": "BNBBTC",
-                    "time": 1562040170089,
-                    "timeInForce": "GTC",
-                    "type": "LIMIT",
-                    "updateTime": 1562040170089
-                }
-            ]
-
+                [
+                    {
+                        "clientOrderId": "qhcZw71gAkCCTv0t0k8LUK",
+                        "cummulativeQuoteQty": "0.00000000",
+                        "executedQty": "0.00000000",
+                        "icebergQty": "0.00000000",
+                        "isWorking": true,
+                        "orderId": 211842552,
+                        "origQty": "0.30000000",
+                        "price": "0.00475010",
+                        "side": "SELL",
+                        "status": "NEW",
+                        "stopPrice": "0.00000000",
+                        "symbol": "BNBBTC",
+                        "time": 1562040170089,
+                        "timeInForce": "GTC",
+                        "type": "LIMIT",
+                        "updateTime": 1562040170089
+                    }
+                ]
         :raises: BinanceRequestException, BinanceAPIException
-
         """
         return self._request_margin_api('get', 'margin/openOrders', signed=True, data=params)
 
@@ -5201,7 +5200,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_api('post', 'order', True, data=params)
 
     def futures_get_order(self, **params):
-        """Check an order's status.
+        """
+        Check an order's status.
 
         https://binance-docs.github.io/apidocs/futures/en/#query-order-user_data
 
@@ -5209,7 +5209,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_api('get', 'order', True, data=params)
 
     def futures_get_open_orders(self, **params):
-        """Get all open orders on a symbol.
+        """
+        Get all open orders on a symbol.
 
         https://binance-docs.github.io/apidocs/futures/en/#current-open-orders-user_data
 
@@ -5217,7 +5218,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_api('get', 'openOrders', True, data=params)
 
     def futures_get_all_orders(self, **params):
-        """Get all futures account orders; active, canceled, or filled.
+        """
+        Get all futures account orders; active, canceled, or filled.
 
         https://binance-docs.github.io/apidocs/futures/en/#all-orders-user_data
 
@@ -5225,7 +5227,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_api('get', 'allOrders', True, data=params)
 
     def futures_cancel_order(self, **params):
-        """Cancel an active futures order.
+        """
+        Cancel an active futures order.
 
         https://binance-docs.github.io/apidocs/futures/en/#cancel-order-trade
 
@@ -5233,7 +5236,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_api('delete', 'order', True, data=params)
 
     def futures_cancel_all_open_orders(self, **params):
-        """Cancel all open futures orders
+        """
+        Cancel all open futures orders
 
         https://binance-docs.github.io/apidocs/futures/en/#cancel-all-open-orders-trade
 
@@ -5241,7 +5245,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_api('delete', 'allOpenOrders', True, data=params)
 
     def futures_cancel_orders(self, **params):
-        """Cancel multiple futures orders
+        """
+        Cancel multiple futures orders
 
         https://binance-docs.github.io/apidocs/futures/en/#cancel-multiple-orders-trade
 
@@ -5249,7 +5254,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_api('delete', 'batchOrders', True, data=params)
 
     def futures_account_balance(self, **params):
-        """Get futures account balance
+        """
+        Get futures account balance
 
         https://binance-docs.github.io/apidocs/futures/en/#future-account-balance-user_data
 
@@ -5257,7 +5263,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_api('get', 'balance', True, data=params)
 
     def futures_account(self, **params):
-        """Get current account information.
+        """
+        Get current account information.
 
         https://binance-docs.github.io/apidocs/futures/en/#account-information-user_data
 
@@ -5265,7 +5272,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_api('get', 'account', True, data=params)
 
     def futures_change_leverage(self, **params):
-        """Change user's initial leverage of specific symbol market
+        """
+        Change user's initial leverage of specific symbol market
 
         https://binance-docs.github.io/apidocs/futures/en/#change-initial-leverage-trade
 
@@ -5281,7 +5289,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_api('post', 'marginType', True, data=params)
 
     def futures_change_position_margin(self, **params):
-        """Change the position margin for a symbol
+        """
+        Change the position margin for a symbol
 
         https://binance-docs.github.io/apidocs/futures/en/#modify-isolated-position-margin-trade
 
@@ -5289,7 +5298,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_api('post', 'positionMargin', True, data=params)
 
     def futures_position_margin_history(self, **params):
-        """Get position margin change history
+        """
+        Get position margin change history
 
         https://binance-docs.github.io/apidocs/futures/en/#get-postion-margin-change-history-trade
 
@@ -5297,7 +5307,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_api('get', 'positionMargin/history', True, data=params)
 
     def futures_position_information(self, **params):
-        """Get position information
+        """
+        Get position information
 
         https://binance-docs.github.io/apidocs/futures/en/#position-information-user_data
 
@@ -5305,7 +5316,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_api('get', 'positionRisk', True, data=params)
 
     def futures_account_trades(self, **params):
-        """Get trades for the authenticated account and symbol.
+        """
+        Get trades for the authenticated account and symbol.
 
         https://binance-docs.github.io/apidocs/futures/en/#account-trade-list-user_data
 
@@ -5313,7 +5325,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_api('get', 'userTrades', True, data=params)
 
     def futures_income_history(self, **params):
-        """Get income history for authenticated account
+        """
+        Get income history for authenticated account
 
         https://binance-docs.github.io/apidocs/futures/en/#get-income-history-user_data
 
@@ -5321,7 +5334,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_api('get', 'income', True, data=params)
 
     def futures_change_position_mode(self, **params):
-        """Change position mode for authenticated account
+        """
+        Change position mode for authenticated account
 
         https://binance-docs.github.io/apidocs/futures/en/#change-position-mode-trade
         
@@ -5329,7 +5343,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_api('post', 'positionSide/dual', True, data=params)
 
     def futures_get_position_mode(self, **params):
-        """Get position mode for authenticated account
+        """
+        Get position mode for authenticated account
 
         https://binance-docs.github.io/apidocs/futures/en/#get-current-position-mode-user_data
         
@@ -5338,7 +5353,8 @@ class BinanceRestApiManager(object):
 
     # COIN Futures API
     def futures_coin_ping(self):
-        """Test connectivity to the Rest API
+        """
+        Test connectivity to the Rest API
 
         https://binance-docs.github.io/apidocs/delivery/en/#test-connectivity
 
@@ -5346,7 +5362,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_coin_api("get", "ping")
 
     def futures_coin_time(self):
-        """Test connectivity to the Rest API and get the current server time.
+        """
+        Test connectivity to the Rest API and get the current server time.
 
         https://binance-docs.github.io/apidocs/delivery/en/#check-server-time
 
@@ -5354,7 +5371,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_coin_api("get", "time")
 
     def futures_coin_exchange_info(self):
-        """Current exchange trading rules and symbol information
+        """
+        Current exchange trading rules and symbol information
 
         https://binance-docs.github.io/apidocs/delivery/en/#exchange-information
 
@@ -5362,7 +5380,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_coin_api("get", "exchangeInfo")
 
     def futures_coin_order_book(self, **params):
-        """Get the Order Book for the market
+        """
+        Get the Order Book for the market
 
         https://binance-docs.github.io/apidocs/delivery/en/#order-book
 
@@ -5378,7 +5397,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_coin_api("get", "trades", data=params)
 
     def futures_coin_historical_trades(self, **params):
-        """Get older market historical trades.
+        """
+        Get older market historical trades.
 
         https://binance-docs.github.io/apidocs/delivery/en/#old-trades-lookup-market_data
 
@@ -5386,7 +5406,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_coin_api("get", "historicalTrades", data=params)
 
     def futures_coin_aggregate_trades(self, **params):
-        """Get compressed, aggregate trades. Trades that fill at the time, from the same order, with the same
+        """
+        Get compressed, aggregate trades. Trades that fill at the time, from the same order, with the same
         price will have the quantity aggregated.
 
         https://binance-docs.github.io/apidocs/delivery/en/#compressed-aggregate-trades-list
@@ -5395,7 +5416,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_coin_api("get", "aggTrades", data=params)
 
     def futures_coin_klines(self, **params):
-        """Kline/candlestick bars for a symbol. Klines are uniquely identified by their open time.
+        """
+        Kline/candlestick bars for a symbol. Klines are uniquely identified by their open time.
 
         https://binance-docs.github.io/apidocs/delivery/en/#kline-candlestick-data
 
@@ -5403,7 +5425,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_coin_api("get", "klines", data=params)
 
     def futures_coin_continous_klines(self, **params):
-        """Kline/candlestick bars for a specific contract type. Klines are uniquely identified by their open time.
+        """
+        Kline/candlestick bars for a specific contract type. Klines are uniquely identified by their open time.
 
         https://binance-docs.github.io/apidocs/delivery/en/#continuous-contract-kline-candlestick-data
 
@@ -5427,7 +5450,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_coin_api("get", "markPriceKlines", data=params)
 
     def futures_coin_mark_price(self, **params):
-        """Get Mark Price and Funding Rate
+        """
+        Get Mark Price and Funding Rate
 
         https://binance-docs.github.io/apidocs/delivery/en/#index-price-and-mark-price
 
@@ -5443,7 +5467,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_coin_api("get", "fundingRate", data=params)
 
     def futures_coin_ticker(self, **params):
-        """24 hour rolling window price change statistics.
+        """
+        24 hour rolling window price change statistics.
 
         https://binance-docs.github.io/apidocs/delivery/en/#24hr-ticker-price-change-statistics
 
@@ -5451,7 +5476,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_coin_api("get", "ticker/24hr", data=params)
 
     def futures_coin_symbol_ticker(self, **params):
-        """Latest price for a symbol or symbols.
+        """
+        Latest price for a symbol or symbols.
 
         https://binance-docs.github.io/apidocs/delivery/en/#symbol-price-ticker
 
@@ -5459,7 +5485,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_coin_api("get", "ticker/price", data=params)
 
     def futures_coin_orderbook_ticker(self, **params):
-        """Best price/qty on the order book for a symbol or symbols.
+        """
+        Best price/qty on the order book for a symbol or symbols.
 
         https://binance-docs.github.io/apidocs/delivery/en/#symbol-order-book-ticker
 
@@ -5467,7 +5494,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_coin_api("get", "ticker/bookTicker", data=params)
 
     def futures_coin_liquidation_orders(self, **params):
-        """Get all liquidation orders
+        """
+        Get all liquidation orders
 
         https://binance-docs.github.io/apidocs/delivery/en/#get-all-liquidation-orders
 
@@ -5475,7 +5503,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_coin_api("get", "allForceOrders", data=params)
 
     def futures_coin_open_interest(self, **params):
-        """Get present open interest of a specific symbol.
+        """
+        Get present open interest of a specific symbol.
 
         https://binance-docs.github.io/apidocs/delivery/en/#open-interest
 
@@ -5483,7 +5512,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_coin_api("get", "openInterest", data=params)
 
     def futures_coin_open_interest_hist(self, **params):
-        """Get open interest statistics of a specific symbol.
+        """
+        Get open interest statistics of a specific symbol.
 
         https://binance-docs.github.io/apidocs/delivery/en/#open-interest-statistics-market-data
 
@@ -5491,7 +5521,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_coin_data_api("get", "openInterestHist", data=params)
 
     def futures_coin_leverage_bracket(self, **params):
-        """Notional and Leverage Brackets
+        """
+        Notional and Leverage Brackets
 
         https://binance-docs.github.io/apidocs/delivery/en/#notional-bracket-for-pair-user_data
 
@@ -5501,7 +5532,8 @@ class BinanceRestApiManager(object):
         )
 
     def new_transfer_history(self, **params):
-        """Get future account transaction history list
+        """
+        Get future account transaction history list
 
         https://binance-docs.github.io/apidocs/delivery/en/#new-future-account-transfer
 
@@ -5510,7 +5542,8 @@ class BinanceRestApiManager(object):
         # return self._request_margin_api("get", "futures/transfer", True, data=params)
 
     def universal_transfer(self, **params):
-        """Unviversal transfer api accross different unicorn_binance_rest_api account types
+        """
+        Unviversal transfer api accross different unicorn_binance_rest_api account types
 
         https://binance-docs.github.io/apidocs/spot/en/#user-universal-transfer
         """
@@ -5519,7 +5552,8 @@ class BinanceRestApiManager(object):
         )
 
     def futures_coin_create_order(self, **params):
-        """Send in a new order.
+        """
+        Send in a new order.
 
         https://binance-docs.github.io/apidocs/delivery/en/#new-order-trade
 
@@ -5527,7 +5561,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_coin_api("post", "order", True, data=params)
 
     def futures_coin_get_order(self, **params):
-        """Check an order's status.
+        """
+        Check an order's status.
 
         https://binance-docs.github.io/apidocs/delivery/en/#query-order-user_data
 
@@ -5535,7 +5570,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_coin_api("get", "order", True, data=params)
 
     def futures_coin_get_open_orders(self, **params):
-        """Get all open orders on a symbol.
+        """
+        Get all open orders on a symbol.
 
         https://binance-docs.github.io/apidocs/delivery/en/#current-all-open-orders-user_data
 
@@ -5543,7 +5579,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_coin_api("get", "openOrders", True, data=params)
 
     def futures_coin_get_all_orders(self, **params):
-        """Get all futures account orders; active, canceled, or filled.
+        """
+        Get all futures account orders; active, canceled, or filled.
 
         https://binance-docs.github.io/apidocs/delivery/en/#all-orders-user_data
 
@@ -5553,7 +5590,8 @@ class BinanceRestApiManager(object):
         )
 
     def futures_coin_cancel_order(self, **params):
-        """Cancel an active futures order.
+        """
+        Cancel an active futures order.
 
         https://binance-docs.github.io/apidocs/delivery/en/#cancel-order-trade
 
@@ -5563,7 +5601,8 @@ class BinanceRestApiManager(object):
         )
 
     def futures_coin_cancel_all_open_orders(self, **params):
-        """Cancel all open futures orders
+        """
+        Cancel all open futures orders
 
         https://binance-docs.github.io/apidocs/delivery/en/#cancel-all-open-orders-trade
 
@@ -5573,7 +5612,8 @@ class BinanceRestApiManager(object):
         )
 
     def futures_coin_cancel_orders(self, **params):
-        """Cancel multiple futures orders
+        """
+        Cancel multiple futures orders
 
         https://binance-docs.github.io/apidocs/delivery/en/#cancel-multiple-orders-trade
 
@@ -5583,7 +5623,8 @@ class BinanceRestApiManager(object):
         )
 
     def futures_coin_account_balance(self, **params):
-        """Get futures account balance
+        """
+        Get futures account balance
 
         https://binance-docs.github.io/apidocs/delivery/en/#futures-account-balance-user_data
 
@@ -5593,7 +5634,8 @@ class BinanceRestApiManager(object):
         )
 
     def futures_coin_account(self, **params):
-        """Get current account information.
+        """
+        Get current account information.
 
         https://binance-docs.github.io/apidocs/delivery/en/#account-information-user_data
 
@@ -5603,7 +5645,8 @@ class BinanceRestApiManager(object):
         )
 
     def futures_coin_change_leverage(self, **params):
-        """Change user's initial leverage of specific symbol market
+        """
+        Change user's initial leverage of specific symbol market
 
         https://binance-docs.github.io/apidocs/delivery/en/#change-initial-leverage-trade
 
@@ -5613,7 +5656,8 @@ class BinanceRestApiManager(object):
         )
 
     def futures_coin_change_margin_type(self, **params):
-        """Change the margin type for a symbol
+        """
+        Change the margin type for a symbol
 
         https://binance-docs.github.io/apidocs/delivery/en/#change-margin-type-trade
 
@@ -5623,7 +5667,8 @@ class BinanceRestApiManager(object):
         )
 
     def futures_coin_change_position_margin(self, **params):
-        """Change the position margin for a symbol
+        """
+        Change the position margin for a symbol
 
         https://binance-docs.github.io/apidocs/delivery/en/#modify-isolated-position-margin-trade
 
@@ -5643,7 +5688,8 @@ class BinanceRestApiManager(object):
         )
 
     def futures_coin_position_information(self, **params):
-        """Get position information
+        """
+        Get position information
 
         https://binance-docs.github.io/apidocs/delivery/en/#position-information-user_data
 
@@ -5667,14 +5713,16 @@ class BinanceRestApiManager(object):
         return self._request_futures_coin_api("get", "income", True, data=params)
 
     def futures_coin_change_position_mode(self, **params):
-        """Change user's position mode (Hedge Mode or One-way Mode ) on EVERY symbol
+        """
+        Change user's position mode (Hedge Mode or One-way Mode ) on EVERY symbol
 
         https://binance-docs.github.io/apidocs/delivery/en/#change-position-mode-trade
         """
         return self._request_futures_coin_api("post", "positionSide/dual", True, data=params)
     
     def futures_coin_get_position_mode(self, **params):
-        """Get user's position mode (Hedge Mode or One-way Mode ) on EVERY symbol
+        """
+        Get user's position mode (Hedge Mode or One-way Mode ) on EVERY symbol
 
         https://binance-docs.github.io/apidocs/delivery/en/#get-current-position-mode-user_data
 
@@ -5682,7 +5730,8 @@ class BinanceRestApiManager(object):
         return self._request_futures_coin_api("get", "positionSide/dual", True, data=params)
 
     def get_all_coins_info(self, **params):
-        """Get information of coins (available for deposit and withdraw) for user.
+        """
+        Get information of coins (available for deposit and withdraw) for user.
 
         https://binance-docs.github.io/apidocs/spot/en/#all-coins-39-information-user_data
 
@@ -5757,7 +5806,8 @@ class BinanceRestApiManager(object):
         return self._request_margin_api('get', 'capital/config/getall', True, data=params)
 
     def get_account_snapshot(self, **params):
-        """Get daily account snapshot of specific type.
+        """
+        Get daily account snapshot of specific type.
 
         https://binance-docs.github.io/apidocs/spot/en/#daily-account-snapshot-user_data
 
@@ -5872,7 +5922,8 @@ class BinanceRestApiManager(object):
         return self._request_margin_api('get', 'accountSnapshot', True, data=params)
 
     def disable_fast_withdraw_switch(self, **params):
-        """Disable Fast Withdraw Switch
+        """
+        Disable Fast Withdraw Switch
 
         https://binance-docs.github.io/apidocs/spot/en/#disable-fast-withdraw-switch-user_data
 
@@ -5887,7 +5938,8 @@ class BinanceRestApiManager(object):
         return self._request_margin_api('post', 'disableFastWithdrawSwitch', True, data=params)
 
     def enable_fast_withdraw_switch(self, **params):
-        """Enable Fast Withdraw Switch
+        """
+        Enable Fast Withdraw Switch
 
         https://binance-docs.github.io/apidocs/spot/en/#enable-fast-withdraw-switch-user_data
 
