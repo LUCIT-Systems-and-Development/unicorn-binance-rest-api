@@ -158,6 +158,8 @@ class BinanceRestApiManager(object):
 
         self.API_KEY = api_key
         self.API_SECRET = api_secret
+        self.last_update_check_github = {'timestamp': time.time(),
+                                         'status': None}
         self.session = self._init_session()
         self._requests_params = requests_params
         self.response = None
@@ -5959,3 +5961,50 @@ class BinanceRestApiManager(object):
         :return: str
         """
         return self.version
+
+    def is_update_availabe(self):
+        """
+        Is a new release of this package available?
+        :return: bool
+        """
+        installed_version = self.get_version()
+        if ".dev" in installed_version:
+            installed_version = installed_version[:-4]
+        if self.get_latest_version() == installed_version:
+            return False
+        elif self.get_latest_version() == "unknown":
+            return False
+        else:
+            return True
+
+    def get_latest_version(self):
+        """
+        Get the version of the latest available release (cache time 1 hour)
+        :return: str or False
+        """
+        # Do a fresh request if status is None or last timestamp is older 1 hour
+        if self.last_update_check_github['status'] is None or \
+                (self.last_update_check_github['timestamp']+(60*60) < time.time()):
+            self.last_update_check_github['status'] = self.get_latest_release_info()
+        if self.last_update_check_github['status']:
+            try:
+                return self.last_update_check_github['status']["tag_name"]
+            except KeyError:
+                return "unknown"
+        else:
+            return "unknown"
+
+    @staticmethod
+    def get_latest_release_info():
+        """
+        Get infos about the latest available release
+        :return: dict or False
+        """
+        try:
+            respond = requests.get('https://api.github.com/repos/oliver-zehentleitner/unicorn-binance-rest-api/'
+                                   'releases/latest')
+            latest_release_info = respond.json()
+            return latest_release_info
+        except Exception:
+            return False
+        
