@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# File: dev_test.py
+# File: example_client.py
 #
 # Part of ‘UNICORN Binance REST API’
 # Project website: https://github.com/oliver-zehentleitner/unicorn-binance-rest-api
@@ -38,13 +38,13 @@ from unicorn_binance_rest_api.unicorn_binance_rest_api_manager import BinanceRes
 
 api_key = "aaa"
 api_secret = "bbb"
-ubra = BinanceRestApiManager(api_key, api_secret)
+client = BinanceRestApiManager(api_key, api_secret)
 
 # get market depth
-depth = ubra.get_order_book(symbol='BNBBTC')
+depth = client.get_order_book(symbol='BNBBTC')
 print(f"{depth}")
 
 # get all symbol prices
-prices = ubra.get_all_tickers()
+prices = client.get_all_tickers()
 print(f"{prices}")
 

@@ -35,13 +35,16 @@
 # IN THE SOFTWARE.
 
 import setuptools
+from unicorn_binance_rest_api.unicorn_binance_rest_api_manager import BinanceRestApiManager
+
+ubra = BinanceRestApiManager()
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
      name='unicorn_binance_rest_api',
-     version='0.1.0',
+     version=str(ubra.get_version()),
      author="Oliver Zehentleitner",
      url="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api",
      description="An unofficial Python API to use the Binance REST API`s.",

@@ -162,6 +162,7 @@ class BinanceRestApiManager(object):
         self._requests_params = requests_params
         self.response = None
         self.timestamp_offset = 0
+        self.version = "1.0.0.dev"
 
         # init DNS and SSL cert
         self.ping()
@@ -886,9 +887,6 @@ class BinanceRestApiManager(object):
         """
         # init our list
         output_data = []
-
-        # setup the max limit
-        limit = limit
 
         # convert interval to useful value in seconds
         timeframe = interval_to_milliseconds(interval)
@@ -2234,7 +2232,7 @@ class BinanceRestApiManager(object):
         """
         return self._request_margin_api('get', 'asset/assetDividend', True, data=params)
 
-    def make_universal_transfer(self, **params):
+    def make_universal_transfer_tmp(self, **params):
         """User Universal Transfer
 
         https://binance-docs.github.io/apidocs/spot/en/#user-universal-transfer
@@ -2264,6 +2262,7 @@ class BinanceRestApiManager(object):
         :raises: BinanceRequestException, BinanceAPIException
 
         """
+        # Todo: make_universal_transfer is defined twice!
         return self._request_margin_api('post', 'asset/transfer', signed=True, data=params)
 
     def query_universal_transfer_history(self, **params):
@@ -4981,6 +4980,7 @@ class BinanceRestApiManager(object):
         :raises: BinanceRequestException, BinanceAPIException
 
         """
+        # Todo: make_universal_transfer is defined twiche
         return self._request_margin_api('post', 'sub-account/universalTransfer', True, data=params)
 
     def get_universal_transfer_history(self, **params):
@@ -5900,3 +5900,10 @@ class BinanceRestApiManager(object):
 
         """
         return self._request_margin_api('post', 'enableFastWithdrawSwitch', True, data=params)
+
+    def get_version(self):
+        """
+        Get the package/module version
+        :return: str
+        """
+        return self.version
