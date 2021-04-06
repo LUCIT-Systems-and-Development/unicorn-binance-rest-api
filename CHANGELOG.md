@@ -14,5 +14,6 @@ forked from Sam McHardy [python-binance v0.7.10](https://github.com/sammchardy/p
 - get_latest_version()
 - is_update_availabe()
 - get_version()
+- get_user_agent()
 ### Removed
 - Websocket support from python-binance and dependencies

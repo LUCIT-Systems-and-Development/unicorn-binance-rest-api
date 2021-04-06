@@ -37,6 +37,7 @@
 import hashlib
 import hmac
 import requests
+import platform
 import time
 from operator import itemgetter
 from .unicorn_binance_rest_api_helpers import date_to_milliseconds, interval_to_milliseconds
@@ -146,7 +147,6 @@ class BinanceRestApiManager(object):
         :type requests_params: dict.
 
         """
-
         self.API_URL = self.API_URL.format(tld)
         self.WITHDRAW_API_URL = self.WITHDRAW_API_URL.format(tld)
         self.MARGIN_API_URL = self.MARGIN_API_URL.format(tld)
@@ -160,11 +160,12 @@ class BinanceRestApiManager(object):
         self.API_SECRET = api_secret
         self.last_update_check_github = {'timestamp': time.time(),
                                          'status': None}
-        self.session = self._init_session()
-        self._requests_params = requests_params
+        self.name = "unicorn-binance-rest-api"
         self.response = None
         self.timestamp_offset = 0
         self.version = "1.0.0.dev"
+        self.session = self._init_session()
+        self._requests_params = requests_params
 
         # init DNS and SSL cert
         self.ping()
@@ -173,10 +174,9 @@ class BinanceRestApiManager(object):
         self.timestamp_offset = res['serverTime'] - int(time.time() * 1000)
 
     def _init_session(self):
-
         session = requests.session()
         session.headers.update({'Accept': 'application/json',
-                                'User-Agent': 'unicorn_binance_rest_api/python',
+                                'User-Agent': str(self.get_user_agent()),
                                 'X-MBX-APIKEY': self.API_KEY})
         return session
 
@@ -341,8 +341,68 @@ class BinanceRestApiManager(object):
     def _delete(self, path, signed=False, version=PUBLIC_API_VERSION, **kwargs):
         return self._request_api('delete', path, signed, version, **kwargs)
 
-    # Exchange Endpoints
+    def is_update_availabe(self):
+        """
+        Is a new release of this package available?
+        :return: bool
+        """
+        installed_version = self.get_version()
+        if ".dev" in installed_version:
+            installed_version = installed_version[:-4]
+        if self.get_latest_version() == installed_version:
+            return False
+        elif self.get_latest_version() == "unknown":
+            return False
+        else:
+            return True
 
+    def get_version(self):
+        """
+        Get the package/module version
+        :return: str
+        """
+        return self.version
+
+    def get_latest_version(self):
+        """
+        Get the version of the latest available release (cache time 1 hour)
+        :return: str or False
+        """
+        # Do a fresh request if status is None or last timestamp is older 1 hour
+        if self.last_update_check_github['status'] is None or \
+                (self.last_update_check_github['timestamp']+(60*60) < time.time()):
+            self.last_update_check_github['status'] = self.get_latest_release_info()
+        if self.last_update_check_github['status']:
+            try:
+                return self.last_update_check_github['status']["tag_name"]
+            except KeyError:
+                return "unknown"
+        else:
+            return "unknown"
+
+    @staticmethod
+    def get_latest_release_info():
+        """
+        Get infos about the latest available release
+        :return: dict or False
+        """
+        try:
+            respond = requests.get('https://api.github.com/repos/oliver-zehentleitner/unicorn-binance-rest-api/'
+                                   'releases/latest')
+            latest_release_info = respond.json()
+            return latest_release_info
+        except Exception:
+            return False
+
+    def get_user_agent(self):
+        """
+        Get the user_agent string "lib name + lib version + python version"
+        :return:
+        """
+        user_agent = f"{self.name}_{str(self.get_version())}-python_{str(platform.python_version())}"
+        return user_agent
+
+    # Exchange Endpoints
     def get_products(self):
         """
         Return list of products currently listed on Binance
@@ -5954,57 +6014,3 @@ class BinanceRestApiManager(object):
 
         """
         return self._request_margin_api('post', 'enableFastWithdrawSwitch', True, data=params)
-
-    def get_version(self):
-        """
-        Get the package/module version
-        :return: str
-        """
-        return self.version
-
-    def is_update_availabe(self):
-        """
-        Is a new release of this package available?
-        :return: bool
-        """
-        installed_version = self.get_version()
-        if ".dev" in installed_version:
-            installed_version = installed_version[:-4]
-        if self.get_latest_version() == installed_version:
-            return False
-        elif self.get_latest_version() == "unknown":
-            return False
-        else:
-            return True
-
-    def get_latest_version(self):
-        """
-        Get the version of the latest available release (cache time 1 hour)
-        :return: str or False
-        """
-        # Do a fresh request if status is None or last timestamp is older 1 hour
-        if self.last_update_check_github['status'] is None or \
-                (self.last_update_check_github['timestamp']+(60*60) < time.time()):
-            self.last_update_check_github['status'] = self.get_latest_release_info()
-        if self.last_update_check_github['status']:
-            try:
-                return self.last_update_check_github['status']["tag_name"]
-            except KeyError:
-                return "unknown"
-        else:
-            return "unknown"
-
-    @staticmethod
-    def get_latest_release_info():
-        """
-        Get infos about the latest available release
-        :return: dict or False
-        """
-        try:
-            respond = requests.get('https://api.github.com/repos/oliver-zehentleitner/unicorn-binance-rest-api/'
-                                   'releases/latest')
-            latest_release_info = respond.json()
-            return latest_release_info
-        except Exception:
-            return False
-        
