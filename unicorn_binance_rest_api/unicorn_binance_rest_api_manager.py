@@ -34,8 +34,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 # IN THE SOFTWARE.
 
+import colorama
 import hashlib
 import hmac
+import logging
 import requests
 import platform
 import time
@@ -147,6 +149,11 @@ class BinanceRestApiManager(object):
         :type requests_params: dict.
 
         """
+        self.name = "unicorn-binance-rest-api"
+        self.version = "1.0.0.dev"
+        logging.info(f"New instance of {self.get_user_agent()} on {str(platform.system())} {str(platform.release())} "
+                     f"started ...")
+        colorama.init()
         self.API_URL = self.API_URL.format(tld)
         self.WITHDRAW_API_URL = self.WITHDRAW_API_URL.format(tld)
         self.MARGIN_API_URL = self.MARGIN_API_URL.format(tld)
@@ -160,12 +167,11 @@ class BinanceRestApiManager(object):
         self.API_SECRET = api_secret
         self.last_update_check_github = {'timestamp': time.time(),
                                          'status': None}
-        self.name = "unicorn-binance-rest-api"
-        self.response = None
-        self.timestamp_offset = 0
-        self.version = "1.0.0.dev"
-        self.session = self._init_session()
+
         self._requests_params = requests_params
+        self.response = None
+        self.session = self._init_session()
+        self.timestamp_offset = 0
 
         # init DNS and SSL cert
         self.ping()
