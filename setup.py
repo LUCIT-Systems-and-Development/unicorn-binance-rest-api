@@ -51,7 +51,8 @@ setuptools.setup(
      long_description=long_description,
      long_description_content_type="text/markdown",
      license='MIT License',
-     install_requires=['certifi', 'cryptography', 'dateparser', 'pyOpenSSL', 'requests', 'service-identity', 'ujson'],
+     install_requires=['certifi', 'colorama', 'cryptography', 'dateparser', 'pyOpenSSL', 'requests', 'service-identity',
+                       'ujson'],
      keywords='',
      project_urls={
         'Documentation': 'https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/',

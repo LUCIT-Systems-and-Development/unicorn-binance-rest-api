@@ -34,18 +34,26 @@
 # IN THE SOFTWARE.
 
 import unicorn_binance_rest_api
+import logging
+import os
 
-# create instance of BinanceWebSocketApiManager
+# https://docs.python.org/3/library/logging.html#logging-levels
+logging.basicConfig(level=logging.DEBUG,
+                    filename=os.path.basename(__file__) + '.log',
+                    format="{asctime} [{levelname:8}] {process} {thread} {module}: {message}",
+                    style="{")
+
+# create instance of BinanceRestApiManager
 binance_rest_api_manager = unicorn_binance_rest_api.BinanceRestApiManager()
 
-# get version of the used UNICORN Binance WebSocket API
+# get version of the used UNICORN Binance REST API package
 if binance_rest_api_manager.is_update_availabe():
     print("Please upgrade to " + binance_rest_api_manager.get_latest_version() + ", you are on",
           binance_rest_api_manager.get_version())
 
     latest_release_info = binance_rest_api_manager.get_latest_release_info()
     if latest_release_info:
-        print("Please download the latest release or run `pip install unicorn-binance-websocket-api --upgrade`: ")
+        print("Please download the latest release or run `pip install unicorn-binance-rest-api --upgrade`: ")
         print("\ttar: " + latest_release_info["tarball_url"])
         print("\tzip: " + latest_release_info["zipball_url"])
         print("release info:")
