@@ -150,7 +150,7 @@ class BinanceRestApiManager(object):
 
         """
         self.name = "unicorn-binance-rest-api"
-        self.version = "1.0.0.dev"
+        self.version = "1.0.1.dev"
         logging.info(f"New instance of {self.get_user_agent()} on {str(platform.system())} {str(platform.release())} "
                      f"started ...")
         colorama.init()
