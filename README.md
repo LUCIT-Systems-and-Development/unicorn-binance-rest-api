@@ -7,7 +7,7 @@
 [![Build Status](https://travis-ci.com/oliver-zehentleitner/unicorn-binance-rest-api.svg?branch=master)](https://travis-ci.com/oliver-zehentleitner/unicorn-binance-rest-api)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/oliver-zehentleitner/unicorn-binance-rest-api.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/oliver-zehentleitner/unicorn-binance-rest-api/alerts/)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/oliver-zehentleitner/unicorn-binance-rest-api.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/oliver-zehentleitner/unicorn-binance-rest-api/context:python)
-[![Coverage Status](https://coveralls.io/repos/github/oliver-zehentleitner/unicorn-binance-rest-api/badge.svg?branch=master)](https://coveralls.io/github/oliver-zehentleitner/unicorn-binance-rest-api?branch=master)
+[![codecov](https://codecov.io/gh/oliver-zehentleitner/unicorn-binance-rest-api/branch/master/graph/badge.svg?token=P7XILPPSLU)](https://codecov.io/gh/oliver-zehentleitner/unicorn-binance-rest-api)
 [![Telegram](https://img.shields.io/badge/chat-telegram-yellow.svg)](https://t.me/unicorndevs)
 [![Donations/week](http://img.shields.io/liberapay/receives/oliver-zehentleitner.svg?logo=liberapay)](https://liberapay.com/oliver-zehentleitner/donate)
 [![Patrons](http://img.shields.io/liberapay/patrons/oliver-zehentleitner.svg?logo=liberapay)](https://liberapay.com/oliver-zehentleitner/donate)
