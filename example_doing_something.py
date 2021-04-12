@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# File: dev_test.py
+# File: example_easy_migration_from_python-binance.py
 #
 # Part of ‘UNICORN Binance REST API’
 # Project website: https://github.com/oliver-zehentleitner/unicorn-binance-rest-api
@@ -50,9 +50,9 @@ ubra = BinanceRestApiManager(api_key, api_secret)
 
 # get market depth
 depth = ubra.get_order_book(symbol='BNBBTC')
-#print(f"{depth}")
+print(f"{depth}")
 
 # get all symbol prices
 prices = ubra.get_all_tickers()
-#print(f"{prices}")
+print(f"{prices}")
 

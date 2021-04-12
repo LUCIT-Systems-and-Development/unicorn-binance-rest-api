@@ -167,7 +167,7 @@ None if interval suffix is not one of m, h, d, w</p>
 <span id="unicorn-binance-rest-api-unicorn-binance-rest-api-manager-module"></span><h2>unicorn_binance_rest_api.unicorn_binance_rest_api_manager module<a class="headerlink" href="#module-unicorn_binance_rest_api.unicorn_binance_rest_api_manager" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">unicorn_binance_rest_api.unicorn_binance_rest_api_manager.</span></code><code class="sig-name descname"><span class="pre">BinanceRestApiManager</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_secret</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requests_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tld</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'com'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">unicorn_binance_rest_api.unicorn_binance_rest_api_manager.</span></code><code class="sig-name descname"><span class="pre">BinanceRestApiManager</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_secret</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requests_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tld</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'com'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warn_on_update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py attribute">
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.AGG_BEST_MATCH">
@@ -2100,7 +2100,7 @@ from the same order, with the same price will have the quantity aggregated.</p>
             <span class="s2">&quot;specialTips&quot;</span><span class="p">:</span> <span class="s2">&quot;Both a MEMO and an Address are required to successfully deposit your BEP2-BTCB tokens to Binance.&quot;</span><span class="p">,</span>
             <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;BEP2&quot;</span><span class="p">,</span>
             <span class="s2">&quot;resetAddressStatus&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-            <span class="s2">&quot;addressRegex&quot;</span><span class="p">:</span> <span class="s2">&quot;^(bnb1)[0-9a-z]</span><span class="si">{38}</span><span class="s2">$&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;addressRegex&quot;</span><span class="p">:</span> <span class="s2">&quot;^(bnb1)[0-9a-z]{38}$&quot;</span><span class="p">,</span>
             <span class="s2">&quot;memoRegex&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-9A-Za-z-_]{1,120}$&quot;</span><span class="p">,</span>
             <span class="s2">&quot;withdrawFee&quot;</span><span class="p">:</span> <span class="s2">&quot;0.0000026&quot;</span><span class="p">,</span>
             <span class="s2">&quot;withdrawMin&quot;</span><span class="p">:</span> <span class="s2">&quot;0.0000052&quot;</span><span class="p">,</span>
@@ -2727,12 +2727,12 @@ from the same order, with the same price will have the quantity aggregated.</p>
         <span class="s2">&quot;lotsPurchased&quot;</span><span class="p">:</span> <span class="mi">74155</span><span class="p">,</span>
         <span class="s2">&quot;lotsUpLimit&quot;</span><span class="p">:</span> <span class="mi">80000</span><span class="p">,</span>
         <span class="s2">&quot;maxLotsPerUser&quot;</span><span class="p">:</span> <span class="mi">2000</span><span class="p">,</span>
-        <span class="s2">&quot;needKyc&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s2">&quot;needKyc&quot;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
         <span class="s2">&quot;projectId&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSDT90DAYSS001&quot;</span><span class="p">,</span>
         <span class="s2">&quot;projectName&quot;</span><span class="p">:</span> <span class="s2">&quot;USDT&quot;</span><span class="p">,</span>
         <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;PURCHASING&quot;</span><span class="p">,</span>
         <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMIZED_FIXED&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;withAreaLimitation&quot;</span><span class="p">:</span> <span class="kc">False</span>
+        <span class="s2">&quot;withAreaLimitation&quot;</span><span class="p">:</span> <span class="bp">False</span>
     <span class="p">}</span>
 <span class="p">]</span>
 </pre></div>
@@ -4798,6 +4798,13 @@ of symbols currently trading on the exchange.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_user_agent">
+<code class="sig-name descname"><span class="pre">get_user_agent</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_user_agent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the user_agent string “lib name + lib version + python version”
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_version">
 <code class="sig-name descname"><span class="pre">get_version</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_version" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the package/module version
@@ -6109,7 +6116,7 @@ If the stream becomes invalid a new key is returned.</p>
     &copy; <a href="copyright.html">Copyright</a> 2021, Oliver Zehentleitner.
     <br />
 
-    Last updated on Apr 06 2021 at 01:45 (CET).
+    Last updated on Apr 12 2021 at 17:11 (CET).
     <a href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/issues">Found a bug</a>?
     <br />
 
@@ -6118,13 +6125,13 @@ If the stream becomes invalid a new key is returned.</p>
     <a href="https://www.python.org/psf/donations/">Please donate.</a>
     <br />
 
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 3.5.3
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 3.5.1
         with <a href="https://github.com/oliver-zehentleitner/python-docs-theme-technopathy">python-docs-theme-technopathy</a>
         by <a href="https://about.me/oliver-zehentleitner">Oliver Zehentleitner</a>.
     <br />
         <a href="https://www.technopathy.club/2019/11/03/use-python-sphinx-on-github-pages-with-html-and-an-indivdual-theme">
     Create a GitHub Page like this one!</a>    <br />
-        Sponsored by <a href="https://www.lucit-development.co">LUCIT - Python Development</a>
+        Powered by <a href="https://www.lucit.co/desktop-and-server-apps.html">LUCIT - Python Development</a>
     </div>
 
   </body>

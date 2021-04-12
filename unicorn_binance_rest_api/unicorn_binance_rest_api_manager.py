@@ -137,7 +137,7 @@ class BinanceRestApiManager(object):
     MINING_TO_USDT_FUTURE = "MINING_UMFUTURE"
     MINING_TO_FIAT = "MINING_C2C"
 
-    def __init__(self, api_key=None, api_secret=None, requests_params=None, tld="com"):
+    def __init__(self, api_key=None, api_secret=None, requests_params=None, tld="com", warn_on_update=True):
         """
         Binance API Client constructor
 
@@ -147,10 +147,13 @@ class BinanceRestApiManager(object):
         :type api_secret: str.
         :param requests_params: optional - Dictionary of requests params to use for all calls
         :type requests_params: dict.
-
+        :param tld: Top Level Domain of the Binance endpoint
+        :type tld: str.
+        :param warn_on_update: set to `False` to disable the update warning
+        :type warn_on_update: bool
         """
         self.name = "unicorn-binance-rest-api"
-        self.version = "1.0.1.dev"
+        self.version = "1.1.0.dev"
         logging.info(f"New instance of {self.get_user_agent()} on {str(platform.system())} {str(platform.release())} "
                      f"started ...")
         colorama.init()
@@ -178,6 +181,12 @@ class BinanceRestApiManager(object):
         # calculate timestamp offset between local and unicorn_binance_rest_api server
         res = self.get_server_time()
         self.timestamp_offset = res['serverTime'] - int(time.time() * 1000)
+        if warn_on_update and self.is_update_availabe():
+            update_msg = f"Release {self.name}_" + self.get_latest_version() + " is available, " \
+                                                                               "please consider updating! (Changelog: https://github.com/oliver-zehentleitner/unicorn-" \
+                                                                               "binance-rest-api/blob/master/CHANGELOG.md)"
+            print(update_msg)
+            logging.warning(update_msg)
 
     def _init_session(self):
         session = requests.session()

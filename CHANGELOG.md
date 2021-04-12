@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 [Semantic Versioning](http://semver.org/).
 
 ## 1.0.0.dev (development stage/unreleased/unstable)
+### Added
+- logging
+- update check
 
 ## 1.0.0
 forked from Sam McHardy [python-binance v0.7.10](https://github.com/sammchardy/python-binance)

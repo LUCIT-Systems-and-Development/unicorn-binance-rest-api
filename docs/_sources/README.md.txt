@@ -4,10 +4,10 @@
 [![Downloads](https://pepy.tech/badge/unicorn-binance-rest-api)](https://pepy.tech/project/unicorn-binance-rest-api)
 [![PyPI - Wheel](https://img.shields.io/pypi/wheel/unicorn-binance-rest-api.svg?label=PyPI%20wheel)](https://pypi.org/project/unicorn-binance-rest-api/)
 [![PyPI - Status](https://img.shields.io/pypi/status/unicorn-binance-rest-api.svg)](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/issues)
-[![Build Status](https://travis-ci.com/oliver-zehentleitner/unicorn-binance-rest-api.svg?branch=master)](https://travis-ci.com/oliver-zehentleitner/unicorn-binance-rest-api)
+[![Python application](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/actions/workflows/python-app.yml/badge.svg)](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/actions/workflows/python-app.yml)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/oliver-zehentleitner/unicorn-binance-rest-api.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/oliver-zehentleitner/unicorn-binance-rest-api/alerts/)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/oliver-zehentleitner/unicorn-binance-rest-api.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/oliver-zehentleitner/unicorn-binance-rest-api/context:python)
-[![Coverage Status](https://coveralls.io/repos/github/oliver-zehentleitner/unicorn-binance-rest-api/badge.svg?branch=master)](https://coveralls.io/github/oliver-zehentleitner/unicorn-binance-rest-api?branch=master)
+[![codecov](https://codecov.io/gh/oliver-zehentleitner/unicorn-binance-rest-api/branch/master/graph/badge.svg?token=P7XILPPSLU)](https://codecov.io/gh/oliver-zehentleitner/unicorn-binance-rest-api)
 [![Telegram](https://img.shields.io/badge/chat-telegram-yellow.svg)](https://t.me/unicorndevs)
 [![Donations/week](http://img.shields.io/liberapay/receives/oliver-zehentleitner.svg?logo=liberapay)](https://liberapay.com/oliver-zehentleitner/donate)
 [![Patrons](http://img.shields.io/liberapay/patrons/oliver-zehentleitner.svg?logo=liberapay)](https://liberapay.com/oliver-zehentleitner/donate)
@@ -19,7 +19,7 @@
 [Notifications](#receive-notifications) | [Bugs](#how-to-report-bugs-or-suggest-improvements) | 
 [Contributing](#contributing) | [Commercial Support](#commercial-support) | [Donate](#donate)
 
-An unofficial Python API to use the Binance REST API`s (com+testnet) in a easy, fast, flexible, robust and 
+An unofficial Python API to use the Binance REST API`s in a easy, fast, flexible, robust and 
 fully-featured way. 
 
 Part of ['UNICORN Binance Suite'](https://github.com/oliver-zehentleitner/unicorn-binance-suite).
@@ -84,7 +84,8 @@ or the [current master branch](https://github.com/oliver-zehentleitner/unicorn-b
 - [Modules](https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/unicorn_binance_rest_api.html)
 
 ## Examples
-- [example_client.py](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/blob/master/example_client.py)
+- [example_doing_something.py](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/blob/master/example_doing_something.py)
+- [example_easy_migration_from_python-binance.py](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/blob/master/example_easy_migration_from_python-binance.py)
 - [example_version_of_this_package.py](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/blob/master/example_version_of_this_package.py)
 
 ## Howto
@@ -147,13 +148,36 @@ We ![love](https://raw.githubusercontent.com/oliver-zehentleitner/unicorn-binanc
 Need a Python developer or consulting? 
 
 Contact [me](https://about.me/oliver-zehentleitner) for a non-binding and free consultation via my company 
-[LUCIT](https://www.lucit.dev) from Vienna (Austria).
+[LUCIT](https://www.lucit.dev) from Vienna (Austria) or via [Telegram](https://t.me/LUCIT_OZ).
 
-### Donate
-Since you are probably a developer yourself, you will understand very well that the creation of open source software is 
-not free - it requires technical knowledge, a lot of time and also financial expenditure.
+## Donate
+Developing, documenting and testing the UNICORN Binance Suite and supporting the community takes a lot of time and time 
+is a form of cost. I am extremely happy to do this, but need a solution for sharing the costs.
 
-If you would like to help me to dedicate my time and energy to this project, even small donations are very welcome.
+I think we are lucky, as our community consists of traders and programmers I expect to find mostly rational thinking 
+people who also benefit financially from these libraries.
+
+I would like to create a fair model for funding. My goals are that unicorn-binance-websocket-api, 
+unicorn-binance-rest-api and unicorn-fy remain freely available as open source and that I am compensated at least to 
+some extent and thus can invest my time more easily.
+
+If you know the hooker principle from negotiation research or game theory, you know about the problem that people don't 
+often pay for something out of their own impulse if they have already received it for free. 
+
+So my idea is to give every donor who gives an amount over 50 EUR access to a private Github repository where Python 
+classes for trading algos are provided (OrderBook, advanced stop-loss, ...). Moreover, maybe a nice ApiTrader community 
+will be formed.
+
+So the donor not only helps to push the open source development but also gets access to a well maintained collection of 
+practical code for little money. 
+
+Furthermore community members can help me by donating own developments to make the 
+[unicorn-coding-club](https://github.com/oliver-zehentleitner/unicorn-coding-club) repository more attractive to create 
+further incentives for new donors. This way we generate added value for all sides in an uncomplicated way.
+
+If you donated at least 50 EUR (without transaction fee), please send me a message with a confirmation and your Github 
+username via https://www.lucit-development.co/contact.html, I will invite you to the 
+[unicorn-coding-club](https://github.com/oliver-zehentleitner/unicorn-coding-club) as soon as possible.
 
 [![Donate using Liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/oliver-zehentleitner/donate)
 
