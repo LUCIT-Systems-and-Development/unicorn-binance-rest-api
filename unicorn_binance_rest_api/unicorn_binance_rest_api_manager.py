@@ -359,6 +359,7 @@ class BinanceRestApiManager(object):
     def is_update_availabe(self):
         """
         Is a new release of this package available?
+	
         :return: bool
         """
         installed_version = self.get_version()
