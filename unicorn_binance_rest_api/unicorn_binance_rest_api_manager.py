@@ -54,7 +54,7 @@ class BinanceRestApiManager(object):
     WEBSITE_URL = 'https://www.binance.{}'
     FUTURES_URL = 'https://fapi.binance.{}/fapi'
     FUTURES_DATA_URL = 'https://fapi.binance.{}/futures/data'
-    FUTURES_COIN_URL = "https://dapi.binance.{}/dapi"
+    FUTURES_COIN_URL = "https://fapi.binance.{}/fapi"
     FUTURES_COIN_DATA_URL = "https://dapi.binance.{}/futures/data"
     PUBLIC_API_VERSION = 'v1'
     PRIVATE_API_VERSION = 'v3'
