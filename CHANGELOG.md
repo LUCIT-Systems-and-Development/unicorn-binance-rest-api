@@ -5,7 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to 
 [Semantic Versioning](http://semver.org/).
 
-## 1.0.0.dev (development stage/unreleased/unstable)
+## 1.1.1.dev (development stage/unreleased/unstable)
+
+## 1.1.1
+### Fixed
+- changed FUTURES_COIN_URL [PR#5](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/pull/5) - 
+Thanks to [flo-rian](https://github.com/flo-rian)
+
+## 1.1.0
 ### Added
 - logging
 - update check
