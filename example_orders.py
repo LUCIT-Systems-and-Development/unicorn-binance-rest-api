@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# File: example_doing_something.py
+# File: example_orders.py
 #
 # Part of ‘UNICORN Binance REST API’
 # Project website: https://github.com/oliver-zehentleitner/unicorn-binance-rest-api
@@ -43,15 +43,28 @@ logging.basicConfig(level=logging.DEBUG,
                     format="{asctime} [{levelname:8}] {process} {thread} {module}: {message}",
                     style="{")
 
-api_key = "aaa"
-api_secret = "bbb"
+api_key = ""
+api_secret = ""
 ubra = BinanceRestApiManager(api_key, api_secret)
 
-# get market depth
-depth = ubra.get_order_book(symbol='BNBBTC')
-print(f"{depth}")
 
-# get all symbol prices
-prices = ubra.get_all_tickers()
-print(f"{prices}")
+print(ubra.get_all_orders(symbol='LUNABTC', limit=10))
+
+print(ubra.get_account())
+
+print(ubra.get_asset_balance(asset='LUNA'))
+
+print(ubra.get_symbol_ticker(symbol="LUNABTC"))
+
+print(ubra.get_open_orders(symbol='LUNABTC'))
+
+
+#buy_limit_order = ubra.order_limit_buy(symbol='LUNABTC', quantity=2, price='0.0001')
+
+#sell_limit_order = ubra.order_limit_sell(symbol='LUNABTC', quantity=2, price='0.0003')
+
+existing_orders = ubra.get_open_orders(symbol='LUNABTC')
+
+for order in existing_orders:
+    print(ubra.cancel_order(symbol="LUNABTC", orderId=order['orderId']))
 
