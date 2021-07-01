@@ -45,8 +45,14 @@ logging.basicConfig(level=logging.DEBUG,
 
 api_key = ""
 api_secret = ""
-ubra = BinanceRestApiManager(api_key, api_secret)
 
+ubra = BinanceRestApiManager(api_key, api_secret, tld="com")
+
+# uncomment to access testnet endpoints
+# spot:
+# ubra.API_URL = 'https://testnet.binance.vision/api'
+# futures:
+# ubra.FUTURES_URL = 'https://testnet.binancefuture.com/fapi'
 
 print(ubra.get_all_orders(symbol='LUNABTC', limit=10))
 
@@ -57,7 +63,6 @@ print(ubra.get_asset_balance(asset='LUNA'))
 print(ubra.get_symbol_ticker(symbol="LUNABTC"))
 
 print(ubra.get_open_orders(symbol='LUNABTC'))
-
 
 #buy_limit_order = ubra.order_limit_buy(symbol='LUNABTC', quantity=2, price='0.0001')
 
