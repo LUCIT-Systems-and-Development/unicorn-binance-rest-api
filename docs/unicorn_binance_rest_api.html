@@ -4803,6 +4803,11 @@ of symbols currently trading on the exchange.</p>
 <code class="sig-name descname">get_used_weight</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">make_new_request</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_used_weight" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the used weight from Binance endpoints</p>
 <p><a class="reference external" href="https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md">https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>make_new_request</strong> (<em>int</em>) – Set to True to make a new request before returning the used_weight.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -4828,6 +4833,7 @@ of symbols currently trading on the exchange.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>asset</strong> (<em>str</em>) – optional</p></li>
+<li><p><strong>status</strong> (<em>int</em>) – 0(0:Email Sent,1:Cancelled 2:Awaiting Approval 3:Rejected 4:Processing 5:Failure 6Completed) optional</p></li>
 <li><p><strong>startTime</strong> (<em>long</em>) – optional</p></li>
 <li><p><strong>endTime</strong> (<em>long</em>) – optional</p></li>
 <li><p><strong>recvWindow</strong> (<em>int</em>) – the number of milliseconds the request is valid for</p></li>
@@ -6128,7 +6134,7 @@ If the stream becomes invalid a new key is returned.</p>
     &copy; <a href="copyright.html">Copyright</a> 2021, Oliver Zehentleitner.
     <br />
 
-    Last updated on Jul 07 2021 at 18:59 (CET).
+    Last updated on Jul 07 2021 at 22:54 (CET).
     <a href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/issues">Found a bug</a>?
     <br />
 

@@ -2562,7 +2562,7 @@ class BinanceRestApiManager(object):
 
         :param asset: optional
         :type asset: str
-        :type status: 0(0:Email Sent,1:Cancelled 2:Awaiting Approval 3:Rejected 4:Processing 5:Failure 6Completed) optional
+        :param status: 0(0:Email Sent,1:Cancelled 2:Awaiting Approval 3:Rejected 4:Processing 5:Failure 6Completed) optional
         :type status: int
         :param startTime: optional
         :type startTime: long
@@ -5119,10 +5119,12 @@ class BinanceRestApiManager(object):
 
         https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md
 
+        :param make_new_request: Set to True to make a new request before returning the used_weight.
+        :type make_new_request: int
         """
         if make_new_request is True:
             self.get_exchange_info()
-        return self.response.headers['x-mbx-used-weight']
+        return int(self.response.headers['x-mbx-used-weight'])
 
     # Futures API
 
