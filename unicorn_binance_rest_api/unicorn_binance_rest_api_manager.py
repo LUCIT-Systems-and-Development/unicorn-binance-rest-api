@@ -375,6 +375,7 @@ class BinanceRestApiManager(object):
     def get_version(self):
         """
         Get the package/module version
+
         :return: str
         """
         return self.version
@@ -413,7 +414,8 @@ class BinanceRestApiManager(object):
     def get_user_agent(self):
         """
         Get the user_agent string "lib name + lib version + python version"
-        :return:
+
+        :return: string - user agent
         """
         user_agent = f"{self.name}_{str(self.get_version())}-python_{str(platform.python_version())}"
         return user_agent
