@@ -415,7 +415,7 @@ class BinanceRestApiManager(object):
         """
         Get the user_agent string "lib name + lib version + python version"
 
-        :return: string - user agent
+        :return: str - user agent
         """
         user_agent = f"{self.name}_{str(self.get_version())}-python_{str(platform.python_version())}"
         return user_agent
