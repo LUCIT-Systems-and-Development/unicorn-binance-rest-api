@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 [Semantic Versioning](http://semver.org/).
 
 ## 1.1.1.dev (development stage/unreleased/unstable)
+### Added
+- get_used_weight()
 
 ## 1.1.1
 ### Fixed

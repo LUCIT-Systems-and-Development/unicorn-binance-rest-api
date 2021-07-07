@@ -109,9 +109,7 @@ To receive notifications on available updates you can
 the repository on [GitHub](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api), write your 
 [own script](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/blob/master/example_version_of_this_package.py) 
 with using 
-[`is_update_availabe()`](https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/unicorn_binance_websocket_api.html#unicorn_binance_websocket_api.unicorn_binance_websocket_api_manager.BinanceWebSocketApiManager.is_update_availabe) 
-or you use the 
-[monitoring API service](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/wiki/UNICORN-Monitoring-API-Service).
+[`is_update_availabe()`](https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/unicorn_binance_rest_api.html?highlight=is_update_availabe#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.is_update_availabe).
 
 To receive news (like inspection windows/maintenance) about the Binance API`s subscribe to their telegram groups: 
 - [https://t.me/binance_api_announcements](https://t.me/binance_api_announcements)
@@ -151,8 +149,10 @@ Contact [me](https://about.me/oliver-zehentleitner) for a non-binding and free c
 [LUCIT](https://www.lucit.dev) from Vienna (Austria) or via [Telegram](https://t.me/LUCIT_OZ).
 
 ## Donate
-Developing, documenting and testing the UNICORN Binance Suite and supporting the community takes a lot of time and time 
-is a form of cost. I am extremely happy to do this, but need a solution for sharing the costs.
+Developing, documenting and testing the 
+[UNICORN Binance Suite](https://github.com/oliver-zehentleitner/unicorn-binance-suite) and supporting the community 
+takes a lot of time and time is a form of cost. I am extremely happy to do this, but need a solution for sharing the 
+costs.
 
 I think we are lucky, as our community consists of traders and programmers I expect to find mostly rational thinking 
 people who also benefit financially from these libraries.
@@ -181,6 +181,7 @@ username via https://www.lucit-development.co/contact.html, I will invite you to
 
 [![Donate using Liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/oliver-zehentleitner/donate)
 
+[:heart: Sponsor (GitHub)](https://github.com/sponsors/oliver-zehentleitner/)
 ```
 Terra (LUNA, UST, ...): terra1yt34qmmycextztnj9mpt3mnjzqqvl8jtqqq7g9
 BTC: 39fS74fvcGnmEk8JUV8bG6P1wkdH29GtsA

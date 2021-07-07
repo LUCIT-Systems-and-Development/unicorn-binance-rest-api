@@ -5114,6 +5114,16 @@ class BinanceRestApiManager(object):
         """
         return self._request_margin_api('get', 'sub-account/universalTransfer', True, data=params)
 
+    def get_used_weight(self, make_new_request=False):
+        """Get the used weight from Binance endpoints
+
+        https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md
+
+        """
+        if make_new_request is True:
+            self.get_exchange_info()
+        return self.response.headers['x-mbx-used-weight']
+
     # Futures API
 
     def futures_ping(self):
