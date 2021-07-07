@@ -5121,6 +5121,7 @@ class BinanceRestApiManager(object):
 
         :param make_new_request: Set to True to make a new request before returning the used_weight.
         :type make_new_request: int
+        :return: int - used weight
         """
         if make_new_request is True:
             self.get_exchange_info()
