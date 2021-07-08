@@ -43,6 +43,8 @@ print(f"{depth}")
 # get all symbol prices
 prices = ubra.get_all_tickers()
 print(f"{prices}")
+
+print(f"Used weight: {ubra.get_used_weight()}")
 ```
 
 ## Installation and Upgrade
