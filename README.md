@@ -44,6 +44,7 @@ print(f"{depth}")
 prices = ubra.get_all_tickers()
 print(f"{prices}")
 
+# get the used weight: https://github.com/binance-us/binance-official-api-docs/blob/master/rest-api.md#limits
 print(f"Used weight: {ubra.get_used_weight()}")
 ```
 
