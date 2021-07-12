@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 [Semantic Versioning](http://semver.org/).
 
 ## 1.2.0.dev (development stage/unreleased/unstable)
+### Added
+- `exchange` parameter to manager class to replace `tld` parameter
+- support for new endpoints: jax.com, trbinance.com 
+- `disable_colorama` parameter to manager class
+### Changed
+- `tld` is now obsolete
+### Removed
+- double definition of `make_universal_transfer()`
 
 ## 1.2.0
 ### Added

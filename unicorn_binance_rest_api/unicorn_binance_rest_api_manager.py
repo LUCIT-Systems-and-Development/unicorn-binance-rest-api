@@ -45,7 +45,8 @@ import time
 from operator import itemgetter
 from urllib.parse import urlencode
 from .unicorn_binance_rest_api_helpers import date_to_milliseconds, interval_to_milliseconds
-from .unicorn_binance_rest_api_exceptions import BinanceAPIException, BinanceRequestException, BinanceWithdrawException
+from .unicorn_binance_rest_api_exceptions import BinanceAPIException, BinanceRequestException, \
+    BinanceWithdrawException, UnknownExchange
 
 
 class BinanceRestApiManager(object):
@@ -137,7 +138,14 @@ class BinanceRestApiManager(object):
     MINING_TO_USDT_FUTURE = "MINING_UMFUTURE"
     MINING_TO_FIAT = "MINING_C2C"
 
-    def __init__(self, api_key=None, api_secret=None, requests_params=None, tld="com", warn_on_update=True):
+    def __init__(self,
+                 api_key=None,
+                 api_secret=None,
+                 requests_params=None,
+                 tld=False,
+                 warn_on_update=True,
+                 exchange="binance.com",
+                 disable_colorama=False):
         """
         Binance API Client constructor
 
@@ -155,8 +163,49 @@ class BinanceRestApiManager(object):
         self.name = "unicorn-binance-rest-api"
         self.version = "1.2.0.dev"
         logging.info(f"New instance of {self.get_user_agent()} on {str(platform.system())} {str(platform.release())} "
-                     f"started ...")
-        colorama.init()
+                     f"for exchange {exchange} started ...")
+        if disable_colorama is not True:
+            colorama.init()
+        self.exchange = exchange
+        if tld is not False:
+            logging.warning("The parameter BinanceRestApiManager(tld=`com`) is obsolete, use parameter `exchange` "
+                            "instead! Attention: parameter `exchange` overrules `tld`!! ")
+        if self.exchange == "binance.com":
+            pass
+        elif self.exchange == "binance.com-testnet":
+            pass
+        elif self.exchange == "binance.com-margin":
+            pass
+        elif self.exchange == "binance.com-margin-testnet":
+            pass
+        elif self.exchange == "binance.com-isolated_margin":
+            pass
+        elif self.exchange == "binance.com-isolated_margin-testnet":
+            pass
+        elif self.exchange == "binance.com-futures":
+            pass
+        elif self.exchange == "binance.com-coin-futures":
+            pass
+        elif self.exchange == "binance.com-futures-testnet":
+            pass
+        elif self.exchange == "binance.je":
+            pass
+        elif self.exchange == "binance.us":
+            pass
+        elif self.exchange == "trbinance.com":
+            pass
+        elif self.exchange == "jex.com":
+            pass
+        else:
+            # Unknown Exchange
+            error_msg = f"Unknown exchange '{str(self.exchange)}'! Read the docs to see a list of supported " \
+                        "exchanges: https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/unicorn_" \
+                        "binance_rest_api.html#module-unicorn_binance_rest_api.unicorn_binance_rest_" \
+                        "api_manager"
+            logging.critical(error_msg)
+
+            raise UnknownExchange(error_msg)
+
         self.API_URL = self.API_URL.format(tld)
         self.MARGIN_API_URL = self.MARGIN_API_URL.format(tld)
         self.WEBSITE_URL = self.WEBSITE_URL.format(tld)
@@ -177,7 +226,7 @@ class BinanceRestApiManager(object):
 
         # init DNS and SSL cert
         self.ping()
-        # calculate timestamp offset between local and unicorn_binance_rest_api server
+        # calculate timestamp offset between local and binance api server
         res = self.get_server_time()
         self.timestamp_offset = res['serverTime'] - int(time.time() * 1000)
         if warn_on_update and self.is_update_availabe():
@@ -186,6 +235,8 @@ class BinanceRestApiManager(object):
                          f"binance-rest-api/blob/master/CHANGELOG.md)"
             print(update_msg)
             logging.warning(update_msg)
+
+
 
     def _init_session(self):
         session = requests.session()
@@ -2292,39 +2343,6 @@ class BinanceRestApiManager(object):
 
         """
         return self._request_margin_api('get', 'asset/assetDividend', True, data=params)
-
-    def make_universal_transfer_tmp(self, **params):
-        """User Universal Transfer
-
-        https://binance-docs.github.io/apidocs/spot/en/#user-universal-transfer
-
-        :param type: required
-        :type type: str (ENUM)
-        :param asset: required
-        :type asset: str
-        :param amount: required
-        :type amount: str
-        :param recvWindow: the number of milliseconds the request is valid for
-        :type recvWindow: int
-
-        .. code:: python
-
-            transfer_status = client.make_universal_transfer(params)
-
-        :returns: API response
-
-        .. code-block:: python
-
-            {
-                "tranId":13526853623
-            }
-
-
-        :raises: BinanceRequestException, BinanceAPIException
-
-        """
-        # Todo: make_universal_transfer is defined twice!
-        return self._request_margin_api('post', 'asset/transfer', signed=True, data=params)
 
     def query_universal_transfer_history(self, **params):
         """Query User Universal Transfer History
@@ -5058,7 +5076,6 @@ class BinanceRestApiManager(object):
         :raises: BinanceRequestException, BinanceAPIException
 
         """
-        # Todo: make_universal_transfer is defined twiche
         return self._request_margin_api('post', 'sub-account/universalTransfer', True, data=params)
 
     def get_universal_transfer_history(self, **params):

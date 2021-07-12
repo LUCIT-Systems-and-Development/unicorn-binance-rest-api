@@ -113,3 +113,10 @@ class BinanceWithdrawException(Exception):
 
     def __str__(self):
         return 'BinanceWithdrawException: %s' % self.message
+
+
+class UnknownExchange(Exception):
+    """
+    Exception for if the manager class is started with an unkown exchange.
+    """
+    pass
