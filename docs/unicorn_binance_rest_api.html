@@ -576,7 +576,7 @@ will probably hit your rate limit.</p>
 <li><p><strong>start_str</strong> (<em>str|int</em>) – Start date string in UTC format or timestamp in milliseconds. The iterator will
 return the first trade occurring later than this time.</p></li>
 <li><p><strong>last_id</strong> (<em>int</em>) – aggregate trade ID of the last known aggregate trade.
-Not a regular trade ID. See <a class="reference external" href="https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#compressedaggregate-trades-list">https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#compressedaggregate-trades-list</a>.</p></li>
+Not a regular trade ID. See <a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#compressedaggregate-trades-list">https://binance-docs.github.io/apidocs/spot/en/#compressedaggregate-trades-list</a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -634,7 +634,7 @@ each object is identical to Client.aggregate_trades().</p>
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.cancel_order">
 <code class="sig-name descname">cancel_order</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.cancel_order" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cancel an active order. Either orderId or origClientOrderId must be sent.</p>
-<p><a class="reference external" href="https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#cancel-order-trade">https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#cancel-order-trade</a></p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#cancel-order-trade">https://binance-docs.github.io/apidocs/spot/en/#cancel-order-trade</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -859,7 +859,7 @@ BinanceOrderInactiveSymbolException</p>
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.create_oco_order">
 <code class="sig-name descname">create_oco_order</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.create_oco_order" title="Permalink to this definition">¶</a></dt>
 <dd><p>Send in a new OCO order</p>
-<p><a class="reference external" href="https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#new-oco-trade">https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#new-oco-trade</a></p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#new-oco-trade">https://binance-docs.github.io/apidocs/spot/en/#new-oco-trade</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -910,7 +910,7 @@ BinanceOrderInactiveSymbolException</p>
 <code class="sig-name descname">create_order</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.create_order" title="Permalink to this definition">¶</a></dt>
 <dd><p>Send in a new order</p>
 <p>Any order with an icebergQty MUST have timeInForce set to GTC.</p>
-<p><a class="reference external" href="https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#new-order--trade">https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#new-order–trade</a></p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#new-order--trade">https://binance-docs.github.io/apidocs/spot/en/#new-order–trade</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1081,7 +1081,7 @@ of the quote asset, applicable to MARKET orders</p></li>
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.create_test_order">
 <code class="sig-name descname">create_test_order</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.create_test_order" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test new order creation and signature/recvWindow long. Creates and validates a new order but does not send it into the matching engine.</p>
-<p><a class="reference external" href="https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#test-new-order-trade">https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#test-new-order-trade</a></p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#test-new-order-trade">https://binance-docs.github.io/apidocs/spot/en/#test-new-order-trade</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1735,7 +1735,7 @@ price will have the quantity aggregated.</p>
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_account">
 <code class="sig-name descname">get_account</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_account" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get current account information.</p>
-<p><a class="reference external" href="https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#account-information-user_data">https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#account-information-user_data</a></p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#account-information-user_data">https://binance-docs.github.io/apidocs/spot/en/#account-information-user_data</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>recvWindow</strong> (<em>int</em>) – the number of milliseconds the request is valid for</p>
@@ -2025,7 +2025,7 @@ price will have the quantity aggregated.</p>
 <code class="sig-name descname">get_aggregate_trades</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_aggregate_trades" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get compressed, aggregate trades. Trades that fill at the time,
 from the same order, with the same price will have the quantity aggregated.</p>
-<p><a class="reference external" href="https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#compressedaggregate-trades-list">https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#compressedaggregate-trades-list</a></p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#compressedaggregate-trades-list">https://binance-docs.github.io/apidocs/spot/en/#compressedaggregate-trades-list</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2247,7 +2247,7 @@ from the same order, with the same price will have the quantity aggregated.</p>
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_all_orders">
 <code class="sig-name descname">get_all_orders</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_all_orders" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get all account orders; active, canceled, or filled.</p>
-<p><a class="reference external" href="https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#all-orders-user_data">https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#all-orders-user_data</a></p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#all-orders-user_data">https://binance-docs.github.io/apidocs/spot/en/#all-orders-user_data</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2320,7 +2320,7 @@ from the same order, with the same price will have the quantity aggregated.</p>
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_asset_balance">
 <code class="sig-name descname">get_asset_balance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">asset</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_asset_balance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get current asset balance.</p>
-<p><a class="reference external" href="https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#account-information-user_data">https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#account-information-user_data</a></p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#account-information-user_data">https://binance-docs.github.io/apidocs/spot/en/#account-information-user_data</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2441,7 +2441,7 @@ from the same order, with the same price will have the quantity aggregated.</p>
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_avg_price">
 <code class="sig-name descname">get_avg_price</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_avg_price" title="Permalink to this definition">¶</a></dt>
 <dd><p>Current average price for a symbol.</p>
-<p><a class="reference external" href="https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#current-average-price">https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#current-average-price</a></p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#current-average-price">https://binance-docs.github.io/apidocs/spot/en/#current-average-price</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>symbol</strong> (<em>str</em>) – </p>
@@ -2792,7 +2792,7 @@ from the same order, with the same price will have the quantity aggregated.</p>
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_historical_trades">
 <code class="sig-name descname">get_historical_trades</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_historical_trades" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get older trades.</p>
-<p><a class="reference external" href="https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#recent-trades-list">https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#recent-trades-list</a></p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#recent-trades-list">https://binance-docs.github.io/apidocs/spot/en/#recent-trades-list</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -2976,7 +2976,7 @@ from the same order, with the same price will have the quantity aggregated.</p>
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_klines">
 <code class="sig-name descname">get_klines</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_klines" title="Permalink to this definition">¶</a></dt>
 <dd><p>Kline/candlestick bars for a symbol. Klines are uniquely identified by their open time.</p>
-<p><a class="reference external" href="https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#klinecandlestick-data">https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#klinecandlestick-data</a></p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#klinecandlestick-data">https://binance-docs.github.io/apidocs/spot/en/#klinecandlestick-data</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3523,7 +3523,7 @@ from the same order, with the same price will have the quantity aggregated.</p>
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_my_trades">
 <code class="sig-name descname">get_my_trades</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_my_trades" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get trades for a specific symbol.</p>
-<p><a class="reference external" href="https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#account-trade-list-user_data">https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#account-trade-list-user_data</a></p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#account-trade-list-user_data">https://binance-docs.github.io/apidocs/spot/en/#account-trade-list-user_data</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3614,7 +3614,7 @@ of symbols currently trading on the exchange.</p>
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_open_orders">
 <code class="sig-name descname">get_open_orders</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_open_orders" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get all open orders on a symbol.</p>
-<p><a class="reference external" href="https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#current-open-orders-user_data">https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#current-open-orders-user_data</a></p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#current-open-orders-user_data">https://binance-docs.github.io/apidocs/spot/en/#current-open-orders-user_data</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3656,7 +3656,7 @@ of symbols currently trading on the exchange.</p>
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_order">
 <code class="sig-name descname">get_order</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_order" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check an order’s status. Either orderId or origClientOrderId must be sent.</p>
-<p><a class="reference external" href="https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#query-order-user_data">https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#query-order-user_data</a></p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#query-order-user_data">https://binance-docs.github.io/apidocs/spot/en/#query-order-user_data</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3698,7 +3698,7 @@ of symbols currently trading on the exchange.</p>
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_order_book">
 <code class="sig-name descname">get_order_book</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_order_book" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the Order Book for the market</p>
-<p><a class="reference external" href="https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#order-book">https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#order-book</a></p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#order-book">https://binance-docs.github.io/apidocs/spot/en/#order-book</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3740,7 +3740,7 @@ of symbols currently trading on the exchange.</p>
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_orderbook_ticker">
 <code class="sig-name descname">get_orderbook_ticker</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_orderbook_ticker" title="Permalink to this definition">¶</a></dt>
 <dd><p>Latest price for a symbol or symbols.</p>
-<p><a class="reference external" href="https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#symbol-order-book-ticker">https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#symbol-order-book-ticker</a></p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#symbol-order-book-ticker">https://binance-docs.github.io/apidocs/spot/en/#symbol-order-book-ticker</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>symbol</strong> (<em>str</em>) – </p>
@@ -3838,7 +3838,7 @@ of symbols currently trading on the exchange.</p>
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_recent_trades">
 <code class="sig-name descname">get_recent_trades</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_recent_trades" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get recent trades (up to last 500).</p>
-<p><a class="reference external" href="https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#recent-trades-list">https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#recent-trades-list</a></p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#recent-trades-list">https://binance-docs.github.io/apidocs/spot/en/#recent-trades-list</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3873,7 +3873,7 @@ of symbols currently trading on the exchange.</p>
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_server_time">
 <code class="sig-name descname">get_server_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_server_time" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test connectivity to the Rest API and get the current server time.</p>
-<p><a class="reference external" href="https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#check-server-time">https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#check-server-time</a></p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#check-server-time">https://binance-docs.github.io/apidocs/spot/en/#check-server-time</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>Current server time</p>
@@ -4584,7 +4584,7 @@ of symbols currently trading on the exchange.</p>
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_symbol_ticker">
 <code class="sig-name descname">get_symbol_ticker</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_symbol_ticker" title="Permalink to this definition">¶</a></dt>
 <dd><p>Latest price for a symbol or symbols.</p>
-<p><a class="reference external" href="https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#24hr-ticker-price-change-statistics">https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#24hr-ticker-price-change-statistics</a></p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#24hr-ticker-price-change-statistics">https://binance-docs.github.io/apidocs/spot/en/#24hr-ticker-price-change-statistics</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>symbol</strong> (<em>str</em>) – </p>
@@ -4646,7 +4646,7 @@ of symbols currently trading on the exchange.</p>
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_ticker">
 <code class="sig-name descname">get_ticker</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_ticker" title="Permalink to this definition">¶</a></dt>
 <dd><p>24 hour price change statistics.</p>
-<p><a class="reference external" href="https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#24hr-ticker-price-change-statistics">https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#24hr-ticker-price-change-statistics</a></p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#24hr-ticker-price-change-statistics">https://binance-docs.github.io/apidocs/spot/en/#24hr-ticker-price-change-statistics</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>symbol</strong> (<em>str</em>) – </p>
@@ -4802,7 +4802,7 @@ of symbols currently trading on the exchange.</p>
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_used_weight">
 <code class="sig-name descname">get_used_weight</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">make_new_request</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_used_weight" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the used weight from Binance endpoints</p>
-<p><a class="reference external" href="https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md">https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md</a></p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/">https://binance-docs.github.io/apidocs/spot/en/</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>make_new_request</strong> (<em>int</em>) – Set to True to make a new request before returning the used_weight.</p>
@@ -5528,7 +5528,7 @@ of the quote asset</p></li>
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.ping">
 <code class="sig-name descname">ping</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.ping" title="Permalink to this definition">¶</a></dt>
 <dd><p>Test connectivity to the Rest API.</p>
-<p><a class="reference external" href="https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#test-connectivity">https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#test-connectivity</a></p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#test-connectivity">https://binance-docs.github.io/apidocs/spot/en/#test-connectivity</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>Empty array</p>
@@ -5698,7 +5698,7 @@ of the quote asset</p></li>
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.stream_close">
 <code class="sig-name descname">stream_close</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">listenKey</span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.stream_close" title="Permalink to this definition">¶</a></dt>
 <dd><p>Close out a user data stream.</p>
-<p><a class="reference external" href="https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#close-user-data-stream-user_stream">https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#close-user-data-stream-user_stream</a></p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#close-user-data-stream-user_stream">https://binance-docs.github.io/apidocs/spot/en/#close-user-data-stream-user_stream</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>listenKey</strong> (<em>str</em>) – required</p>
@@ -5724,7 +5724,7 @@ of the quote asset</p></li>
 If a stream already exists it should return the same key.
 If the stream becomes invalid a new key is returned.</p>
 <p>Can be used to keep the user stream alive.</p>
-<p><a class="reference external" href="https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#start-user-data-stream-user_stream">https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#start-user-data-stream-user_stream</a></p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#start-user-data-stream-user_stream">https://binance-docs.github.io/apidocs/spot/en/#start-user-data-stream-user_stream</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>API response</p>
@@ -5746,7 +5746,7 @@ If the stream becomes invalid a new key is returned.</p>
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.stream_keepalive">
 <code class="sig-name descname">stream_keepalive</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">listenKey</span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.stream_keepalive" title="Permalink to this definition">¶</a></dt>
 <dd><p>PING a user data stream to prevent a time out.</p>
-<p><a class="reference external" href="https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#keepalive-user-data-stream-user_stream">https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#keepalive-user-data-stream-user_stream</a></p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#keepalive-user-data-stream-user_stream">https://binance-docs.github.io/apidocs/spot/en/#keepalive-user-data-stream-user_stream</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>listenKey</strong> (<em>str</em>) – required</p>
