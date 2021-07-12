@@ -52,14 +52,12 @@ from .unicorn_binance_rest_api_exceptions import BinanceAPIException, BinanceReq
 class BinanceRestApiManager(object):
     """
     An unofficial Python API to use the Binance REST API`s (com+testnet, com-margin+testnet,
-    com-isolated_margin+testnet, com-futures+testnet, jersey, us, jex) in a easy, fast, flexible,
+    com-isolated_margin+testnet, com-futures+testnet, us, jex) in a easy, fast, flexible,
     robust and fully-featured way.
 
     Binance.com rest API documentation:
         -
     Binance.vision (Testnet) rest API documentation:
-        -
-    Binance.je rest API documentation:
         -
     Binance.us rest API documentation:
         -
@@ -76,14 +74,14 @@ class BinanceRestApiManager(object):
     :type api_secret: str.
     :param requests_params: optional - Dictionary of requests params to use for all calls
     :type requests_params: dict.
-    :param tld: Top Level Domain of the Binance endpoint
+    :param tld: Top Level Domain of the Binance endpoint, Default is False
     :type tld: str.
     :param warn_on_update: set to `False` to disable the update warning
     :type warn_on_update: bool
     :param exchange: Select binance.com, binance.com-testnet, binance.com-margin, binance.com-margin-testnet,
              binance.com-isolated_margin, binance.com-isolated_margin-testnet, binance.com-futures,
-             binance.com-futures-testnet, binance.com-coin-futures, binance.je, binance.us, trbinance.com
-             or jex.com (default: binance.com)
+             binance.com-futures-testnet, binance.com-coin-futures, binance.us, trbinance.com
+             or jex.com (default: binance.com) This overules parameter `tld`.
     :type exchange: str
     :param disable_colorama: set to True to disable the use of `colorama <https://pypi.org/project/colorama/>`_
     :type disable_colorama: bool
@@ -182,7 +180,7 @@ class BinanceRestApiManager(object):
                  requests_params=None,
                  tld=False,
                  warn_on_update=True,
-                 exchange="binance.com",
+                 exchange=False,
                  disable_colorama=False):
 
         self.name = "unicorn-binance-rest-api"
@@ -193,51 +191,129 @@ class BinanceRestApiManager(object):
             colorama.init()
         self.exchange = exchange
         if tld is not False:
+            # Todo: Remove Block with tld!
             logging.warning("The parameter BinanceRestApiManager(tld=`com`) is obsolete, use parameter `exchange` "
                             "instead! Attention: parameter `exchange` overrules `tld`!! ")
+            self.API_URL = self.API_URL.format(tld)
+            self.MARGIN_API_URL = self.MARGIN_API_URL.format(tld)
+            self.WEBSITE_URL = self.WEBSITE_URL.format(tld)
+            self.FUTURES_URL = self.FUTURES_URL.format(tld)
+            self.FUTURES_DATA_URL = self.FUTURES_DATA_URL.format(tld)
+            self.FUTURES_COIN_URL = self.FUTURES_COIN_URL.format(tld)
+            self.FUTURES_COIN_DATA_URL = self.FUTURES_COIN_DATA_URL.format(tld)
+
         if self.exchange == "binance.com":
-            pass
+            self.API_URL = "https://api.binance.com/api"
+            self.MARGIN_API_URL = " https://api.binance.com/sapi"
+            self.WEBSITE_URL = "https://www.binance.com"
+            self.FUTURES_URL = "https://fapi.binance.com/fapi"
+            self.FUTURES_DATA_URL = "https://fapi.binance.com/futures/data"
+            self.FUTURES_COIN_URL = "https://fapi.binance.com/fapi"
+            self.FUTURES_COIN_DATA_URL = "https://dapi.binance.com/futures/data"
         elif self.exchange == "binance.com-testnet":
-            pass
+            self.API_URL = "https://testnet.binance.vision/api"
+            self.MARGIN_API_URL = " https://api.binance.com/sapi"
+            self.WEBSITE_URL = "https://testnet.binance.vision"
+            self.FUTURES_URL = "https://fapi.binance.com/fapi"
+            self.FUTURES_DATA_URL = "https://fapi.binance.com/futures/data"
+            self.FUTURES_COIN_URL = "https://fapi.binance.com/fapi"
+            self.FUTURES_COIN_DATA_URL = "https://dapi.binance.com/futures/data"
         elif self.exchange == "binance.com-margin":
-            pass
+            self.API_URL = "https://api.binance.com/api"
+            self.MARGIN_API_URL = " https://api.binance.com/sapi"
+            self.WEBSITE_URL = "https://www.binance.com"
+            self.FUTURES_URL = "https://fapi.binance.com/fapi"
+            self.FUTURES_DATA_URL = "https://fapi.binance.com/futures/data"
+            self.FUTURES_COIN_URL = "https://fapi.binance.com/fapi"
+            self.FUTURES_COIN_DATA_URL = "https://dapi.binance.com/futures/data"
         elif self.exchange == "binance.com-margin-testnet":
-            pass
+            self.API_URL = "https://testnet.binance.vision/api"
+            self.MARGIN_API_URL = " https://api.binance.com/sapi"
+            self.WEBSITE_URL = "https://testnet.binance.vision"
+            self.FUTURES_URL = "https://fapi.binance.com/fapi"
+            self.FUTURES_DATA_URL = "https://fapi.binance.com/futures/data"
+            self.FUTURES_COIN_URL = "https://fapi.binance.com/fapi"
+            self.FUTURES_COIN_DATA_URL = "https://dapi.binance.com/futures/data"
         elif self.exchange == "binance.com-isolated_margin":
-            pass
+            self.API_URL = "https://api.binance.com/api"
+            self.MARGIN_API_URL = " https://api.binance.com/sapi"
+            self.WEBSITE_URL = "https://www.binance.com"
+            self.FUTURES_URL = "https://fapi.binance.com/fapi"
+            self.FUTURES_DATA_URL = "https://fapi.binance.com/futures/data"
+            self.FUTURES_COIN_URL = "https://fapi.binance.com/fapi"
+            self.FUTURES_COIN_DATA_URL = "https://dapi.binance.com/futures/data"
         elif self.exchange == "binance.com-isolated_margin-testnet":
-            pass
+            self.API_URL = "https://testnet.binance.vision/api"
+            self.MARGIN_API_URL = " https://api.binance.com/sapi"
+            self.WEBSITE_URL = "https://testnet.binance.vision"
+            self.FUTURES_URL = "https://fapi.binance.com/fapi"
+            self.FUTURES_DATA_URL = "https://fapi.binance.com/futures/data"
+            self.FUTURES_COIN_URL = "https://fapi.binance.com/fapi"
+            self.FUTURES_COIN_DATA_URL = "https://dapi.binance.com/futures/data"
         elif self.exchange == "binance.com-futures":
-            pass
+            self.API_URL = "https://api.binance.com/api"
+            self.MARGIN_API_URL = " https://api.binance.com/sapi"
+            self.WEBSITE_URL = "https://www.binance.com"
+            self.FUTURES_URL = "https://fapi.binance.com/fapi"
+            self.FUTURES_DATA_URL = "https://fapi.binance.com/futures/data"
+            self.FUTURES_COIN_URL = "https://fapi.binance.com/fapi"
+            self.FUTURES_COIN_DATA_URL = "https://dapi.binance.com/futures/data"
         elif self.exchange == "binance.com-coin-futures":
-            pass
+            self.API_URL = "https://api.binance.com/api"
+            self.MARGIN_API_URL = " https://api.binance.com/sapi"
+            self.WEBSITE_URL = "https://www.binance.com"
+            self.FUTURES_URL = "https://fapi.binance.com/fapi"
+            self.FUTURES_DATA_URL = "https://fapi.binance.com/futures/data"
+            self.FUTURES_COIN_URL = "https://fapi.binance.com/fapi"
+            self.FUTURES_COIN_DATA_URL = "https://dapi.binance.com/futures/data"
         elif self.exchange == "binance.com-futures-testnet":
-            pass
-        elif self.exchange == "binance.je":
-            pass
+            self.API_URL = "https://testnet.binance.vision/api"
+            self.MARGIN_API_URL = " https://api.binance.com/sapi"
+            self.WEBSITE_URL = "https://testnet.binance.vision"
+            self.FUTURES_URL = "https://fapi.binance.com/fapi"
+            self.FUTURES_DATA_URL = "https://fapi.binance.com/futures/data"
+            self.FUTURES_COIN_URL = "https://fapi.binance.com/fapi"
+            self.FUTURES_COIN_DATA_URL = "https://dapi.binance.com/futures/data"
         elif self.exchange == "binance.us":
-            pass
+            self.API_URL = "https://api.binance.us/api"
+            self.MARGIN_API_URL = " https://api.binance.us/sapi"
+            self.WEBSITE_URL = "https://www.binance.us"
+            self.FUTURES_URL = "https://fapi.binance.us/fapi"
+            self.FUTURES_DATA_URL = "https://fapi.binance.us/futures/data"
+            self.FUTURES_COIN_URL = "https://fapi.binance.us/fapi"
+            self.FUTURES_COIN_DATA_URL = "https://dapi.binance.us/futures/data"
         elif self.exchange == "trbinance.com":
-            pass
+            self.API_URL = "https://api.trbinance.com/api"
+            self.MARGIN_API_URL = " https://api.trbinance.com/sapi"
+            self.WEBSITE_URL = "https://www.trbinance.com"
+            self.FUTURES_URL = "https://fapi.trbinance.com/fapi"
+            self.FUTURES_DATA_URL = "https://fapi.trbinance.com/futures/data"
+            self.FUTURES_COIN_URL = "https://fapi.trbinance.com/fapi"
+            self.FUTURES_COIN_DATA_URL = "https://dapi.trbinance.com/futures/data"
         elif self.exchange == "jex.com":
-            pass
+            self.API_URL = "https://api.jex.com/api"
+            self.MARGIN_API_URL = " https://api.jex.com/sapi"
+            self.WEBSITE_URL = "https://www.jex.com"
+            self.FUTURES_URL = "https://fapi.jex.com/fapi"
+            self.FUTURES_DATA_URL = "https://fapi.jex.com/futures/data"
+            self.FUTURES_COIN_URL = "https://fapi.jex.com/fapi"
+            self.FUTURES_COIN_DATA_URL = "https://dapi.jex.com/futures/data"
         else:
-            # Unknown Exchange
-            error_msg = f"Unknown exchange '{str(self.exchange)}'! Read the docs to see a list of supported " \
-                        "exchanges: https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/unicorn_" \
-                        "binance_rest_api.html#module-unicorn_binance_rest_api.unicorn_binance_rest_" \
-                        "api_manager"
-            logging.critical(error_msg)
+            if tld is False:
+                # Todo: Remove "if"-row with tld
+                # Unknown Exchange
+                error_msg = f"Unknown exchange '{str(self.exchange)}'! Read the docs to see a list of supported " \
+                            "exchanges: https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/unicorn_" \
+                            "binance_rest_api.html#module-unicorn_binance_rest_api.unicorn_binance_rest_" \
+                            "api_manager"
+                logging.critical(error_msg)
 
-            raise UnknownExchange(error_msg)
+                raise UnknownExchange(error_msg)
 
-        self.API_URL = self.API_URL.format(tld)
-        self.MARGIN_API_URL = self.MARGIN_API_URL.format(tld)
-        self.WEBSITE_URL = self.WEBSITE_URL.format(tld)
-        self.FUTURES_URL = self.FUTURES_URL.format(tld)
-        self.FUTURES_DATA_URL = self.FUTURES_DATA_URL.format(tld)
-        self.FUTURES_COIN_URL = self.FUTURES_COIN_URL.format(tld)
-        self.FUTURES_COIN_DATA_URL = self.FUTURES_COIN_DATA_URL.format(tld)
+        print(f"self.API_URL: {self.API_URL}\r\nself.MARGIN_API_URL: {self.MARGIN_API_URL}\r\n"
+              f"self.WEBSITE_URL: {self.WEBSITE_URL}\r\nself.FUTURES_URL: {self.FUTURES_URL}\r\n"
+              f"self.FUTURES_DATA_URL: {self.FUTURES_DATA_URL}\r\nself.FUTURES_COIN_URL: {self.FUTURES_COIN_URL}\r\n"
+              f"self.FUTURES_COIN_DATA_URL: {self.FUTURES_COIN_DATA_URL}")
 
         self.API_KEY = api_key
         self.API_SECRET = api_secret

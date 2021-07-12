@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - `tld` is now obsolete
 ### Removed
 - double definition of `make_universal_transfer()`
+- binance.je support (Binance Jersey has ceased operations.)
 
 ## 1.2.0
 ### Added

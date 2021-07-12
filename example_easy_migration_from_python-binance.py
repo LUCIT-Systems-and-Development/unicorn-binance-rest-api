@@ -46,7 +46,7 @@ logging.basicConfig(level=logging.DEBUG,
 
 api_key = "aaa"
 api_secret = "bbb"
-client = BinanceRestApiManager(api_key, api_secret)
+client = BinanceRestApiManager(api_key, api_secret, tld="com")
 
 # get market depth
 depth = client.get_order_book(symbol='BNBBTC')

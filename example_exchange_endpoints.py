@@ -46,5 +46,5 @@ logging.basicConfig(level=logging.DEBUG,
 api_key = ""
 api_secret = ""
 
-ubra = BinanceRestApiManager(api_key, api_secret, exchange="binance.com")
+ubra = BinanceRestApiManager(api_key, api_secret, exchange="binance.je")
 

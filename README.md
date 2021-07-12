@@ -61,7 +61,6 @@ print(f"Used weight: {ubra.get_used_weight()}")
 | [Binance USD-M Futures](https://www.binance.com) | `BinanceRestApiManager(exchange="binance.com-futures")` |
 | [Binance USD-M Futures Testnet](https://testnet.binancefuture.com) | `BinanceRestApiManager(exchange="binance.com-futures-testnet")` |
 | [Binance Coin-M Futures](https://www.binance.com) | `BinanceRestApiManager(exchange="binance.com-coin-futures")` |
-| [Binance Jersey](https://www.binance.je) | `BinanceRestApiManager(exchange="binance.je")` |
 | [Binance US](https://www.binance.us) | `BinanceRestApiManager(exchange="binance.us")` |
 | [Binance TR](https://www.trbinance.com) | `BinanceRestApiManager(exchange="trbinance.com")` |
 | [Binance JEX](https://www.jex.com) | `BinanceRestApiManager(exchange="jex.com")` |
@@ -144,7 +143,6 @@ To receive news (like inspection windows/maintenance) about the Binance API`s su
 - [https://t.me/binance_api_announcements](https://t.me/binance_api_announcements)
 - [https://t.me/binance_api_english](https://t.me/binance_api_english)
 - [https://t.me/BinanceExchange](https://t.me/BinanceExchange)
-- [https://t.me/Binance_Jersey](https://t.me/Binance_Jersey)
 - [https://t.me/Binance_USA](https://t.me/Binance_USA)
 - [https://t.me/Binance_JEX_EN](https://t.me/Binance_JEX_EN)
 - [https://t.me/BinanceDEXchange](https://t.me/BinanceDEXchange)
