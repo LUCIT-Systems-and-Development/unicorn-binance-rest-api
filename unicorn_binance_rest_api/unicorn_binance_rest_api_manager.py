@@ -153,7 +153,7 @@ class BinanceRestApiManager(object):
         :type warn_on_update: bool
         """
         self.name = "unicorn-binance-rest-api"
-        self.version = "1.2.0"
+        self.version = "1.2.0.dev"
         logging.info(f"New instance of {self.get_user_agent()} on {str(platform.system())} {str(platform.release())} "
                      f"started ...")
         colorama.init()
