@@ -43,7 +43,9 @@ import unittest
 
 class TestBinanceComRestManager(unittest.TestCase):
     def setUp(self):
-        self.client = BinanceRestApiManager('api_key', 'api_secret')
+        self.client = BinanceRestApiManager('api_key', 'api_secret', tld="com")
+        time.sleep(2)
+        self.client = BinanceRestApiManager('api_key', 'api_secret', exchange="binance.com")
 
     # Test historical klines:
     def test_exact_amount(self):
