@@ -71,6 +71,8 @@ print(f"Used weight: {ubra.get_used_weight()}")
 [`get_used_weight()`](https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/unicorn_binance_rest_api.html#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_used_weight), 
 [`get_blah()`](https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/unicorn_binance_rest_api.html#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_blah), 
 
+- Auto-selecting fastest endpoints 
+
 ## Installation and Upgrade
 The current dependencies are listed 
 [here](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/blob/master/requirements.txt).
