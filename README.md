@@ -33,7 +33,7 @@ from unicorn_binance_rest_api.unicorn_binance_rest_api_manager import BinanceRes
 
 api_key = "aaa"
 api_secret = "bbb"
-ubra = BinanceRestApiManager(api_key, api_secret)
+ubra = BinanceRestApiManager(api_key, api_secret, exchange="binance.com")
 
 # get market depth
 depth = ubra.get_order_book(symbol='BNBBTC')
