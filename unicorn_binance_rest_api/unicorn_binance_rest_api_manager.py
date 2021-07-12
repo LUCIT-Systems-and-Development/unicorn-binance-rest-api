@@ -42,6 +42,7 @@ import requests
 import platform
 import time
 from operator import itemgetter
+from urllib.parse import urlencode
 from .unicorn_binance_rest_api_helpers import date_to_milliseconds, interval_to_milliseconds
 from .unicorn_binance_rest_api_exceptions import BinanceAPIException, BinanceRequestException, BinanceWithdrawException
 
@@ -5652,6 +5653,17 @@ class BinanceRestApiManager(object):
 
         """
         return self._request_futures_coin_api("post", "order", True, data=params)
+
+    def futures_coin_place_batch_order(self, **params):
+        """Send in new orders.
+        https://binance-docs.github.io/apidocs/delivery/en/#place-multiple-orders-trade
+        To avoid modifying the existing signature generation and parameter order logic,
+        the url encoding is done on the special query param, batchOrders, in the early stage.
+        """
+        query_string = urlencode(params)
+        query_string = query_string.replace('%27', '%22')
+        params['batchOrders'] = query_string[12:]
+        return self._request_futures_coin_api('post', 'batchOrders', True, data=params)
 
     def futures_coin_get_order(self, **params):
         """
