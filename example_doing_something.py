@@ -55,3 +55,6 @@ print(f"{depth}")
 prices = ubra.get_all_tickers()
 print(f"{prices}")
 
+used_weight = ubra.get_used_weight()
+print(f"weight: {used_weight}")
+

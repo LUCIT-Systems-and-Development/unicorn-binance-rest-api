@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 [Semantic Versioning](http://semver.org/).
 
 ## 1.2.0.dev (development stage/unreleased/unstable)
+
+## 1.2.0
 ### Added
 - get_used_weight()
 - futures_coin_place_batch_order()

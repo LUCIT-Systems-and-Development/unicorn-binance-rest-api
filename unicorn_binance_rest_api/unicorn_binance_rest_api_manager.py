@@ -35,6 +35,7 @@
 # IN THE SOFTWARE.
 
 import colorama
+import datetime
 import hashlib
 import hmac
 import logging
@@ -5096,11 +5097,24 @@ class BinanceRestApiManager(object):
 
         :param make_new_request: Set to True to make a new request before returning the used_weight.
         :type make_new_request: int
+
         :return: int - used weight
+
+        .. code-block:: python
+            {
+             'weight': '5',
+             'timestamp': 1626079769.0,
+             'status_code': 200
+            }
         """
+        binance_api_status = {}
         if make_new_request is True:
             self.get_exchange_info()
-        return int(self.response.headers['x-mbx-used-weight'])
+        binance_api_status['weight'] = self.response.headers.get('X-MBX-USED-WEIGHT')
+        date_time_obj = datetime.datetime.strptime(self.response.headers.get('Date'), '%a, %d %b %Y %I:%M:%S %Z')
+        binance_api_status['timestamp'] = date_time_obj.timestamp()
+        binance_api_status['status_code'] = self.response.status_code
+        return binance_api_status
 
     # Futures API
 
