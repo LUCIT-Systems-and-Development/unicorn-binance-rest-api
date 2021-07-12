@@ -1935,6 +1935,115 @@ class BinanceRestApiManager(object):
         """
         return self._get('allOrders', True, data=params)
 
+    def cancel_all_open_orders(self, **params):
+        """Cancel all open orders of a symbol.
+
+        https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#cancel-all-open-orders-on-a-symbol-trade
+
+        :param symbol: required
+        :type symbol: str
+        :param recvWindow: the number of milliseconds the request is valid for
+        :type recvWindow: int
+
+        :returns: API response
+
+        .. code-block:: python
+
+            [
+              {
+                "symbol": "BTCUSDT",
+                "origClientOrderId": "E6APeyTJvkMvLMYMqu1KQ4",
+                "orderId": 11,
+                "orderListId": -1,
+                "clientOrderId": "pXLV6Hz6mprAcVYpVMTGgx",
+                "price": "0.089853",
+                "origQty": "0.178622",
+                "executedQty": "0.000000",
+                "cummulativeQuoteQty": "0.000000",
+                "status": "CANCELED",
+                "timeInForce": "GTC",
+                "type": "LIMIT",
+                "side": "BUY"
+              },
+              {
+                "symbol": "BTCUSDT",
+                "origClientOrderId": "A3EF2HCwxgZPFMrfwbgrhv",
+                "orderId": 13,
+                "orderListId": -1,
+                "clientOrderId": "pXLV6Hz6mprAcVYpVMTGgx",
+                "price": "0.090430",
+                "origQty": "0.178622",
+                "executedQty": "0.000000",
+                "cummulativeQuoteQty": "0.000000",
+                "status": "CANCELED",
+                "timeInForce": "GTC",
+                "type": "LIMIT",
+                "side": "BUY"
+              },
+              {
+                "orderListId": 1929,
+                "contingencyType": "OCO",
+                "listStatusType": "ALL_DONE",
+                "listOrderStatus": "ALL_DONE",
+                "listClientOrderId": "2inzWQdDvZLHbbAmAozX2N",
+                "transactionTime": 1585230948299,
+                "symbol": "BTCUSDT",
+                "orders": [
+                  {
+                    "symbol": "BTCUSDT",
+                    "orderId": 20,
+                    "clientOrderId": "CwOOIPHSmYywx6jZX77TdL"
+                  },
+                  {
+                    "symbol": "BTCUSDT",
+                    "orderId": 21,
+                    "clientOrderId": "461cPg51vQjV3zIMOXNz39"
+                  }
+                ],
+                "orderReports": [
+                  {
+                    "symbol": "BTCUSDT",
+                    "origClientOrderId": "CwOOIPHSmYywx6jZX77TdL",
+                    "orderId": 20,
+                    "orderListId": 1929,
+                    "clientOrderId": "pXLV6Hz6mprAcVYpVMTGgx",
+                    "price": "0.668611",
+                    "origQty": "0.690354",
+                    "executedQty": "0.000000",
+                    "cummulativeQuoteQty": "0.000000",
+                    "status": "CANCELED",
+                    "timeInForce": "GTC",
+                    "type": "STOP_LOSS_LIMIT",
+                    "side": "BUY",
+                    "stopPrice": "0.378131",
+                    "icebergQty": "0.017083"
+                  },
+                  {
+                    "symbol": "BTCUSDT",
+                    "origClientOrderId": "461cPg51vQjV3zIMOXNz39",
+                    "orderId": 21,
+                    "orderListId": 1929,
+                    "clientOrderId": "pXLV6Hz6mprAcVYpVMTGgx",
+                    "price": "0.008791",
+                    "origQty": "0.690354",
+                    "executedQty": "0.000000",
+                    "cummulativeQuoteQty": "0.000000",
+                    "status": "CANCELED",
+                    "timeInForce": "GTC",
+                    "type": "LIMIT_MAKER",
+                    "side": "BUY",
+                    "icebergQty": "0.639962"
+                  }
+                ]
+              }
+            ]
+
+
+        :raises: BinanceRequestException, BinanceAPIException
+
+        """
+        return self._delete('openOrders', True, data=params)
+
     def cancel_order(self, **params):
         """Cancel an active order. Either orderId or origClientOrderId must be sent.
 

@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - `exchange` parameter to manager class to replace `tld` parameter
 - support for new endpoints: jax.com, trbinance.com 
 - `disable_colorama` parameter to manager class
+- `cancel_all_open_orders()` to cancel all orders of a symbol with one request. Thx @mfurlend 
+[issue#3](https://github.com/oliver-zehentleitner/unicorn-binance-websocket-api/issues/3)
 ### Changed
 - `tld` is now obsolete
 ### Removed
@@ -18,7 +20,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## 1.2.0
 ### Added
 - get_used_weight()
-- futures_coin_place_batch_order()
+- futures_coin_place_batch_order() 
 ### Changed
 - Migrate from WAPI to SAPI
 - URLs to Biannce Docs
