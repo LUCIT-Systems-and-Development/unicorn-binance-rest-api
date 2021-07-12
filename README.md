@@ -47,6 +47,30 @@ print(f"{prices}")
 print(f"Used weight: {ubra.get_used_weight()}")
 ```
 
+### What are the benefits of the UNICORN Binance REST API?
+- Supported exchanges: 
+
+| Exchange | Exchange string | 
+| -------- | --------------- | 
+| [Binance](https://www.binance.com) | `BinanceRestApiManager(exchange="binance.com")` |
+| [Binance Testnet](https://testnet.binance.vision/) | `BinanceRestApiManager(exchange="binance.com-testnet")` |
+| [Binance Margin](https://www.binance.com) |  `BinanceRestApiManager(exchange="binance.com-margin")` |
+| [Binance Margin Testnet](https://testnet.binance.vision/) | `BinanceRestApiManager(exchange="binance.com-margin-testnet")` |
+| [Binance Isolated Margin](https://www.binance.com) | `BinanceRestApiManager(exchange="binance.com-isolated_margin")` |
+| [Binance Isolated Margin Testnet](https://testnet.binance.vision/) | `BinanceRestApiManager(exchange="binance.com-isolated_margin-testnet")` |
+| [Binance USD-M Futures](https://www.binance.com) | `BinanceRestApiManager(exchange="binance.com-futures")` |
+| [Binance USD-M Futures Testnet](https://testnet.binancefuture.com) | `BinanceRestApiManager(exchange="binance.com-futures-testnet")` |
+| [Binance Coin-M Futures](https://www.binance.com) | `BinanceRestApiManager(exchange="binance.com-coin-futures")` |
+| [Binance Jersey](https://www.binance.je) | `BinanceRestApiManager(exchange="binance.je")` |
+| [Binance US](https://www.binance.us) | `BinanceRestApiManager(exchange="binance.us")` |
+| [Binance TR](https://www.trbinance.com) | `BinanceRestApiManager(exchange="trbinance.com")` |
+| [Binance JEX](https://www.jex.com) | `BinanceRestApiManager(exchange="jex.com")` |
+
+
+- Helpful management features like 
+[`get_used_weight()`](https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/unicorn_binance_rest_api.html#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_used_weight), 
+[`get_blah()`](https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/unicorn_binance_rest_api.html#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_blah), 
+
 ## Installation and Upgrade
 The current dependencies are listed 
 [here](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/blob/master/requirements.txt).
@@ -88,6 +112,7 @@ or the [current master branch](https://github.com/oliver-zehentleitner/unicorn-b
 ## Examples
 - [example_doing_something.py](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/blob/master/example_doing_something.py)
 - [example_easy_migration_from_python-binance.py](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/blob/master/example_easy_migration_from_python-binance.py)
+- [example_orders.py](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/blob/master/example_orders.py)
 - [example_version_of_this_package.py](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/blob/master/example_version_of_this_package.py)
 
 ## Howto
