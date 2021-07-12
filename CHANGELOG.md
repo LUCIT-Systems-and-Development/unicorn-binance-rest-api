@@ -23,7 +23,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - get_used_weight()
 - futures_coin_place_batch_order() 
 ### Changed
-- Migrate from WAPI to SAPI
+- Migrate from WAPI to SAPI [issue#7](https://github.com/oliver-zehentleitner/unicorn-binance-websocket-api/issues/7)
 - URLs to Biannce Docs
 
 ## 1.1.1
