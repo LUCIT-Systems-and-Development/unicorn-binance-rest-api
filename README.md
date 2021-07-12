@@ -65,12 +65,8 @@ print(f"Used weight: {ubra.get_used_weight()}")
 | [Binance TR](https://www.trbinance.com) | `BinanceRestApiManager(exchange="trbinance.com")` |
 | [Binance JEX](https://www.jex.com) | `BinanceRestApiManager(exchange="jex.com")` |
 
-
 - Helpful management features like 
 [`get_used_weight()`](https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/unicorn_binance_rest_api.html#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_used_weight), 
-[`get_blah()`](https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/unicorn_binance_rest_api.html#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_blah), 
-
-- Auto-selecting fastest endpoints 
 
 ## Installation and Upgrade
 The current dependencies are listed 
