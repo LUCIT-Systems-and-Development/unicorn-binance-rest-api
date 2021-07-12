@@ -25,9 +25,8 @@ fully-featured way.
 Part of ['UNICORN Binance Suite'](https://github.com/oliver-zehentleitner/unicorn-binance-suite).
 
 ## Description
-This is a fork of Sam McHardy`s [python-binance v0.7.10](https://github.com/sammchardy/python-binance) - package. 
-cleaned up and reduced to pure REST tasks, with PRs added and improved, but still 100% compatible with 
-[python-binance v0.7.10](https://github.com/sammchardy/python-binance).
+This is a fork of Sam McHardy`s [python-binance](https://github.com/sammchardy/python-binance) - package. 
+Extended, cleaned up and reduced to pure REST tasks, with PRs added and improved.
 
 ```
 from unicorn_binance_rest_api.unicorn_binance_rest_api_manager import BinanceRestApiManager
