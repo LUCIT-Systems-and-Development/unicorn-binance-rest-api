@@ -50,6 +50,44 @@ from .unicorn_binance_rest_api_exceptions import BinanceAPIException, BinanceReq
 
 
 class BinanceRestApiManager(object):
+    """
+    An unofficial Python API to use the Binance REST API`s (com+testnet, com-margin+testnet,
+    com-isolated_margin+testnet, com-futures+testnet, jersey, us, jex) in a easy, fast, flexible,
+    robust and fully-featured way.
+
+    Binance.com rest API documentation:
+        -
+    Binance.vision (Testnet) rest API documentation:
+        -
+    Binance.je rest API documentation:
+        -
+    Binance.us rest API documentation:
+        -
+    TRBinance.com rest API documentation:
+        -
+    Jex.com websocket API documentation:
+        -
+
+    Binance API Client constructor
+
+    :param api_key: Api Key
+    :type api_key: str.
+    :param api_secret: Api Secret
+    :type api_secret: str.
+    :param requests_params: optional - Dictionary of requests params to use for all calls
+    :type requests_params: dict.
+    :param tld: Top Level Domain of the Binance endpoint
+    :type tld: str.
+    :param warn_on_update: set to `False` to disable the update warning
+    :type warn_on_update: bool
+    :param exchange: Select binance.com, binance.com-testnet, binance.com-margin, binance.com-margin-testnet,
+             binance.com-isolated_margin, binance.com-isolated_margin-testnet, binance.com-futures,
+             binance.com-futures-testnet, binance.com-coin-futures, binance.je, binance.us, trbinance.com
+             or jex.com (default: binance.com)
+    :type exchange: str
+    :param disable_colorama: set to True to disable the use of `colorama <https://pypi.org/project/colorama/>`_
+    :type disable_colorama: bool
+    """
 
     API_URL = 'https://api.binance.{}/api'
     MARGIN_API_URL = 'https://api.binance.{}/sapi'
@@ -146,20 +184,7 @@ class BinanceRestApiManager(object):
                  warn_on_update=True,
                  exchange="binance.com",
                  disable_colorama=False):
-        """
-        Binance API Client constructor
 
-        :param api_key: Api Key
-        :type api_key: str.
-        :param api_secret: Api Secret
-        :type api_secret: str.
-        :param requests_params: optional - Dictionary of requests params to use for all calls
-        :type requests_params: dict.
-        :param tld: Top Level Domain of the Binance endpoint
-        :type tld: str.
-        :param warn_on_update: set to `False` to disable the update warning
-        :type warn_on_update: bool
-        """
         self.name = "unicorn-binance-rest-api"
         self.version = "1.2.0.dev"
         logging.info(f"New instance of {self.get_user_agent()} on {str(platform.system())} {str(platform.release())} "
@@ -236,8 +261,6 @@ class BinanceRestApiManager(object):
             print(update_msg)
             logging.warning(update_msg)
 
-
-
     def _init_session(self):
         session = requests.session()
         session.headers.update({'Accept': 'application/json',
@@ -266,6 +289,7 @@ class BinanceRestApiManager(object):
         return self.FUTURES_COIN_URL + "/" + options[version] + "/" + path
 
     def _create_futures_coin_data_api_url(self, path, version=1):
+        # Todo: version is obsolete?
         return self.FUTURES_COIN_DATA_URL + "/" + path
 
     def _generate_signature(self, data):
@@ -401,7 +425,7 @@ class BinanceRestApiManager(object):
     def is_update_availabe(self):
         """
         Is a new release of this package available?
-	
+
         :return: bool
         """
         installed_version = self.get_version()
@@ -857,7 +881,8 @@ class BinanceRestApiManager(object):
                           return the first trade occurring later than this time.
         :type start_str: str|int
         :param last_id: aggregate trade ID of the last known aggregate trade.
-                        Not a regular trade ID. See https://binance-docs.github.io/apidocs/spot/en/#compressedaggregate-trades-list.
+                        Not a regular trade ID. See
+                        https://binance-docs.github.io/apidocs/spot/en/#compressedaggregate-trades-list.
 
         :returns: an iterator of JSON objects, one per trade. The format of
                   each object is identical to Client.aggregate_trades().
@@ -999,7 +1024,8 @@ class BinanceRestApiManager(object):
         :type interval: str
         :param start_str: Start date string in UTC format or timestamp in milliseconds
         :type start_str: str|int
-        :param end_str: optional - end date string in UTC format or timestamp in milliseconds (default will fetch everything up to now)
+        :param end_str: optional - end date string in UTC format or timestamp in milliseconds (default will fetch
+                        everything up to now)
         :type end_str: str|int
         :param limit: Default 500; max 1000.
         :type limit: int
@@ -1081,7 +1107,8 @@ class BinanceRestApiManager(object):
         :type interval: str
         :param start_str: Start date string in UTC format or timestamp in milliseconds
         :type start_str: str|int
-        :param end_str: optional - end date string in UTC format or timestamp in milliseconds (default will fetch everything up to now)
+        :param end_str: optional - end date string in UTC format or timestamp in milliseconds (default will fetch
+                        everything up to now)
         :type end_str: str|int
 
         :return: generator of OHLCV values
@@ -1424,8 +1451,9 @@ class BinanceRestApiManager(object):
                 ]
             }
 
-        :raises: BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException, BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException, BinanceOrderInactiveSymbolException
-
+        :raises: BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException,
+                 BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException,
+                 BinanceOrderInactiveSymbolException
         """
         return self._post('order', True, data=params)
 
@@ -1457,7 +1485,9 @@ class BinanceRestApiManager(object):
 
         See order endpoint for full response options
 
-        :raises: BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException, BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException, BinanceOrderInactiveSymbolException
+        :raises: BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException,
+                 BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException,
+                 BinanceOrderInactiveSymbolException
 
         """
         params.update({
@@ -1494,7 +1524,9 @@ class BinanceRestApiManager(object):
 
         See order endpoint for full response options
 
-        :raises: BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException, BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException, BinanceOrderInactiveSymbolException
+        :raises: BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException,
+                 BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException,
+                 BinanceOrderInactiveSymbolException
 
         """
         params.update({
@@ -1528,7 +1560,9 @@ class BinanceRestApiManager(object):
 
         See order endpoint for full response options
 
-        :raises: BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException, BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException, BinanceOrderInactiveSymbolException
+        :raises: BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException,
+                 BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException,
+                 BinanceOrderInactiveSymbolException
 
         """
         params.update({
@@ -1559,7 +1593,9 @@ class BinanceRestApiManager(object):
 
         See order endpoint for full response options
 
-        :raises: BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException, BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException, BinanceOrderInactiveSymbolException
+        :raises: BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException,
+                 BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException,
+                 BinanceOrderInactiveSymbolException
 
         """
         params.update({
@@ -1587,7 +1623,9 @@ class BinanceRestApiManager(object):
 
         See order endpoint for full response options
 
-        :raises: BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException, BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException, BinanceOrderInactiveSymbolException
+        :raises: BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException,
+                 BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException,
+                 BinanceOrderInactiveSymbolException
 
         """
         params.update({
@@ -1615,7 +1653,9 @@ class BinanceRestApiManager(object):
 
         See order endpoint for full response options
 
-        :raises: BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException, BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException, BinanceOrderInactiveSymbolException
+        :raises: BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException,
+                 BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException,
+                 BinanceOrderInactiveSymbolException
 
         """
         params.update({
@@ -1680,7 +1720,9 @@ class BinanceRestApiManager(object):
             {
             }
 
-        :raises: BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException, BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException, BinanceOrderInactiveSymbolException
+        :raises: BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException,
+                 BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException,
+                 BinanceOrderInactiveSymbolException
 
         """
         return self._post('order/oco', True, data=params)
@@ -1719,7 +1761,9 @@ class BinanceRestApiManager(object):
 
         See OCO order endpoint for full response options
 
-        :raises: BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException, BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException, BinanceOrderInactiveSymbolException
+        :raises: BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException,
+                 BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException,
+                 BinanceOrderInactiveSymbolException
 
         """
         params.update({
@@ -1761,8 +1805,9 @@ class BinanceRestApiManager(object):
 
         See OCO order endpoint for full response options
 
-        :raises: BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException, BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException, BinanceOrderInactiveSymbolException
-
+        :raises: BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException,
+                 BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException,
+                 BinanceOrderInactiveSymbolException
         """
         params.update({
             'side': self.SIDE_SELL
@@ -1770,7 +1815,8 @@ class BinanceRestApiManager(object):
         return self.create_oco_order(**params)
 
     def create_test_order(self, **params):
-        """Test new order creation and signature/recvWindow long. Creates and validates a new order but does not send it into the matching engine.
+        """Test new order creation and signature/recvWindow long. Creates and validates a new order but does not send
+        it into the matching engine.
 
         https://binance-docs.github.io/apidocs/spot/en/#test-new-order-trade
 
@@ -1801,7 +1847,9 @@ class BinanceRestApiManager(object):
 
             {}
 
-        :raises: BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException, BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException, BinanceOrderInactiveSymbolException
+        :raises: BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException,
+                 BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException,
+                 BinanceOrderInactiveSymbolException
 
 
         """
@@ -2495,7 +2543,9 @@ class BinanceRestApiManager(object):
         :type addressTag: optional - Secondary address identifier for coins like XRP,XMR etc.
         :param amount: required
         :type amount: decimal
-        :param transactionFeeFlag: required - When making internal transfer, true for returning the fee to the destination account; false for returning the fee back to the departure account. Default false.
+        :param transactionFeeFlag: required - When making internal transfer, true for returning the fee to the
+                                   destination account; false for returning the fee back to the departure account.
+                                   Default false.
         :type transactionFeeFlag: bool
         :param name: optional - Description of the address, default asset value passed will be used
         :type name: str
@@ -2584,7 +2634,8 @@ class BinanceRestApiManager(object):
 
         :param coin: optional
         :type coin: str
-        :param status: 0(0:Email Sent,1:Cancelled 2:Awaiting Approval 3:Rejected 4:Processing 5:Failure 6Completed) optional
+        :param status: 0(0:Email Sent,1:Cancelled 2:Awaiting Approval 3:Rejected 4:Processing 5:Failure 6Completed)
+                       optional
         :type status: int
         :param offset: optional - default:0
         :type offset: int
@@ -2608,7 +2659,8 @@ class BinanceRestApiManager(object):
                     "applyTime": "2019-10-12 11:12:02",
                     "coin": "USDT",
                     "id": "b6ae22b3aa844210a7041aee7589627c",
-                    "withdrawOrderId": "WITHDRAWtest123", // will not be returned if there's no withdrawOrderId for this withdraw.
+                    "withdrawOrderId": "WITHDRAWtest123", // will not be returned if there's no withdrawOrderId for
+                                       this withdraw.
                     "network": "ETH",
                     "transferType": 0,   // 1 for internal transfer, 0 for external transfer
                     "status": 6,
@@ -2640,7 +2692,8 @@ class BinanceRestApiManager(object):
         :type withdraw_id: str
         :param asset: optional
         :type asset: str
-        :type status: 0(0:Email Sent,1:Cancelled 2:Awaiting Approval 3:Rejected 4:Processing 5:Failure 6Completed) optional
+        :type status: 0(0:Email Sent,1:Cancelled 2:Awaiting Approval 3:Rejected 4:Processing 5:Failure 6Completed)
+                      optional
         :type status: int
         :param startTime: optional
         :type startTime: long
