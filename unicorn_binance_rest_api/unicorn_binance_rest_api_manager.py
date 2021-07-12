@@ -267,6 +267,7 @@ class BinanceRestApiManager(object):
             self.FUTURES_COIN_URL = "https://fapi.binance.com/fapi"
             self.FUTURES_COIN_DATA_URL = "https://dapi.binance.com/futures/data"
         elif self.exchange == "binance.com-futures-testnet":
+            # Todo: Needs a test
             self.API_URL = "https://testnet.binance.vision/api"
             self.MARGIN_API_URL = " https://api.binance.com/sapi"
             self.WEBSITE_URL = "https://testnet.binance.vision"
@@ -275,6 +276,7 @@ class BinanceRestApiManager(object):
             self.FUTURES_COIN_URL = "https://fapi.binance.com/fapi"
             self.FUTURES_COIN_DATA_URL = "https://dapi.binance.com/futures/data"
         elif self.exchange == "binance.us":
+            # Todo: Needs a test
             self.API_URL = "https://api.binance.us/api"
             self.MARGIN_API_URL = " https://api.binance.us/sapi"
             self.WEBSITE_URL = "https://www.binance.us"
@@ -283,6 +285,7 @@ class BinanceRestApiManager(object):
             self.FUTURES_COIN_URL = "https://fapi.binance.us/fapi"
             self.FUTURES_COIN_DATA_URL = "https://dapi.binance.us/futures/data"
         elif self.exchange == "trbinance.com":
+            # Todo: Needs a test
             self.API_URL = "https://api.trbinance.com/api"
             self.MARGIN_API_URL = " https://api.trbinance.com/sapi"
             self.WEBSITE_URL = "https://www.trbinance.com"
@@ -291,6 +294,7 @@ class BinanceRestApiManager(object):
             self.FUTURES_COIN_URL = "https://fapi.trbinance.com/fapi"
             self.FUTURES_COIN_DATA_URL = "https://dapi.trbinance.com/futures/data"
         elif self.exchange == "jex.com":
+            # Todo: Doesnt work!
             self.API_URL = "https://api.jex.com/api"
             self.MARGIN_API_URL = " https://api.jex.com/sapi"
             self.WEBSITE_URL = "https://www.jex.com"
