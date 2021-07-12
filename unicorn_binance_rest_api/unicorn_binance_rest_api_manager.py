@@ -153,7 +153,7 @@ class BinanceRestApiManager(object):
         :type warn_on_update: bool
         """
         self.name = "unicorn-binance-rest-api"
-        self.version = "1.1.1"
+        self.version = "1.2.0.dev"
         logging.info(f"New instance of {self.get_user_agent()} on {str(platform.system())} {str(platform.release())} "
                      f"started ...")
         colorama.init()
@@ -2057,16 +2057,17 @@ class BinanceRestApiManager(object):
         return res
 
     def get_account_api_trading_status(self, **params):
-        """Fetch account api trading status detail.
+        r"""Fetch account api trading status detail.
 
         https://binance-docs.github.io/apidocs/spot/en/#account-api-trading-status-sapi-user_data
 
         :param recvWindow: the number of milliseconds the request is valid for
         :type recvWindow: int
 
-        :returns: API response
+        :return: API response
 
         .. code-block:: python
+
             {
                 "data": {          // API trading status detail
                     "isLocked": false,   // API trading function is locked or not
@@ -2121,7 +2122,9 @@ class BinanceRestApiManager(object):
                     "updateTime": 1547630471725
                 }
             }
+
         :raises: BinanceWithdrawException
+
         """
         res = self._request_margin_api('get', 'account/apiTradingStatus', True, data=params)
         if not res.get('success'):
@@ -2520,11 +2523,11 @@ class BinanceRestApiManager(object):
         :param recvWindow: the number of milliseconds the request is valid for
         :type recvWindow: int
 
-        :returns: API response
+        :return: API response
 
         .. code-block:: python
 
-[
+            [
                 {
                     "amount":"0.00999800",
                     "coin":"PAXG",
@@ -3509,22 +3512,25 @@ class BinanceRestApiManager(object):
         :param recvWindow: the number of milliseconds the request is valid for
         :type recvWindow: int
 
-        :returns: API response
-                  {
-                        "symbol": "LTCBTC",
-                        "orderId": 28,
-                        "origClientOrderId": "myOrder1",
-                        "clientOrderId": "cancelMyOrder1",
-                        "transactTime": 1507725176595,
-                        "price": "1.00000000",
-                        "origQty": "10.00000000",
-                        "executedQty": "8.00000000",
-                        "cummulativeQuoteQty": "8.00000000",
-                        "status": "CANCELED",
-                        "timeInForce": "GTC",
-                        "type": "LIMIT",
-                        "side": "SELL"
-                  }
+        :return: API response
+
+        .. code-block:: python
+
+            {
+                "symbol": "LTCBTC",
+                "orderId": 28,
+                "origClientOrderId": "myOrder1",
+                "clientOrderId": "cancelMyOrder1",
+                "transactTime": 1507725176595,
+                "price": "1.00000000",
+                "origQty": "10.00000000",
+                "executedQty": "8.00000000",
+                "cummulativeQuoteQty": "8.00000000",
+                "status": "CANCELED",
+                "timeInForce": "GTC",
+                "type": "LIMIT",
+                "side": "SELL"
+            }
 
         :raises: BinanceRequestException, BinanceAPIException
 
@@ -3557,7 +3563,9 @@ class BinanceRestApiManager(object):
         :param recvWindow: the number of milliseconds the request is valid for
         :type recvWindow: int
 
-        :returns: API response
+        :return: API response
+
+        .. code-block:: python
 
             {
                 "rows": [
@@ -3602,7 +3610,9 @@ class BinanceRestApiManager(object):
         :param recvWindow: the number of milliseconds the request is valid for
         :type recvWindow: int
 
-        :returns: API response
+        :return: API response
+
+        .. code-block:: python
 
             {
                 "rows": [
@@ -3648,7 +3658,9 @@ class BinanceRestApiManager(object):
         :param recvWindow: the number of milliseconds the request is valid for
         :type recvWindow: int
 
-        :returns: API response
+        :return: API response
+
+        .. code-block:: python
 
             {
                 "clientOrderId": "ZwfQzuDIGpceVhKW5DvCmO",
@@ -3675,7 +3687,7 @@ class BinanceRestApiManager(object):
         return self._request_margin_api('get', 'margin/order', signed=True, data=params)
 
     def get_open_margin_orders(self, **params):
-        r"""
+        f"""
         Query margin accounts open orders
 
         If the symbol is not sent, orders for all symbols will be returned in an array (cross-margin only).
@@ -3693,29 +3705,33 @@ class BinanceRestApiManager(object):
         :type isIsolated: str
         :param recvWindow: the number of milliseconds the request is valid for
         :type recvWindow: int
-        :returns: API response
-                [
-                    {
-                        "clientOrderId": "qhcZw71gAkCCTv0t0k8LUK",
-                        "cummulativeQuoteQty": "0.00000000",
-                        "executedQty": "0.00000000",
-                        "icebergQty": "0.00000000",
-                        "isWorking": true,
-                        "orderId": 211842552,
-                        "origQty": "0.30000000",
-                        "price": "0.00475010",
-                        "side": "SELL",
-                        "status": "NEW",
-                        "stopPrice": "0.00000000",
-                        "symbol": "BNBBTC",
-                        "time": 1562040170089,
-                        "timeInForce": "GTC",
-                        "type": "LIMIT",
-                        "updateTime": 1562040170089
-                    }
-                ]
+
+        :return: API response
+
+            [
+                {
+                    "clientOrderId": "qhcZw71gAkCCTv0t0k8LUK",
+                    "cummulativeQuoteQty": "0.00000000",
+                    "executedQty": "0.00000000",
+                    "icebergQty": "0.00000000",
+                    "isWorking": true,
+                    "orderId": 211842552,
+                    "origQty": "0.30000000",
+                    "price": "0.00475010",
+                    "side": "SELL",
+                    "status": "NEW",
+                    "stopPrice": "0.00000000",
+                    "symbol": "BNBBTC",
+                    "time": 1562040170089,
+                    "timeInForce": "GTC",
+                    "type": "LIMIT",
+                    "updateTime": 1562040170089
+                } ]
+
         :raises: BinanceRequestException, BinanceAPIException
+
         """
+
         return self._request_margin_api('get', 'margin/openOrders', signed=True, data=params)
 
     def get_all_margin_orders(self, **params):
@@ -3742,7 +3758,9 @@ class BinanceRestApiManager(object):
         :param recvWindow: the number of milliseconds the request is valid for
         :type recvWindow: int
 
-        :returns: API response
+        :return: API response
+
+        .. code-block:: python
 
             [
                 {
@@ -3801,6 +3819,8 @@ class BinanceRestApiManager(object):
 
         :returns: API response
 
+        .. code-block:: python
+
             [
                 {
                     "commission": "0.00006000",
@@ -3849,6 +3869,8 @@ class BinanceRestApiManager(object):
 
         :returns: API response
 
+        .. code-block:: python
+
             {
                 "amount": "1.69248805"
             }
@@ -3859,7 +3881,8 @@ class BinanceRestApiManager(object):
         return self._request_margin_api('get', 'margin/maxBorrowable', signed=True, data=params)
 
     def get_max_margin_transfer(self, **params):
-        """Query max transfer-out amount
+        r"""
+        Query max transfer-out amount
 
         https://binance-docs.github.io/apidocs/spot/en/#query-max-transfer-out-amount-user_data
 
@@ -3870,15 +3893,17 @@ class BinanceRestApiManager(object):
         :param recvWindow: the number of milliseconds the request is valid for
         :type recvWindow: int
 
-        :returns: API response
+        :return: API response
+
+        .. code-block:: python
 
             {
                 "amount": "3.59498107"
             }
 
         :raises: BinanceRequestException, BinanceAPIException
-
         """
+
         return self._request_margin_api('get', 'margin/maxTransferable', signed=True, data=params)
 
     # Cross-margin 
@@ -4088,20 +4113,20 @@ class BinanceRestApiManager(object):
 
         :param asset: optional
         :type asset: str
-		:param type: required - "ACTIVITY", "CUSTOMIZED_FIXED"
-		:type type: str
-		:param status: optional - "ALL", "SUBSCRIBABLE", "UNSUBSCRIBABLE"; default "ALL"
-		:type status: str
-		:param sortBy: optional - "START_TIME", "LOT_SIZE", "INTEREST_RATE", "DURATION"; default "START_TIME"
-		:type sortBy: str
-		:param current: optional - Currently querying page. Start from 1. Default:1
-		:type current: int
-		:param size: optional - Default:10, Max:100
-		:type size: int
-	    :param recvWindow: the number of milliseconds the request is valid for
+        :param type: required - "ACTIVITY", "CUSTOMIZED_FIXED"
+        :type type: str
+        :param status: optional - "ALL", "SUBSCRIBABLE", "UNSUBSCRIBABLE"; default "ALL"
+        :type status: str
+        :param sortBy: optional - "START_TIME", "LOT_SIZE", "INTEREST_RATE", "DURATION"; default "START_TIME"
+        :type sortBy: str
+        :param current: optional - Currently querying page. Start from 1. Default:1
+        :type current: int
+        :param size: optional - Default:10, Max:100
+        :type size: int
+        :param recvWindow: the number of milliseconds the request is valid for
         :type recvWindow: int
 
-        :returns: API response
+        :return: API response
 
         .. code-block:: python
 
@@ -5101,6 +5126,7 @@ class BinanceRestApiManager(object):
         :return: int - used weight
 
         .. code-block:: python
+
             {
              'weight': '5',
              'timestamp': 1626079769.0,

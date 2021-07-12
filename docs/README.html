@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UNICORN Binance REST API &#8212; unicorn-binance-rest-api 1.1.1 documentation</title>
+    <title>UNICORN Binance REST API &#8212; unicorn-binance-rest-api 1.2.0 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/pydoctheme.css" type="text/css" />
     
@@ -13,7 +13,6 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -49,7 +48,7 @@
     <li><a href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api">unicorn-binance-rest-api</a> &#187;</li>
     
     
-    <a href="index.html">unicorn-binance-rest-api 1.1.1 documentation</a> &#187;
+    <a href="index.html">unicorn-binance-rest-api 1.2.0 documentation</a> &#187;
     
 
         <li class="nav-item nav-item-this"><a href="">UNICORN Binance REST API</a></li>
@@ -93,7 +92,7 @@ fully-featured way.</p>
 <p>This is a fork of Sam McHardy`s <a class="reference external" href="https://github.com/sammchardy/python-binance">python-binance v0.7.10</a> - package.
 cleaned up and reduced to pure REST tasks, with PRs added and improved, but still 100% compatible with
 <a class="reference external" href="https://github.com/sammchardy/python-binance">python-binance v0.7.10</a>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">unicorn_binance_rest_api.unicorn_binance_rest_api_manager</span> <span class="kn">import</span> <span class="n">BinanceRestApiManager</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">unicorn_binance_rest_api.unicorn_binance_rest_api_manager</span> <span class="k">import</span> <span class="n">BinanceRestApiManager</span>
 
 <span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;aaa&quot;</span>
 <span class="n">api_secret</span> <span class="o">=</span> <span class="s2">&quot;bbb&quot;</span>
@@ -101,11 +100,14 @@ cleaned up and reduced to pure REST tasks, with PRs added and improved, but stil
 
 <span class="c1"># get market depth</span>
 <span class="n">depth</span> <span class="o">=</span> <span class="n">ubra</span><span class="o">.</span><span class="n">get_order_book</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;BNBBTC&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">depth</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{depth}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="c1"># get all symbol prices</span>
 <span class="n">prices</span> <span class="o">=</span> <span class="n">ubra</span><span class="o">.</span><span class="n">get_all_tickers</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">prices</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{prices}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># get the used weight: https://github.com/binance-us/binance-official-api-docs/blob/master/rest-api.md#limits</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Used weight: {ubra.get_used_weight()}&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -222,7 +224,7 @@ and Python version and explain how to reproduce the error. A demo script is appr
 <p><a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api">UNICORN Binance REST API</a> is an open
 source project which welcomes contributions which can be anything from simple documentation fixes and reporting dead links to new features. To
 contribute follow
-<a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/blob/master/CONTRIBUTING">this guide</a>.</p>
+<a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/blob/master/CONTRIBUTING.md">this guide</a>.</p>
 <div class="section" id="contributors">
 <h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/graphs/contributors"><img alt="Contributors" src="https://contributors-img.web.app/image?repo=oliver-zehentleitner/unicorn-binance-rest-api" /></a></p>
@@ -381,7 +383,7 @@ username via https://www.lucit-development.co/contact.html, I will invite you to
     <li><a href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api">unicorn-binance-rest-api</a> &#187;</li>
     
     
-    <a href="index.html">unicorn-binance-rest-api 1.1.1 documentation</a> &#187;
+    <a href="index.html">unicorn-binance-rest-api 1.2.0 documentation</a> &#187;
     
 
         <li class="nav-item nav-item-this"><a href="">UNICORN Binance REST API</a></li>
@@ -396,7 +398,7 @@ username via https://www.lucit-development.co/contact.html, I will invite you to
     &copy; <a href="copyright.html">Copyright</a> 2021, Oliver Zehentleitner.
     <br />
 
-    Last updated on Jul 07 2021 at 22:58 (CET).
+    Last updated on Jul 12 2021 at 13:00 (CET).
     <a href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/issues">Found a bug</a>?
     <br />
 
@@ -405,7 +407,7 @@ username via https://www.lucit-development.co/contact.html, I will invite you to
     <a href="https://www.python.org/psf/donations/">Please donate.</a>
     <br />
 
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 3.3.1
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 3.5.1
         with <a href="https://github.com/oliver-zehentleitner/python-docs-theme-technopathy">python-docs-theme-technopathy</a>
         by <a href="https://about.me/oliver-zehentleitner">Oliver Zehentleitner</a>.
     <br />

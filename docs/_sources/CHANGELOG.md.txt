@@ -5,9 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to 
 [Semantic Versioning](http://semver.org/).
 
-## 1.1.1.dev (development stage/unreleased/unstable)
+## 1.2.0.dev (development stage/unreleased/unstable)
+
+## 1.2.0
 ### Added
 - get_used_weight()
+- futures_coin_place_batch_order()
+### Changed
+- Migrate from WAPI to SAPI
+- URLs to Biannce Docs
 
 ## 1.1.1
 ### Fixed
