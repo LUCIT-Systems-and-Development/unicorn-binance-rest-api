@@ -11,7 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - support for new endpoints: jax.com, trbinance.com 
 - `disable_colorama` parameter to manager class
 - `cancel_all_open_orders()` to cancel all orders of a symbol with one request. Thx @mfurlend 
-[issue#3](https://github.com/oliver-zehentleitner/unicorn-binance-websocket-api/issues/3)
+[issue#3](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/issues/3)
 ### Changed
 - `tld` is now obsolete
 ### Removed
@@ -23,7 +23,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - get_used_weight()
 - futures_coin_place_batch_order() 
 ### Changed
-- Migrate from WAPI to SAPI [issue#7](https://github.com/oliver-zehentleitner/unicorn-binance-websocket-api/issues/7)
+- Migrate from WAPI to SAPI [issue#7](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/issues/7)
 - URLs to Biannce Docs
 
 ## 1.1.1
