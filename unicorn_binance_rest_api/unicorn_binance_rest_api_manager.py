@@ -62,7 +62,7 @@ class BinanceRestApiManager(object):
     Binance.us rest API documentation:
         -
     TRBinance.com rest API documentation:
-        -
+        - https://www.trbinance.com/apidocs/#api-document-description
     Jex.com websocket API documentation:
         -
 
@@ -286,7 +286,7 @@ class BinanceRestApiManager(object):
             self.FUTURES_COIN_DATA_URL = "https://dapi.binance.us/futures/data"
         elif self.exchange == "trbinance.com":
             # Todo: Needs a test
-            self.API_URL = "https://api.trbinance.com/api"
+            self.API_URL = "https://www.trbinance.com/api"
             self.MARGIN_API_URL = " https://api.trbinance.com/sapi"
             self.WEBSITE_URL = "https://www.trbinance.com"
             self.FUTURES_URL = "https://fapi.trbinance.com/fapi"
