@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## 1.2.0.dev (development stage/unreleased/unstable)
 ### Added
 - `exchange` parameter to manager class to replace `tld` parameter
-- support for new endpoints: jax.com, trbinance.com 
+- support for new endpoints: trbinance.com 
 - `disable_colorama` parameter to manager class
 - `cancel_all_open_orders()` to cancel all orders of a symbol with one request. Thx @mfurlend 
 [issue#3](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/issues/3)
