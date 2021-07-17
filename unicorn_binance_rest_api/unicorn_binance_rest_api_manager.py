@@ -64,7 +64,7 @@ class BinanceRestApiManager(object):
     TRBinance.com rest API documentation:
         - https://www.trbinance.com/apidocs/#api-document-description
     Jex.com websocket API documentation:
-        -
+        - https://github.com/JexApi/jex-official-api-docs
 
     Binance API Client constructor
 
@@ -295,13 +295,13 @@ class BinanceRestApiManager(object):
             self.FUTURES_COIN_DATA_URL = "https://dapi.trbinance.com/futures/data"
         elif self.exchange == "jex.com":
             # Todo: Doesnt work!
-            self.API_URL = "https://api.jex.com/api"
-            self.MARGIN_API_URL = " https://api.jex.com/sapi"
+            self.API_URL = "https://www.jex.com/api"
+            self.MARGIN_API_URL = " https://www.jex.com/sapi"
             self.WEBSITE_URL = "https://www.jex.com"
-            self.FUTURES_URL = "https://fapi.jex.com/fapi"
-            self.FUTURES_DATA_URL = "https://fapi.jex.com/futures/data"
-            self.FUTURES_COIN_URL = "https://fapi.jex.com/fapi"
-            self.FUTURES_COIN_DATA_URL = "https://dapi.jex.com/futures/data"
+            self.FUTURES_URL = "https://www.jex.com/fapi"
+            self.FUTURES_DATA_URL = "https://www.jex.com/futures/data"
+            self.FUTURES_COIN_URL = "https://www.jex.com/fapi"
+            self.FUTURES_COIN_DATA_URL = "https://www.jex.com/futures/data"
         else:
             if tld is False:
                 # Todo: Remove "if"-row with tld
