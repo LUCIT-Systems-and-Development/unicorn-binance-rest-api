@@ -42,14 +42,15 @@ import unittest
 
 class TestBinanceComRestManager(unittest.TestCase):
     def setUp(self):
+        print(FUTURE_ORDER_TYPE_TAKE_PROFIT)
         self.client = BinanceRestApiManager('api_key', 'api_secret', tld="com")
         time.sleep(2)
         self.client = BinanceRestApiManager('api_key', 'api_secret', exchange="binance.com")
         BinanceRestApiManager('api_key', 'api_secret', exchange="binance.com-testnet")
         BinanceRestApiManager('api_key', 'api_secret', exchange="binance.com-margin")
         BinanceRestApiManager('api_key', 'api_secret', exchange="binance.com-margin-testnet")
-        BinanceRestApiManager('api_key', 'api_secret', exchange="binance.com-isolated-margin")
-        BinanceRestApiManager('api_key', 'api_secret', exchange="binance.com-isolated-margin-testnet")
+        BinanceRestApiManager('api_key', 'api_secret', exchange="binance.com-isolated_margin")
+        BinanceRestApiManager('api_key', 'api_secret', exchange="binance.com-isolated_margin-testnet")
         BinanceRestApiManager('api_key', 'api_secret', exchange="binance.com-futures")
         BinanceRestApiManager('api_key', 'api_secret', exchange="binance.us")
         BinanceRestApiManager('api_key', 'api_secret', exchange="trbinance.com")
@@ -73,9 +74,12 @@ class TestBinanceComRestManager(unittest.TestCase):
         second_res = []
 
         with requests_mock.mock() as m:
-            m.get('https://api.binance.com/api/v3/klines?interval=1m&limit=1&startTime=0&symbol=BNBBTC', json=first_available_res)
-            m.get('https://api.binance.com/api/v3/klines?interval=1m&limit=500&startTime=1519862400000&symbol=BNBBTC', json=first_res)
-            m.get('https://api.binance.com/api/v3/klines?interval=1m&limit=500&startTime=1519892400000&symbol=BNBBTC', json=second_res)
+            m.get('https://api.binance.com/api/v3/klines?interval=1m&limit=1&startTime=0&symbol=BNBBTC',
+                  json=first_available_res)
+            m.get('https://api.binance.com/api/v3/klines?interval=1m&limit=500&startTime=1519862400000&symbol=BNBBTC',
+                  json=first_res)
+            m.get('https://api.binance.com/api/v3/klines?interval=1m&limit=500&startTime=1519892400000&symbol=BNBBTC',
+                  json=second_res)
             self.client.get_historical_klines(
                 symbol="BNBBTC",
                 interval=self.client.KLINE_INTERVAL_1MINUTE,
@@ -128,7 +132,8 @@ class TestBinanceComRestManager(unittest.TestCase):
                 json=first_available_res,
             )
             m.get(
-                "https://api.binance.com/api/v3/klines?interval=1m&limit=500&startTime=1519862400000&endTime=1519880400000&symbol=BNBBTC",
+                "https://api.binance.com/api/v3/klines?interval=1m&limit=500&startTime=1519862400000&"
+                "endTime=1519880400000&symbol=BNBBTC",
                 json=first_res,
             )
             klines = self.client.get_historical_klines(
@@ -183,7 +188,8 @@ class TestBinanceComRestManager(unittest.TestCase):
                 json=first_available_res,
             )
             m.get(
-                "https://api.binance.com/api/v3/klines?interval=1m&limit=500&startTime=1519862400000&endTime=1519880400000&symbol=BNBBTC",
+                "https://api.binance.com/api/v3/klines?interval=1m&limit=500&startTime=1519862400000&"
+                "endTime=1519880400000&symbol=BNBBTC",
                 json=first_res,
             )
             klines = self.client.get_historical_klines(
@@ -238,7 +244,8 @@ class TestBinanceComRestManager(unittest.TestCase):
                 json=first_available_res,
             )
             m.get(
-                "https://api.binance.com/api/v3/klines?interval=1m&limit=500&startTime=1519862400000&endTime=1519880400000&symbol=BNBBTC",
+                "https://api.binance.com/api/v3/klines?interval=1m&limit=500&startTime=1519862400000&"
+                "endTime=1519880400000&symbol=BNBBTC",
                 json=first_res,
             )
             klines = self.client.get_historical_klines_generator(
