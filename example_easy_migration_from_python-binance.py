@@ -34,7 +34,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 # IN THE SOFTWARE.
 
-from unicorn_binance_rest_api.unicorn_binance_rest_api_manager import BinanceRestApiManager
+from unicorn_binance_rest_api.unicorn_binance_rest_api_manager import BinanceRestApiManager as Client
 import logging
 import os
 
@@ -46,7 +46,7 @@ logging.basicConfig(level=logging.DEBUG,
 
 api_key = "aaa"
 api_secret = "bbb"
-client = BinanceRestApiManager(api_key, api_secret, tld="com")
+client = Client(api_key, api_secret, tld="com")
 
 # get market depth
 depth = client.get_order_book(symbol='BNBBTC')

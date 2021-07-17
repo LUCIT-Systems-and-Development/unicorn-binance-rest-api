@@ -36,8 +36,8 @@
 
 from unicorn_binance_rest_api.unicorn_binance_rest_api_manager import BinanceRestApiManager
 from unicorn_binance_rest_api.unicorn_binance_rest_api_manager import *
+from unicorn_binance_rest_api.unicorn_binance_rest_api_enums import *
 import requests_mock
-import logging
 import unittest
 
 
