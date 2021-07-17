@@ -20,7 +20,7 @@
 [Contributing](#contributing) | [Commercial Support](#commercial-support) | [Donate](#donate)
 
 An unofficial Python API to use the Binance REST API`s (com+testnet, com-margin+testnet, com-isolated_margin+testnet, 
-com-futures+testnet, us, tr, jex, dex/chain+testnet) in a easy, fast, flexible, robust and fully-featured way. 
+com-futures+testnet, us, tr, dex/chain+testnet) in a easy, fast, flexible, robust and fully-featured way. 
 
 Part of ['UNICORN Binance Suite'](https://github.com/oliver-zehentleitner/unicorn-binance-suite).
 
@@ -63,7 +63,6 @@ print(f"Used weight: {ubra.get_used_weight()}")
 | [Binance Coin-M Futures](https://www.binance.com) | `BinanceRestApiManager(exchange="binance.com-coin-futures")` |
 | [Binance US](https://www.binance.us) | `BinanceRestApiManager(exchange="binance.us")` |
 | [Binance TR](https://www.trbinance.com) | `BinanceRestApiManager(exchange="trbinance.com")` |
-| [Binance JEX](https://www.jex.com) | `BinanceRestApiManager(exchange="jex.com")` |
 
 - Helpful management features like 
 [`get_used_weight()`](https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/unicorn_binance_rest_api.html#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_used_weight), 
@@ -140,7 +139,6 @@ To receive news (like inspection windows/maintenance) about the Binance API`s su
 - [https://t.me/binance_api_english](https://t.me/binance_api_english)
 - [https://t.me/BinanceExchange](https://t.me/BinanceExchange)
 - [https://t.me/Binance_USA](https://t.me/Binance_USA)
-- [https://t.me/Binance_JEX_EN](https://t.me/Binance_JEX_EN)
 - [https://t.me/BinanceDEXchange](https://t.me/BinanceDEXchange)
 
 ## How to report Bugs or suggest Improvements?

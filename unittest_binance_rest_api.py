@@ -54,7 +54,7 @@ class TestBinanceComRestManager(unittest.TestCase):
         BinanceRestApiManager('api_key', 'api_secret', exchange="binance.com-futures")
         BinanceRestApiManager('api_key', 'api_secret', exchange="binance.us")
         BinanceRestApiManager('api_key', 'api_secret', exchange="trbinance.com")
-        BinanceRestApiManager('api_key', 'api_secret', exchange="jex.com")
+        #BinanceRestApiManager('api_key', 'api_secret', exchange="jex.com")
 
     # Test historical klines:
     def test_exact_amount(self):
