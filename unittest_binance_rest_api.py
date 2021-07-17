@@ -34,7 +34,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 # IN THE SOFTWARE.
 
-from unicorn_binance_rest_api.unicorn_binance_rest_api_manager import BinanceRestApiManager
 from unicorn_binance_rest_api.unicorn_binance_rest_api_manager import *
 from unicorn_binance_rest_api.unicorn_binance_rest_api_enums import *
 import requests_mock
@@ -46,15 +45,27 @@ class TestBinanceComRestManager(unittest.TestCase):
         self.client = BinanceRestApiManager('api_key', 'api_secret', tld="com")
         time.sleep(2)
         self.client = BinanceRestApiManager('api_key', 'api_secret', exchange="binance.com")
+        BinanceRestApiManager('api_key', 'api_secret', exchange="binance.com-testnet")
+        BinanceRestApiManager('api_key', 'api_secret', exchange="binance.com-margin")
+        BinanceRestApiManager('api_key', 'api_secret', exchange="binance.com-margin-testnet")
+        BinanceRestApiManager('api_key', 'api_secret', exchange="binance.com-isolated-margin")
+        BinanceRestApiManager('api_key', 'api_secret', exchange="binance.com-isolated-margin-testnet")
+        BinanceRestApiManager('api_key', 'api_secret', exchange="binance.com-futures")
+        BinanceRestApiManager('api_key', 'api_secret', exchange="binance.us")
+        BinanceRestApiManager('api_key', 'api_secret', exchange="trbinance.com")
+        BinanceRestApiManager('api_key', 'api_secret', exchange="jex.com")
 
     # Test historical klines:
     def test_exact_amount(self):
         """Test Exact amount returned"""
 
-        first_available_res = [[1500004800000, "0.00005000", "0.00005300", "0.00001000", "0.00004790", "663152.00000000", 1500004859999, "30.55108144", 43, "559224.00000000", "25.65468144", "83431971.04346950"]]
+        first_available_res = [[1500004800000, "0.00005000", "0.00005300", "0.00001000", "0.00004790",
+                                "663152.00000000", 1500004859999, "30.55108144", 43, "559224.00000000",
+                                "25.65468144", "83431971.04346950"]]
 
         first_res = []
-        row = [1519892340000, "0.00099400", "0.00099810", "0.00099400", "0.00099810", "4806.04000000", 1519892399999, "4.78553253", 154, "1785.14000000", "1.77837524", "0"]
+        row = [1519892340000, "0.00099400", "0.00099810", "0.00099400", "0.00099810", "4806.04000000", 1519892399999,
+               "4.78553253", 154, "1785.14000000", "1.77837524", "0"]
 
         for i in range(0, 500):
             first_res.append(row)
@@ -65,12 +76,12 @@ class TestBinanceComRestManager(unittest.TestCase):
             m.get('https://api.binance.com/api/v3/klines?interval=1m&limit=1&startTime=0&symbol=BNBBTC', json=first_available_res)
             m.get('https://api.binance.com/api/v3/klines?interval=1m&limit=500&startTime=1519862400000&symbol=BNBBTC', json=first_res)
             m.get('https://api.binance.com/api/v3/klines?interval=1m&limit=500&startTime=1519892400000&symbol=BNBBTC', json=second_res)
-            klines = self.client.get_historical_klines(
+            self.client.get_historical_klines(
                 symbol="BNBBTC",
                 interval=self.client.KLINE_INTERVAL_1MINUTE,
                 start_str="1st March 2018"
             )
-            #self.assertEqual(len(kline), 500)
+            # self.assertEqual(len(kline), 500)
             self.assertEqual(5, 5)
 
     def test_start_and_end_str(self):
@@ -238,7 +249,7 @@ class TestBinanceComRestManager(unittest.TestCase):
             )
 
             for i in range(300):
-                self.assertGreater(len(next(klines)),0)
+                self.assertGreater(len(next(klines)), 0)
 
     def test_historical_kline_generator_empty_response(self):
         pass
