@@ -333,7 +333,10 @@ class BinanceRestApiManager(object):
         self.ping()
         # calculate timestamp offset between local and binance api server
         res = self.get_server_time()
-        self.timestamp_offset = res['serverTime'] - int(time.time() * 1000)
+        try:
+            self.timestamp_offset = res['serverTime'] - int(time.time() * 1000)
+        except KeyError:
+            self.timestamp_offset = 0
         if warn_on_update and self.is_update_availabe():
             update_msg = f"Release {self.name}_" + self.get_latest_version() + " is available, " \
                          f"please consider updating! (Changelog: https://github.com/oliver-zehentleitner/unicorn-" \
