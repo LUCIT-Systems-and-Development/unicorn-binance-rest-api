@@ -64,9 +64,11 @@ print(ubra.get_symbol_ticker(symbol="LUNABTC"))
 
 print(ubra.get_open_orders(symbol='LUNABTC'))
 
-#buy_limit_order = ubra.order_limit_buy(symbol='LUNABTC', quantity=2, price='0.0001')
+# ubra.create_order(symbol='ETHUSDT', side="BUY", quantity=2, stopPrice='2000', type='STOP_LOSS')
 
-#sell_limit_order = ubra.order_limit_sell(symbol='LUNABTC', quantity=2, price='0.0003')
+# buy_limit_order = ubra.order_limit_buy(symbol='LUNABTC', quantity=2, price='0.0001')
+
+# sell_limit_order = ubra.order_limit_sell(symbol='LUNABTC', quantity=2, price='0.0003')
 
 existing_orders = ubra.get_open_orders(symbol='LUNABTC')
 
