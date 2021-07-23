@@ -14,6 +14,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 [issue#3](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/issues/3)
 ### Changed
 - `tld` is now obsolete
+### Fixed
+- ValueError in `get_used_weight()`
 ### Removed
 - double definition of `make_universal_transfer()`
 - binance.je support (Binance Jersey has ceased operations.)
