@@ -5399,7 +5399,12 @@ class BinanceRestApiManager(object):
         if make_new_request is True:
             self.get_exchange_info()
         binance_api_status['weight'] = self.response.headers.get('X-MBX-USED-WEIGHT')
-        date_time_obj = datetime.datetime.strptime(self.response.headers.get('Date'), '%a, %d %b %Y %I:%M:%S %Z')
+        try:
+            date_time_obj = datetime.datetime.strptime(self.response.headers.get('Date'), '%a, %d %b %Y %I:%M:%S %Z')
+        except ValueError:
+            binance_api_status['timestamp'] = 0
+            binance_api_status['status_code'] = 0
+            return binance_api_status
         binance_api_status['timestamp'] = date_time_obj.timestamp()
         binance_api_status['status_code'] = self.response.status_code
         return binance_api_status
