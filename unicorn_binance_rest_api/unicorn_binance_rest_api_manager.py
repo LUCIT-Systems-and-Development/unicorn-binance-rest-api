@@ -3997,6 +3997,54 @@ class BinanceRestApiManager(object):
 
         return self._request_margin_api('get', 'margin/openOrders', signed=True, data=params)
 
+    def get_open_isolated_margin_orders(self, **params):
+        """
+        Query isolated margin accounts open orders
+
+        If the symbol is not sent, orders for all symbols will be returned in an array (cross-margin only).
+
+        If querying isolated margin orders, both the isIsolated='TRUE' and symbol=symbol_name must be set.
+
+        When all symbols are returned, the number of requests counted against the rate limiter is equal to the number
+        of symbols currently trading on the exchange.
+
+        https://binance-docs.github.io/apidocs/spot/en/#query-margin-account-39-s-open-order-user_data
+
+        :param symbol: optional
+        :type symbol: str
+        :param isIsolated: set to 'TRUE' for isolated margin (default 'FALSE')
+        :type isIsolated: str
+        :param recvWindow: the number of milliseconds the request is valid for
+        :type recvWindow: int
+
+        :return: API response
+
+            [
+                {
+                    "clientOrderId": "qhcZw71gAkCCTv0t0k8LUK",
+                    "cummulativeQuoteQty": "0.00000000",
+                    "executedQty": "0.00000000",
+                    "icebergQty": "0.00000000",
+                    "isWorking": true,
+                    "orderId": 211842552,
+                    "origQty": "0.30000000",
+                    "price": "0.00475010",
+                    "side": "SELL",
+                    "status": "NEW",
+                    "stopPrice": "0.00000000",
+                    "symbol": "BNBBTC",
+                    "time": 1562040170089,
+                    "timeInForce": "GTC",
+                    "type": "LIMIT",
+                    "updateTime": 1562040170089
+                } ]
+
+        :raises: BinanceRequestException, BinanceAPIException
+
+        """
+
+        return self._request_margin_api('get', 'margin/openOrders', signed=True, data=params)
+
     def get_all_margin_orders(self, **params):
         """Query all margin accounts orders
 
