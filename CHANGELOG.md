@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - `tld` is now obsolete
 ### Fixed
 - ValueError in `get_used_weight()`
+- get_open_margin_orders()
 ### Removed
 - double definition of `make_universal_transfer()`
 - binance.je support (Binance Jersey has ceased operations.)
