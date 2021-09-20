@@ -3950,7 +3950,7 @@ class BinanceRestApiManager(object):
         return self._request_margin_api('get', 'margin/order', signed=True, data=params)
 
     def get_open_margin_orders(self, **params):
-        f"""
+        """
         Query margin accounts open orders
 
         If the symbol is not sent, orders for all symbols will be returned in an array (cross-margin only).
