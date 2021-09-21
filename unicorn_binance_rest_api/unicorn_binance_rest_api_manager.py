@@ -181,7 +181,8 @@ class BinanceRestApiManager(object):
                  tld=False,
                  warn_on_update=True,
                  exchange=False,
-                 disable_colorama=False):
+                 disable_colorama=False,
+                 debug=False):
 
         self.name = "unicorn-binance-rest-api"
         self.version = "1.2.0.dev"
@@ -190,6 +191,7 @@ class BinanceRestApiManager(object):
         if disable_colorama is not True:
             colorama.init()
         self.exchange = exchange
+        self.debug = debug
         if tld is not False:
             # Todo: Remove Block with tld!
             logging.warning("The parameter BinanceRestApiManager(tld=`com`) is obsolete, use parameter `exchange` "
@@ -302,22 +304,31 @@ class BinanceRestApiManager(object):
             self.FUTURES_DATA_URL = "https://www.jex.com/futures/data"
             self.FUTURES_COIN_URL = "https://www.jex.com/fapi"
             self.FUTURES_COIN_DATA_URL = "https://www.jex.com/futures/data"
+        elif self.exchange:
+            # Unknown Exchange
+            error_msg = f"Unknown exchange '{str(self.exchange)}'! Read the docs to see a list of supported " \
+                        "exchanges: https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/unicorn_" \
+                        "binance_rest_api.html#module-unicorn_binance_rest_api.unicorn_binance_rest_" \
+                        "api_manager"
+            logging.critical(error_msg)
+
+            raise UnknownExchange(error_msg)
         else:
             if tld is False:
-                # Todo: Remove "if"-row with tld
-                # Unknown Exchange
-                error_msg = f"Unknown exchange '{str(self.exchange)}'! Read the docs to see a list of supported " \
-                            "exchanges: https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/unicorn_" \
-                            "binance_rest_api.html#module-unicorn_binance_rest_api.unicorn_binance_rest_" \
-                            "api_manager"
-                logging.critical(error_msg)
+                self.API_URL = "https://api.binance.com/api"
+                self.MARGIN_API_URL = " https://api.binance.com/sapi"
+                self.WEBSITE_URL = "https://www.binance.com"
+                self.FUTURES_URL = "https://fapi.binance.com/fapi"
+                self.FUTURES_DATA_URL = "https://fapi.binance.com/futures/data"
+                self.FUTURES_COIN_URL = "https://fapi.binance.com/fapi"
+                self.FUTURES_COIN_DATA_URL = "https://dapi.binance.com/futures/data"
 
-                raise UnknownExchange(error_msg)
-
-        print(f"self.API_URL: {self.API_URL}\r\nself.MARGIN_API_URL: {self.MARGIN_API_URL}\r\n"
-              f"self.WEBSITE_URL: {self.WEBSITE_URL}\r\nself.FUTURES_URL: {self.FUTURES_URL}\r\n"
-              f"self.FUTURES_DATA_URL: {self.FUTURES_DATA_URL}\r\nself.FUTURES_COIN_URL: {self.FUTURES_COIN_URL}\r\n"
-              f"self.FUTURES_COIN_DATA_URL: {self.FUTURES_COIN_DATA_URL}")
+        if self.debug:
+            print(f"tld: {tld}, exchange: {exchange}\r\n"
+                  f"self.API_URL: {self.API_URL}\r\nself.MARGIN_API_URL: {self.MARGIN_API_URL}\r\n"
+                  f"self.WEBSITE_URL: {self.WEBSITE_URL}\r\nself.FUTURES_URL: {self.FUTURES_URL}\r\n"
+                  f"self.FUTURES_DATA_URL: {self.FUTURES_DATA_URL}\r\nself.FUTURES_COIN_URL: {self.FUTURES_COIN_URL}\r\n"
+                  f"self.FUTURES_COIN_DATA_URL: {self.FUTURES_COIN_DATA_URL}")
 
         self.API_KEY = api_key
         self.API_SECRET = api_secret
@@ -3950,8 +3961,7 @@ class BinanceRestApiManager(object):
         return self._request_margin_api('get', 'margin/order', signed=True, data=params)
 
     def get_open_margin_orders(self, **params):
-        """
-        Query margin accounts open orders
+        """Query margin accounts open orders
 
         If the symbol is not sent, orders for all symbols will be returned in an array (cross-margin only).
 
@@ -3970,6 +3980,8 @@ class BinanceRestApiManager(object):
         :type recvWindow: int
 
         :return: API response
+
+        .. code-block:: python
 
             [
                 {
@@ -3990,6 +4002,7 @@ class BinanceRestApiManager(object):
                     "type": "LIMIT",
                     "updateTime": 1562040170089
                 } ]
+
 
         :raises: BinanceRequestException, BinanceAPIException
 
@@ -3998,8 +4011,7 @@ class BinanceRestApiManager(object):
         return self._request_margin_api('get', 'margin/openOrders', signed=True, data=params)
 
     def get_open_isolated_margin_orders(self, **params):
-        """
-        Query isolated margin accounts open orders
+        """Query isolated margin accounts open orders
 
         If the symbol is not sent, orders for all symbols will be returned in an array (cross-margin only).
 
@@ -4016,8 +4028,9 @@ class BinanceRestApiManager(object):
         :type isIsolated: str
         :param recvWindow: the number of milliseconds the request is valid for
         :type recvWindow: int
-
         :return: API response
+
+        .. code-block:: python
 
             [
                 {
@@ -4039,10 +4052,12 @@ class BinanceRestApiManager(object):
                     "updateTime": 1562040170089
                 } ]
 
+
         :raises: BinanceRequestException, BinanceAPIException
 
         """
 
+        # Todo: Add isIsolated parameter
         return self._request_margin_api('get', 'margin/openOrders', signed=True, data=params)
 
     def get_all_margin_orders(self, **params):

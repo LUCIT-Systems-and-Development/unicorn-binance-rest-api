@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>unicorn_binance_rest_api package &#8212; unicorn-binance-rest-api 1.2.0 documentation</title>
+    <title>unicorn_binance_rest_api package &#8212; unicorn-binance-rest-api 1.3.0 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/pydoctheme.css" type="text/css" />
     
@@ -48,7 +48,7 @@
     <li><a href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api">unicorn-binance-rest-api</a> &#187;</li>
     
     
-    <a href="index.html">unicorn-binance-rest-api 1.2.0 documentation</a> &#187;
+    <a href="index.html">unicorn-binance-rest-api 1.3.0 documentation</a> &#187;
     
 
           <li class="nav-item nav-item-1"><a href="modules.html" accesskey="U">unicorn_binance_rest_api</a> &#187;</li>
@@ -130,6 +130,13 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 </dd></dl>
 
+<dl class="py exception">
+<dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_exceptions.UnknownExchange">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">unicorn_binance_rest_api.unicorn_binance_rest_api_exceptions.</span></code><code class="sig-name descname"><span class="pre">UnknownExchange</span></code><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_exceptions.UnknownExchange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Exception for if the manager class is started with an unkown exchange.</p>
+</dd></dl>
+
 </div>
 <div class="section" id="module-unicorn_binance_rest_api.unicorn_binance_rest_api_helpers">
 <span id="unicorn-binance-rest-api-unicorn-binance-rest-api-helpers-module"></span><h2>unicorn_binance_rest_api.unicorn_binance_rest_api_helpers module<a class="headerlink" href="#module-unicorn_binance_rest_api.unicorn_binance_rest_api_helpers" title="Permalink to this headline">¶</a></h2>
@@ -167,8 +174,50 @@ None if interval suffix is not one of m, h, d, w</p>
 <span id="unicorn-binance-rest-api-unicorn-binance-rest-api-manager-module"></span><h2>unicorn_binance_rest_api.unicorn_binance_rest_api_manager module<a class="headerlink" href="#module-unicorn_binance_rest_api.unicorn_binance_rest_api_manager" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">unicorn_binance_rest_api.unicorn_binance_rest_api_manager.</span></code><code class="sig-name descname"><span class="pre">BinanceRestApiManager</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_secret</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requests_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tld</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'com'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warn_on_update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">unicorn_binance_rest_api.unicorn_binance_rest_api_manager.</span></code><code class="sig-name descname"><span class="pre">BinanceRestApiManager</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_secret</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requests_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tld</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warn_on_update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exchange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">disable_colorama</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An unofficial Python API to use the Binance REST API`s (com+testnet, com-margin+testnet,
+com-isolated_margin+testnet, com-futures+testnet, us, jex) in a easy, fast, flexible,
+robust and fully-featured way.</p>
+<dl class="simple">
+<dt>Binance.com rest API documentation:</dt><dd><ul class="simple">
+<li></li>
+</ul>
+</dd>
+<dt>Binance.vision (Testnet) rest API documentation:</dt><dd><ul class="simple">
+<li></li>
+</ul>
+</dd>
+<dt>Binance.us rest API documentation:</dt><dd><ul class="simple">
+<li></li>
+</ul>
+</dd>
+<dt>TRBinance.com rest API documentation:</dt><dd><ul class="simple">
+<li><p><a class="reference external" href="https://www.trbinance.com/apidocs/#api-document-description">https://www.trbinance.com/apidocs/#api-document-description</a></p></li>
+</ul>
+</dd>
+<dt>Jex.com websocket API documentation:</dt><dd><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/JexApi/jex-official-api-docs">https://github.com/JexApi/jex-official-api-docs</a></p></li>
+</ul>
+</dd>
+</dl>
+<p>Binance API Client constructor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>api_key</strong> (<em>str.</em>) – Api Key</p></li>
+<li><p><strong>api_secret</strong> (<em>str.</em>) – Api Secret</p></li>
+<li><p><strong>requests_params</strong> (<em>dict.</em>) – optional - Dictionary of requests params to use for all calls</p></li>
+<li><p><strong>tld</strong> (<em>str.</em>) – Top Level Domain of the Binance endpoint, Default is False</p></li>
+<li><p><strong>warn_on_update</strong> (<em>bool</em>) – set to <cite>False</cite> to disable the update warning</p></li>
+<li><p><strong>exchange</strong> (<em>str</em>) – Select binance.com, binance.com-testnet, binance.com-margin, binance.com-margin-testnet,
+binance.com-isolated_margin, binance.com-isolated_margin-testnet, binance.com-futures,
+binance.com-futures-testnet, binance.com-coin-futures, binance.us, trbinance.com
+or jex.com (default: binance.com) This overules parameter <cite>tld</cite>.</p></li>
+<li><p><strong>disable_colorama</strong> (<em>bool</em>) – set to True to disable the use of <a class="reference external" href="https://pypi.org/project/colorama/">colorama</a></p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py attribute">
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.AGG_BEST_MATCH">
 <code class="sig-name descname"><span class="pre">AGG_BEST_MATCH</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'M'</span></em><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.AGG_BEST_MATCH" title="Permalink to this definition">¶</a></dt>
@@ -565,12 +614,126 @@ will probably hit your rate limit.</p>
 <li><p><strong>start_str</strong> (<em>str|int</em>) – Start date string in UTC format or timestamp in milliseconds. The iterator will
 return the first trade occurring later than this time.</p></li>
 <li><p><strong>last_id</strong> (<em>int</em>) – aggregate trade ID of the last known aggregate trade.
-Not a regular trade ID. See <a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#compressedaggregate-trades-list">https://binance-docs.github.io/apidocs/spot/en/#compressedaggregate-trades-list</a>.</p></li>
+Not a regular trade ID. See
+<a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#compressedaggregate-trades-list">https://binance-docs.github.io/apidocs/spot/en/#compressedaggregate-trades-list</a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>an iterator of JSON objects, one per trade. The format of
 each object is identical to Client.aggregate_trades().</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.cancel_all_open_orders">
+<code class="sig-name descname"><span class="pre">cancel_all_open_orders</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.cancel_all_open_orders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cancel all open orders of a symbol.</p>
+<p><a class="reference external" href="https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#cancel-all-open-orders-on-a-symbol-trade">https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#cancel-all-open-orders-on-a-symbol-trade</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>symbol</strong> (<em>str</em>) – required</p></li>
+<li><p><strong>recvWindow</strong> (<em>int</em>) – the number of milliseconds the request is valid for</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>API response</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;BTCUSDT&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;origClientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;E6APeyTJvkMvLMYMqu1KQ4&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;orderId&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+    <span class="s2">&quot;orderListId&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;clientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;pXLV6Hz6mprAcVYpVMTGgx&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="s2">&quot;0.089853&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;origQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.178622&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;executedQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.000000&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cummulativeQuoteQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.000000&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;CANCELED&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;timeInForce&quot;</span><span class="p">:</span> <span class="s2">&quot;GTC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;LIMIT&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;side&quot;</span><span class="p">:</span> <span class="s2">&quot;BUY&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;BTCUSDT&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;origClientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;A3EF2HCwxgZPFMrfwbgrhv&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;orderId&quot;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
+    <span class="s2">&quot;orderListId&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;clientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;pXLV6Hz6mprAcVYpVMTGgx&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="s2">&quot;0.090430&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;origQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.178622&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;executedQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.000000&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cummulativeQuoteQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.000000&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;CANCELED&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;timeInForce&quot;</span><span class="p">:</span> <span class="s2">&quot;GTC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;LIMIT&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;side&quot;</span><span class="p">:</span> <span class="s2">&quot;BUY&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;orderListId&quot;</span><span class="p">:</span> <span class="mi">1929</span><span class="p">,</span>
+    <span class="s2">&quot;contingencyType&quot;</span><span class="p">:</span> <span class="s2">&quot;OCO&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;listStatusType&quot;</span><span class="p">:</span> <span class="s2">&quot;ALL_DONE&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;listOrderStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;ALL_DONE&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;listClientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;2inzWQdDvZLHbbAmAozX2N&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;transactionTime&quot;</span><span class="p">:</span> <span class="mi">1585230948299</span><span class="p">,</span>
+    <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;BTCUSDT&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;orders&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;BTCUSDT&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;orderId&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="s2">&quot;clientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;CwOOIPHSmYywx6jZX77TdL&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;BTCUSDT&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;orderId&quot;</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span>
+        <span class="s2">&quot;clientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;461cPg51vQjV3zIMOXNz39&quot;</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;orderReports&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;BTCUSDT&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;origClientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;CwOOIPHSmYywx6jZX77TdL&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;orderId&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="s2">&quot;orderListId&quot;</span><span class="p">:</span> <span class="mi">1929</span><span class="p">,</span>
+        <span class="s2">&quot;clientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;pXLV6Hz6mprAcVYpVMTGgx&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="s2">&quot;0.668611&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;origQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.690354&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;executedQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.000000&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cummulativeQuoteQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.000000&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;CANCELED&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;timeInForce&quot;</span><span class="p">:</span> <span class="s2">&quot;GTC&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;STOP_LOSS_LIMIT&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;side&quot;</span><span class="p">:</span> <span class="s2">&quot;BUY&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;stopPrice&quot;</span><span class="p">:</span> <span class="s2">&quot;0.378131&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;icebergQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.017083&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;BTCUSDT&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;origClientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;461cPg51vQjV3zIMOXNz39&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;orderId&quot;</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span>
+        <span class="s2">&quot;orderListId&quot;</span><span class="p">:</span> <span class="mi">1929</span><span class="p">,</span>
+        <span class="s2">&quot;clientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;pXLV6Hz6mprAcVYpVMTGgx&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="s2">&quot;0.008791&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;origQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.690354&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;executedQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.000000&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cummulativeQuoteQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.000000&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;CANCELED&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;timeInForce&quot;</span><span class="p">:</span> <span class="s2">&quot;GTC&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;LIMIT_MAKER&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;side&quot;</span><span class="p">:</span> <span class="s2">&quot;BUY&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;icebergQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.639962&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException</p>
 </dd>
 </dl>
 </dd></dl>
@@ -890,7 +1053,9 @@ BinanceOrderInactiveSymbolException</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException, BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException, BinanceOrderInactiveSymbolException</p>
+<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException,
+BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException,
+BinanceOrderInactiveSymbolException</p>
 </dd>
 </dl>
 </dd></dl>
@@ -997,7 +1162,9 @@ of the quote asset, applicable to MARKET orders</p></li>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException, BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException, BinanceOrderInactiveSymbolException</p>
+<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException,
+BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException,
+BinanceOrderInactiveSymbolException</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1038,7 +1205,8 @@ of the quote asset, applicable to MARKET orders</p></li>
 <dl class="py method">
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.create_test_order">
 <code class="sig-name descname"><span class="pre">create_test_order</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.create_test_order" title="Permalink to this definition">¶</a></dt>
-<dd><p>Test new order creation and signature/recvWindow long. Creates and validates a new order but does not send it into the matching engine.</p>
+<dd><p>Test new order creation and signature/recvWindow long. Creates and validates a new order but does not send
+it into the matching engine.</p>
 <p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#test-new-order-trade">https://binance-docs.github.io/apidocs/spot/en/#test-new-order-trade</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1064,7 +1232,9 @@ of the quote asset, applicable to MARKET orders</p></li>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException, BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException, BinanceOrderInactiveSymbolException</p>
+<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException,
+BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException,
+BinanceOrderInactiveSymbolException</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2036,7 +2206,7 @@ from the same order, with the same price will have the quantity aggregated.</p>
             <span class="s2">&quot;specialTips&quot;</span><span class="p">:</span> <span class="s2">&quot;Both a MEMO and an Address are required to successfully deposit your BEP2-BTCB tokens to Binance.&quot;</span><span class="p">,</span>
             <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;BEP2&quot;</span><span class="p">,</span>
             <span class="s2">&quot;resetAddressStatus&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-            <span class="s2">&quot;addressRegex&quot;</span><span class="p">:</span> <span class="s2">&quot;^(bnb1)[0-9a-z]{38}$&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;addressRegex&quot;</span><span class="p">:</span> <span class="s2">&quot;^(bnb1)[0-9a-z]</span><span class="si">{38}</span><span class="s2">$&quot;</span><span class="p">,</span>
             <span class="s2">&quot;memoRegex&quot;</span><span class="p">:</span> <span class="s2">&quot;^[0-9A-Za-z-_]{1,120}$&quot;</span><span class="p">,</span>
             <span class="s2">&quot;withdrawFee&quot;</span><span class="p">:</span> <span class="s2">&quot;0.0000026&quot;</span><span class="p">,</span>
             <span class="s2">&quot;withdrawMin&quot;</span><span class="p">:</span> <span class="s2">&quot;0.0000052&quot;</span><span class="p">,</span>
@@ -2680,12 +2850,12 @@ from the same order, with the same price will have the quantity aggregated.</p>
         <span class="s2">&quot;lotsPurchased&quot;</span><span class="p">:</span> <span class="mi">74155</span><span class="p">,</span>
         <span class="s2">&quot;lotsUpLimit&quot;</span><span class="p">:</span> <span class="mi">80000</span><span class="p">,</span>
         <span class="s2">&quot;maxLotsPerUser&quot;</span><span class="p">:</span> <span class="mi">2000</span><span class="p">,</span>
-        <span class="s2">&quot;needKyc&quot;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+        <span class="s2">&quot;needKyc&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
         <span class="s2">&quot;projectId&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSDT90DAYSS001&quot;</span><span class="p">,</span>
         <span class="s2">&quot;projectName&quot;</span><span class="p">:</span> <span class="s2">&quot;USDT&quot;</span><span class="p">,</span>
         <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;PURCHASING&quot;</span><span class="p">,</span>
         <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;CUSTOMIZED_FIXED&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;withAreaLimitation&quot;</span><span class="p">:</span> <span class="bp">False</span>
+        <span class="s2">&quot;withAreaLimitation&quot;</span><span class="p">:</span> <span class="kc">False</span>
     <span class="p">}</span>
 <span class="p">]</span>
 </pre></div>
@@ -2709,7 +2879,8 @@ from the same order, with the same price will have the quantity aggregated.</p>
 <li><p><strong>symbol</strong> (<em>str</em>) – Name of symbol pair e.g BNBBTC</p></li>
 <li><p><strong>interval</strong> (<em>str</em>) – Binance Kline interval</p></li>
 <li><p><strong>start_str</strong> (<em>str|int</em>) – Start date string in UTC format or timestamp in milliseconds</p></li>
-<li><p><strong>end_str</strong> (<em>str|int</em>) – optional - end date string in UTC format or timestamp in milliseconds (default will fetch everything up to now)</p></li>
+<li><p><strong>end_str</strong> (<em>str|int</em>) – optional - end date string in UTC format or timestamp in milliseconds (default will fetch
+everything up to now)</p></li>
 <li><p><strong>limit</strong> (<em>int</em>) – Default 500; max 1000.</p></li>
 </ul>
 </dd>
@@ -2731,7 +2902,8 @@ from the same order, with the same price will have the quantity aggregated.</p>
 <li><p><strong>symbol</strong> (<em>str</em>) – Name of symbol pair e.g BNBBTC</p></li>
 <li><p><strong>interval</strong> (<em>str</em>) – Binance Kline interval</p></li>
 <li><p><strong>start_str</strong> (<em>str|int</em>) – Start date string in UTC format or timestamp in milliseconds</p></li>
-<li><p><strong>end_str</strong> (<em>str|int</em>) – optional - end date string in UTC format or timestamp in milliseconds (default will fetch everything up to now)</p></li>
+<li><p><strong>end_str</strong> (<em>str|int</em>) – optional - end date string in UTC format or timestamp in milliseconds (default will fetch
+everything up to now)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -3508,9 +3680,102 @@ from the same order, with the same price will have the quantity aggregated.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_open_isolated_margin_orders">
+<code class="sig-name descname"><span class="pre">get_open_isolated_margin_orders</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_open_isolated_margin_orders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query isolated margin accounts open orders</p>
+<p>If the symbol is not sent, orders for all symbols will be returned in an array (cross-margin only).</p>
+<p>If querying isolated margin orders, both the isIsolated=’TRUE’ and symbol=symbol_name must be set.</p>
+<p>When all symbols are returned, the number of requests counted against the rate limiter is equal to the number
+of symbols currently trading on the exchange.</p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#query-margin-account-39-s-open-order-user_data">https://binance-docs.github.io/apidocs/spot/en/#query-margin-account-39-s-open-order-user_data</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>symbol</strong> (<em>str</em>) – optional</p></li>
+<li><p><strong>isIsolated</strong> (<em>str</em>) – set to ‘TRUE’ for isolated margin (default ‘FALSE’)</p></li>
+<li><p><strong>recvWindow</strong> (<em>int</em>) – the number of milliseconds the request is valid for</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>API response</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;clientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;qhcZw71gAkCCTv0t0k8LUK&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cummulativeQuoteQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00000000&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;executedQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00000000&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;icebergQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00000000&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;isWorking&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;orderId&quot;</span><span class="p">:</span> <span class="mi">211842552</span><span class="p">,</span>
+        <span class="s2">&quot;origQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.30000000&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00475010&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;side&quot;</span><span class="p">:</span> <span class="s2">&quot;SELL&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;NEW&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;stopPrice&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00000000&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;BNBBTC&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="mi">1562040170089</span><span class="p">,</span>
+        <span class="s2">&quot;timeInForce&quot;</span><span class="p">:</span> <span class="s2">&quot;GTC&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;LIMIT&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;updateTime&quot;</span><span class="p">:</span> <span class="mi">1562040170089</span>
+    <span class="p">}</span> <span class="p">]</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_open_margin_orders">
 <code class="sig-name descname"><span class="pre">get_open_margin_orders</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_open_margin_orders" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Query margin accounts open orders</p>
+<p>If the symbol is not sent, orders for all symbols will be returned in an array (cross-margin only).</p>
+<p>If querying isolated margin orders, both the isIsolated=’TRUE’ and symbol=symbol_name must be set.</p>
+<p>When all symbols are returned, the number of requests counted against the rate limiter is equal to the number
+of symbols currently trading on the exchange.</p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#query-margin-account-39-s-open-order-user_data">https://binance-docs.github.io/apidocs/spot/en/#query-margin-account-39-s-open-order-user_data</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>symbol</strong> (<em>str</em>) – optional</p></li>
+<li><p><strong>isIsolated</strong> (<em>str</em>) – set to ‘TRUE’ for isolated margin (default ‘FALSE’)</p></li>
+<li><p><strong>recvWindow</strong> (<em>int</em>) – the number of milliseconds the request is valid for</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>API response</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;clientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;qhcZw71gAkCCTv0t0k8LUK&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cummulativeQuoteQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00000000&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;executedQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00000000&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;icebergQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00000000&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;isWorking&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;orderId&quot;</span><span class="p">:</span> <span class="mi">211842552</span><span class="p">,</span>
+        <span class="s2">&quot;origQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.30000000&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00475010&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;side&quot;</span><span class="p">:</span> <span class="s2">&quot;SELL&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;NEW&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;stopPrice&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00000000&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;BNBBTC&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="mi">1562040170089</span><span class="p">,</span>
+        <span class="s2">&quot;timeInForce&quot;</span><span class="p">:</span> <span class="s2">&quot;GTC&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;LIMIT&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;updateTime&quot;</span><span class="p">:</span> <span class="mi">1562040170089</span>
+    <span class="p">}</span> <span class="p">]</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_open_orders">
@@ -4745,7 +5010,8 @@ from the same order, with the same price will have the quantity aggregated.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>coin</strong> (<em>str</em>) – optional</p></li>
-<li><p><strong>status</strong> (<em>int</em>) – 0(0:Email Sent,1:Cancelled 2:Awaiting Approval 3:Rejected 4:Processing 5:Failure 6Completed) optional</p></li>
+<li><p><strong>status</strong> (<em>int</em>) – 0(0:Email Sent,1:Cancelled 2:Awaiting Approval 3:Rejected 4:Processing 5:Failure 6Completed)
+optional</p></li>
 <li><p><strong>offset</strong> (<em>int</em>) – optional - default:0</p></li>
 <li><p><strong>limit</strong> (<em>int</em>) – optional</p></li>
 <li><p><strong>startTime</strong> (<em>int</em>) – optional - Default: 90 days from current timestamp</p></li>
@@ -4764,7 +5030,8 @@ from the same order, with the same price will have the quantity aggregated.</p>
         <span class="s2">&quot;applyTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-10-12 11:12:02&quot;</span><span class="p">,</span>
         <span class="s2">&quot;coin&quot;</span><span class="p">:</span> <span class="s2">&quot;USDT&quot;</span><span class="p">,</span>
         <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;b6ae22b3aa844210a7041aee7589627c&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;withdrawOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;WITHDRAWtest123&quot;</span><span class="p">,</span> <span class="o">//</span> <span class="n">will</span> <span class="ow">not</span> <span class="n">be</span> <span class="n">returned</span> <span class="k">if</span> <span class="n">there</span><span class="s1">&#39;s no withdrawOrderId for this withdraw.</span>
+        <span class="s2">&quot;withdrawOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;WITHDRAWtest123&quot;</span><span class="p">,</span> <span class="o">//</span> <span class="n">will</span> <span class="ow">not</span> <span class="n">be</span> <span class="n">returned</span> <span class="k">if</span> <span class="n">there</span><span class="s1">&#39;s no withdrawOrderId for</span>
+                           <span class="n">this</span> <span class="n">withdraw</span><span class="o">.</span>
         <span class="s2">&quot;network&quot;</span><span class="p">:</span> <span class="s2">&quot;ETH&quot;</span><span class="p">,</span>
         <span class="s2">&quot;transferType&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>   <span class="o">//</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">internal</span> <span class="n">transfer</span><span class="p">,</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">external</span> <span class="n">transfer</span>
         <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
@@ -4811,7 +5078,7 @@ from the same order, with the same price will have the quantity aggregated.</p>
 </dl>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;7213fea8e94b4a5593d507237e5a555b&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;withdrawOrderId&quot;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+    <span class="s2">&quot;withdrawOrderId&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
     <span class="s2">&quot;amount&quot;</span><span class="p">:</span> <span class="mf">0.99</span><span class="p">,</span>
     <span class="s2">&quot;transactionFee&quot;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
     <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;0x6915f16f8791d0a1cc2bf47c13a6b2a92000504b&quot;</span><span class="p">,</span>
@@ -5077,41 +5344,6 @@ If the stream becomes invalid a new key is returned.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.make_universal_transfer_tmp">
-<code class="sig-name descname"><span class="pre">make_universal_transfer_tmp</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.make_universal_transfer_tmp" title="Permalink to this definition">¶</a></dt>
-<dd><p>User Universal Transfer</p>
-<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#user-universal-transfer">https://binance-docs.github.io/apidocs/spot/en/#user-universal-transfer</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>type</strong> (<em>str</em><em> (</em><em>ENUM</em><em>)</em>) – required</p></li>
-<li><p><strong>asset</strong> (<em>str</em>) – required</p></li>
-<li><p><strong>amount</strong> (<em>str</em>) – required</p></li>
-<li><p><strong>recvWindow</strong> (<em>int</em>) – the number of milliseconds the request is valid for</p></li>
-</ul>
-</dd>
-</dl>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">transfer_status</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">make_universal_transfer</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
-</pre></div>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>API response</p>
-</dd>
-</dl>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;tranId&quot;</span><span class="p">:</span><span class="mi">13526853623</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
 <dt id="unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.margin_stream_close">
 <code class="sig-name descname"><span class="pre">margin_stream_close</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">listenKey</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.margin_stream_close" title="Permalink to this definition">¶</a></dt>
 <dd><p>Close out a cross-margin data stream.</p>
@@ -5215,7 +5447,9 @@ If the stream becomes invalid a new key is returned.</p>
 <p>See order endpoint for full response options</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException, BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException, BinanceOrderInactiveSymbolException</p>
+<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException,
+BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException,
+BinanceOrderInactiveSymbolException</p>
 </dd>
 </dl>
 </dd></dl>
@@ -5246,7 +5480,9 @@ If the stream becomes invalid a new key is returned.</p>
 <p>See order endpoint for full response options</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException, BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException, BinanceOrderInactiveSymbolException</p>
+<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException,
+BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException,
+BinanceOrderInactiveSymbolException</p>
 </dd>
 </dl>
 </dd></dl>
@@ -5276,7 +5512,9 @@ If the stream becomes invalid a new key is returned.</p>
 <p>See order endpoint for full response options</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException, BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException, BinanceOrderInactiveSymbolException</p>
+<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException,
+BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException,
+BinanceOrderInactiveSymbolException</p>
 </dd>
 </dl>
 </dd></dl>
@@ -5305,7 +5543,9 @@ of the quote asset</p></li>
 <p>See order endpoint for full response options</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException, BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException, BinanceOrderInactiveSymbolException</p>
+<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException,
+BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException,
+BinanceOrderInactiveSymbolException</p>
 </dd>
 </dl>
 </dd></dl>
@@ -5332,7 +5572,9 @@ of the quote asset</p></li>
 <p>See order endpoint for full response options</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException, BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException, BinanceOrderInactiveSymbolException</p>
+<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException,
+BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException,
+BinanceOrderInactiveSymbolException</p>
 </dd>
 </dl>
 </dd></dl>
@@ -5359,7 +5601,9 @@ of the quote asset</p></li>
 <p>See order endpoint for full response options</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException, BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException, BinanceOrderInactiveSymbolException</p>
+<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException,
+BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException,
+BinanceOrderInactiveSymbolException</p>
 </dd>
 </dl>
 </dd></dl>
@@ -5393,7 +5637,9 @@ of the quote asset</p></li>
 <p>See OCO order endpoint for full response options</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException, BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException, BinanceOrderInactiveSymbolException</p>
+<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException,
+BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException,
+BinanceOrderInactiveSymbolException</p>
 </dd>
 </dl>
 </dd></dl>
@@ -5427,7 +5673,9 @@ of the quote asset</p></li>
 <p>See OCO order endpoint for full response options</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException, BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException, BinanceOrderInactiveSymbolException</p>
+<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException,
+BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException,
+BinanceOrderInactiveSymbolException</p>
 </dd>
 </dl>
 </dd></dl>
@@ -5923,7 +6171,9 @@ If the stream becomes invalid a new key is returned.</p>
 <li><p><strong>network</strong> (<em>str</em>) – optional</p></li>
 <li><p><strong>address</strong> (<em>str</em>) – optional</p></li>
 <li><p><strong>amount</strong> (<em>decimal</em>) – required</p></li>
-<li><p><strong>transactionFeeFlag</strong> (<em>bool</em>) – required - When making internal transfer, true for returning the fee to the destination account; false for returning the fee back to the departure account. Default false.</p></li>
+<li><p><strong>transactionFeeFlag</strong> (<em>bool</em>) – required - When making internal transfer, true for returning the fee to the
+destination account; false for returning the fee back to the departure account.
+Default false.</p></li>
 <li><p><strong>name</strong> (<em>str</em>) – optional - Description of the address, default asset value passed will be used</p></li>
 <li><p><strong>recvWindow</strong> (<em>int</em>) – the number of milliseconds the request is valid for</p></li>
 </ul>
@@ -6039,7 +6289,7 @@ If the stream becomes invalid a new key is returned.</p>
     <li><a href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api">unicorn-binance-rest-api</a> &#187;</li>
     
     
-    <a href="index.html">unicorn-binance-rest-api 1.2.0 documentation</a> &#187;
+    <a href="index.html">unicorn-binance-rest-api 1.3.0 documentation</a> &#187;
     
 
           <li class="nav-item nav-item-1"><a href="modules.html" >unicorn_binance_rest_api</a> &#187;</li>
@@ -6055,7 +6305,7 @@ If the stream becomes invalid a new key is returned.</p>
     &copy; <a href="copyright.html">Copyright</a> 2021, Oliver Zehentleitner.
     <br />
 
-    Last updated on Jul 12 2021 at 14:36 (CET).
+    Last updated on Sep 21 2021 at 09:57 (CET).
     <a href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/issues">Found a bug</a>?
     <br />
 
@@ -6064,13 +6314,13 @@ If the stream becomes invalid a new key is returned.</p>
     <a href="https://www.python.org/psf/donations/">Please donate.</a>
     <br />
 
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 3.5.1
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 3.5.4
         with <a href="https://github.com/oliver-zehentleitner/python-docs-theme-technopathy">python-docs-theme-technopathy</a>
         by <a href="https://about.me/oliver-zehentleitner">Oliver Zehentleitner</a>.
     <br />
         <a href="https://www.technopathy.club/2019/11/03/use-python-sphinx-on-github-pages-with-html-and-an-indivdual-theme">
     Create a GitHub Page like this one!</a>    <br />
-        Powered by <a href="https://www.lucit.co/desktop-and-server-apps.html">LUCIT - Python Development</a>
+        Sponsored by <a href="https://www.lucit-development.co">LUCIT - Python Development</a>
     </div>
 
   </body>

@@ -46,11 +46,5 @@ logging.basicConfig(level=logging.DEBUG,
 api_key = ""
 api_secret = ""
 
-ubra = BinanceRestApiManager(api_key, api_secret, exchange="binance.com")
-# get market depth
-depth = ubra.get_order_book(symbol='BNBBTC')
-print(f"{depth}")
+ubra = BinanceRestApiManager(api_key, api_secret, exchange="binance.com-margin", tld="us", debug=True)
 
-# get all symbol prices
-prices = ubra.get_all_tickers()
-print(f"{prices}")

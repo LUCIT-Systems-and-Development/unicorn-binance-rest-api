@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UNICORN Binance REST API &#8212; unicorn-binance-rest-api 1.2.0 documentation</title>
+    <title>UNICORN Binance REST API &#8212; unicorn-binance-rest-api 1.3.0 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/pydoctheme.css" type="text/css" />
     
@@ -48,7 +48,7 @@
     <li><a href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api">unicorn-binance-rest-api</a> &#187;</li>
     
     
-    <a href="index.html">unicorn-binance-rest-api 1.2.0 documentation</a> &#187;
+    <a href="index.html">unicorn-binance-rest-api 1.3.0 documentation</a> &#187;
     
 
         <li class="nav-item nav-item-this"><a href="">UNICORN Binance REST API</a></li>
@@ -84,30 +84,93 @@
 <a class="reference external" href="#documentation">Documentation</a> | <a class="reference external" href="#examples">Examples</a> | <a class="reference external" href="#change-log">Change Log</a> | <a class="reference external" href="#wiki">Wiki</a> | <a class="reference external" href="#social">Social</a> |
 <a class="reference external" href="#receive-notifications">Notifications</a> | <a class="reference external" href="#how-to-report-bugs-or-suggest-improvements">Bugs</a> |
 <a class="reference external" href="#contributing">Contributing</a> | <a class="reference external" href="#commercial-support">Commercial Support</a> | <a class="reference external" href="#donate">Donate</a></p>
-<p>An unofficial Python API to use the Binance REST API`s in a easy, fast, flexible, robust and
-fully-featured way.</p>
+<p>An unofficial Python API to use the Binance REST API`s (com+testnet, com-margin+testnet, com-isolated_margin+testnet,
+com-futures+testnet, us, tr) in a easy, fast, flexible, robust and fully-featured way.</p>
 <p>Part of <a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-suite">‘UNICORN Binance Suite’</a>.</p>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>This is a fork of Sam McHardy`s <a class="reference external" href="https://github.com/sammchardy/python-binance">python-binance</a> - package.
-Extended, cleaned up and reduced to pure REST tasks, with PRs added and improved.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">unicorn_binance_rest_api.unicorn_binance_rest_api_manager</span> <span class="k">import</span> <span class="n">BinanceRestApiManager</span>
+<p>This is a fork of Sam McHardy`s <a class="reference external" href="https://github.com/sammchardy/python-binance">python-binance 0.7.10</a> - package.
+Extended, cleaned up and reduced to pure REST tasks, with PRs added and improved. No asyncio support!!</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">unicorn_binance_rest_api.unicorn_binance_rest_api_manager</span> <span class="kn">import</span> <span class="n">BinanceRestApiManager</span>
 
 <span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;aaa&quot;</span>
 <span class="n">api_secret</span> <span class="o">=</span> <span class="s2">&quot;bbb&quot;</span>
-<span class="n">ubra</span> <span class="o">=</span> <span class="n">BinanceRestApiManager</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">)</span>
+<span class="n">ubra</span> <span class="o">=</span> <span class="n">BinanceRestApiManager</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">,</span> <span class="n">exchange</span><span class="o">=</span><span class="s2">&quot;binance.com&quot;</span><span class="p">)</span>
 
 <span class="c1"># get market depth</span>
 <span class="n">depth</span> <span class="o">=</span> <span class="n">ubra</span><span class="o">.</span><span class="n">get_order_book</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;BNBBTC&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{depth}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">depth</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="c1"># get all symbol prices</span>
 <span class="n">prices</span> <span class="o">=</span> <span class="n">ubra</span><span class="o">.</span><span class="n">get_all_tickers</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{prices}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">prices</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="c1"># get the used weight: https://github.com/binance-us/binance-official-api-docs/blob/master/rest-api.md#limits</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Used weight: {ubra.get_used_weight()}&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Used weight: </span><span class="si">{</span><span class="n">ubra</span><span class="o">.</span><span class="n">get_used_weight</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
+</div>
+<div class="section" id="what-are-the-benefits-of-the-unicorn-binance-rest-api">
+<h3>What are the benefits of the UNICORN Binance REST API?<a class="headerlink" href="#what-are-the-benefits-of-the-unicorn-binance-rest-api" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Supported exchanges:</p></li>
+</ul>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Exchange</th>
+<th>Exchange string</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.binance.com">Binance</a></td>
+<td><code>BinanceRestApiManager(exchange="binance.com")</code></td>
+</tr>
+<tr>
+<td><a href="https://testnet.binance.vision/">Binance Testnet</a></td>
+<td><code>BinanceRestApiManager(exchange="binance.com-testnet")</code></td>
+</tr>
+<tr>
+<td><a href="https://www.binance.com">Binance Margin</a></td>
+<td><code>BinanceRestApiManager(exchange="binance.com-margin")</code></td>
+</tr>
+<tr>
+<td><a href="https://testnet.binance.vision/">Binance Margin Testnet</a></td>
+<td><code>BinanceRestApiManager(exchange="binance.com-margin-testnet")</code></td>
+</tr>
+<tr>
+<td><a href="https://www.binance.com">Binance Isolated Margin</a></td>
+<td><code>BinanceRestApiManager(exchange="binance.com-isolated_margin")</code></td>
+</tr>
+<tr>
+<td><a href="https://testnet.binance.vision/">Binance Isolated Margin Testnet</a></td>
+<td><code>BinanceRestApiManager(exchange="binance.com-isolated_margin-testnet")</code></td>
+</tr>
+<tr>
+<td><a href="https://www.binance.com">Binance USD-M Futures</a></td>
+<td><code>BinanceRestApiManager(exchange="binance.com-futures")</code></td>
+</tr>
+<tr>
+<td><a href="https://testnet.binancefuture.com">Binance USD-M Futures Testnet</a></td>
+<td><code>BinanceRestApiManager(exchange="binance.com-futures-testnet")</code></td>
+</tr>
+<tr>
+<td><a href="https://www.binance.com">Binance Coin-M Futures</a></td>
+<td><code>BinanceRestApiManager(exchange="binance.com-coin-futures")</code></td>
+</tr>
+<tr>
+<td><a href="https://www.binance.us">Binance US</a></td>
+<td><code>BinanceRestApiManager(exchange="binance.us")</code></td>
+</tr>
+<tr>
+<td><a href="https://www.trbinance.com">Binance TR</a></td>
+<td><code>BinanceRestApiManager(exchange="trbinance.com")</code></td>
+</tr>
+</tbody>
+</table><ul class="simple">
+<li><p>Helpful management features like
+<a class="reference external" href="https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/unicorn_binance_rest_api.html#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_used_weight"><code class="docutils literal notranslate"><span class="pre">get_used_weight()</span></code></a>,</p></li>
+</ul>
 </div>
 </div>
 <div class="section" id="installation-and-upgrade">
@@ -128,9 +191,9 @@ Extended, cleaned up and reduced to pure REST tasks, with PRs added and improved
 </div>
 <div class="section" id="windows">
 <h4>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h4>
-<p>Use the below command with the version (such as 1.0.0) you determined
+<p>Use the below command with the version (such as 1.3.0) you determined
 <a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/releases/latest">here</a>:</p>
-<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/archive/1.0.0.tar.gz</span> <span class="pre">--upgrade</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/archive/1.3.0.tar.gz</span> <span class="pre">--upgrade</span></code></p>
 </div>
 </div>
 <div class="section" id="from-the-latest-source-dev-stage-with-pip-from-github">
@@ -166,6 +229,7 @@ and use:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/blob/master/example_doing_something.py">example_doing_something.py</a></p></li>
 <li><p><a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/blob/master/example_easy_migration_from_python-binance.py">example_easy_migration_from_python-binance.py</a></p></li>
+<li><p><a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/blob/master/example_orders.py">example_orders.py</a></p></li>
 <li><p><a class="reference external" href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/blob/master/example_version_of_this_package.py">example_version_of_this_package.py</a></p></li>
 </ul>
 </div>
@@ -203,9 +267,7 @@ with using
 <li><p><a class="reference external" href="https://t.me/binance_api_announcements">https://t.me/binance_api_announcements</a></p></li>
 <li><p><a class="reference external" href="https://t.me/binance_api_english">https://t.me/binance_api_english</a></p></li>
 <li><p><a class="reference external" href="https://t.me/BinanceExchange">https://t.me/BinanceExchange</a></p></li>
-<li><p><a class="reference external" href="https://t.me/Binance_Jersey">https://t.me/Binance_Jersey</a></p></li>
 <li><p><a class="reference external" href="https://t.me/Binance_USA">https://t.me/Binance_USA</a></p></li>
-<li><p><a class="reference external" href="https://t.me/Binance_JEX_EN">https://t.me/Binance_JEX_EN</a></p></li>
 <li><p><a class="reference external" href="https://t.me/BinanceDEXchange">https://t.me/BinanceDEXchange</a></p></li>
 </ul>
 </div>
@@ -284,7 +346,10 @@ username via https://www.lucit-development.co/contact.html, I will invite you to
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">UNICORN Binance REST API</a><ul>
-<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#description">Description</a><ul>
+<li><a class="reference internal" href="#what-are-the-benefits-of-the-unicorn-binance-rest-api">What are the benefits of the UNICORN Binance REST API?</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#installation-and-upgrade">Installation and Upgrade</a><ul>
 <li><a class="reference internal" href="#a-wheel-of-the-latest-release-with-pip-from-pypi">A wheel of the latest release with PIP from PyPI</a></li>
 <li><a class="reference internal" href="#from-source-of-the-latest-release-with-pip-from-github">From source of the latest release with PIP from Github</a><ul>
@@ -382,7 +447,7 @@ username via https://www.lucit-development.co/contact.html, I will invite you to
     <li><a href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api">unicorn-binance-rest-api</a> &#187;</li>
     
     
-    <a href="index.html">unicorn-binance-rest-api 1.2.0 documentation</a> &#187;
+    <a href="index.html">unicorn-binance-rest-api 1.3.0 documentation</a> &#187;
     
 
         <li class="nav-item nav-item-this"><a href="">UNICORN Binance REST API</a></li>
@@ -397,7 +462,7 @@ username via https://www.lucit-development.co/contact.html, I will invite you to
     &copy; <a href="copyright.html">Copyright</a> 2021, Oliver Zehentleitner.
     <br />
 
-    Last updated on Jul 12 2021 at 14:36 (CET).
+    Last updated on Sep 21 2021 at 09:47 (CET).
     <a href="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/issues">Found a bug</a>?
     <br />
 
@@ -406,13 +471,13 @@ username via https://www.lucit-development.co/contact.html, I will invite you to
     <a href="https://www.python.org/psf/donations/">Please donate.</a>
     <br />
 
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 3.5.1
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 3.5.4
         with <a href="https://github.com/oliver-zehentleitner/python-docs-theme-technopathy">python-docs-theme-technopathy</a>
         by <a href="https://about.me/oliver-zehentleitner">Oliver Zehentleitner</a>.
     <br />
         <a href="https://www.technopathy.club/2019/11/03/use-python-sphinx-on-github-pages-with-html-and-an-indivdual-theme">
     Create a GitHub Page like this one!</a>    <br />
-        Powered by <a href="https://www.lucit.co/desktop-and-server-apps.html">LUCIT - Python Development</a>
+        Sponsored by <a href="https://www.lucit-development.co">LUCIT - Python Development</a>
     </div>
 
   </body>

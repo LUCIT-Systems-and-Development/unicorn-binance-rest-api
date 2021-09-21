@@ -5,14 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to 
 [Semantic Versioning](http://semver.org/).
 
-## 1.2.0.dev (development stage/unreleased/unstable)
+## 1.3.0.dev (development stage/unreleased/unstable)
+
+## 1.3.0
+### Added
+- `exchange` parameter to manager class to replace `tld` parameter
+- support for new endpoints: trbinance.com 
+- `disable_colorama` parameter to manager class
+- `cancel_all_open_orders()` to cancel all orders of a symbol with one request. Thx @mfurlend 
+[issue#3](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/issues/3)
+### Changed
+- `tld` is now obsolete
+### Fixed
+- ValueError in `get_used_weight()`
+- get_open_margin_orders()
+### Removed
+- double definition of `make_universal_transfer()`
+- binance.je support (Binance Jersey has ceased operations.)
 
 ## 1.2.0
 ### Added
 - get_used_weight()
-- futures_coin_place_batch_order()
+- futures_coin_place_batch_order() 
 ### Changed
-- Migrate from WAPI to SAPI
+- Migrate from WAPI to SAPI [issue#7](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/issues/7)
 - URLs to Biannce Docs
 
 ## 1.1.1

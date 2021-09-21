@@ -20,7 +20,7 @@
 [Contributing](#contributing) | [Commercial Support](#commercial-support) | [Donate](#donate)
 
 An unofficial Python API to use the Binance REST API`s (com+testnet, com-margin+testnet, com-isolated_margin+testnet, 
-com-futures+testnet, us, tr, dex/chain+testnet) in a easy, fast, flexible, robust and fully-featured way. 
+com-futures+testnet, us, tr) in a easy, fast, flexible, robust and fully-featured way. 
 
 Part of ['UNICORN Binance Suite'](https://github.com/oliver-zehentleitner/unicorn-binance-suite).
 

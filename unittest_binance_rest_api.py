@@ -39,22 +39,13 @@ from unicorn_binance_rest_api.unicorn_binance_rest_api_enums import *
 import requests_mock
 import unittest
 
+client = BinanceRestApiManager('api_key', 'api_secret', exchange="binance.com")
+
 
 class TestBinanceComRestManager(unittest.TestCase):
     def setUp(self):
-        print(FUTURE_ORDER_TYPE_TAKE_PROFIT)
-        self.client = BinanceRestApiManager('api_key', 'api_secret', tld="com")
-        time.sleep(2)
-        self.client = BinanceRestApiManager('api_key', 'api_secret', exchange="binance.com")
-        test = BinanceRestApiManager('api_key', 'api_secret', exchange="binance.com-testnet")
-        test = BinanceRestApiManager('api_key', 'api_secret', exchange="binance.com-margin")
-        test = BinanceRestApiManager('api_key', 'api_secret', exchange="binance.com-margin-testnet")
-        test = BinanceRestApiManager('api_key', 'api_secret', exchange="binance.com-isolated_margin")
-        test = BinanceRestApiManager('api_key', 'api_secret', exchange="binance.com-isolated_margin-testnet")
-        test = BinanceRestApiManager('api_key', 'api_secret', exchange="binance.com-futures")
-        test = BinanceRestApiManager('api_key', 'api_secret', exchange="binance.us")
-        test = BinanceRestApiManager('api_key', 'api_secret', exchange="trbinance.com")
-        # test = BinanceRestApiManager('api_key', 'api_secret', exchange="jex.com")
+        self.client = client
+        take_profit = FUTURE_ORDER_TYPE_TAKE_PROFIT
 
     # Test historical klines:
     def test_exact_amount(self):

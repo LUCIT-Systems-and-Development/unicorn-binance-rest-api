@@ -50,7 +50,7 @@ ubra = BinanceRestApiManager(api_key, api_secret)
 
 # get market depth
 depth = ubra.get_order_book(symbol='BNBBTC')
-#print(f"{depth}")
+print(f"{depth}")
 
 # get all symbol prices
 prices = ubra.get_all_tickers()

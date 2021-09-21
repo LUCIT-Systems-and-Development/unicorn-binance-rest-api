@@ -19,21 +19,21 @@
 [Notifications](#receive-notifications) | [Bugs](#how-to-report-bugs-or-suggest-improvements) | 
 [Contributing](#contributing) | [Commercial Support](#commercial-support) | [Donate](#donate)
 
-An unofficial Python API to use the Binance REST API`s in a easy, fast, flexible, robust and 
-fully-featured way. 
+An unofficial Python API to use the Binance REST API`s (com+testnet, com-margin+testnet, com-isolated_margin+testnet, 
+com-futures+testnet, us, tr) in a easy, fast, flexible, robust and fully-featured way. 
 
 Part of ['UNICORN Binance Suite'](https://github.com/oliver-zehentleitner/unicorn-binance-suite).
 
 ## Description
-This is a fork of Sam McHardy`s [python-binance](https://github.com/sammchardy/python-binance) - package. 
-Extended, cleaned up and reduced to pure REST tasks, with PRs added and improved.
+This is a fork of Sam McHardy`s [python-binance 0.7.10](https://github.com/sammchardy/python-binance) - package. 
+Extended, cleaned up and reduced to pure REST tasks, with PRs added and improved. No asyncio support!!
 
 ```
 from unicorn_binance_rest_api.unicorn_binance_rest_api_manager import BinanceRestApiManager
 
 api_key = "aaa"
 api_secret = "bbb"
-ubra = BinanceRestApiManager(api_key, api_secret)
+ubra = BinanceRestApiManager(api_key, api_secret, exchange="binance.com")
 
 # get market depth
 depth = ubra.get_order_book(symbol='BNBBTC')
@@ -46,6 +46,26 @@ print(f"{prices}")
 # get the used weight: https://github.com/binance-us/binance-official-api-docs/blob/master/rest-api.md#limits
 print(f"Used weight: {ubra.get_used_weight()}")
 ```
+
+### What are the benefits of the UNICORN Binance REST API?
+- Supported exchanges: 
+
+| Exchange | Exchange string | 
+| -------- | --------------- | 
+| [Binance](https://www.binance.com) | `BinanceRestApiManager(exchange="binance.com")` |
+| [Binance Testnet](https://testnet.binance.vision/) | `BinanceRestApiManager(exchange="binance.com-testnet")` |
+| [Binance Margin](https://www.binance.com) |  `BinanceRestApiManager(exchange="binance.com-margin")` |
+| [Binance Margin Testnet](https://testnet.binance.vision/) | `BinanceRestApiManager(exchange="binance.com-margin-testnet")` |
+| [Binance Isolated Margin](https://www.binance.com) | `BinanceRestApiManager(exchange="binance.com-isolated_margin")` |
+| [Binance Isolated Margin Testnet](https://testnet.binance.vision/) | `BinanceRestApiManager(exchange="binance.com-isolated_margin-testnet")` |
+| [Binance USD-M Futures](https://www.binance.com) | `BinanceRestApiManager(exchange="binance.com-futures")` |
+| [Binance USD-M Futures Testnet](https://testnet.binancefuture.com) | `BinanceRestApiManager(exchange="binance.com-futures-testnet")` |
+| [Binance Coin-M Futures](https://www.binance.com) | `BinanceRestApiManager(exchange="binance.com-coin-futures")` |
+| [Binance US](https://www.binance.us) | `BinanceRestApiManager(exchange="binance.us")` |
+| [Binance TR](https://www.trbinance.com) | `BinanceRestApiManager(exchange="trbinance.com")` |
+
+- Helpful management features like 
+[`get_used_weight()`](https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/unicorn_binance_rest_api.html#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_used_weight), 
 
 ## Installation and Upgrade
 The current dependencies are listed 
@@ -61,10 +81,10 @@ Run in bash:
 
 `pip install https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/archive/$(curl -s https://api.github.com/repos/oliver-zehentleitner/unicorn-binance-rest-api/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")').tar.gz --upgrade`
 #### Windows
-Use the below command with the version (such as 1.0.0) you determined 
+Use the below command with the version (such as 1.3.0) you determined 
 [here](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/releases/latest):
 
-`pip install https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/archive/1.0.0.tar.gz --upgrade`
+`pip install https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/archive/1.3.0.tar.gz --upgrade`
 ### From the latest source (dev-stage) with PIP from [Github](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api)
 This is not a release version and can not be considered to be stable!
 
@@ -88,6 +108,7 @@ or the [current master branch](https://github.com/oliver-zehentleitner/unicorn-b
 ## Examples
 - [example_doing_something.py](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/blob/master/example_doing_something.py)
 - [example_easy_migration_from_python-binance.py](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/blob/master/example_easy_migration_from_python-binance.py)
+- [example_orders.py](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/blob/master/example_orders.py)
 - [example_version_of_this_package.py](https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/blob/master/example_version_of_this_package.py)
 
 ## Howto
@@ -117,9 +138,7 @@ To receive news (like inspection windows/maintenance) about the Binance API`s su
 - [https://t.me/binance_api_announcements](https://t.me/binance_api_announcements)
 - [https://t.me/binance_api_english](https://t.me/binance_api_english)
 - [https://t.me/BinanceExchange](https://t.me/BinanceExchange)
-- [https://t.me/Binance_Jersey](https://t.me/Binance_Jersey)
 - [https://t.me/Binance_USA](https://t.me/Binance_USA)
-- [https://t.me/Binance_JEX_EN](https://t.me/Binance_JEX_EN)
 - [https://t.me/BinanceDEXchange](https://t.me/BinanceDEXchange)
 
 ## How to report Bugs or suggest Improvements?
