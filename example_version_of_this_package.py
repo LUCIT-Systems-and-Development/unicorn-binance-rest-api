@@ -4,12 +4,11 @@
 # File: example_version_of_this_package.py
 #
 # Part of ‘UNICORN Binance Rest API’
-# Project website: https://github.com/oliver-zehentleitner/unicorn-binance-websocket-api
+# Project website: https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api
 # Documentation: https://oliver-zehentleitner.github.io/unicorn-binance-websocket-api
 # PyPI: https://pypi.org/project/unicorn-binance-websocket-api/
 #
-# Author: Oliver Zehentleitner
-#         https://about.me/oliver-zehentleitner
+# Author: LUCIT Systems and Development
 #
 # Copyright (c) 2019-2021, Oliver Zehentleitner
 # All rights reserved.
@@ -44,7 +43,7 @@ logging.basicConfig(level=logging.DEBUG,
                     style="{")
 
 # create instance of BinanceRestApiManager
-binance_rest_api_manager = unicorn_binance_rest_api.BinanceRestApiManager()
+binance_rest_api_manager = unicorn_binance_rest_api.BinanceRestApiManager(exchange="binance.com")
 
 # get version of the used UNICORN Binance REST API package
 if binance_rest_api_manager.is_update_availabe():

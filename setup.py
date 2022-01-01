@@ -4,15 +4,14 @@
 # File: setup.py
 #
 # Part of ‘UNICORN Binance REST API’
-# Project website: https://github.com/oliver-zehentleitner/unicorn-binance-rest-api
+# Project website: https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api
 # Documentation: https://oliver-zehentleitner.github.io/unicorn-binance-rest-api
 # PyPI: https://pypi.org/project/unicorn-binance-rest-api/
 #
-# Author: Oliver Zehentleitner
-#         https://about.me/oliver-zehentleitner
+# Author: LUCIT Systems and Development
 #
 # Copyright (c) 2017-2021, Sam McHardy (https://github.com/sammchardy)
-# Copyright (c) 2021-2021, Oliver Zehentleitner (https://about.me/oliver-zehentleitner)
+# Copyright (c) 2021-2022, LUCIT Systems and Development (https://www.lucit.tech) and Oliver Zehentleitner
 # All rights reserved.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
@@ -46,7 +45,7 @@ setuptools.setup(
      name='unicorn-binance-rest-api',
      version=str(ubra.get_version()),
      author="Oliver Zehentleitner",
-     url="https://github.com/oliver-zehentleitner/unicorn-binance-rest-api",
+     url="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api",
      description="An unofficial Python API to use the Binance REST API`s.",
      long_description=long_description,
      long_description_content_type="text/markdown",
@@ -56,7 +55,7 @@ setuptools.setup(
      keywords='',
      project_urls={
         'Documentation': 'https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/',
-        'Wiki': 'https://github.com/oliver-zehentleitner/unicorn-binance-rest-api/wiki',
+        'Wiki': 'https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/wiki',
         'Author': 'https://about.me/oliver-zehentleitner/',
      },
      python_requires='>=3.6.1',

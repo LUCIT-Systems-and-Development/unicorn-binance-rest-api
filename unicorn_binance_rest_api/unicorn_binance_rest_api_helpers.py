@@ -4,15 +4,14 @@
 # File: unicorn_binance_rest_api_helpers.py
 #
 # Part of ‘UNICORN Binance REST API’
-# Project website: https://github.com/oliver-zehentleitner/unicorn-binance-rest-api
+# Project website: https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api
 # Documentation: https://oliver-zehentleitner.github.io/unicorn-binance-rest-api
 # PyPI: https://pypi.org/project/unicorn-binance-rest-api/
 #
-# Author: Oliver Zehentleitner
-#         https://about.me/oliver-zehentleitner
+# Author: LUCIT Systems and Development
 #
 # Copyright (c) 2017-2021, Sam McHardy (https://github.com/sammchardy)
-# Copyright (c) 2021-2021, Oliver Zehentleitner (https://about.me/oliver-zehentleitner)
+# Copyright (c) 2021-2022, LUCIT Systems and Development (https://www.lucit.tech) and Oliver Zehentleitner
 # All rights reserved.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
