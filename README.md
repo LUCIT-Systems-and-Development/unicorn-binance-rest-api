@@ -122,7 +122,7 @@ or the [current master branch](https://github.com/LUCIT-Systems-and-Development/
 
 ## Social
 - [https://t.me/unicorndevs](https://t.me/unicorndevs)
-- [Twitter](https://twitter.com/LUCIT-SysDev)
+- [Twitter](https://twitter.com/LUCIT_SysDev)
 - [https://dev.binance.vision](https://dev.binance.vision)
 - [https://community.binance.org](https://community.binance.org)
 
