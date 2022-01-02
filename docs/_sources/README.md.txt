@@ -91,7 +91,7 @@ This is not a release version and can not be considered to be stable!
 `pip install https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/tarball/master --upgrade`
 
 ### [Conda environment](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html), [Virtualenv](https://virtualenv.pypa.io/en/latest/) or plain [Python](https://docs.python.org/2/install/)
-Download the [latest release](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases/latest)
+Download the [latest release](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases/latest) 
 or the [current master branch](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/master.zip)
  and use:
 - ./environment.yml
@@ -129,9 +129,9 @@ or the [current master branch](https://github.com/LUCIT-Systems-and-Development/
 
 ## Receive Notifications
 To receive notifications on available updates you can 
-[![watch](https://raw.githubusercontent.com/oliver-zehentleitner/unicorn-binance-rest-api/master/images/misc/watch.png)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/watchers)
-the repository on [GitHub](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api), write your
-[own script](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_version_of_this_package.py)
+[![watch](https://raw.githubusercontent.com/oliver-zehentleitner/unicorn-binance-rest-api/master/images/misc/watch.png)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/watchers) 
+the repository on [GitHub](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api), write your 
+[own script](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_version_of_this_package.py) 
 with using 
 [`is_update_availabe()`](https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/unicorn_binance_rest_api.html?highlight=is_update_availabe#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.is_update_availabe).
 
@@ -143,10 +143,10 @@ To receive news (like inspection windows/maintenance) about the Binance API`s su
 - [https://t.me/BinanceDEXchange](https://t.me/BinanceDEXchange)
 
 ## How to report Bugs or suggest Improvements?
-[List of planned features](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement) -
+[List of planned features](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement) - 
 click ![thumbs-up](https://raw.githubusercontent.com/oliver-zehentleitner/unicorn-binance-rest-api/master/images/misc/thumbup.png) if you need one of them or suggest a new feature!
 
-Before you report a bug, [try the latest release](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api#installation-and-upgrade). If the issue still exists, provide the error trace, OS
+Before you report a bug, [try the latest release](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api#installation-and-upgrade). If the issue still exists, provide the error trace, OS 
 and Python version and explain how to reproduce the error. A demo script is appreciated.
 
 If you dont find an issue related to your topic, please open a new [issue](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues)!
@@ -154,7 +154,7 @@ If you dont find an issue related to your topic, please open a new [issue](https
 [Report a security bug!](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/security/policy)
 
 ## Contributing
-[UNICORN Binance REST API](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api) is an open
+[UNICORN Binance REST API](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api) is an open 
 source project which welcomes contributions which can be anything from simple documentation fixes and reporting dead links to new features. To 
 contribute follow 
 [this guide](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/CONTRIBUTING.md).
@@ -172,7 +172,7 @@ Contact [me](https://about.me/oliver-zehentleitner) for a non-binding and free c
 
 ## Donate
 Developing, documenting and testing the 
-[UNICORN Binance Suite](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-suite) and supporting the community
+[UNICORN Binance Suite](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-suite) and supporting the community 
 takes a lot of time and time is a form of cost. I am extremely happy to do this, but need a solution for sharing the 
 costs.
 
@@ -194,7 +194,7 @@ So the donor not only helps to push the open source development but also gets ac
 practical code for little money. 
 
 Furthermore community members can help me by donating own developments to make the 
-[unicorn-coding-club](https://github.com/LUCIT-Systems-and-Development/unicorn-coding-club) repository more attractive to create
+[unicorn-coding-club](https://github.com/LUCIT-Systems-and-Development/unicorn-coding-club) repository more attractive to create 
 further incentives for new donors. This way we generate added value for all sides in an uncomplicated way.
 
 If you donated at least 50 EUR (without transaction fee), please send me a message with a confirmation and your Github 

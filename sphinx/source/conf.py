@@ -21,13 +21,13 @@ sys.path.insert(0, os.path.abspath('../..'))
 # -- Project information -----------------------------------------------------
 
 project = 'unicorn-binance-rest-api'
-copyright = '2021, Oliver Zehentleitner'
-author = 'Oliver Zehentleitner'
+copyright = '2021-2022, LUCIT Systems and Development and Oliver Zehentleitner'
+author = 'LUCIT Systems and Development'
 
 # The short X.Y version
 version = ''
 # The full version, including alpha/beta/rc tags
-release = '1.3.0'
+release = '1.4.0'
 
 html_last_updated_fmt = "%b %d %Y at %H:%M (CET)"
 
@@ -87,7 +87,7 @@ pygments_style = None
 # a list of builtin themes.
 
 html_theme = 'python_docs_theme_technopathy'
-html_context = {'github_user_name': 'oliver-zehentleitner',
+html_context = {'github_user_name': 'LUCIT-Systems-and-Development',
                 'github_repo_name': 'unicorn-binance-rest-api',
                 'project_name': project}
 
@@ -145,7 +145,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'unicorn-binance-rest-api.tex', 'unicorn-binance-rest-api Documentation',
-     'Oliver Zehentleitner', 'manual'),
+     'LUCIT Systems and Development and Oliver Zehentleitner', 'manual'),
 ]
 
 
