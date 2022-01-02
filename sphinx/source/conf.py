@@ -145,7 +145,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'unicorn-binance-rest-api.tex', 'unicorn-binance-rest-api Documentation',
-     'LUCIT Systems and Development and Oliver Zehentleitner', 'manual'),
+     'LUCIT Systems and Development', 'manual'),
 ]
 
 
