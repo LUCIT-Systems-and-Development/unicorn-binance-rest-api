@@ -5,7 +5,7 @@
 #
 # Part of ‘UNICORN Binance REST API’
 # Project website: https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api
-# Documentation: https://oliver-zehentleitner.github.io/unicorn-binance-rest-api
+# Documentation: https://lucit-systems-and-development.github.io/unicorn-binance-rest-api
 # PyPI: https://pypi.org/project/unicorn-binance-rest-api/
 #
 # Author: LUCIT Systems and Development

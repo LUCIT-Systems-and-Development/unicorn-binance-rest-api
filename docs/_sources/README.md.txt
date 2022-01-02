@@ -65,7 +65,7 @@ print(f"Used weight: {ubra.get_used_weight()}")
 | [Binance TR](https://www.trbinance.com) | `BinanceRestApiManager(exchange="trbinance.com")` |
 
 - Helpful management features like 
-[`get_used_weight()`](https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/unicorn_binance_rest_api.html#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_used_weight), 
+[`get_used_weight()`](https://lucit-systems-and-development.github.io/unicorn-binance-rest-api/unicorn_binance_rest_api.html#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_used_weight),
 
 ## Installation and Upgrade
 The current dependencies are listed 
@@ -99,11 +99,11 @@ or the [current master branch](https://github.com/LUCIT-Systems-and-Development/
 - ./setup.py
 
 ## Change Log
-[https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/CHANGELOG.html](https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/CHANGELOG.html)
+[https://lucit-systems-and-development.github.io/unicorn-binance-rest-api/CHANGELOG.html](https://lucit-systems-and-development.github.io/unicorn-binance-rest-api/CHANGELOG.html)
 
 ## Documentation
-- [General](https://oliver-zehentleitner.github.io/unicorn-binance-rest-api)
-- [Modules](https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/unicorn_binance_rest_api.html)
+- [General](https://lucit-systems-and-development.github.io/unicorn-binance-rest-api)
+- [Modules](https://lucit-systems-and-development.github.io/unicorn-binance-rest-api/unicorn_binance_rest_api.html)
 
 ## Examples
 - [example_doing_something.py](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_doing_something.py)
@@ -133,7 +133,7 @@ To receive notifications on available updates you can
 the repository on [GitHub](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api), write your 
 [own script](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_version_of_this_package.py) 
 with using 
-[`is_update_availabe()`](https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/unicorn_binance_rest_api.html?highlight=is_update_availabe#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.is_update_availabe).
+[`is_update_availabe()`](https://lucit-systems-and-development.github.io/unicorn-binance-rest-api/unicorn_binance_rest_api.html?highlight=is_update_availabe#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.is_update_availabe).
 
 To receive news (like inspection windows/maintenance) about the Binance API`s subscribe to their telegram groups: 
 - [https://t.me/binance_api_announcements](https://t.me/binance_api_announcements)

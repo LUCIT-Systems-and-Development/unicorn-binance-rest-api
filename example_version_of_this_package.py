@@ -5,7 +5,7 @@
 #
 # Part of ‘UNICORN Binance Rest API’
 # Project website: https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api
-# Documentation: https://oliver-zehentleitner.github.io/unicorn-binance-websocket-api
+# Documentation: https://lucit-systems-and-development.github.io/unicorn-binance-websocket-api
 # PyPI: https://pypi.org/project/unicorn-binance-websocket-api/
 #
 # Author: LUCIT Systems and Development

@@ -5,7 +5,7 @@
 #
 # Part of ‘UNICORN Binance REST API’
 # Project website: https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api
-# Documentation: https://oliver-zehentleitner.github.io/unicorn-binance-rest-api
+# Documentation: https://lucit-systems-and-development.github.io/unicorn-binance-rest-api
 # PyPI: https://pypi.org/project/unicorn-binance-rest-api/
 #
 # Author: LUCIT Systems and Development
@@ -307,7 +307,7 @@ class BinanceRestApiManager(object):
         elif self.exchange:
             # Unknown Exchange
             error_msg = f"Unknown exchange '{str(self.exchange)}'! Read the docs to see a list of supported " \
-                        "exchanges: https://oliver-zehentleitner.github.io/unicorn-binance-rest-api/unicorn_" \
+                        "exchanges: https://lucit-systems-and-development.github.io/unicorn-binance-rest-api/unicorn_" \
                         "binance_rest_api.html#module-unicorn_binance_rest_api.unicorn_binance_rest_" \
                         "api_manager"
             logging.critical(error_msg)
