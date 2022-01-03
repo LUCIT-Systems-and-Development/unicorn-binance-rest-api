@@ -44,7 +44,7 @@ with open("README.md", "r") as fh:
 setuptools.setup(
      name='unicorn-binance-rest-api',
      version=str(ubra.get_version()),
-     author="Oliver Zehentleitner",
+     author="LUCIT Systems and Development",
      url="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api",
      description="An unofficial Python API to use the Binance REST API`s.",
      long_description=long_description,
@@ -56,7 +56,7 @@ setuptools.setup(
      project_urls={
         'Documentation': 'https://lucit-systems-and-development.github.io/unicorn-binance-rest-api/',
         'Wiki': 'https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/wiki',
-        'Author': 'https://about.me/oliver-zehentleitner/',
+        'Author': 'https://www.lucit.tech',
      },
      python_requires='>=3.6.1',
      packages=setuptools.find_packages(),
