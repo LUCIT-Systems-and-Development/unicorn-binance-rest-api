@@ -22,10 +22,6 @@ com-futures+testnet, us, tr) in a easy, fast, flexible, robust and fully-feature
 
 Part of ['UNICORN Binance Suite'](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-suite).
 
-## Description
-This is a fork of Sam McHardy`s [python-binance 0.7.10](https://github.com/sammchardy/python-binance) - package. 
-Extended, cleaned up and reduced to pure REST tasks, with PRs added and improved. No asyncio support!!
-
 ```
 from unicorn_binance_rest_api.unicorn_binance_rest_api_manager import BinanceRestApiManager
 
@@ -44,6 +40,31 @@ print(f"{prices}")
 # get the used weight: https://github.com/binance-us/binance-official-api-docs/blob/master/rest-api.md#limits
 print(f"Used weight: {ubra.get_used_weight()}")
 ```
+
+## Description
+This is a fork of Sam McHardy`s [python-binance 0.7.10](https://github.com/sammchardy/python-binance) - package. 
+Extended, cleaned up and reduced to pure REST tasks, with PRs added and improved. No asyncio support!!
+
+The Python module [UNICORN Binance REST API](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api) 
+provides an API to the Binance REST API`s of 
+[Binance](https://github.com/binance-exchange/binance-official-api-docs) 
+([+Testnet](https://testnet.binance.vision/)), 
+[Binance Margin](https://binance-docs.github.io/apidocs/spot/en/#user-data-streams) 
+([+Testnet](https://testnet.binance.vision/)), 
+[Binance Isolated Margin](https://binance-docs.github.io/apidocs/spot/en/#listen-key-isolated-margin)
+([+Testnet](https://testnet.binance.vision/)), 
+[Binance Futures](https://binance-docs.github.io/apidocs/futures/en/#websocket-market-streams) 
+([+Testnet](https://testnet.binancefuture.com)), 
+[Binance COIN-M Futures](https://binance-docs.github.io/apidocs/delivery/en/#change-log),
+[Binance US](https://github.com/binance-us/binance-official-api-docs), 
+[Binance TR](https://www.trbinance.com/apidocs) and 
+[Binance JEX](https://jexapi.github.io/api-doc/spot.html#web-socket-streams) and needs to be used with a valid api_key and api_secret from the Binance Exchange 
+[www.binance.com](https://www.binance.com/userCenter/createApi.html), 
+[testnet.binance.vision](https://testnet.binance.vision/), 
+[www.binance.us](https://www.binance.us/userCenter/createApi.html) or 
+[www.jex.com](https://www.jex.com/userCenter/createApi.html).
+
+Be aware that the Binance REST API is request based. if you want to receive high frequency and high volume data, you can to use the [UNICORN Binance Websocket API](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api) in combination. 
 
 ### What are the benefits of the UNICORN Binance REST API?
 - Supported exchanges: 
