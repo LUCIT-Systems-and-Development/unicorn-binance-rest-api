@@ -1,32 +1,26 @@
-[![GitHub release](https://img.shields.io/github/release/oliver-zehentleitner/unicorn-binance-rest-api.svg)](https://pypi.org/project/unicorn-binance-rest-api/)
-[![GitHub](https://img.shields.io/github/license/oliver-zehentleitner/unicorn-binance-rest-api.svg?color=blue)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/LICENSE)
+[![GitHub release](https://img.shields.io/github/release/LUCIT-Systems-and-Development/unicorn-binance-rest-api.svg)](https://pypi.org/project/unicorn-binance-rest-api/)
+[![GitHub](https://img.shields.io/github/license/LUCIT-Systems-and-Development/unicorn-binance-rest-api.svg?color=blue)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/LICENSE)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/unicorn-binance-rest-api.svg)](https://www.python.org/downloads/)
 [![Downloads](https://pepy.tech/badge/unicorn-binance-rest-api)](https://pepy.tech/project/unicorn-binance-rest-api)
 [![PyPI - Wheel](https://img.shields.io/pypi/wheel/unicorn-binance-rest-api.svg?label=PyPI%20wheel)](https://pypi.org/project/unicorn-binance-rest-api/)
 [![PyPI - Status](https://img.shields.io/pypi/status/unicorn-binance-rest-api.svg)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues)
 [![Python application](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/python-app.yml/badge.svg)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/python-app.yml)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/oliver-zehentleitner/unicorn-binance-rest-api.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/lucit-systems-and-development/unicorn-binance-rest-api/alerts/)
-[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/oliver-zehentleitner/unicorn-binance-rest-api.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/lucit-systems-and-development/unicorn-binance-rest-api/context:python)
-[![codecov](https://codecov.io/gh/oliver-zehentleitner/unicorn-binance-rest-api/branch/master/graph/badge.svg?token=P7XILPPSLU)](https://codecov.io/gh/oliver-zehentleitner/unicorn-binance-rest-api)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/LUCIT-Systems-and-Development/unicorn-binance-rest-api.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/LUCIT-Systems-and-Development/unicorn-binance-rest-api/alerts/)
+[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/LUCIT-Systems-and-Development/unicorn-binance-rest-api.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/LUCIT-Systems-and-Development/unicorn-binance-rest-api/context:python)
+[![codecov](https://codecov.io/gh/LUCIT-Systems-and-Development/unicorn-binance-rest-api/branch/master/graph/badge.svg?token=P7XILPPSLU)](https://codecov.io/gh/oliver-zehentleitner/unicorn-binance-rest-api)
 [![Telegram](https://img.shields.io/badge/chat-telegram-yellow.svg)](https://t.me/unicorndevs)
-[![Donations/week](http://img.shields.io/liberapay/receives/oliver-zehentleitner.svg?logo=liberapay)](https://liberapay.com/oliver-zehentleitner/donate)
-[![Patrons](http://img.shields.io/liberapay/patrons/oliver-zehentleitner.svg?logo=liberapay)](https://liberapay.com/oliver-zehentleitner/donate)
 
 # UNICORN Binance REST API
 
 [Description](#description) | [Installation](#installation-and-upgrade) | [How To](#howto) |
 [Documentation](#documentation) | [Examples](#examples) | [Change Log](#change-log) | [Wiki](#wiki) | [Social](#social) |
 [Notifications](#receive-notifications) | [Bugs](#how-to-report-bugs-or-suggest-improvements) | 
-[Contributing](#contributing) | [Commercial Support](#commercial-support) | [Donate](#donate)
+[Contributing](#contributing) | [Commercial Support](#commercial-support)
 
 An unofficial Python API to use the Binance REST API`s (com+testnet, com-margin+testnet, com-isolated_margin+testnet, 
 com-futures+testnet, us, tr) in a easy, fast, flexible, robust and fully-featured way. 
 
 Part of ['UNICORN Binance Suite'](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-suite).
-
-## Description
-This is a fork of Sam McHardy`s [python-binance 0.7.10](https://github.com/sammchardy/python-binance) - package. 
-Extended, cleaned up and reduced to pure REST tasks, with PRs added and improved. No asyncio support!!
 
 ```
 from unicorn_binance_rest_api.unicorn_binance_rest_api_manager import BinanceRestApiManager
@@ -47,6 +41,31 @@ print(f"{prices}")
 print(f"Used weight: {ubra.get_used_weight()}")
 ```
 
+## Description
+This is a fork of Sam McHardy`s [python-binance 0.7.10](https://github.com/sammchardy/python-binance) - package. 
+Extended, cleaned up and reduced to pure REST tasks, with PRs added and improved. No asyncio support!!
+
+The Python module [UNICORN Binance REST API](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api) 
+provides an API to the Binance REST API`s of 
+[Binance](https://github.com/binance-exchange/binance-official-api-docs) 
+([+Testnet](https://testnet.binance.vision/)), 
+[Binance Margin](https://binance-docs.github.io/apidocs/spot/en/#user-data-streams) 
+([+Testnet](https://testnet.binance.vision/)), 
+[Binance Isolated Margin](https://binance-docs.github.io/apidocs/spot/en/#listen-key-isolated-margin)
+([+Testnet](https://testnet.binance.vision/)), 
+[Binance Futures](https://binance-docs.github.io/apidocs/futures/en/#websocket-market-streams) 
+([+Testnet](https://testnet.binancefuture.com)), 
+[Binance COIN-M Futures](https://binance-docs.github.io/apidocs/delivery/en/#change-log),
+[Binance US](https://github.com/binance-us/binance-official-api-docs), 
+[Binance TR](https://www.trbinance.com/apidocs) and 
+[Binance JEX](https://jexapi.github.io/api-doc/spot.html#web-socket-streams) and needs to be used with a valid api_key and api_secret from the Binance Exchange 
+[www.binance.com](https://www.binance.com/userCenter/createApi.html), 
+[testnet.binance.vision](https://testnet.binance.vision/), 
+[www.binance.us](https://www.binance.us/userCenter/createApi.html) or 
+[www.jex.com](https://www.jex.com/userCenter/createApi.html).
+
+Be aware that the Binance REST API is request based. if you want to receive high frequency and high volume data, you can use the [UNICORN Binance Websocket API](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api) in combination. 
+
 ### What are the benefits of the UNICORN Binance REST API?
 - Supported exchanges: 
 
@@ -65,7 +84,7 @@ print(f"Used weight: {ubra.get_used_weight()}")
 | [Binance TR](https://www.trbinance.com) | `BinanceRestApiManager(exchange="trbinance.com")` |
 
 - Helpful management features like 
-[`get_used_weight()`](https://lucit-systems-and-development.github.io/unicorn-binance-rest-api/unicorn_binance_rest_api.html#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_used_weight),
+[`get_used_weight()`](https://lucit-systems-and-development.github.io/unicorn-binance-rest-api/unicorn_binance_rest_api.html#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_used_weight), 
 
 ## Installation and Upgrade
 The current dependencies are listed 
@@ -122,18 +141,19 @@ or the [current master branch](https://github.com/LUCIT-Systems-and-Development/
 
 ## Social
 - [https://t.me/unicorndevs](https://t.me/unicorndevs)
-- [Twitter](https://twitter.com/DevsUnicorn)
-- [unicorn-coding-club](https://github.com/LUCIT-Systems-and-Development/unicorn-coding-club)
+- [https://twitter.com/LUCIT_SysDev](https://twitter.com/LUCIT_SysDev)
 - [https://dev.binance.vision](https://dev.binance.vision)
 - [https://community.binance.org](https://community.binance.org)
 
 ## Receive Notifications
 To receive notifications on available updates you can 
-[![watch](https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-rest-api/master/images/misc/watch.png)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/watchers)
+[![watch](https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-rest-api/master/images/misc/watch.png)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/watchers) 
 the repository on [GitHub](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api), write your 
 [own script](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_version_of_this_package.py) 
 with using 
 [`is_update_availabe()`](https://lucit-systems-and-development.github.io/unicorn-binance-rest-api/unicorn_binance_rest_api.html?highlight=is_update_availabe#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.is_update_availabe).
+
+Follow us on [Twitter](https://twitter.com/LUCIT_SysDev) for general news about the [unicorn-binance-suite](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-suite)!
 
 To receive news (like inspection windows/maintenance) about the Binance API`s subscribe to their telegram groups: 
 - [https://t.me/binance_api_announcements](https://t.me/binance_api_announcements)
@@ -165,51 +185,9 @@ contribute follow
 We ![love](https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-rest-api/master/images/misc/heart.png) open source!
 
 ## Commercial Support
-Need a Python developer or consulting? 
+[![LUCIT](https://www.lucit.tech/files/images/logos/LUCIT-LOGO-TRANS-PLAIN-NEW.png)](https://www.lucit.tech)
 
-Contact [me](https://about.me/oliver-zehentleitner) for a non-binding and free consultation via my company 
+Do you need a developer, operator or consultant? 
+
+Contact me for a non-binding initial consultation via my company 
 [LUCIT](https://www.lucit.tech) from Vienna (Austria) or via [Telegram](https://t.me/LUCIT_OZ).
-
-## Donate
-Developing, documenting and testing the 
-[UNICORN Binance Suite](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-suite) and supporting the community 
-takes a lot of time and time is a form of cost. I am extremely happy to do this, but need a solution for sharing the 
-costs.
-
-I think we are lucky, as our community consists of traders and programmers I expect to find mostly rational thinking 
-people who also benefit financially from these libraries.
-
-I would like to create a fair model for funding. My goals are that unicorn-binance-websocket-api, 
-unicorn-binance-rest-api and unicorn-fy remain freely available as open source and that I am compensated at least to 
-some extent and thus can invest my time more easily.
-
-If you know the hooker principle from negotiation research or game theory, you know about the problem that people don't 
-often pay for something out of their own impulse if they have already received it for free. 
-
-So my idea is to give every donor who gives an amount over 50 EUR access to a private Github repository where Python 
-classes for trading algos are provided (OrderBook, advanced stop-loss, ...). Moreover, maybe a nice ApiTrader community 
-will be formed.
-
-So the donor not only helps to push the open source development but also gets access to a well maintained collection of 
-practical code for little money. 
-
-Furthermore community members can help me by donating own developments to make the 
-[unicorn-coding-club](https://github.com/LUCIT-Systems-and-Development/unicorn-coding-club) repository more attractive to create 
-further incentives for new donors. This way we generate added value for all sides in an uncomplicated way.
-
-If you donated at least 50 EUR (without transaction fee), please send me a message with a confirmation and your Github 
-username via https://www.lucit-development.co/contact.html, I will invite you to the 
-[unicorn-coding-club](https://github.com/LUCIT-Systems-and-Development/unicorn-coding-club) as soon as possible.
-
-[![Donate using Liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/oliver-zehentleitner/donate)
-
-[:heart: Sponsor (GitHub)](https://github.com/sponsors/oliver-zehentleitner/)
-```
-Terra (LUNA, UST, ...): terra1yt34qmmycextztnj9mpt3mnjzqqvl8jtqqq7g9
-BTC: 39fS74fvcGnmEk8JUV8bG6P1wkdH29GtsA
-DASH: XsRhBuPkXGF9WvifdpkVhTGSmVT4VcuQZ7
-ETH: 0x1C15857Bf1E18D122dDd1E536705748aa529fc9C
-LTC: LYNzHMFUbee3siyHvNCPaCjqXxjyq8YRGJ
-XMR: 85dzsTRh6GRPGVSJoUbFDwAf9uwwAdim1HFpiGshLeKHgj2hVqKtYVPXMZvudioLsuLS1AegkUiQ12jwReRwWcFvF7kDAbF
-ZEC: t1WvQMPJMriGWD9qkZGDdE9tTJaawvmsBie
-```
