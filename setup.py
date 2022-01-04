@@ -45,6 +45,7 @@ setuptools.setup(
      name='unicorn-binance-rest-api',
      version=str(ubra.get_version()),
      author="LUCIT Systems and Development",
+     author_email='info@lucit.tech',
      url="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api",
      description="An unofficial Python API to use the Binance REST API`s.",
      long_description=long_description,
