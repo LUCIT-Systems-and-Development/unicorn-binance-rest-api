@@ -9,7 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## 1.4.0
 ### Changed
-- Correctly scope loggers so that it plays nicely with others. [PR#17](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api/pull/17), [issue#164](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api/issues/164) 
+- Correctly scope loggers so that it plays nicely with others. [PR#17](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api/pull/17)
 - Moved from https://github.com/oliver-zehentleitner to https://github.com/LUCIT-Systems-and-Development/
 
 ## 1.3.0
