@@ -131,7 +131,7 @@ or the [current master branch](https://github.com/LUCIT-Systems-and-Development/
 - [example_version_of_this_package.py](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_version_of_this_package.py)
 
 ## Howto
-- [Howto: UNICORN Binance WebSocket API](https://www.technopathy.club/2021/09/21/howto-unicorn-binance-rest-api/)
+- [Howto: UNICORN Binance REST API](https://www.technopathy.club/2021/09/21/howto-unicorn-binance-rest-api/)
 
 ## Project Homepage
 [https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api)
