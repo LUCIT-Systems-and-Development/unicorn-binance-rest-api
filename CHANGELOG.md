@@ -5,10 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to 
 [Semantic Versioning](http://semver.org/).
 
-## 1.3.0.dev (development stage/unreleased/unstable)
-### Changed
-- Moved from https://github.com/oliver-zehentleitner to https://github.com/LUCIT-Systems-and-Development/
+## 1.4.0.dev (development stage/unreleased/unstable)
 
+## 1.4.0
+### Changed
+- Correctly scope loggers so that it plays nicely with others. [PR#17](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api/pull/17), [issue#164](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api/issues/164) 
+- Moved from https://github.com/oliver-zehentleitner to https://github.com/LUCIT-Systems-and-Development/
 
 ## 1.3.0
 ### Added
