@@ -140,8 +140,8 @@ or the [current master branch](https://github.com/LUCIT-Systems-and-Development/
 [https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/wiki](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/wiki)
 
 ## Social
+- [Discussions](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/discussions)
 - [https://t.me/unicorndevs](https://t.me/unicorndevs)
-- [https://twitter.com/LUCIT_SysDev](https://twitter.com/LUCIT_SysDev)
 - [https://dev.binance.vision](https://dev.binance.vision)
 - [https://community.binance.org](https://community.binance.org)
 
