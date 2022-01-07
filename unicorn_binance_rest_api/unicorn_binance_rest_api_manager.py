@@ -47,6 +47,8 @@ from .unicorn_binance_rest_api_helpers import date_to_milliseconds, interval_to_
 from .unicorn_binance_rest_api_exceptions import BinanceAPIException, BinanceRequestException, \
     BinanceWithdrawException, UnknownExchange
 
+logger = logging.getLogger(__name__)
+
 
 class BinanceRestApiManager(object):
     """
@@ -185,16 +187,16 @@ class BinanceRestApiManager(object):
 
         self.name = "unicorn-binance-rest-api"
         self.version = "1.3.0.dev"
-        logging.info(f"New instance of {self.get_user_agent()} on {str(platform.system())} {str(platform.release())} "
+        logger.info(f"New instance of {self.get_user_agent()} on {str(platform.system())} {str(platform.release())} "
                      f"for exchange {exchange} started ...")
         if disable_colorama is not True:
-            logging.info(f"Initiating `colorama_{colorama.__version__}`")
+            logger.info(f"Initiating `colorama_{colorama.__version__}`")
             colorama.init()
         self.exchange = exchange
         self.debug = debug
         if tld is not False:
             # Todo: Remove Block with tld!
-            logging.warning("The parameter BinanceRestApiManager(tld=`com`) is obsolete, use parameter `exchange` "
+            logger.warning("The parameter BinanceRestApiManager(tld=`com`) is obsolete, use parameter `exchange` "
                             "instead! Attention: parameter `exchange` overrules `tld`!! ")
             self.API_URL = self.API_URL.format(tld)
             self.MARGIN_API_URL = self.MARGIN_API_URL.format(tld)
@@ -310,7 +312,7 @@ class BinanceRestApiManager(object):
                         "exchanges: https://lucit-systems-and-development.github.io/unicorn-binance-rest-api/unicorn_" \
                         "binance_rest_api.html#module-unicorn_binance_rest_api.unicorn_binance_rest_" \
                         "api_manager"
-            logging.critical(error_msg)
+            logger.critical(error_msg)
 
             raise UnknownExchange(error_msg)
         else:
@@ -353,7 +355,7 @@ class BinanceRestApiManager(object):
                          f"please consider updating! (Changelog: https://github.com/LUCIT-Systems-and-Development/unicorn-" \
                          f"binance-rest-api/blob/master/CHANGELOG.md)"
             print(update_msg)
-            logging.warning(update_msg)
+            logger.warning(update_msg)
 
     def _init_session(self):
         session = requests.session()
