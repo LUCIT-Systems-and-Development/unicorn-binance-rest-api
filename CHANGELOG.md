@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 [Semantic Versioning](http://semver.org/).
 
 ## 1.4.0.dev (development stage/unreleased/unstable)
+### Changed
+- removed "unicorn_binance_rest_api_"-part of the module file names
 
 ## 1.4.0
 ### Changed

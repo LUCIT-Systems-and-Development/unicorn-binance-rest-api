@@ -34,7 +34,7 @@
 # IN THE SOFTWARE.
 
 import setuptools
-from unicorn_binance_rest_api.unicorn_binance_rest_api_manager import BinanceRestApiManager
+from unicorn_binance_rest_api.manager import BinanceRestApiManager
 
 ubra = BinanceRestApiManager()
 

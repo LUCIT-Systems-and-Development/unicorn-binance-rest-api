@@ -33,7 +33,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 # IN THE SOFTWARE.
 
-from unicorn_binance_rest_api.unicorn_binance_rest_api_manager import BinanceRestApiManager
+from unicorn_binance_rest_api.manager import BinanceRestApiManager
 import logging
 import os
 

@@ -23,11 +23,11 @@ com-futures+testnet, us, tr) in a easy, fast, flexible, robust and fully-feature
 Part of ['UNICORN Binance Suite'](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-suite).
 
 ```
-from unicorn_binance_rest_api.unicorn_binance_rest_api_manager import BinanceRestApiManager
+import unicorn_binance_rest_api
 
 api_key = "aaa"
 api_secret = "bbb"
-ubra = BinanceRestApiManager(api_key, api_secret, exchange="binance.com")
+ubra = unicorn_binance_rest_api.BinanceRestApiManager(api_key, api_secret, exchange="binance.com")
 
 # get market depth
 depth = ubra.get_order_book(symbol='BNBBTC')

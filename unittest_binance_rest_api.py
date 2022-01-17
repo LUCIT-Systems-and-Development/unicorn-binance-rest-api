@@ -33,8 +33,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 # IN THE SOFTWARE.
 
-from unicorn_binance_rest_api.unicorn_binance_rest_api_manager import *
-from unicorn_binance_rest_api.unicorn_binance_rest_api_enums import *
+from unicorn_binance_rest_api.manager import *
+from unicorn_binance_rest_api.enums import *
 import requests_mock
 import unittest
 
