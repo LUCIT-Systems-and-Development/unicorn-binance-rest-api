@@ -3,6 +3,7 @@ colorama
 cryptography
 dateparser
 pyOpenSSL
+pytz
 requests
 service-identity
 ujson

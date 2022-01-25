@@ -47,7 +47,7 @@ from .helpers import date_to_milliseconds, interval_to_milliseconds
 from .exceptions import BinanceAPIException, BinanceRequestException, \
     BinanceWithdrawException, UnknownExchange
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("unicorn_binance_rest_api")
 
 
 class BinanceRestApiManager(object):

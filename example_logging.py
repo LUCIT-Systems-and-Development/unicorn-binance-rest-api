@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# File: example_orders.py
+# File: example_logging.py
 #
 # Part of ‘UNICORN Binance REST API’
 # Project website: https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api
@@ -36,42 +36,15 @@ from unicorn_binance_rest_api.manager import BinanceRestApiManager
 import logging
 import os
 
-# https://docs.python.org/3/library/logging.html#logging-levels
 logging.getLogger("unicorn_binance_rest_api")
 logging.basicConfig(level=logging.DEBUG,
                     filename=os.path.basename(__file__) + '.log',
                     format="{asctime} [{levelname:8}] {process} {thread} {module}: {message}",
                     style="{")
 
-api_key = ""
-api_secret = ""
+api_key = "aaa"
+api_secret = "bbb"
+ubra = BinanceRestApiManager(api_key, api_secret)
 
-ubra = BinanceRestApiManager(api_key, api_secret, tld="com")
-
-# uncomment to access testnet endpoints
-# spot:
-# ubra.API_URL = 'https://testnet.binance.vision/api'
-# futures:
-# ubra.FUTURES_URL = 'https://testnet.binancefuture.com/fapi'
-
-print(ubra.get_all_orders(symbol='LUNABTC', limit=10))
-
-print(ubra.get_account())
-
-print(ubra.get_asset_balance(asset='LUNA'))
-
-print(ubra.get_symbol_ticker(symbol="LUNABTC"))
-
-print(ubra.get_open_orders(symbol='LUNABTC'))
-
-# ubra.create_order(symbol='ETHUSDT', side="BUY", quantity=2, stopPrice='2000', type='STOP_LOSS')
-
-# buy_limit_order = ubra.order_limit_buy(symbol='LUNABTC', quantity=2, price='0.0001')
-
-# sell_limit_order = ubra.order_limit_sell(symbol='LUNABTC', quantity=2, price='0.0003')
-
-existing_orders = ubra.get_open_orders(symbol='LUNABTC')
-
-for order in existing_orders:
-    print(ubra.cancel_order(symbol="LUNABTC", orderId=order['orderId']))
-
+depth = ubra.get_order_book(symbol='BNBBTC')
+print(f"{depth}")

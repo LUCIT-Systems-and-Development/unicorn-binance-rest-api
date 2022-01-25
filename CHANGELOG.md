@@ -5,9 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to 
 [Semantic Versioning](http://semver.org/).
 
+[Discussions about unicorn-binance-rest-api releases!](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/discussions/categories/releases)
+
 ## 1.4.0.dev (development stage/unreleased/unstable)
 ### Changed
 - removed "unicorn_binance_rest_api_"-part of the module file names
+- renamed logger name of all modules to "unicorn_binance_rest_api", in the implementation of 
+[PR#17](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api/pull/17) every module has had 
+its own logger name.
 
 ## 1.4.0
 ### Changed
