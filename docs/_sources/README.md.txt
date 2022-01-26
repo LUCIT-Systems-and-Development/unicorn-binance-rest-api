@@ -23,11 +23,11 @@ com-futures+testnet, us, tr) in a easy, fast, flexible, robust and fully-feature
 Part of ['UNICORN Binance Suite'](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-suite).
 
 ```
-from unicorn_binance_rest_api.unicorn_binance_rest_api_manager import BinanceRestApiManager
+import unicorn_binance_rest_api
 
 api_key = "aaa"
 api_secret = "bbb"
-ubra = BinanceRestApiManager(api_key, api_secret, exchange="binance.com")
+ubra = unicorn_binance_rest_api.BinanceRestApiManager(api_key, api_secret, exchange="binance.com")
 
 # get market depth
 depth = ubra.get_order_book(symbol='BNBBTC')
@@ -37,8 +37,14 @@ print(f"{depth}")
 prices = ubra.get_all_tickers()
 print(f"{prices}")
 
-# get the used weight: https://github.com/binance-us/binance-official-api-docs/blob/master/rest-api.md#limits
+# get the used weight: 
+# https://github.com/binance-us/binance-official-api-docs/blob/master/rest-api.md#limits
 print(f"Used weight: {ubra.get_used_weight()}")
+```
+
+### Get the right [logger](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_logging.py):
+```
+logging.getLogger("unicorn_binance_rest_api")
 ```
 
 ## Description
@@ -127,11 +133,12 @@ or the [current master branch](https://github.com/LUCIT-Systems-and-Development/
 ## Examples
 - [example_doing_something.py](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_doing_something.py)
 - [example_easy_migration_from_python-binance.py](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_easy_migration_from_python-binance.py)
+- [example_logging.py](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_logging.py)
 - [example_orders.py](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_orders.py)
 - [example_version_of_this_package.py](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_version_of_this_package.py)
 
 ## Howto
-- [Howto: UNICORN Binance WebSocket API](https://www.technopathy.club/2021/09/21/howto-unicorn-binance-rest-api/)
+- [Howto: UNICORN Binance REST API](https://www.technopathy.club/2021/09/21/howto-unicorn-binance-rest-api/)
 
 ## Project Homepage
 [https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api)
@@ -140,8 +147,8 @@ or the [current master branch](https://github.com/LUCIT-Systems-and-Development/
 [https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/wiki](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/wiki)
 
 ## Social
+- [Discussions](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/discussions)
 - [https://t.me/unicorndevs](https://t.me/unicorndevs)
-- [https://twitter.com/LUCIT_SysDev](https://twitter.com/LUCIT_SysDev)
 - [https://dev.binance.vision](https://dev.binance.vision)
 - [https://community.binance.org](https://community.binance.org)
 
@@ -153,7 +160,7 @@ the repository on [GitHub](https://github.com/LUCIT-Systems-and-Development/unic
 with using 
 [`is_update_availabe()`](https://lucit-systems-and-development.github.io/unicorn-binance-rest-api/unicorn_binance_rest_api.html?highlight=is_update_availabe#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.is_update_availabe).
 
-Follow us on [Twitter](https://twitter.com/LUCIT_SysDev) for general news about the [unicorn-binance-suite](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-suite)!
+Follow us on [Twitter](https://twitter.com/LUCIT_SysDev) or on [Facebook](https://www.facebook.com/lucit.systems.and.development) for general news about the [unicorn-binance-suite](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-suite)!
 
 To receive news (like inspection windows/maintenance) about the Binance API`s subscribe to their telegram groups: 
 - [https://t.me/binance_api_announcements](https://t.me/binance_api_announcements)
