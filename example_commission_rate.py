@@ -48,5 +48,5 @@ api_secret = ""
 
 ubra = BinanceRestApiManager(api_key, api_secret, exchange="binance.com-futures")
 
-print(ubra.futures_commission_rate(symbol='LUNABTC'))
+print(ubra.futures_commission_rate(symbol='btcusdt'))
 
