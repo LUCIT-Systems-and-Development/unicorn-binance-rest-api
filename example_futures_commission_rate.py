@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# File: example_commission_rate.py
+# File: example_futures_commission_rate.py
 #
 # Part of ‘UNICORN Binance REST API’
 # Project website: https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api
@@ -48,5 +48,5 @@ api_secret = ""
 
 ubra = BinanceRestApiManager(api_key, api_secret, exchange="binance.com-futures")
 
-print(ubra.futures_commission_rate(symbol='btcusdt'))
+print(ubra.futures_commission_rate(symbol='BTCUSDT'))
 
