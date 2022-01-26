@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# File: example_logging.py
+# File: example_commission_rate.py
 #
 # Part of ‘UNICORN Binance REST API’
 # Project website: https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api
@@ -36,15 +36,17 @@ from unicorn_binance_rest_api.manager import BinanceRestApiManager
 import logging
 import os
 
+# https://docs.python.org/3/library/logging.html#logging-levels
 logging.getLogger("unicorn_binance_rest_api")
 logging.basicConfig(level=logging.DEBUG,
                     filename=os.path.basename(__file__) + '.log',
                     format="{asctime} [{levelname:8}] {process} {thread} {module}: {message}",
                     style="{")
 
-api_key = "aaa"
-api_secret = "bbb"
-ubra = BinanceRestApiManager(api_key, api_secret)
+api_key = ""
+api_secret = ""
 
-depth = ubra.get_order_book(symbol='BNBBTC')
-print(f"{depth}")
+ubra = BinanceRestApiManager(api_key, api_secret, exchange="binance.com-futures")
+
+print(ubra.futures_commission_rate(symbol='LUNABTC'))
+

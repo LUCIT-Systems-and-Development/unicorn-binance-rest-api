@@ -188,7 +188,7 @@ class BinanceRestApiManager(object):
         self.name = "unicorn-binance-rest-api"
         self.version = "1.3.0.dev"
         logger.info(f"New instance of {self.get_user_agent()} on {str(platform.system())} {str(platform.release())} "
-                     f"for exchange {exchange} started ...")
+                    f"for exchange {exchange} started ...")
         if disable_colorama is not True:
             logger.info(f"Initiating `colorama_{colorama.__version__}`")
             colorama.init()
@@ -197,7 +197,7 @@ class BinanceRestApiManager(object):
         if tld is not False:
             # Todo: Remove Block with tld!
             logger.warning("The parameter BinanceRestApiManager(tld=`com`) is obsolete, use parameter `exchange` "
-                            "instead! Attention: parameter `exchange` overrules `tld`!! ")
+                           "instead! Attention: parameter `exchange` overrules `tld`!! ")
             self.API_URL = self.API_URL.format(tld)
             self.MARGIN_API_URL = self.MARGIN_API_URL.format(tld)
             self.WEBSITE_URL = self.WEBSITE_URL.format(tld)
@@ -5620,6 +5620,14 @@ class BinanceRestApiManager(object):
 
         """
         return self._request_margin_api('post', 'futures/transfer', True, data=params)
+
+    def futures_commission_rate(self, **params):
+        """Get user commission rate
+
+        https://binance-docs.github.io/apidocs/futures/en/#user-commission-rate-user_data
+
+        """
+        return self._request_futures_coin_api("get", "commissionRate", version=1, signed=True, data=params)
 
     def transfer_history(self, **params):
         """Get future account transaction history list
