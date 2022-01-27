@@ -5,7 +5,7 @@
 #
 # Part of ‘UNICORN Binance REST API’
 # Project website: https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api
-# Documentation: https://lucit-systems-and-development.github.io/unicorn-binance-rest-api
+# Documentation: https://unicorn-binance-rest-api.docs.lucit.tech/
 # PyPI: https://pypi.org/project/unicorn-binance-rest-api/
 #
 # Author: LUCIT Systems and Development
@@ -55,7 +55,7 @@ setuptools.setup(
                        'ujson'],
      keywords='',
      project_urls={
-        'Documentation': 'https://lucit-systems-and-development.github.io/unicorn-binance-rest-api/',
+        'Documentation': 'https://unicorn-binance-rest-api.docs.lucit.tech//',
         'Wiki': 'https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/wiki',
         'Author': 'https://www.lucit.tech',
      },
