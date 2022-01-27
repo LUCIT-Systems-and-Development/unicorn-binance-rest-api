@@ -14,10 +14,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - `futures_commission_rate()` [issue#18](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues/18)
 ### Changed
 - Moved from https://github.com/oliver-zehentleitner to https://github.com/LUCIT-Systems-and-Development/
-- removed "unicorn_binance_rest_api_"-part of the module file names
-- Correctly scope loggers so that it plays nicely with others. [PR#17](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api/pull/17)
+- removed "unicorn_binance_rest_api_"-part of the module file names (more info: [Discussions](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/discussions/19))
+- Correctly scope loggers so that it plays nicely with others. [PR#17](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/pull/17)
 - renamed logger name of all modules to "unicorn_binance_rest_api", in the implementation of 
-[PR#17](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api/pull/17) every module has had 
+[PR#17](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/pull/17) every module has had 
 its own logger name.
 
 ## 1.3.0
