@@ -90,7 +90,7 @@ Be aware that the Binance REST API is request based. if you want to receive high
 | [Binance TR](https://www.trbinance.com) | `BinanceRestApiManager(exchange="trbinance.com")` |
 
 - Helpful management features like 
-[`get_used_weight()`](https://unicorn-binance-rest-api.docs.lucit.tech//unicorn_binance_rest_api.html#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_used_weight),
+[`get_used_weight()`](https://unicorn-binance-rest-api.docs.lucit.tech//unicorn_binance_rest_api.html#unicorn_binance_rest_api.unicorn_binance_rest_api_manager.BinanceRestApiManager.get_used_weight), 
 
 ## Installation and Upgrade
 The current dependencies are listed 
