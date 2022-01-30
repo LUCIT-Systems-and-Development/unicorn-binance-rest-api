@@ -192,7 +192,7 @@ contribute follow
 We ![love](https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-rest-api/master/images/misc/heart.png) open source!
 
 ## Commercial Support
-[![LUCIT](https://www.lucit.tech/files/images/logos/LUCIT-LOGO-TRANS-PLAIN-NEW.png)](https://www.lucit.tech)
+[![LUCIT](https://www.lucit.tech/files/images/logos/LUCIT-LOGO.png)](https://www.lucit.tech)
 
 Do you need a developer, operator or consultant? 
 
