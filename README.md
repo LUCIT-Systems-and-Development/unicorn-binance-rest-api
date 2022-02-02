@@ -20,7 +20,7 @@
 An unofficial Python API to use the Binance REST API`s (com+testnet, com-margin+testnet, com-isolated_margin+testnet, 
 com-futures+testnet, us, tr) in a easy, fast, flexible, robust and fully-featured way. 
 
-Part of ['UNICORN Binance Suite'](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-suite).
+Part of ['UNICORN Binance Suite'](https://www.lucit.tech/unicorn-binance-suite.html).
 
 ```
 import unicorn_binance_rest_api
