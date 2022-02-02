@@ -183,7 +183,7 @@ If you dont find an issue related to your topic, please open a new [issue](https
 [Report a security bug!](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/security/policy)
 
 ## Contributing
-[UNICORN Binance REST API](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api) is an open 
+[UNICORN Binance REST API](https://www.lucit.tech/unicorn-binance-rest-api.html) is an open 
 source project which welcomes contributions which can be anything from simple documentation fixes and reporting dead links to new features. To 
 contribute follow 
 [this guide](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/CONTRIBUTING.md).
