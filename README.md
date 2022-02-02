@@ -72,7 +72,7 @@ provides an API to the Binance REST API`s of
 [www.binance.us](https://www.binance.us/userCenter/createApi.html) or 
 [www.jex.com](https://www.jex.com/userCenter/createApi.html).
 
-Be aware that the Binance REST API is request based. if you want to receive high frequency and high volume data, you can use the [UNICORN Binance Websocket API](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api) in combination. 
+Be aware that the Binance REST API is request based. if you want to receive high frequency and high volume data, you can use the [UNICORN Binance Websocket API](https://www.lucit.tech/unicorn-binance-websocket-api.html) in combination. 
 
 ### What are the benefits of the UNICORN Binance REST API?
 - Supported exchanges: 
