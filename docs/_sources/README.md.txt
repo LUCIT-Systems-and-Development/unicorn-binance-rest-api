@@ -44,7 +44,7 @@ print(f"{prices}")
 print(f"Used weight: {ubra.get_used_weight()}")
 ```
 
-### Get the right [logger](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_logging.py):
+### Get the right [logger](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_logging.py)
 ```
 logging.getLogger("unicorn_binance_rest_api")
 ```
