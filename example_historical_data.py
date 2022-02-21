@@ -34,8 +34,6 @@
 # IN THE SOFTWARE.
 
 from unicorn_binance_rest_api.manager import BinanceRestApiManager
-import logging
-import os
 
 api_key = "*"
 api_secret = "*"
