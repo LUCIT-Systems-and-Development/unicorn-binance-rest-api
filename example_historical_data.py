@@ -41,14 +41,14 @@ api_key = "*"
 api_secret = "*"
 ubra = BinanceRestApiManager(api_key, api_secret)
 
-# fetch 1 minute klines for the last day up until now
-klines_1m = ubra.get_historical_klines("LUNABTC", ubra.KLINE_INTERVAL_1MINUTE, "1 day ago UTC")
+# Retrieve 1-minute klines for the last day so far
+klines_1m = ubra.get_historical_klines("USTBTC", ubra.KLINE_INTERVAL_1MINUTE, "1 day ago UTC")
 print(f"klines_1m:\r\n{klines_1m}")
 
-# fetch 30 minute klines for the last month of 2021
-klines_30m = ubra.get_historical_klines("ETHBTC", "30m", "1 Dec, 2021", "1 Jan, 2022")
+# Retrieve 30-minute klines for the last month of 2021
+klines_30m = ubra.get_historical_klines("LUNABTC", "30m", "1 Dec, 2021", "1 Jan, 2022")
 print(f"klines_30m:\r\n{klines_30m}")
 
-# fetch weekly klines since it listed
-klines_1w = ubra.get_historical_klines("ADABTC", "1w", "1 Jan, 2017")
+# Retrieve weekly klines since they are listed
+klines_1w = ubra.get_historical_klines("BNBBTC", "1w", "1 Jan, 2017")
 print(f"klines_1w:\r\n{klines_1w}")
