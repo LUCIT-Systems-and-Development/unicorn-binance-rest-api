@@ -9,7 +9,7 @@ This document outlines security procedures and general policies for the
 
 ## Reporting a Bug
 
-`Oliver Zehentleitner` takes all security bugs in `unicorn-binance-rest-api` seriously.
+`LUCIT Systems and Development` takes all security bugs in `unicorn-binance-rest-api` seriously.
 Thank you for improving the security of `unicorn-binance-rest-api`. We appreciate your 
 efforts and responsible disclosure and will make every effort to acknowledge your contributions.
 
