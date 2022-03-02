@@ -567,7 +567,7 @@ class BinanceRestApiManager(object):
         :return: dict or False
         """
         try:
-            respond = requests.get('https://api.github.com/repos/oliver-zehentleitner/unicorn-binance-rest-api/'
+            respond = requests.get('https://api.github.com/repos/LUCIT-Systems-and-Development/unicorn-binance-rest-api/'
                                    'releases/latest')
             latest_release_info = respond.json()
             return latest_release_info
