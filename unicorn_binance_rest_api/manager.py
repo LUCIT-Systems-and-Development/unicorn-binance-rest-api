@@ -187,7 +187,7 @@ class BinanceRestApiManager(object):
                  debug=False):
 
         self.name = "unicorn-binance-rest-api"
-        self.version = "1.4.0.dev"
+        self.version = "1.4.1.dev"
         logger.info(f"New instance of {self.get_user_agent()} on {str(platform.system())} {str(platform.release())} "
                     f"for exchange {exchange} started ...")
         if disable_colorama is not True:
@@ -215,14 +215,15 @@ class BinanceRestApiManager(object):
             self.FUTURES_DATA_URL = "https://fapi.binance.com/futures/data"
             self.FUTURES_COIN_URL = "https://fapi.binance.com/fapi"
             self.FUTURES_COIN_DATA_URL = "https://dapi.binance.com/futures/data"
-        elif self.exchange == "binance.com-testnet":
+        elif self.exchange == "binance.com-testnet" or self.exchange == "binance.com-futures-testnet":
+            # https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues/20
             self.API_URL = "https://testnet.binance.vision/api"
             self.MARGIN_API_URL = " https://api.binance.com/sapi"
             self.WEBSITE_URL = "https://testnet.binance.vision"
-            self.FUTURES_URL = "https://fapi.binance.com/fapi"
-            self.FUTURES_DATA_URL = "https://fapi.binance.com/futures/data"
-            self.FUTURES_COIN_URL = "https://fapi.binance.com/fapi"
-            self.FUTURES_COIN_DATA_URL = "https://dapi.binance.com/futures/data"
+            self.FUTURES_URL = "https://testnet.binancefuture.com/fapi"
+            self.FUTURES_DATA_URL = "https://testnet.binancefuture.com/futures/data"
+            self.FUTURES_COIN_URL = "https://testnet.binancefuture.com/dapi"
+            self.FUTURES_COIN_DATA_URL = "https://testnet.binancefuture.com/futures/data"
         elif self.exchange == "binance.com-margin":
             self.API_URL = "https://api.binance.com/api"
             self.MARGIN_API_URL = " https://api.binance.com/sapi"
@@ -235,10 +236,10 @@ class BinanceRestApiManager(object):
             self.API_URL = "https://testnet.binance.vision/api"
             self.MARGIN_API_URL = " https://api.binance.com/sapi"
             self.WEBSITE_URL = "https://testnet.binance.vision"
-            self.FUTURES_URL = "https://fapi.binance.com/fapi"
-            self.FUTURES_DATA_URL = "https://fapi.binance.com/futures/data"
-            self.FUTURES_COIN_URL = "https://fapi.binance.com/fapi"
-            self.FUTURES_COIN_DATA_URL = "https://dapi.binance.com/futures/data"
+            self.FUTURES_URL = "https://testnet.binancefuture.com/fapi"
+            self.FUTURES_DATA_URL = "https://testnet.binancefuture.com/futures/data"
+            self.FUTURES_COIN_URL = "https://testnet.binancefuture.com/dapi"
+            self.FUTURES_COIN_DATA_URL = "https://testnet.binancefuture.com/futures/data"
         elif self.exchange == "binance.com-isolated_margin":
             self.API_URL = "https://api.binance.com/api"
             self.MARGIN_API_URL = " https://api.binance.com/sapi"
@@ -251,10 +252,10 @@ class BinanceRestApiManager(object):
             self.API_URL = "https://testnet.binance.vision/api"
             self.MARGIN_API_URL = " https://api.binance.com/sapi"
             self.WEBSITE_URL = "https://testnet.binance.vision"
-            self.FUTURES_URL = "https://fapi.binance.com/fapi"
-            self.FUTURES_DATA_URL = "https://fapi.binance.com/futures/data"
-            self.FUTURES_COIN_URL = "https://fapi.binance.com/fapi"
-            self.FUTURES_COIN_DATA_URL = "https://dapi.binance.com/futures/data"
+            self.FUTURES_URL = "https://testnet.binancefuture.com/fapi"
+            self.FUTURES_DATA_URL = "https://testnet.binancefuture.com/futures/data"
+            self.FUTURES_COIN_URL = "https://testnet.binancefuture.com/dapi"
+            self.FUTURES_COIN_DATA_URL = "https://testnet.binancefuture.com/futures/data"
         elif self.exchange == "binance.com-futures":
             self.API_URL = "https://api.binance.com/api"
             self.MARGIN_API_URL = " https://api.binance.com/sapi"
@@ -267,15 +268,6 @@ class BinanceRestApiManager(object):
             self.API_URL = "https://api.binance.com/api"
             self.MARGIN_API_URL = " https://api.binance.com/sapi"
             self.WEBSITE_URL = "https://www.binance.com"
-            self.FUTURES_URL = "https://fapi.binance.com/fapi"
-            self.FUTURES_DATA_URL = "https://fapi.binance.com/futures/data"
-            self.FUTURES_COIN_URL = "https://fapi.binance.com/fapi"
-            self.FUTURES_COIN_DATA_URL = "https://dapi.binance.com/futures/data"
-        elif self.exchange == "binance.com-futures-testnet":
-            # Todo: Needs a test
-            self.API_URL = "https://testnet.binance.vision/api"
-            self.MARGIN_API_URL = " https://api.binance.com/sapi"
-            self.WEBSITE_URL = "https://testnet.binance.vision"
             self.FUTURES_URL = "https://fapi.binance.com/fapi"
             self.FUTURES_DATA_URL = "https://fapi.binance.com/futures/data"
             self.FUTURES_COIN_URL = "https://fapi.binance.com/fapi"

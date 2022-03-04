@@ -7,7 +7,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 [Discussions about unicorn-binance-rest-api releases!](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/discussions/categories/releases)
 
-## 1.4.0.dev (development stage/unreleased/unstable)
+## 1.4.1.dev (development stage/unreleased/unstable)
+
+## 1.4.1
+### Fixed
+- Binance Futures Testnet URL [issue#20](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues/20)
 
 ## 1.4.0
 ### Adding
