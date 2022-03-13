@@ -49,10 +49,6 @@ Include here a description of the server hardware.
 - [ ] Windows
 - [ ] Linux (include flavour)
 
-#### Options
-- [ ] stream_buffer
-- [ ] process_stream_data
-
 #### Which endpoint do you connect?
 ```
 Include here the endpint you are connecting to, like binance.com, binance.com-isolated_margin or binance.org-testnet
