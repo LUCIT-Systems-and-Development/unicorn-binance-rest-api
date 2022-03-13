@@ -12,6 +12,7 @@ Before opening a new issue, please ensure:
 - YOU HAVE READ THE ISSUE GUIDELINES! -> https://github.com/LUCIT-Systems-and-Development/unicorn-binance-suite/wiki/Issue-Guidelines
 - You search for existing bugs/feature requests
 - If related to `UnicornFy` post to https://github.com/LUCIT-Systems-and-Development/unicorn-fy/issues
+- If related to `unicorn-binance-local-depth-cache` post to https://github.com/LUCIT-Systems-and-Development/unicorn-binance-local-depth-cache/issues
 - If related to `unicorn-binance-websocket-api` post to https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api/issues
 - Remove extraneous template details
 - Do not prefix title with type of issue (Feature Request, Bug, etc.) The appropriate labels will be added during triage.
@@ -38,12 +39,7 @@ Check this or we will delete your issue. (fill in the checkbox with an X like so
 Include here a description of your internet access like cable, lte and up and download rate.
 ```
 
-#### Average system load (CPU)
-```
-Include here the ammount of cpu cores and the average system load.
-```
-
-#### Hardware specification 
+#### Hardware Specification 
 ```
 Include here a description of the server hardware.
 ```
@@ -63,7 +59,7 @@ Include here the endpint you are connecting to, like binance.com, binance.com-is
 ```
 
 #### Python Version Requirement
-- [ ] I am using Python 3.6.1 or above
+- [ ] I am using Python 3.7 or above
 
 #### Exact Python Version?
 ```
@@ -78,14 +74,15 @@ Include here the response of 'python3 -m pip --version' or 'pip3 --version'
 #### Dependencies
 Run `pip list > pip_list.txt` and upload the file.
 
-#### UNICORN Binance REST API Version?
+#### Which Versions?
 ```
-Did you upgrade to the latest release version with `pip install unicorn-binance-rest-api --upgrade`?
+Did you upgrade to the latest release version with `pip install unicorn-binance-websocket-api --upgrade`?
 
-Please control what version you are using with this script and post the output: https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/tools/get_used_module_version.py
+Please control the versions you are using with this script and post the output: 
+https://github.com/LUCIT-Systems-and-Development/unicorn-binance-suite/blob/master/tools/get_versions_of_unicorn_packages.py
 ```
 
-#### Description of your issue
+#### Description Of Your Issue
 ```
 Include the contents of the log file here. (REMOVE API_KEY, API_SECRET, LISTEN_KEY!!)
 ```
