@@ -1,4 +1,4 @@
-[![GitHub release](https://img.shields.io/github/release/LUCIT-Systems-and-Development/unicorn-binance-rest-api.svg)](https://pypi.org/project/unicorn-binance-rest-api/)
+[![GitHub release](https://img.shields.io/github/release/LUCIT-Systems-and-Development/unicorn-binance-rest-api.svg)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases)
 [![GitHub](https://img.shields.io/github/license/LUCIT-Systems-and-Development/unicorn-binance-rest-api.svg?color=blue)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/LICENSE)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/unicorn-binance-rest-api.svg)](https://www.python.org/downloads/)
 [![Downloads](https://pepy.tech/badge/unicorn-binance-rest-api)](https://pepy.tech/project/unicorn-binance-rest-api)
