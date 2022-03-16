@@ -7,7 +7,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 [Discussions about unicorn-binance-rest-api releases!](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/discussions/categories/releases)
 
-## 1.4.1.dev (development stage/unreleased/unstable)
+## 1.4.2.dev (development stage/unreleased/unstable)
+
+## 1.4.2
+### Changed 
+- Dependency regex to <= 2022.3.2 [issue#24](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues/24)
 
 ## 1.4.1
 ### Fixed
