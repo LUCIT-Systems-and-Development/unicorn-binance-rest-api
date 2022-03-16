@@ -4,6 +4,7 @@ cryptography
 dateparser
 pyOpenSSL
 pytz
+regex<=2022.3.2
 requests
 service-identity
 ujson

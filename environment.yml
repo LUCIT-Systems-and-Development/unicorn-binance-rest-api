@@ -8,5 +8,6 @@ dependencies:
   - dateparser
   - pyOpenSSL
   - requests
+  - regex<=2022.3.2
   - service-identity
   - ujson
