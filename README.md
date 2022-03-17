@@ -103,18 +103,26 @@ The current dependencies are listed
 
 If you run into errors during the installation take a look [here](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/wiki/Installation).
 
-### A wheel of the latest release with PIP from [PyPI](https://pypi.org/project/unicorn-binance-rest-api/)
+### A wheel and a source file of the latest release with `pip`  from [PyPI](https://pypi.org/project/unicorn-binance-rest-api/)
 `pip install unicorn-binance-rest-api --upgrade`
+
+### A conda package of the latest release with `conda` from [Anaconda](https://anaconda.org/conda-forge/unicorn-binance-rest-api) via [CONDA-FORGE](https://conda-forge.org).
+`conda install -c conda-forge unicorn-binance-rest-api`
+
+`conda update -c conda-forge unicorn-binance-rest-api`
+
 ### From source of the latest release with PIP from [Github](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api)
 #### Linux, macOS, ...
 Run in bash:
 
 `pip install https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/$(curl -s https://api.github.com/repos/oliver-zehentleitner/unicorn-binance-rest-api/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")').tar.gz --upgrade`
+
 #### Windows
 Use the below command with the version (such as 1.3.0) you determined 
 [here](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases/latest):
 
 `pip install https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/1.3.0.tar.gz --upgrade`
+
 ### From the latest source (dev-stage) with PIP from [Github](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api)
 This is not a release version and can not be considered to be stable!
 
