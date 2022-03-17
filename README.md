@@ -115,7 +115,7 @@ If you run into errors during the installation take a look [here](https://github
 #### Linux, macOS, ...
 Run in bash:
 
-`pip install https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/$(curl -s https://api.github.com/repos/oliver-zehentleitner/unicorn-binance-rest-api/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")').tar.gz --upgrade`
+`pip install https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/$(curl -s https://api.github.com/repos/lucit-systems-and-development/unicorn-binance-rest-api/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")').tar.gz --upgrade`
 
 #### Windows
 Use the below command with the version (such as 1.3.0) you determined 
@@ -204,7 +204,7 @@ contribute follow
 [this guide](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/CONTRIBUTING.md).
  
 ### Contributors
-[![Contributors](https://contributors-img.web.app/image?repo=oliver-zehentleitner/unicorn-binance-rest-api)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/graphs/contributors)
+[![Contributors](https://contributors-img.web.app/image?repo=lucit-systems-and-development/unicorn-binance-rest-api)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/graphs/contributors)
 
 We ![love](https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-rest-api/master/images/misc/heart.png) open source!
 
