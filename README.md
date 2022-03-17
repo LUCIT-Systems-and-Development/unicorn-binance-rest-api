@@ -132,6 +132,7 @@ This is not a release version and can not be considered to be stable!
 Download the [latest release](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases/latest) 
 or the [current master branch](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/master.zip)
  and use:
+ 
 - ./environment.yml
 - ./requirements.txt
 - ./setup.py
