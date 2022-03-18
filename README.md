@@ -1,4 +1,5 @@
-[![GitHub Release](https://img.shields.io/github/release/LUCIT-Systems-and-Development/unicorn-binance-rest-api.svg)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases)
+[![GitHub Release](https://img.shields.io/github/release/LUCIT-Systems-and-Development/unicorn-binance-rest-api.svg?label=github)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases)
+[![GitHub Downloads](https://img.shields.io/github/downloads/LUCIT-Systems-and-Development/unicorn-binance-rest-api/total?color=blue)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases)
 [![Conda Release](https://img.shields.io/conda/vn/conda-forge/unicorn-binance-rest-api.svg?color=blue)](https://anaconda.org/conda-forge/unicorn-binance-rest-api)
 [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/unicorn-binance-rest-api.svg?color=blue)](https://anaconda.org/conda-forge/unicorn-binance-rest-api)
 [![PyPi Release](https://img.shields.io/pypi/v/unicorn-binance-rest-api?color=blue)](https://pypi.org/project/unicorn-binance-rest-api/)
