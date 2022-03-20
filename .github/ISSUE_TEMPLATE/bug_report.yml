@@ -48,6 +48,7 @@ body:
         - macOS
         - Windows
         - Linux
+        - Other (please explain)
 
   - type: dropdown
     id: Python
@@ -106,7 +107,8 @@ body:
         - trbinance.com
         - jex.com
         - binance.org
-        - binance.org-testnet              
+        - binance.org-testnet       
+        - concerns all
          
   - type: textarea
     id: Issue
