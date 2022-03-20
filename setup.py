@@ -64,6 +64,7 @@ setuptools.setup(
          'Wiki': 'https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/wiki',
          'Author': 'https://www.lucit.tech',
          'Chat': 'https://gitter.im/unicorn-binance-suite/unicorn-binance-rest-api',
+         'Telegram': 'https://t.me/unicorndevs',
      },
      python_requires='>=3.6.1',
      packages=setuptools.find_packages(exclude=["tools", "images", "pypi", "sphinx", "docs", ".github"]),
