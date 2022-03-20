@@ -15,6 +15,7 @@
 [![Read the Docs](https://img.shields.io/badge/read-%20docs-yellow)](https://unicorn-binance-rest-api.docs.lucit.tech/)
 [![Github](https://img.shields.io/badge/source-github-yellow)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api)
 [![Telegram](https://img.shields.io/badge/chat-telegram-yellow)](https://t.me/unicorndevs)
+[![Gitter](https://badges.gitter.im/unicorn-binance-suite/unicorn-binance-rest-api.svg)](https://gitter.im/unicorn-binance-suite/unicorn-binance-rest-api?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 # UNICORN Binance REST API
 
