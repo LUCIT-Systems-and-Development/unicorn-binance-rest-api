@@ -63,7 +63,7 @@ setuptools.setup(
          'Issue Tracker': 'https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues',
          'Wiki': 'https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/wiki',
          'Author': 'https://www.lucit.tech',
-         'Chat': 'https://t.me/unicorndevs',
+         'Chat': 'https://gitter.im/unicorn-binance-suite/unicorn-binance-rest-api',
      },
      python_requires='>=3.6.1',
      packages=setuptools.find_packages(exclude=["tools", "images", "pypi", "sphinx", "docs", ".github"]),
