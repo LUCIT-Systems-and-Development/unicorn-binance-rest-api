@@ -66,7 +66,7 @@ setuptools.setup(
          'Chat': 'https://t.me/unicorndevs',
      },
      python_requires='>=3.6.1',
-     packages=setuptools.find_packages(),
+     packages=setuptools.find_packages(exclude=["tools", "images", "pypi", "sphinx", "docs", ".github"]),
      classifiers=[
          "Development Status :: 5 - Production/Stable",
          "Programming Language :: Python :: 3.6",
