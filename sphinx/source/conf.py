@@ -89,8 +89,8 @@ pygments_style = None
 html_theme = 'python_docs_theme_technopathy'
 html_context = {'github_user_name': 'LUCIT-Systems-and-Development',
                 'github_repo_name': 'unicorn-binance-rest-api',
-                'project_name': project}
-
+                'project_name': project,
+                'lucit': True}
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
