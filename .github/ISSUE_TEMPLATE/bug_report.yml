@@ -37,7 +37,9 @@ body:
         - Local server/workstation
         - Raspberry Pi
         - VPS or other cloud hosting
-
+    validations:
+      required: true
+      
   - type: dropdown
     id: OS
     attributes:
@@ -49,7 +51,9 @@ body:
         - macOS
         - Windows
         - Other (please explain)
-
+    validations:
+      required: true
+      
   - type: dropdown
     id: Python
     attributes:
@@ -62,7 +66,9 @@ body:
         - Python3.8
         - Python3.9
         - Python3.10
-         
+    validations:
+      required: true
+      
   - type: textarea
     id: Packages
     attributes:
@@ -109,7 +115,9 @@ body:
         - binance.us
         - jex.com
         - trbinance.com
-         
+    validations:
+      required: true
+      
   - type: textarea
     id: Issue
     attributes:
