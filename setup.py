@@ -55,7 +55,7 @@ setuptools.setup(
      long_description_content_type="text/markdown",
      license='MIT License',
      install_requires=['certifi', 'colorama', 'cryptography', 'dateparser', 'pyOpenSSL', 'requests', 'service-identity',
-                       'ujson', 'regex<=2022.3.2'],
+                       'ujson', 'regex<2022.4.25'],
      keywords='',
      project_urls={
          'Documentation': 'https://unicorn-binance-rest-api.docs.lucit.tech/',
