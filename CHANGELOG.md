@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## 1.5.0
 ### Added 
 - `cancel_all_open_margin_orders()`
+- `futures_auto_cancel_all_open_orders()`
 
 ## 1.4.3
 Codebase equal to 1.4.2, testing azure pipe

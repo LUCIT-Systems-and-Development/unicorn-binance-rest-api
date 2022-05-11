@@ -1,23 +1,28 @@
-[![GitHub release](https://img.shields.io/github/release/LUCIT-Systems-and-Development/unicorn-binance-rest-api.svg)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases)
-[![GitHub](https://img.shields.io/github/license/LUCIT-Systems-and-Development/unicorn-binance-rest-api.svg?color=blue)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/LICENSE)
-[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/unicorn-binance-rest-api.svg)](https://www.python.org/downloads/)
-[![Downloads](https://pepy.tech/badge/unicorn-binance-rest-api)](https://pepy.tech/project/unicorn-binance-rest-api)
-[![PyPI - Wheel](https://img.shields.io/pypi/wheel/unicorn-binance-rest-api.svg?label=PyPI%20wheel)](https://pypi.org/project/unicorn-binance-rest-api/)
-[![PyPI - Status](https://img.shields.io/pypi/status/unicorn-binance-rest-api.svg)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues)
-[![Unit Tests](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/unit-tests.yml)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/LUCIT-Systems-and-Development/unicorn-binance-rest-api.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/LUCIT-Systems-and-Development/unicorn-binance-rest-api/alerts/)
+[![GitHub Release](https://img.shields.io/github/release/LUCIT-Systems-and-Development/unicorn-binance-rest-api.svg?label=github)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases)
+[![GitHub Downloads](https://img.shields.io/github/downloads/LUCIT-Systems-and-Development/unicorn-binance-rest-api/total?color=blue)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases)
+[![Conda Release](https://img.shields.io/conda/vn/conda-forge/unicorn-binance-rest-api.svg?color=blue)](https://anaconda.org/conda-forge/unicorn-binance-rest-api)
+[![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/unicorn-binance-rest-api.svg?color=blue)](https://anaconda.org/conda-forge/unicorn-binance-rest-api)
+[![PyPi Release](https://img.shields.io/pypi/v/unicorn-binance-rest-api?color=blue)](https://pypi.org/project/unicorn-binance-rest-api/)
+[![PyPi Downloads](https://pepy.tech/badge/unicorn-binance-rest-api)](https://pepy.tech/project/unicorn-binance-rest-api)
+[![License](https://img.shields.io/github/license/LUCIT-Systems-and-Development/unicorn-binance-rest-api.svg?color=blue)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/LICENSE)
+[![Supported Python Version](https://img.shields.io/pypi/pyversions/unicorn_binance_rest_api.svg)](https://www.python.org/downloads/)
+[![PyPI - Status](https://img.shields.io/pypi/status/unicorn_binance_rest_api.svg)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/LUCIT-Systems-and-Development/unicorn-binance-rest-api.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/LUCIT-Systems-and-Development/unicorn-binance-rest-api/context:python)
-[![codecov](https://codecov.io/gh/LUCIT-Systems-and-Development/unicorn-binance-rest-api/branch/master/graph/badge.svg?token=P7XILPPSLU)](https://codecov.io/gh/oliver-zehentleitner/unicorn-binance-rest-api)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/LUCIT-Systems-and-Development/unicorn-binance-rest-api.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/LUCIT-Systems-and-Development/unicorn-binance-rest-api/alerts/)
+[![Unit Tests](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/unit-tests.yml)
+[![Azure Pipelines](https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/unicorn-binance-rest-api-feedstock?branchName=main)](https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15697&branchName=main)
+[![codecov](https://codecov.io/gh/LUCIT-Systems-and-Development/unicorn-binance-rest-api/branch/master/graph/badge.svg?token=5I03AZ3F5S)](https://codecov.io/gh/LUCIT-Systems-and-Development/unicorn-binance-rest-api)
 [![Read the Docs](https://img.shields.io/badge/read-%20docs-yellow)](https://unicorn-binance-rest-api.docs.lucit.tech/)
 [![Github](https://img.shields.io/badge/source-github-yellow)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api)
 [![Telegram](https://img.shields.io/badge/chat-telegram-yellow)](https://t.me/unicorndevs)
+[![Gitter](https://badges.gitter.im/unicorn-binance-suite/unicorn-binance-rest-api.svg)](https://gitter.im/unicorn-binance-suite/unicorn-binance-rest-api?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 # UNICORN Binance REST API
 
 [Description](#description) | [Installation](#installation-and-upgrade) | [How To](#howto) |
 [Documentation](#documentation) | [Examples](#examples) | [Change Log](#change-log) | [Wiki](#wiki) | [Social](#social) |
 [Notifications](#receive-notifications) | [Bugs](#how-to-report-bugs-or-suggest-improvements) | 
-[Contributing](#contributing) | [Commercial Support](#commercial-support)
+[Contributing](#contributing) | [Disclaimer](#disclaimer) | [Commercial Support](#commercial-support)
 
 An unofficial Python API to use the Binance REST API`s (com+testnet, com-margin+testnet, com-isolated_margin+testnet, 
 com-futures+testnet, us, tr) in a easy, fast, flexible, robust and fully-featured way. 
@@ -100,18 +105,26 @@ The current dependencies are listed
 
 If you run into errors during the installation take a look [here](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/wiki/Installation).
 
-### A wheel of the latest release with PIP from [PyPI](https://pypi.org/project/unicorn-binance-rest-api/)
+### A wheel and a source file of the latest release with `pip`  from [PyPI](https://pypi.org/project/unicorn-binance-rest-api/)
 `pip install unicorn-binance-rest-api --upgrade`
+
+### A conda package of the latest release with `conda` from [Anaconda](https://anaconda.org/conda-forge/unicorn-binance-rest-api) via [CONDA-FORGE](https://conda-forge.org).
+`conda install -c conda-forge unicorn-binance-rest-api`
+
+`conda update -c conda-forge unicorn-binance-rest-api`
+
 ### From source of the latest release with PIP from [Github](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api)
 #### Linux, macOS, ...
 Run in bash:
 
-`pip install https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/$(curl -s https://api.github.com/repos/oliver-zehentleitner/unicorn-binance-rest-api/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")').tar.gz --upgrade`
+`pip install https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/$(curl -s https://api.github.com/repos/lucit-systems-and-development/unicorn-binance-rest-api/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")').tar.gz --upgrade`
+
 #### Windows
 Use the below command with the version (such as 1.3.0) you determined 
 [here](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases/latest):
 
 `pip install https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/1.3.0.tar.gz --upgrade`
+
 ### From the latest source (dev-stage) with PIP from [Github](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api)
 This is not a release version and can not be considered to be stable!
 
@@ -121,6 +134,7 @@ This is not a release version and can not be considered to be stable!
 Download the [latest release](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases/latest) 
 or the [current master branch](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/master.zip)
  and use:
+ 
 - ./environment.yml
 - ./requirements.txt
 - ./setup.py
@@ -193,9 +207,21 @@ contribute follow
 [this guide](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/CONTRIBUTING.md).
  
 ### Contributors
-[![Contributors](https://contributors-img.web.app/image?repo=oliver-zehentleitner/unicorn-binance-rest-api)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/graphs/contributors)
+[![Contributors](https://contributors-img.web.app/image?repo=lucit-systems-and-development/unicorn-binance-rest-api)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/graphs/contributors)
 
 We ![love](https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-rest-api/master/images/misc/heart.png) open source!
+
+## Disclaimer
+This project is for informational purposes only. You should not construe this information or any other material as 
+legal, tax, investment, financial or other advice. Nothing contained herein constitutes a solicitation, recommendation, 
+endorsement or offer by us or any third party provider to buy or sell any securities or other financial instruments in 
+this or any other jurisdiction in which such solicitation or offer would be unlawful under the securities laws of such 
+jurisdiction.
+
+***If you intend to use real money, use it at your own risk.***
+
+Under no circumstances will we be responsible or liable for any claims, damages, losses, expenses, costs or liabilities 
+of any kind, including but not limited to direct or indirect damages for loss of profits.
 
 ## Commercial Support
 [![LUCIT](https://www.lucit.tech/files/images/logos/LUCIT-LOGO.png)](https://www.lucit.tech)
@@ -203,4 +229,4 @@ We ![love](https://raw.githubusercontent.com/lucit-systems-and-development/unico
 ***Do you need a developer, operator or consultant?***
 
 Contact [me](https://about.me/oliver-zehentleitner) for a non-binding initial consultation via my company 
-[LUCIT](https://www.lucit.tech) from Vienna (Austria) or via [Telegram](https://t.me/LUCIT_OZ).
+[LUCIT](https://www.lucit.tech) from Vienna (Austria) or via [Telegram](https://t.me/LUCIT_OZ)/[WhatsApp](https://wa.me/436602456535).

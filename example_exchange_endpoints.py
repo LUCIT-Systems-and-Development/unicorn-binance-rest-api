@@ -55,5 +55,3 @@ print(f"{depth}")
 # get all symbol prices
 prices = ubra.get_all_tickers()
 print(f"{prices}")
-
-ubra.cancel

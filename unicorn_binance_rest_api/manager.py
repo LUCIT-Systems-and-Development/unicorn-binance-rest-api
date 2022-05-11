@@ -45,8 +45,7 @@ import time
 from operator import itemgetter
 from urllib.parse import urlencode
 from .helpers import date_to_milliseconds, interval_to_milliseconds
-from .exceptions import BinanceAPIException, BinanceRequestException, \
-    BinanceWithdrawException, UnknownExchange
+from .exceptions import BinanceAPIException, BinanceRequestException, BinanceWithdrawException, UnknownExchange
 
 logger = logging.getLogger("unicorn_binance_rest_api")
 
@@ -187,7 +186,7 @@ class BinanceRestApiManager(object):
                  debug=False):
 
         self.name = "unicorn-binance-rest-api"
-        self.version = "1.4.3"
+        self.version = "1.5.0.dev"
         logger.info(f"New instance of {self.get_user_agent()} on {str(platform.system())} {str(platform.release())} "
                     f"for exchange {exchange} started ...")
         if disable_colorama is not True:

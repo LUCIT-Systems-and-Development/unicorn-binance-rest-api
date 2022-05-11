@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>unicorn_binance_rest_api package &#8212; unicorn-binance-rest-api 1.4.2 documentation</title>
+    <title>unicorn_binance_rest_api package &#8212; unicorn-binance-rest-api 1.5.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css" />
     
@@ -43,12 +43,15 @@
           <a href="modules.html" title="unicorn_binance_rest_api"
              accesskey="P">previous</a> |</li>
     
+        
+        
     <li><img src="_static/lucit.png" alt="LUCIT Logo"
              style="vertical-align: middle; margin-top: -1px"/></li>
     <li><a href="https://www.lucit.tech/unicorn-binance-rest-api.html">unicorn-binance-rest-api</a> &#187;</li>
+        
     
     
-    <a href="index.html">unicorn-binance-rest-api 1.4.2 documentation</a> &#187;
+    <a href="index.html">unicorn-binance-rest-api 1.5.0 documentation</a> &#187;
     
 
           <li class="nav-item nav-item-1"><a href="modules.html" accesskey="U">unicorn_binance_rest_api</a> &#187;</li>
@@ -626,10 +629,10 @@ each object is identical to Client.aggregate_trades().</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="unicorn_binance_rest_api.manager.BinanceRestApiManager.cancel_all_open_orders">
-<span class="sig-name descname"><span class="pre">cancel_all_open_orders</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.cancel_all_open_orders" title="Permalink to this definition">¶</a></dt>
-<dd><p>Cancel all open orders of a symbol.</p>
-<p><a class="reference external" href="https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#cancel-all-open-orders-on-a-symbol-trade">https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#cancel-all-open-orders-on-a-symbol-trade</a></p>
+<dt class="sig sig-object py" id="unicorn_binance_rest_api.manager.BinanceRestApiManager.cancel_all_open_margin_orders">
+<span class="sig-name descname"><span class="pre">cancel_all_open_margin_orders</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.cancel_all_open_margin_orders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cancel all open margin orders of a symbol.</p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#margin-account-cancel-all-open-orders-on-a-symbol-trade">https://binance-docs.github.io/apidocs/spot/en/#margin-account-cancel-all-open-orders-on-a-symbol-trade</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -680,6 +683,122 @@ each object is identical to Client.aggregate_trades().</p>
     <span class="s2">&quot;listClientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;2inzWQdDvZLHbbAmAozX2N&quot;</span><span class="p">,</span>
     <span class="s2">&quot;transactionTime&quot;</span><span class="p">:</span> <span class="mi">1585230948299</span><span class="p">,</span>
     <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;BTCUSDT&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;orders&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;BTCUSDT&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;orderId&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="s2">&quot;clientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;CwOOIPHSmYywx6jZX77TdL&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;BTCUSDT&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;orderId&quot;</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span>
+        <span class="s2">&quot;clientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;461cPg51vQjV3zIMOXNz39&quot;</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;orderReports&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;BTCUSDT&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;origClientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;CwOOIPHSmYywx6jZX77TdL&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;orderId&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="s2">&quot;orderListId&quot;</span><span class="p">:</span> <span class="mi">1929</span><span class="p">,</span>
+        <span class="s2">&quot;clientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;pXLV6Hz6mprAcVYpVMTGgx&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="s2">&quot;0.668611&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;origQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.690354&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;executedQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.000000&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cummulativeQuoteQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.000000&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;CANCELED&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;timeInForce&quot;</span><span class="p">:</span> <span class="s2">&quot;GTC&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;STOP_LOSS_LIMIT&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;side&quot;</span><span class="p">:</span> <span class="s2">&quot;BUY&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;stopPrice&quot;</span><span class="p">:</span> <span class="s2">&quot;0.378131&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;icebergQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.017083&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;BTCUSDT&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;origClientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;461cPg51vQjV3zIMOXNz39&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;orderId&quot;</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span>
+        <span class="s2">&quot;orderListId&quot;</span><span class="p">:</span> <span class="mi">1929</span><span class="p">,</span>
+        <span class="s2">&quot;clientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;pXLV6Hz6mprAcVYpVMTGgx&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="s2">&quot;0.008791&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;origQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.690354&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;executedQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.000000&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cummulativeQuoteQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.000000&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;CANCELED&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;timeInForce&quot;</span><span class="p">:</span> <span class="s2">&quot;GTC&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;LIMIT_MAKER&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;side&quot;</span><span class="p">:</span> <span class="s2">&quot;BUY&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;icebergQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.639962&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="unicorn_binance_rest_api.manager.BinanceRestApiManager.cancel_all_open_orders">
+<span class="sig-name descname"><span class="pre">cancel_all_open_orders</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.cancel_all_open_orders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cancel all open orders of a symbol.</p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#margin-account-cancel-order-trade">https://binance-docs.github.io/apidocs/spot/en/#margin-account-cancel-order-trade</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>symbol</strong> (<em>str</em>) – required</p></li>
+<li><p><strong>recvWindow</strong> (<em>int</em>) – the number of milliseconds the request is valid for</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>API response</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;BTCUSDT&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;isIsolated&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>       <span class="o">//</span> <span class="k">if</span> <span class="n">isolated</span> <span class="n">margin</span>
+    <span class="s2">&quot;origClientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;E6APeyTJvkMvLMYMqu1KQ4&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;orderId&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+    <span class="s2">&quot;orderListId&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;clientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;pXLV6Hz6mprAcVYpVMTGgx&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="s2">&quot;0.089853&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;origQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.178622&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;executedQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.000000&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cummulativeQuoteQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.000000&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;CANCELED&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;timeInForce&quot;</span><span class="p">:</span> <span class="s2">&quot;GTC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;LIMIT&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;side&quot;</span><span class="p">:</span> <span class="s2">&quot;BUY&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;BTCUSDT&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;isIsolated&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>       <span class="o">//</span> <span class="k">if</span> <span class="n">isolated</span> <span class="n">margin</span>
+    <span class="s2">&quot;origClientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;A3EF2HCwxgZPFMrfwbgrhv&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;orderId&quot;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
+    <span class="s2">&quot;orderListId&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;clientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;pXLV6Hz6mprAcVYpVMTGgx&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="s2">&quot;0.090430&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;origQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.178622&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;executedQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.000000&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cummulativeQuoteQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.000000&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;CANCELED&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;timeInForce&quot;</span><span class="p">:</span> <span class="s2">&quot;GTC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;LIMIT&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;side&quot;</span><span class="p">:</span> <span class="s2">&quot;BUY&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;orderListId&quot;</span><span class="p">:</span> <span class="mi">1929</span><span class="p">,</span>
+    <span class="s2">&quot;contingencyType&quot;</span><span class="p">:</span> <span class="s2">&quot;OCO&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;listStatusType&quot;</span><span class="p">:</span> <span class="s2">&quot;ALL_DONE&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;listOrderStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;ALL_DONE&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;listClientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;2inzWQdDvZLHbbAmAozX2N&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;transactionTime&quot;</span><span class="p">:</span> <span class="mi">1585230948299</span><span class="p">,</span>
+    <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;BTCUSDT&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;isIsolated&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>       <span class="o">//</span> <span class="k">if</span> <span class="n">isolated</span> <span class="n">margin</span>
     <span class="s2">&quot;orders&quot;</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
         <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;BTCUSDT&quot;</span><span class="p">,</span>
@@ -1373,6 +1492,36 @@ BinanceOrderInactiveSymbolException</p>
 <dd><p>Get compressed, aggregate trades. Trades that fill at the time, from the same order, with the same
 price will have the quantity aggregated.</p>
 <p><a class="reference external" href="https://binance-docs.github.io/apidocs/futures/en/#compressed-aggregate-trades-list-market_data">https://binance-docs.github.io/apidocs/futures/en/#compressed-aggregate-trades-list-market_data</a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_auto_cancel_all_open_orders">
+<span class="sig-name descname"><span class="pre">futures_auto_cancel_all_open_orders</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_auto_cancel_all_open_orders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cancel all open orders of the specified symbol at the end of the specified countdown.</p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/futures/en/#auto-cancel-all-open-orders-trade">https://binance-docs.github.io/apidocs/futures/en/#auto-cancel-all-open-orders-trade</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>symbol</strong> (<em>str</em>) – mandatory</p></li>
+<li><p><strong>countdownTime</strong> (<em>int</em>) – mandatory</p></li>
+<li><p><strong>recvWindow</strong> (<em>int</em>) – optional</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>API response</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;BTCUSDT&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;countdownTime&quot;</span><span class="p">:</span> <span class="s2">&quot;100000&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -6313,12 +6462,15 @@ Default false.</p></li>
           <a href="modules.html" title="unicorn_binance_rest_api"
              >previous</a> |</li>
     
+        
+        
     <li><img src="_static/lucit.png" alt="LUCIT Logo"
              style="vertical-align: middle; margin-top: -1px"/></li>
     <li><a href="https://www.lucit.tech/unicorn-binance-rest-api.html">unicorn-binance-rest-api</a> &#187;</li>
+        
     
     
-    <a href="index.html">unicorn-binance-rest-api 1.4.2 documentation</a> &#187;
+    <a href="index.html">unicorn-binance-rest-api 1.5.0 documentation</a> &#187;
     
 
           <li class="nav-item nav-item-1"><a href="modules.html" >unicorn_binance_rest_api</a> &#187;</li>
@@ -6333,13 +6485,13 @@ Default false.</p></li>
     <div class="footer">
         <a href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues">Found a bug</a>?
         <br />
-        Last updated on Mar 16 2022 at 21:24 (CET).
+        Last updated on May 11 2022 at 11:17 (CET).
         <br />
         &copy; <a href="copyright.html">Copyright</a> 2021-2022, LUCIT Systems and Development and Oliver Zehentleitner.
         <br />
 
     Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 4.4.0
-        with <a href="https://github.com/oliver-zehentleitner/python-docs-theme-technopathy">python-docs-theme-technopathy</a>
+        with <a href="https://github.com/LUCIT-Systems-and-Development/python-docs-theme-technopathy">python-docs-theme-technopathy</a>
         by <a href="https://www.lucit.tech">LUCIT Systems and Development</a>
     </div>
 

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; unicorn-binance-rest-api 1.4.2 documentation</title>
+    <title>Index &#8212; unicorn-binance-rest-api 1.5.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css" />
     
@@ -35,12 +35,15 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
     
+        
+        
     <li><img src="_static/lucit.png" alt="LUCIT Logo"
              style="vertical-align: middle; margin-top: -1px"/></li>
     <li><a href="https://www.lucit.tech/unicorn-binance-rest-api.html">unicorn-binance-rest-api</a> &#187;</li>
+        
     
     
-    <a href="index.html">unicorn-binance-rest-api 1.4.2 documentation</a> &#187;
+    <a href="index.html">unicorn-binance-rest-api 1.5.0 documentation</a> &#187;
     
 
         <li class="nav-item nav-item-this"><a href="">Index</a></li>
@@ -141,6 +144,8 @@
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.cancel_all_open_margin_orders">cancel_all_open_margin_orders() (unicorn_binance_rest_api.manager.BinanceRestApiManager method)</a>
+</li>
       <li><a href="unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.cancel_all_open_orders">cancel_all_open_orders() (unicorn_binance_rest_api.manager.BinanceRestApiManager method)</a>
 </li>
       <li><a href="unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.cancel_margin_order">cancel_margin_order() (unicorn_binance_rest_api.manager.BinanceRestApiManager method)</a>
@@ -151,10 +156,10 @@
 </li>
       <li><a href="unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.COIN_FUTURE_TO_SPOT">COIN_FUTURE_TO_SPOT (unicorn_binance_rest_api.manager.BinanceRestApiManager attribute)</a>
 </li>
-      <li><a href="unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.create_isolated_margin_account">create_isolated_margin_account() (unicorn_binance_rest_api.manager.BinanceRestApiManager method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.create_isolated_margin_account">create_isolated_margin_account() (unicorn_binance_rest_api.manager.BinanceRestApiManager method)</a>
+</li>
       <li><a href="unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.create_margin_loan">create_margin_loan() (unicorn_binance_rest_api.manager.BinanceRestApiManager method)</a>
 </li>
       <li><a href="unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.create_margin_order">create_margin_order() (unicorn_binance_rest_api.manager.BinanceRestApiManager method)</a>
@@ -218,6 +223,8 @@
       <li><a href="unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.FUTURES_API_VERSION">FUTURES_API_VERSION (unicorn_binance_rest_api.manager.BinanceRestApiManager attribute)</a>
 </li>
       <li><a href="unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.FUTURES_API_VERSION2">FUTURES_API_VERSION2 (unicorn_binance_rest_api.manager.BinanceRestApiManager attribute)</a>
+</li>
+      <li><a href="unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_auto_cancel_all_open_orders">futures_auto_cancel_all_open_orders() (unicorn_binance_rest_api.manager.BinanceRestApiManager method)</a>
 </li>
       <li><a href="unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_cancel_all_open_orders">futures_cancel_all_open_orders() (unicorn_binance_rest_api.manager.BinanceRestApiManager method)</a>
 </li>
@@ -949,12 +956,15 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
     
+        
+        
     <li><img src="_static/lucit.png" alt="LUCIT Logo"
              style="vertical-align: middle; margin-top: -1px"/></li>
     <li><a href="https://www.lucit.tech/unicorn-binance-rest-api.html">unicorn-binance-rest-api</a> &#187;</li>
+        
     
     
-    <a href="index.html">unicorn-binance-rest-api 1.4.2 documentation</a> &#187;
+    <a href="index.html">unicorn-binance-rest-api 1.5.0 documentation</a> &#187;
     
 
         <li class="nav-item nav-item-this"><a href="">Index</a></li>
@@ -968,13 +978,13 @@
     <div class="footer">
         <a href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues">Found a bug</a>?
         <br />
-        Last updated on Mar 16 2022 at 21:24 (CET).
+        Last updated on May 11 2022 at 11:17 (CET).
         <br />
         &copy; <a href="copyright.html">Copyright</a> 2021-2022, LUCIT Systems and Development and Oliver Zehentleitner.
         <br />
 
     Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 4.4.0
-        with <a href="https://github.com/oliver-zehentleitner/python-docs-theme-technopathy">python-docs-theme-technopathy</a>
+        with <a href="https://github.com/LUCIT-Systems-and-Development/python-docs-theme-technopathy">python-docs-theme-technopathy</a>
         by <a href="https://www.lucit.tech">LUCIT Systems and Development</a>
     </div>
 
