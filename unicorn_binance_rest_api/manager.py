@@ -2027,7 +2027,120 @@ class BinanceRestApiManager(object):
     def cancel_all_open_orders(self, **params):
         """Cancel all open orders of a symbol.
 
-        https://github.com/binance/binance-spot-api-docs/blob/master/rest-api.md#cancel-all-open-orders-on-a-symbol-trade
+        https://binance-docs.github.io/apidocs/spot/en/#margin-account-cancel-order-trade
+
+        :param symbol: required
+        :type symbol: str
+        :param recvWindow: the number of milliseconds the request is valid for
+        :type recvWindow: int
+
+        :returns: API response
+
+        .. code-block:: python
+
+            [
+              {
+                "symbol": "BTCUSDT",
+                "isIsolated": true,       // if isolated margin
+                "origClientOrderId": "E6APeyTJvkMvLMYMqu1KQ4",
+                "orderId": 11,
+                "orderListId": -1,
+                "clientOrderId": "pXLV6Hz6mprAcVYpVMTGgx",
+                "price": "0.089853",
+                "origQty": "0.178622",
+                "executedQty": "0.000000",
+                "cummulativeQuoteQty": "0.000000",
+                "status": "CANCELED",
+                "timeInForce": "GTC",
+                "type": "LIMIT",
+                "side": "BUY"
+              },
+              {
+                "symbol": "BTCUSDT",
+                "isIsolated": false,       // if isolated margin
+                "origClientOrderId": "A3EF2HCwxgZPFMrfwbgrhv",
+                "orderId": 13,
+                "orderListId": -1,
+                "clientOrderId": "pXLV6Hz6mprAcVYpVMTGgx",
+                "price": "0.090430",
+                "origQty": "0.178622",
+                "executedQty": "0.000000",
+                "cummulativeQuoteQty": "0.000000",
+                "status": "CANCELED",
+                "timeInForce": "GTC",
+                "type": "LIMIT",
+                "side": "BUY"
+              },
+              {
+                "orderListId": 1929,
+                "contingencyType": "OCO",
+                "listStatusType": "ALL_DONE",
+                "listOrderStatus": "ALL_DONE",
+                "listClientOrderId": "2inzWQdDvZLHbbAmAozX2N",
+                "transactionTime": 1585230948299,
+                "symbol": "BTCUSDT",
+                "isIsolated": true,       // if isolated margin
+                "orders": [
+                  {
+                    "symbol": "BTCUSDT",
+                    "orderId": 20,
+                    "clientOrderId": "CwOOIPHSmYywx6jZX77TdL"
+                  },
+                  {
+                    "symbol": "BTCUSDT",
+                    "orderId": 21,
+                    "clientOrderId": "461cPg51vQjV3zIMOXNz39"
+                  }
+                ],
+                "orderReports": [
+                  {
+                    "symbol": "BTCUSDT",
+                    "origClientOrderId": "CwOOIPHSmYywx6jZX77TdL",
+                    "orderId": 20,
+                    "orderListId": 1929,
+                    "clientOrderId": "pXLV6Hz6mprAcVYpVMTGgx",
+                    "price": "0.668611",
+                    "origQty": "0.690354",
+                    "executedQty": "0.000000",
+                    "cummulativeQuoteQty": "0.000000",
+                    "status": "CANCELED",
+                    "timeInForce": "GTC",
+                    "type": "STOP_LOSS_LIMIT",
+                    "side": "BUY",
+                    "stopPrice": "0.378131",
+                    "icebergQty": "0.017083"
+                  },
+                  {
+                    "symbol": "BTCUSDT",
+                    "origClientOrderId": "461cPg51vQjV3zIMOXNz39",
+                    "orderId": 21,
+                    "orderListId": 1929,
+                    "clientOrderId": "pXLV6Hz6mprAcVYpVMTGgx",
+                    "price": "0.008791",
+                    "origQty": "0.690354",
+                    "executedQty": "0.000000",
+                    "cummulativeQuoteQty": "0.000000",
+                    "status": "CANCELED",
+                    "timeInForce": "GTC",
+                    "type": "LIMIT_MAKER",
+                    "side": "BUY",
+                    "icebergQty": "0.639962"
+                  }
+                ]
+              }
+            ]
+
+
+
+        :raises: BinanceRequestException, BinanceAPIException
+
+        """
+        return self._delete('openOrders', True, data=params)
+
+    def cancel_all_open_margin_orders(self, **params):
+        """Cancel all open margin orders of a symbol.
+
+        https://binance-docs.github.io/apidocs/spot/en/#margin-account-cancel-all-open-orders-on-a-symbol-trade
 
         :param symbol: required
         :type symbol: str
@@ -2131,7 +2244,7 @@ class BinanceRestApiManager(object):
         :raises: BinanceRequestException, BinanceAPIException
 
         """
-        return self._delete('openOrders', True, data=params)
+        return self._request_margin_api('delete', 'margin/openOrders', signed=True, data=params)
 
     def cancel_order(self, **params):
         """Cancel an active order. Either orderId or origClientOrderId must be sent.
@@ -5613,6 +5726,32 @@ class BinanceRestApiManager(object):
 
         """
         return self._request_margin_api('post', 'futures/transfer', True, data=params)
+
+    def futures_auto_cancel_all_open_orders(self, **params):
+        """
+        Cancel all open orders of the specified symbol at the end of the specified countdown.
+
+        https://binance-docs.github.io/apidocs/futures/en/#auto-cancel-all-open-orders-trade
+
+        :param symbol: mandatory
+        :type symbol: str
+        :param countdownTime: mandatory
+        :type countdownTime: int
+        :param recvWindow: optional
+        :type recvWindow: int
+        :returns: API response
+
+        .. code-block:: python
+
+            {
+                "symbol": "BTCUSDT",
+                "countdownTime": "100000"
+            }
+
+        :raises: BinanceRequestException, BinanceAPIException
+
+        """
+        return self._request_futures_api('post', 'countdownCancelAll', True, data=params)
 
     def futures_commission_rate(self, **params):
         """Get commission rate (user data)

@@ -7,7 +7,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 [Discussions about unicorn-binance-rest-api releases!](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/discussions/categories/releases)
 
-## 1.4.3.dev (development stage/unreleased/unstable)
+## 1.5.0.dev (development stage/unreleased/unstable)
+
+## 1.5.0
+### Added 
+- `cancel_all_open_margin_orders()`
 
 ## 1.4.3
 Codebase equal to 1.4.2, testing azure pipe
