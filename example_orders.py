@@ -55,24 +55,24 @@ ubra = BinanceRestApiManager(api_key, api_secret, tld="com")
 # futures:
 # ubra.FUTURES_URL = 'https://testnet.binancefuture.com/fapi'
 
-print(ubra.get_all_orders(symbol='LUNABTC', limit=10))
+print(ubra.get_all_orders(symbol='BTCUSDT', limit=10))
 
 print(ubra.get_account())
 
 print(ubra.get_asset_balance(asset='LUNA'))
 
-print(ubra.get_symbol_ticker(symbol="LUNABTC"))
+print(ubra.get_symbol_ticker(symbol="BTCUSDT"))
 
-print(ubra.get_open_orders(symbol='LUNABTC'))
+print(ubra.get_open_orders(symbol='BTCUSDT'))
 
 # ubra.create_order(symbol='ETHUSDT', side="BUY", quantity=2, stopPrice='2000', type='STOP_LOSS')
 
-# buy_limit_order = ubra.order_limit_buy(symbol='LUNABTC', quantity=2, price='0.0001')
+# buy_limit_order = ubra.order_limit_buy(symbol='BTCUSDT', quantity=2, price='0.0001')
 
-# sell_limit_order = ubra.order_limit_sell(symbol='LUNABTC', quantity=2, price='0.0003')
+# sell_limit_order = ubra.order_limit_sell(symbol='BTCUSDT', quantity=2, price='0.0003')
 
-existing_orders = ubra.get_open_orders(symbol='LUNABTC')
+existing_orders = ubra.get_open_orders(symbol='BTCUSDT')
 
 for order in existing_orders:
-    print(ubra.cancel_order(symbol="LUNABTC", orderId=order['orderId']))
+    print(ubra.cancel_order(symbol="BTCUSDT", orderId=order['orderId']))
 

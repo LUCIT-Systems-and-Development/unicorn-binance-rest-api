@@ -44,7 +44,7 @@ klines_1m = ubra.get_historical_klines("USTBTC", ubra.KLINE_INTERVAL_1MINUTE, "1
 print(f"klines_1m:\r\n{klines_1m}")
 
 # Retrieve 30-minute klines for the last month of 2021
-klines_30m = ubra.get_historical_klines("LUNABTC", "30m", "1 Dec, 2021", "1 Jan, 2022")
+klines_30m = ubra.get_historical_klines("BTCUSDT", "30m", "1 Dec, 2021", "1 Jan, 2022")
 print(f"klines_30m:\r\n{klines_30m}")
 
 # Retrieve weekly klines since they are listed
