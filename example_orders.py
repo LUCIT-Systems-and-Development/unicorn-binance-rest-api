@@ -59,7 +59,7 @@ print(ubra.get_all_orders(symbol='BTCUSDT', limit=10))
 
 print(ubra.get_account())
 
-print(ubra.get_asset_balance(asset='LUNA'))
+print(ubra.get_asset_balance(asset='BTC'))
 
 print(ubra.get_symbol_ticker(symbol="BTCUSDT"))
 
