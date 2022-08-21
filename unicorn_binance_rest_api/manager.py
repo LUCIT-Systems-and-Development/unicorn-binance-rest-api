@@ -5776,7 +5776,7 @@ class BinanceRestApiManager(object):
         """
         return self._request_futures_api('post', 'order', True, data=params)
 
-    def futures_coin_place_batch_order(self, **params):
+    def futures_place_batch_order(self, **params):
         """Send in new orders.
         https://binance-docs.github.io/apidocs/delivery/en/#place-multiple-orders-trade
         To avoid modifying the existing signature generation and parameter order logic,
