@@ -84,19 +84,19 @@ Be aware that the Binance REST API is request based. if you want to receive high
 ### What are the benefits of the UNICORN Binance REST API?
 - Supported exchanges: 
 
-| Exchange                                                           | Exchange string | 
-|--------------------------------------------------------------------| --------------- | 
-| [Binance](https://www.binance.com)                                 | `binance.com` |
-| [Binance Testnet](https://testnet.binance.vision/)                 | `binance.com-testnet` |
-| [Binance Margin](https://www.binance.com)                          |  `binance.com-margin` |
-| [Binance Margin Testnet](https://testnet.binance.vision/)          | `binance.com-margin-testnet` |
-| [Binance Isolated Margin](https://www.binance.com)                 | `binance.com-isolated_margin` |
+| Exchange                                                           | Exchange string                       | 
+|--------------------------------------------------------------------|---------------------------------------| 
+| [Binance](https://www.binance.com)                                 | `binance.com`                         |
+| [Binance Testnet](https://testnet.binance.vision/)                 | `binance.com-testnet`                 |
+| [Binance Margin](https://www.binance.com)                          | `binance.com-margin`                  |
+| [Binance Margin Testnet](https://testnet.binance.vision/)          | `binance.com-margin-testnet`          |
+| [Binance Isolated Margin](https://www.binance.com)                 | `binance.com-isolated_margin`         |
 | [Binance Isolated Margin Testnet](https://testnet.binance.vision/) | `binance.com-isolated_margin-testnet` |
-| [Binance USD-M Futures](https://www.binance.com)                   | `binance.com-futures` |
-| [Binance USD-M Futures Testnet](https://testnet.binancefuture.com) | `binance.com-futures-testnet` |
-| [Binance Coin-M Futures](https://www.binance.com)                  | `binance.com-coin-futures` |
-| [Binance US](https://www.binance.us)                               | `binance.us` |
-| [Binance TR](https://www.trbinance.com)                            | `trbinance.com` |
+| [Binance USD-M Futures](https://www.binance.com)                   | `binance.com-futures`                 |
+| [Binance USD-M Futures Testnet](https://testnet.binancefuture.com) | `binance.com-futures-testnet`         |
+| [Binance Coin-M Futures](https://www.binance.com)                  | `binance.com-coin_futures`            |
+| [Binance US](https://www.binance.us)                               | `binance.us`                          |
+| [Binance TR](https://www.trbinance.com)                            | `trbinance.com`                       |
 
 - Helpful management features like 
 [`get_used_weight()`](https://unicorn-binance-rest-api.docs.lucit.tech/unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_used_weight), 
