@@ -70,7 +70,7 @@ master_doc = 'index'
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = "en"
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -86,10 +86,12 @@ pygments_style = None
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 
-html_theme = 'python_docs_theme_technopathy'
+html_theme = 'python_docs_theme_lucit'
 html_context = {'github_user_name': 'LUCIT-Systems-and-Development',
                 'github_repo_name': 'unicorn-binance-rest-api',
                 'project_name': project,
+                'matomo_url': "https://matomo.lucit.co/matomo.php?idsite=8&amp;rec=1",
+                'freshchat_src': "//eu.fw-cdn.com/10659511/361973.js",
                 'lucit': True}
 
 # Theme options are theme-specific and customize the look and feel of a theme
