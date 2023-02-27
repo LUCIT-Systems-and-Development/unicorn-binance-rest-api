@@ -1,370 +1,60 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UNICORN Binance REST API &#8212; unicorn-binance-rest-api 1.5.0 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>UNICORN Binance REST API &#8212; unicorn-binance-rest-api 1.5.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?2022.1" />
     
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="copyright" title="Copyright" href="copyright.html" />
     <link rel="next" title="unicorn_binance_rest_api" href="modules.html" />
-    <link rel="prev" title="Welcome to unicorn-binance-rest-api’s documentation!" href="index.html" />
-    <link rel="shortcut icon" type="image/png" href="_static/lucit.png" />
+    <link rel="prev" title="Welcome to unicorn-binance-rest-api’s documentation!" href="index.html" /><link rel="shortcut icon" type="image/png" href="_static/lucit.png" />
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     
-    <script type="text/javascript" src="_static/copybutton.js"></script>
+    <script
+        src='//eu.fw-cdn.com/10659511/361973.js'
+        chat='true'>
+    </script>
     
-     
-
-  </head><body>  
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="modules.html" title="unicorn_binance_rest_api"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="index.html" title="Welcome to unicorn-binance-rest-api’s documentation!"
-             accesskey="P">previous</a> |</li>
-    
-        
-        
-    <li><img src="_static/lucit.png" alt="LUCIT Logo"
-             style="vertical-align: middle; margin-top: -1px"/></li>
-    <li><a href="https://www.lucit.tech/unicorn-binance-rest-api.html">unicorn-binance-rest-api</a> &#187;</li>
-        
-    
-    
-    <a href="index.html">unicorn-binance-rest-api 1.5.0 documentation</a> &#187;
-    
-
-        <li class="nav-item nav-item-this"><a href="">UNICORN Binance REST API</a></li>
-    <li class="right">
-        <a href="search.html" title="Search">search</a>
-         |
-    </li>
-
-      </ul>
-    </div>    
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
-  <p><a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases"><img alt="GitHub Release" src="https://img.shields.io/github/release/LUCIT-Systems-and-Development/unicorn-binance-rest-api.svg?label=github" /></a>
-<a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases"><img alt="GitHub Downloads" src="https://img.shields.io/github/downloads/LUCIT-Systems-and-Development/unicorn-binance-rest-api/total?color=blue" /></a>
-<a class="reference external" href="https://anaconda.org/conda-forge/unicorn-binance-rest-api"><img alt="Conda Release" src="https://img.shields.io/conda/vn/conda-forge/unicorn-binance-rest-api.svg?color=blue" /></a>
-<a class="reference external" href="https://anaconda.org/conda-forge/unicorn-binance-rest-api"><img alt="Conda Downloads" src="https://img.shields.io/conda/dn/conda-forge/unicorn-binance-rest-api.svg?color=blue" /></a>
-<a class="reference external" href="https://pypi.org/project/unicorn-binance-rest-api/"><img alt="PyPi Release" src="https://img.shields.io/pypi/v/unicorn-binance-rest-api?color=blue" /></a>
-<a class="reference external" href="https://pepy.tech/project/unicorn-binance-rest-api"><img alt="PyPi Downloads" src="https://pepy.tech/badge/unicorn-binance-rest-api" /></a>
-<a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/LUCIT-Systems-and-Development/unicorn-binance-rest-api.svg?color=blue" /></a>
-<a class="reference external" href="https://www.python.org/downloads/"><img alt="Supported Python Version" src="https://img.shields.io/pypi/pyversions/unicorn_binance_rest_api.svg" /></a>
-<a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues"><img alt="PyPI - Status" src="https://img.shields.io/pypi/status/unicorn_binance_rest_api.svg" /></a>
-<a class="reference external" href="https://lgtm.com/projects/g/LUCIT-Systems-and-Development/unicorn-binance-rest-api/context:python"><img alt="Language grade: Python" src="https://img.shields.io/lgtm/grade/python/g/LUCIT-Systems-and-Development/unicorn-binance-rest-api.svg?logo=lgtm&amp;logoWidth=18" /></a>
-<a class="reference external" href="https://lgtm.com/projects/g/LUCIT-Systems-and-Development/unicorn-binance-rest-api/alerts/"><img alt="Total alerts" src="https://img.shields.io/lgtm/alerts/g/LUCIT-Systems-and-Development/unicorn-binance-rest-api.svg?logo=lgtm&amp;logoWidth=18" /></a>
-<a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/unit-tests.yml"><img alt="Unit Tests" src="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/unit-tests.yml/badge.svg" /></a>
-<a class="reference external" href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15697&amp;branchName=main"><img alt="Azure Pipelines" src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/unicorn-binance-rest-api-feedstock?branchName=main" /></a>
-<a class="reference external" href="https://codecov.io/gh/LUCIT-Systems-and-Development/unicorn-binance-rest-api"><img alt="codecov" src="https://codecov.io/gh/LUCIT-Systems-and-Development/unicorn-binance-rest-api/branch/master/graph/badge.svg?token=5I03AZ3F5S" /></a>
-<a class="reference external" href="https://unicorn-binance-rest-api.docs.lucit.tech/"><img alt="Read the Docs" src="https://img.shields.io/badge/read-%20docs-yellow" /></a>
-<a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api"><img alt="Github" src="https://img.shields.io/badge/source-github-yellow" /></a>
-<a class="reference external" href="https://t.me/unicorndevs"><img alt="Telegram" src="https://img.shields.io/badge/chat-telegram-yellow" /></a>
-<a class="reference external" href="https://gitter.im/unicorn-binance-suite/unicorn-binance-rest-api?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img alt="Gitter" src="https://badges.gitter.im/unicorn-binance-suite/unicorn-binance-rest-api.svg" /></a></p>
-<div class="section" id="unicorn-binance-rest-api">
-<h1>UNICORN Binance REST API<a class="headerlink" href="#unicorn-binance-rest-api" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="#description">Description</a> | <a class="reference external" href="#installation-and-upgrade">Installation</a> | <a class="reference external" href="#howto">How To</a> |
-<a class="reference external" href="#documentation">Documentation</a> | <a class="reference external" href="#examples">Examples</a> | <a class="reference external" href="#change-log">Change Log</a> | <a class="reference external" href="#wiki">Wiki</a> | <a class="reference external" href="#social">Social</a> |
-<a class="reference external" href="#receive-notifications">Notifications</a> | <a class="reference external" href="#how-to-report-bugs-or-suggest-improvements">Bugs</a> |
-<a class="reference external" href="#contributing">Contributing</a> | <a class="reference external" href="#disclaimer">Disclaimer</a> | <a class="reference external" href="#commercial-support">Commercial Support</a></p>
-<p>An unofficial Python API to use the Binance REST API`s (com+testnet, com-margin+testnet, com-isolated_margin+testnet,
-com-futures+testnet, us, tr) in a easy, fast, flexible, robust and fully-featured way.</p>
-<p>Part of <a class="reference external" href="https://www.lucit.tech/unicorn-binance-suite.html">‘UNICORN Binance Suite’</a>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">unicorn_binance_rest_api.manager</span> <span class="kn">import</span> <span class="n">BinanceRestApiManager</span>
-
-<span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;aaa&quot;</span>
-<span class="n">api_secret</span> <span class="o">=</span> <span class="s2">&quot;bbb&quot;</span>
-<span class="n">ubra</span> <span class="o">=</span> <span class="n">BinanceRestApiManager</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">,</span> <span class="n">exchange</span><span class="o">=</span><span class="s2">&quot;binance.com&quot;</span><span class="p">)</span>
-
-<span class="c1"># get market depth</span>
-<span class="n">depth</span> <span class="o">=</span> <span class="n">ubra</span><span class="o">.</span><span class="n">get_order_book</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;BNBBTC&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">depth</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="c1"># get all symbol prices</span>
-<span class="n">prices</span> <span class="o">=</span> <span class="n">ubra</span><span class="o">.</span><span class="n">get_all_tickers</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">prices</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="c1"># get the used weight: </span>
-<span class="c1"># https://github.com/binance-us/binance-official-api-docs/blob/master/rest-api.md#limits</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Used weight: </span><span class="si">{</span><span class="n">ubra</span><span class="o">.</span><span class="n">get_used_weight</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="section" id="get-the-right-logger">
-<h2>Get the right <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_logging.py">logger</a>:<a class="headerlink" href="#get-the-right-logger" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;unicorn_binance_rest_api&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>This is a fork of Sam McHardy`s <a class="reference external" href="https://github.com/sammchardy/python-binance">python-binance 0.7.10</a> - package.
-Extended, cleaned up and reduced to pure REST tasks, with PRs added and improved. No asyncio support!!</p>
-<p>The Python module <a class="reference external" href="https://www.lucit.tech/unicorn-binance-rest-api.html">UNICORN Binance REST API</a>
-provides an API to the Binance REST API`s of
-<a class="reference external" href="https://github.com/binance-exchange/binance-official-api-docs">Binance</a>
-(<a class="reference external" href="https://testnet.binance.vision/">+Testnet</a>),
-<a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#user-data-streams">Binance Margin</a>
-(<a class="reference external" href="https://testnet.binance.vision/">+Testnet</a>),
-<a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#listen-key-isolated-margin">Binance Isolated Margin</a>
-(<a class="reference external" href="https://testnet.binance.vision/">+Testnet</a>),
-<a class="reference external" href="https://binance-docs.github.io/apidocs/futures/en/#websocket-market-streams">Binance Futures</a>
-(<a class="reference external" href="https://testnet.binancefuture.com">+Testnet</a>),
-<a class="reference external" href="https://binance-docs.github.io/apidocs/delivery/en/#change-log">Binance COIN-M Futures</a>,
-<a class="reference external" href="https://github.com/binance-us/binance-official-api-docs">Binance US</a>,
-<a class="reference external" href="https://www.trbinance.com/apidocs">Binance TR</a> and
-<a class="reference external" href="https://jexapi.github.io/api-doc/spot.html#web-socket-streams">Binance JEX</a> and needs to be used with a valid api_key and api_secret from the Binance Exchange
-<a class="reference external" href="https://www.binance.com/userCenter/createApi.html">www.binance.com</a>,
-<a class="reference external" href="https://testnet.binance.vision/">testnet.binance.vision</a>,
-<a class="reference external" href="https://www.binance.us/userCenter/createApi.html">www.binance.us</a> or
-<a class="reference external" href="https://www.jex.com/userCenter/createApi.html">www.jex.com</a>.</p>
-<p>Be aware that the Binance REST API is request based. if you want to receive high frequency and high volume data, you can use the <a class="reference external" href="https://www.lucit.tech/unicorn-binance-websocket-api.html">UNICORN Binance Websocket API</a> in combination.</p>
-<div class="section" id="what-are-the-benefits-of-the-unicorn-binance-rest-api">
-<h3>What are the benefits of the UNICORN Binance REST API?<a class="headerlink" href="#what-are-the-benefits-of-the-unicorn-binance-rest-api" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>Supported exchanges:</p></li>
-</ul>
-<table border="1" class="docutils">
-<thead>
-<tr>
-<th>Exchange</th>
-<th>Exchange string</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://www.binance.com">Binance</a></td>
-<td><code>BinanceRestApiManager(exchange="binance.com")</code></td>
-</tr>
-<tr>
-<td><a href="https://testnet.binance.vision/">Binance Testnet</a></td>
-<td><code>BinanceRestApiManager(exchange="binance.com-testnet")</code></td>
-</tr>
-<tr>
-<td><a href="https://www.binance.com">Binance Margin</a></td>
-<td><code>BinanceRestApiManager(exchange="binance.com-margin")</code></td>
-</tr>
-<tr>
-<td><a href="https://testnet.binance.vision/">Binance Margin Testnet</a></td>
-<td><code>BinanceRestApiManager(exchange="binance.com-margin-testnet")</code></td>
-</tr>
-<tr>
-<td><a href="https://www.binance.com">Binance Isolated Margin</a></td>
-<td><code>BinanceRestApiManager(exchange="binance.com-isolated_margin")</code></td>
-</tr>
-<tr>
-<td><a href="https://testnet.binance.vision/">Binance Isolated Margin Testnet</a></td>
-<td><code>BinanceRestApiManager(exchange="binance.com-isolated_margin-testnet")</code></td>
-</tr>
-<tr>
-<td><a href="https://www.binance.com">Binance USD-M Futures</a></td>
-<td><code>BinanceRestApiManager(exchange="binance.com-futures")</code></td>
-</tr>
-<tr>
-<td><a href="https://testnet.binancefuture.com">Binance USD-M Futures Testnet</a></td>
-<td><code>BinanceRestApiManager(exchange="binance.com-futures-testnet")</code></td>
-</tr>
-<tr>
-<td><a href="https://www.binance.com">Binance Coin-M Futures</a></td>
-<td><code>BinanceRestApiManager(exchange="binance.com-coin-futures")</code></td>
-</tr>
-<tr>
-<td><a href="https://www.binance.us">Binance US</a></td>
-<td><code>BinanceRestApiManager(exchange="binance.us")</code></td>
-</tr>
-<tr>
-<td><a href="https://www.trbinance.com">Binance TR</a></td>
-<td><code>BinanceRestApiManager(exchange="trbinance.com")</code></td>
-</tr>
-</tbody>
-</table><ul class="simple">
-<li><p>Helpful management features like
-<a class="reference external" href="https://unicorn-binance-rest-api.docs.lucit.tech/unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_used_weight"><code class="docutils literal notranslate"><span class="pre">get_used_weight()</span></code></a>,</p></li>
-</ul>
-</div>
-</div>
-<div class="section" id="installation-and-upgrade">
-<h2>Installation and Upgrade<a class="headerlink" href="#installation-and-upgrade" title="Permalink to this headline">¶</a></h2>
-<p>The current dependencies are listed
-<a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/requirements.txt">here</a>.</p>
-<p>If you run into errors during the installation take a look <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/wiki/Installation">here</a>.</p>
-<div class="section" id="a-wheel-and-a-source-file-of-the-latest-release-with-pip-from-pypi">
-<h3>A wheel and a source file of the latest release with <code class="docutils literal notranslate"><span class="pre">pip</span></code>  from <a class="reference external" href="https://pypi.org/project/unicorn-binance-rest-api/">PyPI</a><a class="headerlink" href="#a-wheel-and-a-source-file-of-the-latest-release-with-pip-from-pypi" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">unicorn-binance-rest-api</span> <span class="pre">--upgrade</span></code></p>
-</div>
-<div class="section" id="a-conda-package-of-the-latest-release-with-conda-from-anaconda-via-conda-forge">
-<h3>A conda package of the latest release with <code class="docutils literal notranslate"><span class="pre">conda</span></code> from <a class="reference external" href="https://anaconda.org/conda-forge/unicorn-binance-rest-api">Anaconda</a> via <a class="reference external" href="https://conda-forge.org">CONDA-FORGE</a>.<a class="headerlink" href="#a-conda-package-of-the-latest-release-with-conda-from-anaconda-via-conda-forge" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">unicorn-binance-rest-api</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">update</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">unicorn-binance-rest-api</span></code></p>
-</div>
-<div class="section" id="from-source-of-the-latest-release-with-pip-from-github">
-<h3>From source of the latest release with PIP from <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api">Github</a><a class="headerlink" href="#from-source-of-the-latest-release-with-pip-from-github" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="linux-macos">
-<h4>Linux, macOS, …<a class="headerlink" href="#linux-macos" title="Permalink to this headline">¶</a></h4>
-<p>Run in bash:</p>
-<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/$(curl</span> <span class="pre">-s</span> <span class="pre">https://api.github.com/repos/lucit-systems-and-development/unicorn-binance-rest-api/releases/latest</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-oP</span> <span class="pre">'&quot;tag_name&quot;:</span> <span class="pre">&quot;\K(.*)(?=&quot;)').tar.gz</span> <span class="pre">--upgrade</span></code></p>
-</div>
-<div class="section" id="windows">
-<h4>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h4>
-<p>Use the below command with the version (such as 1.3.0) you determined
-<a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases/latest">here</a>:</p>
-<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/1.3.0.tar.gz</span> <span class="pre">--upgrade</span></code></p>
-</div>
-</div>
-<div class="section" id="from-the-latest-source-dev-stage-with-pip-from-github">
-<h3>From the latest source (dev-stage) with PIP from <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api">Github</a><a class="headerlink" href="#from-the-latest-source-dev-stage-with-pip-from-github" title="Permalink to this headline">¶</a></h3>
-<p>This is not a release version and can not be considered to be stable!</p>
-<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/tarball/master</span> <span class="pre">--upgrade</span></code></p>
-</div>
-<div class="section" id="conda-environment-virtualenv-or-plain-python">
-<h3><a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">Conda environment</a>, <a class="reference external" href="https://virtualenv.pypa.io/en/latest/">Virtualenv</a> or plain <a class="reference external" href="https://docs.python.org/2/install/">Python</a><a class="headerlink" href="#conda-environment-virtualenv-or-plain-python" title="Permalink to this headline">¶</a></h3>
-<p>Download the <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases/latest">latest release</a>
-or the <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/master.zip">current master branch</a>
-and use:</p>
-<ul class="simple">
-<li><p>./environment.yml</p></li>
-<li><p>./requirements.txt</p></li>
-<li><p>./setup.py</p></li>
-</ul>
-</div>
-</div>
-<div class="section" id="change-log">
-<h2>Change Log<a class="headerlink" href="#change-log" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://unicorn-binance-rest-api.docs.lucit.tech/CHANGELOG.html">https://unicorn-binance-rest-api.docs.lucit.tech/CHANGELOG.html</a></p>
-</div>
-<div class="section" id="documentation">
-<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://unicorn-binance-rest-api.docs.lucit.tech/">General</a></p></li>
-<li><p><a class="reference external" href="https://unicorn-binance-rest-api.docs.lucit.tech/unicorn_binance_rest_api.html">Modules</a></p></li>
-</ul>
-</div>
-<div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_doing_something.py">example_doing_something.py</a></p></li>
-<li><p><a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_easy_migration_from_python-binance.py">example_easy_migration_from_python-binance.py</a></p></li>
-<li><p><a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_historical_data.py">example_historical_data.py</a></p></li>
-<li><p><a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_logging.py">example_logging.py</a></p></li>
-<li><p><a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_orders.py">example_orders.py</a></p></li>
-<li><p><a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_version_of_this_package.py">example_version_of_this_package.py</a></p></li>
-</ul>
-</div>
-<div class="section" id="howto">
-<h2>Howto<a class="headerlink" href="#howto" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.technopathy.club/2021/09/21/howto-unicorn-binance-rest-api/">Howto: UNICORN Binance REST API</a></p></li>
-</ul>
-</div>
-<div class="section" id="project-homepage">
-<h2>Project Homepage<a class="headerlink" href="#project-homepage" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api">https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api</a></p>
-</div>
-<div class="section" id="wiki">
-<h2>Wiki<a class="headerlink" href="#wiki" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/wiki">https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/wiki</a></p>
-</div>
-<div class="section" id="social">
-<h2>Social<a class="headerlink" href="#social" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/discussions">Discussions</a></p></li>
-<li><p><a class="reference external" href="https://t.me/unicorndevs">https://t.me/unicorndevs</a></p></li>
-<li><p><a class="reference external" href="https://dev.binance.vision">https://dev.binance.vision</a></p></li>
-<li><p><a class="reference external" href="https://community.binance.org">https://community.binance.org</a></p></li>
-</ul>
-</div>
-<div class="section" id="receive-notifications">
-<h2>Receive Notifications<a class="headerlink" href="#receive-notifications" title="Permalink to this headline">¶</a></h2>
-<p>To receive notifications on available updates you can
-<a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/watchers"><img alt="watch" src="https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-rest-api/master/images/misc/watch.png" /></a>
-the repository on <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api">GitHub</a>, write your
-<a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_version_of_this_package.py">own script</a>
-with using
-<a class="reference external" href="https://unicorn-binance-rest-api.docs.lucit.tech/unicorn_binance_rest_api.html?highlight=is_update_availabe#unicorn_binance_rest_api.manager.BinanceRestApiManager.is_update_availabe"><code class="docutils literal notranslate"><span class="pre">is_update_availabe()</span></code></a>.</p>
-<p>Follow us on <a class="reference external" href="https://twitter.com/LUCIT_SysDev">Twitter</a> or on <a class="reference external" href="https://www.facebook.com/lucit.systems.and.development">Facebook</a> for general news about the <a class="reference external" href="https://www.lucit.tech/unicorn-binance-suite.html">unicorn-binance-suite</a>!</p>
-<p>To receive news (like inspection windows/maintenance) about the Binance API`s subscribe to their telegram groups:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://t.me/binance_api_announcements">https://t.me/binance_api_announcements</a></p></li>
-<li><p><a class="reference external" href="https://t.me/binance_api_english">https://t.me/binance_api_english</a></p></li>
-<li><p><a class="reference external" href="https://t.me/Binance_JEX_EN">https://t.me/Binance_JEX_EN</a></p></li>
-<li><p><a class="reference external" href="https://t.me/Binance_USA">https://t.me/Binance_USA</a></p></li>
-<li><p><a class="reference external" href="https://t.me/TRBinanceTR">https://t.me/TRBinanceTR</a></p></li>
-<li><p><a class="reference external" href="https://t.me/BinanceDEXchange">https://t.me/BinanceDEXchange</a></p></li>
-<li><p><a class="reference external" href="https://t.me/BinanceExchange">https://t.me/BinanceExchange</a></p></li>
-</ul>
-</div>
-<div class="section" id="how-to-report-bugs-or-suggest-improvements">
-<h2>How to report Bugs or suggest Improvements?<a class="headerlink" href="#how-to-report-bugs-or-suggest-improvements" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement">List of planned features</a> -
-click <img alt="thumbs-up" src="https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-rest-api/master/images/misc/thumbup.png" /> if you need one of them or suggest a new feature!</p>
-<p>Before you report a bug, <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api#installation-and-upgrade">try the latest release</a>. If the issue still exists, provide the error trace, OS
-and Python version and explain how to reproduce the error. A demo script is appreciated.</p>
-<p>If you dont find an issue related to your topic, please open a new <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues">issue</a>!</p>
-<p><a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/security/policy">Report a security bug!</a></p>
-</div>
-<div class="section" id="contributing">
-<h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://www.lucit.tech/unicorn-binance-rest-api.html">UNICORN Binance REST API</a> is an open
-source project which welcomes contributions which can be anything from simple documentation fixes and reporting dead links to new features. To
-contribute follow
-<a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/CONTRIBUTING.md">this guide</a>.</p>
-<div class="section" id="contributors">
-<h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/graphs/contributors"><img alt="Contributors" src="https://contributors-img.web.app/image?repo=lucit-systems-and-development/unicorn-binance-rest-api" /></a></p>
-<p>We <img alt="love" src="https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-rest-api/master/images/misc/heart.png" /> open source!</p>
-</div>
-</div>
-<div class="section" id="disclaimer">
-<h2>Disclaimer<a class="headerlink" href="#disclaimer" title="Permalink to this headline">¶</a></h2>
-<p>This project is for informational purposes only. You should not construe this information or any other material as
-legal, tax, investment, financial or other advice. Nothing contained herein constitutes a solicitation, recommendation,
-endorsement or offer by us or any third party provider to buy or sell any securities or other financial instruments in
-this or any other jurisdiction in which such solicitation or offer would be unlawful under the securities laws of such
-jurisdiction.</p>
-<p><em><strong>If you intend to use real money, use it at your own risk.</strong></em></p>
-<p>Under no circumstances will we be responsible or liable for any claims, damages, losses, expenses, costs or liabilities
-of any kind, including but not limited to direct or indirect damages for loss of profits.</p>
-</div>
-<div class="section" id="commercial-support">
-<h2>Commercial Support<a class="headerlink" href="#commercial-support" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://www.lucit.tech"><img alt="LUCIT" src="https://www.lucit.tech/files/images/logos/LUCIT-LOGO.png" /></a></p>
-<p><em><strong>Do you need a developer, operator or consultant?</strong></em></p>
-<p>Contact <a class="reference external" href="https://about.me/oliver-zehentleitner">me</a> for a non-binding initial consultation via my company
-<a class="reference external" href="https://www.lucit.tech">LUCIT</a> from Vienna (Austria) or via <a class="reference external" href="https://t.me/LUCIT_OZ">Telegram</a>/<a class="reference external" href="https://wa.me/436602456535">WhatsApp</a>.</p>
-</div>
-</div>
-
-
-            <div class="clearer"></div>
-          </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
+            <script type="text/javascript" src="_static/copybutton.js"></script>
+            <script type="text/javascript" src="_static/menu.js"></script> 
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+        <form role="search" class="search" action="search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <p class="logo">
+                <div style="text-align: center;">
+                    <a href="https://www.lucit.tech"><img src="https://www.lucit.tech/files/images/logos/LUCIT-LOGO.png"></a>
+                    <a href="https://www.lucit.tech/trading-tools.html" style="font-size: 0.85em;font-weight: 900">Tailored Bots for Your Unique Trading Needs</a>
+                </div>
+            </p>
   <div>
     <h3><a href="index.html">Table of Contents</a></h3>
     <ul>
@@ -399,6 +89,7 @@ of any kind, including but not limited to direct or indirect damages for loss of
 <li><a class="reference internal" href="#contributors">Contributors</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#you-want-to-say-thank-you">You want to say Thank You?</a></li>
 <li><a class="reference internal" href="#disclaimer">Disclaimer</a></li>
 <li><a class="reference internal" href="#commercial-support">Commercial Support</a></li>
 </ul>
@@ -423,11 +114,21 @@ of any kind, including but not limited to direct or indirect damages for loss of
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
-    <div role="note" aria-label="source code">
-        <h3>GitHub</h3>
-        <ul class="this-page-menu">
-          <li><a href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api">Show Source</a></li>
-          
+<div id="searchbox" style="display: block" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+<div role="note" aria-label="source code">
+    <h3>GitHub</h3>
+    <ul class="this-page-menu">
+      <li><a href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api">Show Source</a></li>
+      
 <li>
 <a class="github-button" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api"
    data-icon="octicon-star" data-show-count="true"
@@ -447,9 +148,426 @@ of any kind, including but not limited to direct or indirect damages for loss of
     
 </li>
 
-        </ul>
+    </ul>
+</div>
+        </nav>
     </div>
-<div id="searchbox" style="display: none" role="search">
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="modules.html" title="unicorn_binance_rest_api"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to unicorn-binance-rest-api’s documentation!"
+             accesskey="P">previous</a> |</li>
+              
+                  
+                  
+              <li><img src="_static/lucit.png" alt="LUCIT Logo"
+                       style="vertical-align: middle; margin-top: -1px"/></li>
+              <li><a href="https://www.lucit.tech/unicorn-binance-rest-api.html">unicorn-binance-rest-api</a> &#187;</li>
+                  
+              
+              
+              <a href="index.html">Docs</a> &#187;
+              
+        <li class="nav-item nav-item-this"><a href="">UNICORN Binance REST API</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p><a class="reference external" href="https://www.lucit.tech/get-support.html"><img alt="Get professional and fast support" src="https://raw.githubusercontent.com/LUCIT-Systems-and-Development/unicorn-binance-suite/master/images/support/LUCIT-get-professional-and-fast-support.png" /></a></p>
+<p><a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases"><img alt="GitHub Release" src="https://img.shields.io/github/release/LUCIT-Systems-and-Development/unicorn-binance-rest-api.svg?label=github" /></a>
+<a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases"><img alt="GitHub Downloads" src="https://img.shields.io/github/downloads/LUCIT-Systems-and-Development/unicorn-binance-rest-api/total?color=blue" /></a>
+<a class="reference external" href="https://anaconda.org/conda-forge/unicorn-binance-rest-api"><img alt="Conda Release" src="https://img.shields.io/conda/vn/conda-forge/unicorn-binance-rest-api.svg?color=blue" /></a>
+<a class="reference external" href="https://anaconda.org/conda-forge/unicorn-binance-rest-api"><img alt="Conda Downloads" src="https://img.shields.io/conda/dn/conda-forge/unicorn-binance-rest-api.svg?color=blue" /></a>
+<a class="reference external" href="https://pypi.org/project/unicorn-binance-rest-api/"><img alt="PyPi Release" src="https://img.shields.io/pypi/v/unicorn-binance-rest-api?color=blue" /></a>
+<a class="reference external" href="https://pepy.tech/project/unicorn-binance-rest-api"><img alt="PyPi Downloads" src="https://pepy.tech/badge/unicorn-binance-rest-api" /></a>
+<a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/LUCIT-Systems-and-Development/unicorn-binance-rest-api.svg?color=blue" /></a>
+<a class="reference external" href="https://www.python.org/downloads/"><img alt="Supported Python Version" src="https://img.shields.io/pypi/pyversions/unicorn_binance_rest_api.svg" /></a>
+<a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues"><img alt="PyPI - Status" src="https://img.shields.io/pypi/status/unicorn_binance_rest_api.svg" /></a>
+<a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/unit-tests.yml"><img alt="Unit Tests" src="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/unit-tests.yml/badge.svg" /></a>
+<a class="reference external" href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15697&amp;branchName=main"><img alt="Azure Pipelines" src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/unicorn-binance-rest-api-feedstock?branchName=main" /></a>
+<a class="reference external" href="https://codecov.io/gh/LUCIT-Systems-and-Development/unicorn-binance-rest-api"><img alt="codecov" src="https://codecov.io/gh/LUCIT-Systems-and-Development/unicorn-binance-rest-api/branch/master/graph/badge.svg?token=5I03AZ3F5S" /></a>
+<a class="reference external" href="https://unicorn-binance-rest-api.docs.lucit.tech/"><img alt="Read the Docs" src="https://img.shields.io/badge/read-%20docs-yellow" /></a>
+<a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api"><img alt="Github" src="https://img.shields.io/badge/source-github-yellow" /></a>
+<a class="reference external" href="https://t.me/unicorndevs"><img alt="Telegram" src="https://img.shields.io/badge/chat-telegram-yellow" /></a>
+<a class="reference external" href="https://gitter.im/unicorn-binance-suite/unicorn-binance-rest-api?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img alt="Gitter" src="https://badges.gitter.im/unicorn-binance-suite/unicorn-binance-rest-api.svg" /></a></p>
+<p><a class="reference external" href="https://www.lucit.tech/unicorn-binance-rest-api.html"><img alt="LUCIT-UBRA-Banner" src="https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-rest-api/master/images/logo/LUCIT-UBRA-Banner-Readme.png" /></a></p>
+<section id="unicorn-binance-rest-api">
+<h1>UNICORN Binance REST API<a class="headerlink" href="#unicorn-binance-rest-api" title="Permalink to this heading">¶</a></h1>
+<p><a class="reference external" href="#description">Description</a> | <a class="reference external" href="#installation-and-upgrade">Installation</a> | <a class="reference external" href="#howto">How To</a> |
+<a class="reference external" href="#documentation">Documentation</a> | <a class="reference external" href="#examples">Examples</a> | <a class="reference external" href="#change-log">Change Log</a> | <a class="reference external" href="#wiki">Wiki</a> | <a class="reference external" href="#social">Social</a> |
+<a class="reference external" href="#receive-notifications">Notifications</a> | <a class="reference external" href="#how-to-report-bugs-or-suggest-improvements">Bugs</a> |
+<a class="reference external" href="#contributing">Contributing</a> | <a class="reference external" href="#you-want-to-say-thank-you">Leave a review</a> | <a class="reference external" href="#disclaimer">Disclaimer</a> | <a class="reference external" href="#commercial-support">Commercial Support</a></p>
+<p>An unofficial Python API to use the Binance REST API`s (com+testnet, com-margin+testnet, com-isolated_margin+testnet,
+com-futures+testnet, us, tr) in a easy, fast, flexible, robust and fully-featured way.</p>
+<p>Part of <a class="reference external" href="https://www.lucit.tech/unicorn-binance-suite.html">‘UNICORN Binance Suite’</a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">unicorn_binance_rest_api.manager</span> <span class="kn">import</span> <span class="n">BinanceRestApiManager</span>
+
+<span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;aaa&quot;</span>
+<span class="n">api_secret</span> <span class="o">=</span> <span class="s2">&quot;bbb&quot;</span>
+<span class="n">ubra</span> <span class="o">=</span> <span class="n">BinanceRestApiManager</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">,</span> <span class="n">exchange</span><span class="o">=</span><span class="s2">&quot;binance.com&quot;</span><span class="p">)</span>
+
+<span class="c1"># get market depth</span>
+<span class="n">depth</span> <span class="o">=</span> <span class="n">ubra</span><span class="o">.</span><span class="n">get_order_book</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;BNBBTC&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">depth</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># get all symbol prices</span>
+<span class="n">prices</span> <span class="o">=</span> <span class="n">ubra</span><span class="o">.</span><span class="n">get_all_tickers</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">prices</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># get the used weight: </span>
+<span class="c1"># https://github.com/binance-us/binance-official-api-docs/blob/master/rest-api.md#limits</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Used weight: </span><span class="si">{</span><span class="n">ubra</span><span class="o">.</span><span class="n">get_used_weight</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="get-the-right-logger">
+<h2>Get the right <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_logging.py">logger</a>:<a class="headerlink" href="#get-the-right-logger" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;unicorn_binance_rest_api&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
+<p>This is a fork of Sam McHardy`s <a class="reference external" href="https://github.com/sammchardy/python-binance">python-binance 0.7.10</a> - package.
+Extended, cleaned up and reduced to pure REST tasks, with PRs added and improved. No asyncio support!!</p>
+<p>The Python module <a class="reference external" href="https://www.lucit.tech/unicorn-binance-rest-api.html">UNICORN Binance REST API</a>
+provides an API to the Binance REST API`s of
+<a class="reference external" href="https://github.com/binance-exchange/binance-official-api-docs">Binance</a>
+(<a class="reference external" href="https://testnet.binance.vision/">+Testnet</a>),
+<a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#user-data-streams">Binance Margin</a>
+(<a class="reference external" href="https://testnet.binance.vision/">+Testnet</a>),
+<a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#listen-key-isolated-margin">Binance Isolated Margin</a>
+(<a class="reference external" href="https://testnet.binance.vision/">+Testnet</a>),
+<a class="reference external" href="https://binance-docs.github.io/apidocs/futures/en/#websocket-market-streams">Binance Futures</a>
+(<a class="reference external" href="https://testnet.binancefuture.com">+Testnet</a>),
+<a class="reference external" href="https://binance-docs.github.io/apidocs/delivery/en/#change-log">Binance COIN-M Futures</a>,
+<a class="reference external" href="https://github.com/binance-us/binance-official-api-docs">Binance US</a>,
+<a class="reference external" href="https://www.trbinance.com/apidocs">Binance TR</a> and
+<a class="reference external" href="https://jexapi.github.io/api-doc/spot.html#web-socket-streams">Binance JEX</a> and needs to be used with a valid api_key and api_secret from the Binance Exchange
+<a class="reference external" href="https://www.binance.com/userCenter/createApi.html">www.binance.com</a>,
+<a class="reference external" href="https://testnet.binance.vision/">testnet.binance.vision</a>,
+<a class="reference external" href="https://www.binance.us/userCenter/createApi.html">www.binance.us</a> or
+<a class="reference external" href="https://www.jex.com/userCenter/createApi.html">www.jex.com</a>.</p>
+<p>Be aware that the Binance REST API is request based. if you want to receive high frequency and high volume data, you can use the <a class="reference external" href="https://www.lucit.tech/unicorn-binance-websocket-api.html">UNICORN Binance Websocket API</a> in combination.</p>
+<section id="what-are-the-benefits-of-the-unicorn-binance-rest-api">
+<h3>What are the benefits of the UNICORN Binance REST API?<a class="headerlink" href="#what-are-the-benefits-of-the-unicorn-binance-rest-api" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Supported exchanges:</p></li>
+</ul>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Exchange</th>
+<th>Exchange string</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.binance.com">Binance</a></td>
+<td><code>binance.com</code></td>
+</tr>
+<tr>
+<td><a href="https://testnet.binance.vision/">Binance Testnet</a></td>
+<td><code>binance.com-testnet</code></td>
+</tr>
+<tr>
+<td><a href="https://www.binance.com">Binance Margin</a></td>
+<td><code>binance.com-margin</code></td>
+</tr>
+<tr>
+<td><a href="https://testnet.binance.vision/">Binance Margin Testnet</a></td>
+<td><code>binance.com-margin-testnet</code></td>
+</tr>
+<tr>
+<td><a href="https://www.binance.com">Binance Isolated Margin</a></td>
+<td><code>binance.com-isolated_margin</code></td>
+</tr>
+<tr>
+<td><a href="https://testnet.binance.vision/">Binance Isolated Margin Testnet</a></td>
+<td><code>binance.com-isolated_margin-testnet</code></td>
+</tr>
+<tr>
+<td><a href="https://www.binance.com">Binance USD-M Futures</a></td>
+<td><code>binance.com-futures</code></td>
+</tr>
+<tr>
+<td><a href="https://testnet.binancefuture.com">Binance USD-M Futures Testnet</a></td>
+<td><code>binance.com-futures-testnet</code></td>
+</tr>
+<tr>
+<td><a href="https://www.binance.com">Binance Coin-M Futures</a></td>
+<td><code>binance.com-coin-futures</code></td>
+</tr>
+<tr>
+<td><a href="https://www.binance.us">Binance US</a></td>
+<td><code>binance.us</code></td>
+</tr>
+<tr>
+<td><a href="https://www.trbinance.com">Binance TR</a></td>
+<td><code>trbinance.com</code></td>
+</tr>
+</tbody>
+</table><ul class="simple">
+<li><p>Helpful management features like
+<a class="reference external" href="https://unicorn-binance-rest-api.docs.lucit.tech/unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_used_weight"><code class="docutils literal notranslate"><span class="pre">get_used_weight()</span></code></a>,</p></li>
+</ul>
+</section>
+</section>
+<section id="installation-and-upgrade">
+<h2>Installation and Upgrade<a class="headerlink" href="#installation-and-upgrade" title="Permalink to this heading">¶</a></h2>
+<p>The current dependencies are listed
+<a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/requirements.txt">here</a>.</p>
+<p>If you run into errors during the installation take a look <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/wiki/Installation">here</a>.</p>
+<section id="a-wheel-and-a-source-file-of-the-latest-release-with-pip-from-pypi">
+<h3>A wheel and a source file of the latest release with <code class="docutils literal notranslate"><span class="pre">pip</span></code>  from <a class="reference external" href="https://pypi.org/project/unicorn-binance-rest-api/">PyPI</a><a class="headerlink" href="#a-wheel-and-a-source-file-of-the-latest-release-with-pip-from-pypi" title="Permalink to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">unicorn-binance-rest-api</span> <span class="pre">--upgrade</span></code></p>
+</section>
+<section id="a-conda-package-of-the-latest-release-with-conda-from-anaconda-via-conda-forge">
+<h3>A conda package of the latest release with <code class="docutils literal notranslate"><span class="pre">conda</span></code> from <a class="reference external" href="https://anaconda.org/conda-forge/unicorn-binance-rest-api">Anaconda</a> via <a class="reference external" href="https://conda-forge.org">CONDA-FORGE</a>.<a class="headerlink" href="#a-conda-package-of-the-latest-release-with-conda-from-anaconda-via-conda-forge" title="Permalink to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">unicorn-binance-rest-api</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">update</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">unicorn-binance-rest-api</span></code></p>
+</section>
+<section id="from-source-of-the-latest-release-with-pip-from-github">
+<h3>From source of the latest release with PIP from <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api">Github</a><a class="headerlink" href="#from-source-of-the-latest-release-with-pip-from-github" title="Permalink to this heading">¶</a></h3>
+<section id="linux-macos">
+<h4>Linux, macOS, …<a class="headerlink" href="#linux-macos" title="Permalink to this heading">¶</a></h4>
+<p>Run in bash:</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/$(curl</span> <span class="pre">-s</span> <span class="pre">https://api.github.com/repos/lucit-systems-and-development/unicorn-binance-rest-api/releases/latest</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">-oP</span> <span class="pre">'&quot;tag_name&quot;:</span> <span class="pre">&quot;\K(.*)(?=&quot;)').tar.gz</span> <span class="pre">--upgrade</span></code></p>
+</section>
+<section id="windows">
+<h4>Windows<a class="headerlink" href="#windows" title="Permalink to this heading">¶</a></h4>
+<p>Use the below command with the version (such as 1.3.0) you determined
+<a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases/latest">here</a>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/1.3.0.tar.gz</span> <span class="pre">--upgrade</span></code></p>
+</section>
+</section>
+<section id="from-the-latest-source-dev-stage-with-pip-from-github">
+<h3>From the latest source (dev-stage) with PIP from <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api">Github</a><a class="headerlink" href="#from-the-latest-source-dev-stage-with-pip-from-github" title="Permalink to this heading">¶</a></h3>
+<p>This is not a release version and can not be considered to be stable!</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/tarball/master</span> <span class="pre">--upgrade</span></code></p>
+</section>
+<section id="conda-environment-virtualenv-or-plain-python">
+<h3><a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">Conda environment</a>, <a class="reference external" href="https://virtualenv.pypa.io/en/latest/">Virtualenv</a> or plain <a class="reference external" href="https://docs.python.org/2/install/">Python</a><a class="headerlink" href="#conda-environment-virtualenv-or-plain-python" title="Permalink to this heading">¶</a></h3>
+<p>Download the <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases/latest">latest release</a>
+or the <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/master.zip">current master branch</a>
+and use:</p>
+<ul class="simple">
+<li><p>./environment.yml</p></li>
+<li><p>./requirements.txt</p></li>
+<li><p>./setup.py</p></li>
+</ul>
+</section>
+</section>
+<section id="change-log">
+<h2>Change Log<a class="headerlink" href="#change-log" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://unicorn-binance-rest-api.docs.lucit.tech/CHANGELOG.html">https://unicorn-binance-rest-api.docs.lucit.tech/CHANGELOG.html</a></p>
+</section>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://unicorn-binance-rest-api.docs.lucit.tech/">General</a></p></li>
+<li><p><a class="reference external" href="https://unicorn-binance-rest-api.docs.lucit.tech/unicorn_binance_rest_api.html">Modules</a></p></li>
+</ul>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_doing_something.py">example_doing_something.py</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_easy_migration_from_python-binance.py">example_easy_migration_from_python-binance.py</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_historical_data.py">example_historical_data.py</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_logging.py">example_logging.py</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_orders.py">example_orders.py</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_version_of_this_package.py">example_version_of_this_package.py</a></p></li>
+</ul>
+</section>
+<section id="howto">
+<h2>Howto<a class="headerlink" href="#howto" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.technopathy.club/2021/09/21/howto-unicorn-binance-rest-api/">Howto: UNICORN Binance REST API</a></p></li>
+</ul>
+</section>
+<section id="project-homepage">
+<h2>Project Homepage<a class="headerlink" href="#project-homepage" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api">https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api</a></p>
+</section>
+<section id="wiki">
+<h2>Wiki<a class="headerlink" href="#wiki" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/wiki">https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/wiki</a></p>
+</section>
+<section id="social">
+<h2>Social<a class="headerlink" href="#social" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/discussions">Discussions</a></p></li>
+<li><p><a class="reference external" href="https://t.me/unicorndevs">https://t.me/unicorndevs</a></p></li>
+<li><p><a class="reference external" href="https://dev.binance.vision">https://dev.binance.vision</a></p></li>
+<li><p><a class="reference external" href="https://community.binance.org">https://community.binance.org</a></p></li>
+</ul>
+</section>
+<section id="receive-notifications">
+<h2>Receive Notifications<a class="headerlink" href="#receive-notifications" title="Permalink to this heading">¶</a></h2>
+<p>To receive notifications on available updates you can
+<a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/watchers"><img alt="watch" src="https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-rest-api/master/images/misc/watch.png" /></a>
+the repository on <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api">GitHub</a>, write your
+<a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_version_of_this_package.py">own script</a>
+with using
+<a class="reference external" href="https://unicorn-binance-rest-api.docs.lucit.tech/unicorn_binance_rest_api.html?highlight=is_update_availabe#unicorn_binance_rest_api.manager.BinanceRestApiManager.is_update_availabe"><code class="docutils literal notranslate"><span class="pre">is_update_availabe()</span></code></a>.</p>
+<p>Follow us on <a class="reference external" href="https://twitter.com/LUCIT_SysDev">Twitter</a> or on <a class="reference external" href="https://www.facebook.com/lucit.systems.and.development">Facebook</a> for general news about the <a class="reference external" href="https://www.lucit.tech/unicorn-binance-suite.html">unicorn-binance-suite</a>!</p>
+<p>To receive news (like inspection windows/maintenance) about the Binance API`s subscribe to their telegram groups:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://t.me/binance_api_announcements">https://t.me/binance_api_announcements</a></p></li>
+<li><p><a class="reference external" href="https://t.me/binance_api_english">https://t.me/binance_api_english</a></p></li>
+<li><p><a class="reference external" href="https://t.me/Binance_JEX_EN">https://t.me/Binance_JEX_EN</a></p></li>
+<li><p><a class="reference external" href="https://t.me/Binance_USA">https://t.me/Binance_USA</a></p></li>
+<li><p><a class="reference external" href="https://t.me/TRBinanceTR">https://t.me/TRBinanceTR</a></p></li>
+<li><p><a class="reference external" href="https://t.me/BinanceDEXchange">https://t.me/BinanceDEXchange</a></p></li>
+<li><p><a class="reference external" href="https://t.me/BinanceExchange">https://t.me/BinanceExchange</a></p></li>
+</ul>
+</section>
+<section id="how-to-report-bugs-or-suggest-improvements">
+<h2>How to report Bugs or suggest Improvements?<a class="headerlink" href="#how-to-report-bugs-or-suggest-improvements" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement">List of planned features</a> -
+click <img alt="thumbs-up" src="https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-rest-api/master/images/misc/thumbup.png" /> if you need one of them or suggest a new feature!</p>
+<p>Before you report a bug, <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api#installation-and-upgrade">try the latest release</a>. If the issue still exists, provide the error trace, OS
+and Python version and explain how to reproduce the error. A demo script is appreciated.</p>
+<p>If you dont find an issue related to your topic, please open a new <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues">issue</a>!</p>
+<p><a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/security/policy">Report a security bug!</a></p>
+</section>
+<section id="contributing">
+<h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://www.lucit.tech/unicorn-binance-rest-api.html">UNICORN Binance REST API</a> is an open
+source project which welcomes contributions which can be anything from simple documentation fixes and reporting dead links to new features. To
+contribute follow
+<a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/CONTRIBUTING.md">this guide</a>.</p>
+<section id="contributors">
+<h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this heading">¶</a></h3>
+<p><a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/graphs/contributors"><img alt="Contributors" src="https://contributors-img.web.app/image?repo=lucit-systems-and-development/unicorn-binance-rest-api" /></a></p>
+<p>We <img alt="love" src="https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-rest-api/master/images/misc/heart.png" /> open source!</p>
+</section>
+</section>
+<section id="you-want-to-say-thank-you">
+<h2>You want to say Thank You?<a class="headerlink" href="#you-want-to-say-thank-you" title="Permalink to this heading">¶</a></h2>
+<p>We hope you are enjoying using our libraries and that they are proving to be useful to you. If you have a moment, we would greatly appreciate it if you could leave us a <a class="reference external" href="https://g.page/r/CbfHlcs8BfG8EAg/review">review on Google</a>. Thank you for your support!</p>
+</section>
+<section id="disclaimer">
+<h2>Disclaimer<a class="headerlink" href="#disclaimer" title="Permalink to this heading">¶</a></h2>
+<p>This project is for informational purposes only. You should not construe this information or any other material as
+legal, tax, investment, financial or other advice. Nothing contained herein constitutes a solicitation, recommendation,
+endorsement or offer by us or any third party provider to buy or sell any securities or other financial instruments in
+this or any other jurisdiction in which such solicitation or offer would be unlawful under the securities laws of such
+jurisdiction.</p>
+<p><em><strong>If you intend to use real money, use it at your own risk.</strong></em></p>
+<p>Under no circumstances will we be responsible or liable for any claims, damages, losses, expenses, costs or liabilities
+of any kind, including but not limited to direct or indirect damages for loss of profits.</p>
+</section>
+<section id="commercial-support">
+<h2>Commercial Support<a class="headerlink" href="#commercial-support" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://www.lucit.tech/get-support.html"><img alt="Get professional and fast support" src="https://raw.githubusercontent.com/LUCIT-Systems-and-Development/unicorn-binance-suite/master/images/support/LUCIT-get-professional-and-fast-support.png" /></a></p>
+<p><em><strong>Do you need a developer, operator or consultant?</strong></em> <a class="reference external" href="https://www.lucit.tech/contact.html">Contact us</a> for a non-binding initial consultation!</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo">
+                <div style="text-align: center;">
+                <a href="https://www.lucit.tech"><img src="https://www.lucit.tech/files/images/logos/LUCIT-LOGO.png"></a>
+                    <a href="https://www.lucit.tech/trading-tools.html" style="font-size: 0.85em;font-weight: 900">Tailored Bots for Your Unique Trading Needs</a>
+                </div>
+            </p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">UNICORN Binance REST API</a><ul>
+<li><a class="reference internal" href="#get-the-right-logger">Get the right logger:</a></li>
+<li><a class="reference internal" href="#description">Description</a><ul>
+<li><a class="reference internal" href="#what-are-the-benefits-of-the-unicorn-binance-rest-api">What are the benefits of the UNICORN Binance REST API?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#installation-and-upgrade">Installation and Upgrade</a><ul>
+<li><a class="reference internal" href="#a-wheel-and-a-source-file-of-the-latest-release-with-pip-from-pypi">A wheel and a source file of the latest release with <code class="docutils literal notranslate"><span class="pre">pip</span></code>  from PyPI</a></li>
+<li><a class="reference internal" href="#a-conda-package-of-the-latest-release-with-conda-from-anaconda-via-conda-forge">A conda package of the latest release with <code class="docutils literal notranslate"><span class="pre">conda</span></code> from Anaconda via CONDA-FORGE.</a></li>
+<li><a class="reference internal" href="#from-source-of-the-latest-release-with-pip-from-github">From source of the latest release with PIP from Github</a><ul>
+<li><a class="reference internal" href="#linux-macos">Linux, macOS, …</a></li>
+<li><a class="reference internal" href="#windows">Windows</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#from-the-latest-source-dev-stage-with-pip-from-github">From the latest source (dev-stage) with PIP from Github</a></li>
+<li><a class="reference internal" href="#conda-environment-virtualenv-or-plain-python">Conda environment, Virtualenv or plain Python</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#change-log">Change Log</a></li>
+<li><a class="reference internal" href="#documentation">Documentation</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#howto">Howto</a></li>
+<li><a class="reference internal" href="#project-homepage">Project Homepage</a></li>
+<li><a class="reference internal" href="#wiki">Wiki</a></li>
+<li><a class="reference internal" href="#social">Social</a></li>
+<li><a class="reference internal" href="#receive-notifications">Receive Notifications</a></li>
+<li><a class="reference internal" href="#how-to-report-bugs-or-suggest-improvements">How to report Bugs or suggest Improvements?</a></li>
+<li><a class="reference internal" href="#contributing">Contributing</a><ul>
+<li><a class="reference internal" href="#contributors">Contributors</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#you-want-to-say-thank-you">You want to say Thank You?</a></li>
+<li><a class="reference internal" href="#disclaimer">Disclaimer</a></li>
+<li><a class="reference internal" href="#commercial-support">Commercial Support</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="index.html"
+                          title="previous chapter">Welcome to unicorn-binance-rest-api’s documentation!</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="modules.html"
+                          title="next chapter">unicorn_binance_rest_api</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/README.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: block" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
@@ -459,14 +577,31 @@ of any kind, including but not limited to direct or indirect damages for loss of
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
+<div role="note" aria-label="source code">
+    <h3>GitHub</h3>
+    <ul class="this-page-menu">
+      <li><a href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api">Show Source</a></li>
+      
+<li>
+<a class="github-button" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api"
+   data-icon="octicon-star" data-show-count="true"
+   aria-label="Star LUCIT-Systems-and-Development/unicorn-binance-rest-api on GitHub">Star</a>
 <br />
+<a class="github-button" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/subscription"
+   data-icon="octicon-eye" data-show-count="true"
+   aria-label="Watch LUCIT-Systems-and-Development/unicorn-binance-rest-api on GitHub">Watch</a>
+<br />
+<a class="github-button" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/fork"
+   data-icon="octicon-repo-forked" data-show-count="true"
+   aria-label="Fork LUCIT-Systems-and-Development/unicorn-binance-rest-api on GitHub">Fork</a>
+<br />
+<a class="github-button" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues"
+   data-icon="octicon-issue-opened"
+   data-show-count="true" aria-label="Issue LUCIT-Systems-and-Development/unicorn-binance-rest-api on GitHub">Issue</a>
+    
+</li>
 
-<div style="text-align: center">
-    <br>
-    <a href="https://www.lucit.tech"><img src="https://www.lucit.tech/files/images/logos/LUCIT-LOGO.png"></a>
-    <p>
-        <a href="https://www.lucit.tech/trading-tools.html" style="font-size: 0.85em;font-weight: 900">Get customized trading software!</a>
-    </p>
+    </ul>
 </div>
         </div>
       </div>
@@ -487,38 +622,47 @@ of any kind, including but not limited to direct or indirect damages for loss of
         <li class="right" >
           <a href="index.html" title="Welcome to unicorn-binance-rest-api’s documentation!"
              >previous</a> |</li>
-    
-        
-        
-    <li><img src="_static/lucit.png" alt="LUCIT Logo"
-             style="vertical-align: middle; margin-top: -1px"/></li>
-    <li><a href="https://www.lucit.tech/unicorn-binance-rest-api.html">unicorn-binance-rest-api</a> &#187;</li>
-        
-    
-    
-    <a href="index.html">unicorn-binance-rest-api 1.5.0 documentation</a> &#187;
-    
-
+              
+                  
+                  
+              <li><img src="_static/lucit.png" alt="LUCIT Logo"
+                       style="vertical-align: middle; margin-top: -1px"/></li>
+              <li><a href="https://www.lucit.tech/unicorn-binance-rest-api.html">unicorn-binance-rest-api</a> &#187;</li>
+                  
+              
+              
+              <a href="index.html">Docs</a> &#187;
+              
         <li class="nav-item nav-item-this"><a href="">UNICORN Binance REST API</a></li>
-    <li class="right">
-        <a href="search.html" title="Search">search</a>
-         |
-    </li>
+                <li class="right">
+                    
 
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
       </ul>
     </div>  
     <div class="footer">
-        <a href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues">Found a bug</a>?
-        <br />
-        Last updated on May 11 2022 at 11:25 (CET).
-        <br />
-        &copy; <a href="copyright.html">Copyright</a> 2021-2022, LUCIT Systems and Development and Oliver Zehentleitner.
-        <br />
-
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 4.4.0
-        with <a href="https://github.com/LUCIT-Systems-and-Development/python-docs-theme-technopathy">python-docs-theme-technopathy</a>
-        by <a href="https://www.lucit.tech">LUCIT Systems and Development</a>
+    &copy; <a href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api/blob/master/LICENSE">Copyright</a> 2021-2022, LUCIT Systems and Development and Oliver Zehentleitner.
+    See <a href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api/blob/master/LICENSE">License</a> for more information.<br />
+    Last updated on Feb 27 2023 at 18:55 (CET).
+    <a href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api/issues">Found a bug</a>?
+    <br />
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
+        with <a href="https://github.com/LUCIT-Systems-and-Development/python-docs-theme-lucit">python-docs-theme-lucit</a>
+        by <a href="https://www.lucit.tech">LUCIT Systems and Development</a>.
     </div>
+    
+    <img referrerpolicy="no-referrer-when-downgrade" src="https://matomo.lucit.co/matomo.php?idsite=8&amp;rec=1" style="border:0" alt="" />
+    
 
   </body>
 </html>

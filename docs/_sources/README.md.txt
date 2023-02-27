@@ -1,3 +1,5 @@
+[![Get professional and fast support](https://raw.githubusercontent.com/LUCIT-Systems-and-Development/unicorn-binance-suite/master/images/support/LUCIT-get-professional-and-fast-support.png)](https://www.lucit.tech/get-support.html)
+
 [![GitHub Release](https://img.shields.io/github/release/LUCIT-Systems-and-Development/unicorn-binance-rest-api.svg?label=github)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases)
 [![GitHub Downloads](https://img.shields.io/github/downloads/LUCIT-Systems-and-Development/unicorn-binance-rest-api/total?color=blue)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases)
 [![Conda Release](https://img.shields.io/conda/vn/conda-forge/unicorn-binance-rest-api.svg?color=blue)](https://anaconda.org/conda-forge/unicorn-binance-rest-api)
@@ -7,8 +9,6 @@
 [![License](https://img.shields.io/github/license/LUCIT-Systems-and-Development/unicorn-binance-rest-api.svg?color=blue)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/LICENSE)
 [![Supported Python Version](https://img.shields.io/pypi/pyversions/unicorn_binance_rest_api.svg)](https://www.python.org/downloads/)
 [![PyPI - Status](https://img.shields.io/pypi/status/unicorn_binance_rest_api.svg)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues)
-[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/LUCIT-Systems-and-Development/unicorn-binance-rest-api.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/LUCIT-Systems-and-Development/unicorn-binance-rest-api/context:python)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/LUCIT-Systems-and-Development/unicorn-binance-rest-api.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/LUCIT-Systems-and-Development/unicorn-binance-rest-api/alerts/)
 [![Unit Tests](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/unit-tests.yml)
 [![Azure Pipelines](https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/unicorn-binance-rest-api-feedstock?branchName=main)](https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15697&branchName=main)
 [![codecov](https://codecov.io/gh/LUCIT-Systems-and-Development/unicorn-binance-rest-api/branch/master/graph/badge.svg?token=5I03AZ3F5S)](https://codecov.io/gh/LUCIT-Systems-and-Development/unicorn-binance-rest-api)
@@ -17,12 +17,14 @@
 [![Telegram](https://img.shields.io/badge/chat-telegram-yellow)](https://t.me/unicorndevs)
 [![Gitter](https://badges.gitter.im/unicorn-binance-suite/unicorn-binance-rest-api.svg)](https://gitter.im/unicorn-binance-suite/unicorn-binance-rest-api?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+[![LUCIT-UBRA-Banner](https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-rest-api/master/images/logo/LUCIT-UBRA-Banner-Readme.png)](https://www.lucit.tech/unicorn-binance-rest-api.html)
+
 # UNICORN Binance REST API
 
 [Description](#description) | [Installation](#installation-and-upgrade) | [How To](#howto) |
 [Documentation](#documentation) | [Examples](#examples) | [Change Log](#change-log) | [Wiki](#wiki) | [Social](#social) |
 [Notifications](#receive-notifications) | [Bugs](#how-to-report-bugs-or-suggest-improvements) | 
-[Contributing](#contributing) | [Disclaimer](#disclaimer) | [Commercial Support](#commercial-support)
+[Contributing](#contributing) | [Leave a review](#you-want-to-say-thank-you) | [Disclaimer](#disclaimer) | [Commercial Support](#commercial-support)
 
 An unofficial Python API to use the Binance REST API`s (com+testnet, com-margin+testnet, com-isolated_margin+testnet, 
 com-futures+testnet, us, tr) in a easy, fast, flexible, robust and fully-featured way. 
@@ -82,19 +84,19 @@ Be aware that the Binance REST API is request based. if you want to receive high
 ### What are the benefits of the UNICORN Binance REST API?
 - Supported exchanges: 
 
-| Exchange | Exchange string | 
-| -------- | --------------- | 
-| [Binance](https://www.binance.com) | `BinanceRestApiManager(exchange="binance.com")` |
-| [Binance Testnet](https://testnet.binance.vision/) | `BinanceRestApiManager(exchange="binance.com-testnet")` |
-| [Binance Margin](https://www.binance.com) |  `BinanceRestApiManager(exchange="binance.com-margin")` |
-| [Binance Margin Testnet](https://testnet.binance.vision/) | `BinanceRestApiManager(exchange="binance.com-margin-testnet")` |
-| [Binance Isolated Margin](https://www.binance.com) | `BinanceRestApiManager(exchange="binance.com-isolated_margin")` |
-| [Binance Isolated Margin Testnet](https://testnet.binance.vision/) | `BinanceRestApiManager(exchange="binance.com-isolated_margin-testnet")` |
-| [Binance USD-M Futures](https://www.binance.com) | `BinanceRestApiManager(exchange="binance.com-futures")` |
-| [Binance USD-M Futures Testnet](https://testnet.binancefuture.com) | `BinanceRestApiManager(exchange="binance.com-futures-testnet")` |
-| [Binance Coin-M Futures](https://www.binance.com) | `BinanceRestApiManager(exchange="binance.com-coin-futures")` |
-| [Binance US](https://www.binance.us) | `BinanceRestApiManager(exchange="binance.us")` |
-| [Binance TR](https://www.trbinance.com) | `BinanceRestApiManager(exchange="trbinance.com")` |
+| Exchange                                                           | Exchange string | 
+|--------------------------------------------------------------------| --------------- | 
+| [Binance](https://www.binance.com)                                 | `binance.com` |
+| [Binance Testnet](https://testnet.binance.vision/)                 | `binance.com-testnet` |
+| [Binance Margin](https://www.binance.com)                          |  `binance.com-margin` |
+| [Binance Margin Testnet](https://testnet.binance.vision/)          | `binance.com-margin-testnet` |
+| [Binance Isolated Margin](https://www.binance.com)                 | `binance.com-isolated_margin` |
+| [Binance Isolated Margin Testnet](https://testnet.binance.vision/) | `binance.com-isolated_margin-testnet` |
+| [Binance USD-M Futures](https://www.binance.com)                   | `binance.com-futures` |
+| [Binance USD-M Futures Testnet](https://testnet.binancefuture.com) | `binance.com-futures-testnet` |
+| [Binance Coin-M Futures](https://www.binance.com)                  | `binance.com-coin-futures` |
+| [Binance US](https://www.binance.us)                               | `binance.us` |
+| [Binance TR](https://www.trbinance.com)                            | `trbinance.com` |
 
 - Helpful management features like 
 [`get_used_weight()`](https://unicorn-binance-rest-api.docs.lucit.tech/unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_used_weight), 
@@ -211,6 +213,9 @@ contribute follow
 
 We ![love](https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-rest-api/master/images/misc/heart.png) open source!
 
+## You want to say Thank You?
+We hope you are enjoying using our libraries and that they are proving to be useful to you. If you have a moment, we would greatly appreciate it if you could leave us a [review on Google](https://g.page/r/CbfHlcs8BfG8EAg/review). Thank you for your support!
+
 ## Disclaimer
 This project is for informational purposes only. You should not construe this information or any other material as 
 legal, tax, investment, financial or other advice. Nothing contained herein constitutes a solicitation, recommendation, 
@@ -224,9 +229,7 @@ Under no circumstances will we be responsible or liable for any claims, damages,
 of any kind, including but not limited to direct or indirect damages for loss of profits.
 
 ## Commercial Support
-[![LUCIT](https://www.lucit.tech/files/images/logos/LUCIT-LOGO.png)](https://www.lucit.tech)
 
-***Do you need a developer, operator or consultant?***
+[![Get professional and fast support](https://raw.githubusercontent.com/LUCIT-Systems-and-Development/unicorn-binance-suite/master/images/support/LUCIT-get-professional-and-fast-support.png)](https://www.lucit.tech/get-support.html)
 
-Contact [me](https://about.me/oliver-zehentleitner) for a non-binding initial consultation via my company 
-[LUCIT](https://www.lucit.tech) from Vienna (Austria) or via [Telegram](https://t.me/LUCIT_OZ)/[WhatsApp](https://wa.me/436602456535).
+***Do you need a developer, operator or consultant?*** [Contact us](https://www.lucit.tech/contact.html) for a non-binding initial consultation!
