@@ -101,6 +101,9 @@ Be aware that the Binance REST API is request based. if you want to receive high
 - Helpful management features like 
 [`get_used_weight()`](https://unicorn-binance-rest-api.docs.lucit.tech/unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_used_weight), 
 
+If you like the project, please [![star](https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-rest-api/master/images/misc/star.png)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/stargazers) it on 
+[GitHub](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api)!
+
 ## Installation and Upgrade
 The current dependencies are listed 
 [here](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/requirements.txt).
