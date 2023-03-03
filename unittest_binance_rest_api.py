@@ -39,7 +39,7 @@ from unicorn_binance_rest_api.enums import *
 import requests_mock
 import unittest
 
-client = BinanceRestApiManager('api_key', 'api_secret', exchange="binance.com")
+client = BinanceRestApiManager('api_key', 'api_secret', exchange="binance.us")
 
 
 class TestBinanceComRestManager(unittest.TestCase):
