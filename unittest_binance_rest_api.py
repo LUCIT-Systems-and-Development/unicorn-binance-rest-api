@@ -65,11 +65,11 @@ class TestBinanceComRestManager(unittest.TestCase):
         second_res = []
 
         with requests_mock.mock() as m:
-            m.get('https://api.binance.com/api/v3/klines?interval=1m&limit=1&startTime=0&symbol=BNBBTC',
+            m.get('https://api.binance.us/api/v3/klines?interval=1m&limit=1&startTime=0&symbol=BNBBTC',
                   json=first_available_res)
-            m.get('https://api.binance.com/api/v3/klines?interval=1m&limit=500&startTime=1519862400000&symbol=BNBBTC',
+            m.get('https://api.binance.us/api/v3/klines?interval=1m&limit=500&startTime=1519862400000&symbol=BNBBTC',
                   json=first_res)
-            m.get('https://api.binance.com/api/v3/klines?interval=1m&limit=500&startTime=1519892400000&symbol=BNBBTC',
+            m.get('https://api.binance.us/api/v3/klines?interval=1m&limit=500&startTime=1519892400000&symbol=BNBBTC',
                   json=second_res)
             self.client.get_historical_klines(
                 symbol="BNBBTC",
@@ -119,11 +119,11 @@ class TestBinanceComRestManager(unittest.TestCase):
 
         with requests_mock.mock() as m:
             m.get(
-                "https://api.binance.com/api/v3/klines?interval=1m&limit=1&startTime=0&symbol=BNBBTC",
+                "https://api.binance.us/api/v3/klines?interval=1m&limit=1&startTime=0&symbol=BNBBTC",
                 json=first_available_res,
             )
             m.get(
-                "https://api.binance.com/api/v3/klines?interval=1m&limit=500&startTime=1519862400000&"
+                "https://api.binance.us/api/v3/klines?interval=1m&limit=500&startTime=1519862400000&"
                 "endTime=1519880400000&symbol=BNBBTC",
                 json=first_res,
             )
@@ -175,11 +175,11 @@ class TestBinanceComRestManager(unittest.TestCase):
 
         with requests_mock.mock() as m:
             m.get(
-                "https://api.binance.com/api/v3/klines?interval=1m&limit=1&startTime=0&symbol=BNBBTC",
+                "https://api.binance.us/api/v3/klines?interval=1m&limit=1&startTime=0&symbol=BNBBTC",
                 json=first_available_res,
             )
             m.get(
-                "https://api.binance.com/api/v3/klines?interval=1m&limit=500&startTime=1519862400000&"
+                "https://api.binance.us/api/v3/klines?interval=1m&limit=500&startTime=1519862400000&"
                 "endTime=1519880400000&symbol=BNBBTC",
                 json=first_res,
             )
@@ -231,11 +231,11 @@ class TestBinanceComRestManager(unittest.TestCase):
 
         with requests_mock.mock() as m:
             m.get(
-                "https://api.binance.com/api/v3/klines?interval=1m&limit=1&startTime=0&symbol=BNBBTC",
+                "https://api.binance.us/api/v3/klines?interval=1m&limit=1&startTime=0&symbol=BNBBTC",
                 json=first_available_res,
             )
             m.get(
-                "https://api.binance.com/api/v3/klines?interval=1m&limit=500&startTime=1519862400000&"
+                "https://api.binance.us/api/v3/klines?interval=1m&limit=500&startTime=1519862400000&"
                 "endTime=1519880400000&symbol=BNBBTC",
                 json=first_res,
             )
