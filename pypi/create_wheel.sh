@@ -12,7 +12,7 @@
 # Author: LUCIT Systems and Development
 #
 # Copyright (c) 2017-2021, Sam McHardy (https://github.com/sammchardy)
-# Copyright (c) 2021-2022, LUCIT Systems and Development (https://www.lucit.tech) and Oliver Zehentleitner
+# Copyright (c) 2021-2023, LUCIT Systems and Development (https://www.lucit.tech) and Oliver Zehentleitner
 # All rights reserved.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
