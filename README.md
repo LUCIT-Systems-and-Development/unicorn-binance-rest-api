@@ -150,7 +150,7 @@ or the [current master branch](https://github.com/LUCIT-Systems-and-Development/
 
 ## Documentation
 - [General](https://unicorn-binance-rest-api.docs.lucit.tech/)
-- [Modules](https://unicorn-binance-rest-api.docs.lucit.tech/unicorn_binance_rest_api.html)
+- [Modules](https://unicorn-binance-rest-api.docs.lucit.tech/modules.html)
 
 ## Examples
 - [example_doing_something.py](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_doing_something.py)
