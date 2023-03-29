@@ -150,7 +150,7 @@ or the [current master branch](https://github.com/LUCIT-Systems-and-Development/
 
 ## Documentation
 - [General](https://unicorn-binance-rest-api.docs.lucit.tech/)
-- [Modules](https://unicorn-binance-rest-api.docs.lucit.tech/unicorn_binance_rest_api.html)
+- [Modules](https://unicorn-binance-rest-api.docs.lucit.tech/modules.html)
 
 ## Examples
 - [example_doing_something.py](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_doing_something.py)
@@ -161,6 +161,7 @@ or the [current master branch](https://github.com/LUCIT-Systems-and-Development/
 - [example_version_of_this_package.py](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_version_of_this_package.py)
 
 ## Howto
+- [How to download Klines from Binance using Python?](https://medium.com/@oliverzehentleitner/how-to-download-data-from-binance-using-python-8f1b6e8f19f3)
 - [Howto: UNICORN Binance REST API](https://www.technopathy.club/2021/09/21/howto-unicorn-binance-rest-api/)
 
 ## Project Homepage

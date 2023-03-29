@@ -7,7 +7,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 [Discussions about unicorn-binance-rest-api releases!](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/discussions/categories/releases)
 
-## 1.5.0.dev (development stage/unreleased/unstable)
+[How to upgrade to the latest version!](https://unicorn-binance-rest-api.docs.lucit.tech/README.html#installation-and-upgrade)
+
+## 1.6.0.dev (development stage/unreleased/unstable)
+
+## 1.6.0
+### Added
+- `futures_place_batch_order()` - Placing batch orders for USD-M API. Thx [@hawkeye-bot](https://github.com/hawkeye-bot) 
+[PR#42](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/pull/42)
+### Changed
+- Dependency regex no specific version anymore
 
 ## 1.5.0
 ### Added 

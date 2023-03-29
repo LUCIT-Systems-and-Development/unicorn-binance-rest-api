@@ -344,8 +344,8 @@ class BinanceRestApiManager(object):
             self.timestamp_offset = 0
         if warn_on_update and self.is_update_availabe():
             update_msg = f"Release {self.name}_" + self.get_latest_version() + " is available, " \
-                         f"please consider updating! (Changelog: https://github.com/LUCIT-Systems-and-Development/unicorn-" \
-                         f"binance-rest-api/blob/master/CHANGELOG.md)"
+                         f"please consider updating! (Changelog: " \
+                         f"https://unicorn-binance-rest-api.docs.lucit.tech/CHANGELOG.html)"
             print(update_msg)
             logger.warning(update_msg)
 
