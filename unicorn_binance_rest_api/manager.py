@@ -186,7 +186,7 @@ class BinanceRestApiManager(object):
                  debug=False):
 
         self.name = "unicorn-binance-rest-api"
-        self.version = "1.5.0.dev"
+        self.version = "1.6.0"
         logger.info(f"New instance of {self.get_user_agent()} on {str(platform.system())} {str(platform.release())} "
                     f"for exchange {exchange} started ...")
         if disable_colorama is not True:
