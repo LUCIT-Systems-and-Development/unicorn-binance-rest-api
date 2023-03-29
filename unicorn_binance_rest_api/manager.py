@@ -111,6 +111,7 @@ class BinanceRestApiManager(object):
     ORDER_STATUS_REJECTED = 'REJECTED'
     ORDER_STATUS_EXPIRED = 'EXPIRED'
 
+    KLINE_INTERVAL_1SECOND = '1s'
     KLINE_INTERVAL_1MINUTE = '1m'
     KLINE_INTERVAL_3MINUTE = '3m'
     KLINE_INTERVAL_5MINUTE = '5m'
@@ -186,7 +187,7 @@ class BinanceRestApiManager(object):
                  debug=False):
 
         self.name = "unicorn-binance-rest-api"
-        self.version = "1.6.0"
+        self.version = "1.6.0.dev"
         logger.info(f"New instance of {self.get_user_agent()} on {str(platform.system())} {str(platform.release())} "
                     f"for exchange {exchange} started ...")
         if disable_colorama is not True:
