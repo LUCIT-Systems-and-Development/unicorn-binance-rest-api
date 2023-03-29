@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## 1.6.0
 ### Added
+- New kline interval: 1s `KLINE_INTERVAL_1SECOND`
 - `futures_place_batch_order()` - Placing batch orders for USD-M API. Thx [@hawkeye-bot](https://github.com/hawkeye-bot) 
 [PR#42](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/pull/42)
 ### Changed
