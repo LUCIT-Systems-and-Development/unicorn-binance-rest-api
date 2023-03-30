@@ -39,7 +39,7 @@ import os
 
 
 # How to:
-#
+# https://medium.com/@oliverzehentleitner/how-to-connect-to-binance-com-rest-api-using-python-via-a-socks5-proxy-638dbbecacfd
 socks5_proxy = "1.2.3.4:1080"
 socks5_user = None
 socks5_pass = None

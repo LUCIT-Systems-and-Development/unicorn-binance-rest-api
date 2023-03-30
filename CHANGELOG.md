@@ -9,10 +9,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 [How to upgrade to the latest version!](https://unicorn-binance-rest-api.docs.lucit.tech/README.html#installation-and-upgrade)
 
-## 1.6.0.dev (development stage/unreleased/unstable)
+## 1.7.0.dev (development stage/unreleased/unstable)
+
+## 1.7.0
 ### Added
 - SOCKS5 proxy support to [`BinanceRestApiManager()`](https://unicorn-binance-rest-api.docs.lucit.tech/unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager) - 
-  New parameter: socks5_proxy_server, socks5_proxy_user, socks5_proxy_pass, socks5_proxy_ssl_verification
+  New parameter: `socks5_proxy_server`, `socks5_proxy_user`, `socks5_proxy_pass`, `socks5_proxy_ssl_verification`
 
 ## 1.6.0
 ### Added

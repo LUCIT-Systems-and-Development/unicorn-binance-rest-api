@@ -102,6 +102,17 @@ Be aware that the Binance REST API is request based. if you want to receive high
 - Helpful management features like 
 [`get_used_weight()`](https://unicorn-binance-rest-api.docs.lucit.tech/unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_used_weight), 
 
+- *Socks5 Proxy* support:
+  ```
+  ubra = BinanceRestApiManager(exchange="binance.com", socks5_proxy_server="127.0.0.1:9050") 
+  ```
+  Read the [docs](https://unicorn-binance-rest-api.docs.lucit.tech/unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager)
+  or this [how to](https://medium.com/@oliverzehentleitner/how-to-connect-to-binance-com-rest-api-using-python-via-a-socks5-proxy-638dbbecacfd) 
+  for more information or try 
+  [example_socks5_proxy.py](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_socks5_proxy.py).
+
+- Excessively tested on Linux, Mac and Windows
+
 If you like the project, please [![star](https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-rest-api/master/images/misc/star.png)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/stargazers) it on 
 [GitHub](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api)!
 
@@ -163,6 +174,7 @@ or the [current master branch](https://github.com/LUCIT-Systems-and-Development/
 ## Howto
 - [How to download Klines from Binance using Python?](https://medium.com/@oliverzehentleitner/how-to-download-data-from-binance-using-python-8f1b6e8f19f3)
 - [Howto: UNICORN Binance REST API](https://www.technopathy.club/2021/09/21/howto-unicorn-binance-rest-api/)
+- [How to Connect to binance.com REST API using Python via a SOCKS5 Proxy](https://medium.com/@oliverzehentleitner/how-to-connect-to-binance-com-rest-api-using-python-via-a-socks5-proxy-638dbbecacfd)
 
 ## Project Homepage
 [https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api)
