@@ -37,7 +37,7 @@
 import setuptools
 from unicorn_binance_rest_api.manager import BinanceRestApiManager
 
-ubra = BinanceRestApiManager()
+ubra = BinanceRestApiManager(exchange="binance.us")
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
@@ -54,12 +54,13 @@ setuptools.setup(
      long_description=long_description,
      long_description_content_type="text/markdown",
      license='MIT License',
-     install_requires=['certifi', 'colorama', 'cryptography', 'dateparser', 'pyOpenSSL', 'requests', 'service-identity',
-                       'ujson', 'regex'],
+     install_requires=['certifi', 'colorama', 'cryptography', 'dateparser', 'pyOpenSSL', 'requests', 'requests[socks]',
+                       'service-identity', 'ujson', 'regex', 'PySocks'],
      keywords='',
      project_urls={
+         'Howto': 'https://www.lucit.tech/unicorn-binance-rest-api.html#howto',
          'Documentation': 'https://unicorn-binance-rest-api.docs.lucit.tech/',
-         'Changes': 'https://unicorn-binance-rest-api.docs.lucit.tech//CHANGELOG.html',
+         'Changes': 'https://unicorn-binance-rest-api.docs.lucit.tech/CHANGELOG.html',
          'Issue Tracker': 'https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues',
          'Wiki': 'https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/wiki',
          'Author': 'https://www.lucit.tech',

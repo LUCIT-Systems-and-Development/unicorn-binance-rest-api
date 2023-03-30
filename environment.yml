@@ -7,7 +7,9 @@ dependencies:
   - cryptography
   - dateparser
   - pyOpenSSL
+  - PySocks
   - requests
+  - requests[socks]
   - regex
   - service-identity
   - ujson

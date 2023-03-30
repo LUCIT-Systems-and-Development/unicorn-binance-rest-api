@@ -8,8 +8,10 @@ colorama
 cryptography
 dateparser
 pyOpenSSL
+PySocks
 pytz
 regex
 requests
+requests[socks]
 service-identity
 ujson

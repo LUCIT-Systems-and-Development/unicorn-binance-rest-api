@@ -43,6 +43,7 @@ import requests
 import platform
 import time
 from operator import itemgetter
+from typing import Optional
 from urllib.parse import urlencode
 from .helpers import date_to_milliseconds, interval_to_milliseconds
 from .exceptions import BinanceAPIException, BinanceRequestException, BinanceWithdrawException, UnknownExchange
@@ -84,8 +85,18 @@ class BinanceRestApiManager(object):
              binance.com-futures-testnet, binance.com-coin-futures, binance.us, trbinance.com
              or jex.com (default: binance.com) This overules parameter `tld`.
     :type exchange: str
+    :param debug: If True the lib adds additional information to logging outputs
+    :type debug:  bool
     :param disable_colorama: set to True to disable the use of `colorama <https://pypi.org/project/colorama/>`_
     :type disable_colorama: bool
+    :param socks5_proxy_server: Set this to activate the usage of a socks5 proxy. Example: '127.0.0.1:9050'
+    :type socks5_proxy_server:  str
+    :param socks5_proxy_user: Set this to activate the usage of a socks5 proxy user. Example: 'alice'
+    :type socks5_proxy_user:  str
+    :param socks5_proxy_pass: Set this to activate the usage of a socks5 proxy password.
+    :type socks5_proxy_pass:  str
+    :param socks5_proxy_ssl_verification: Set to `False` to disable SSL server verification. Default is `True`.
+    :type socks5_proxy_ssl_verification:  bool
     """
 
     API_URL = 'https://api.binance.{}/api'
@@ -184,7 +195,12 @@ class BinanceRestApiManager(object):
                  warn_on_update=True,
                  exchange=False,
                  disable_colorama=False,
-                 debug=False):
+                 debug=False,
+                 socks5_proxy_server: Optional[str] = None,
+                 socks5_proxy_user: Optional[str] = None,
+                 socks5_proxy_pass: Optional[str] = None,
+                 socks5_proxy_ssl_verification: Optional[bool] = True,
+                 ):
 
         self.name = "unicorn-binance-rest-api"
         self.version = "1.6.0.dev"
@@ -195,6 +211,32 @@ class BinanceRestApiManager(object):
             colorama.init()
         self.exchange = exchange
         self.debug = debug
+
+        if socks5_proxy_server is None:
+            self.socks5_proxy_address: Optional[str] = None
+            self.socks5_proxy_user: Optional[str] = None
+            self.socks5_proxy_pass: Optional[str] = None
+            self.socks5_proxy_port: Optional[str] = None
+            self.socks5_proxy_ssl_verification: Optional[bool] = True
+        else:
+            # Prepare Socks Proxy usage
+            self.socks5_proxy_ssl_verification = socks5_proxy_ssl_verification
+            self.socks5_proxy_user = socks5_proxy_user
+            self.socks5_proxy_pass = socks5_proxy_pass
+            self.socks5_proxy_address, self.socks5_proxy_port = socks5_proxy_server.split(":")
+            socks_proxy_uri = "socks5://"
+            if self.socks5_proxy_user is not None:
+                socks_proxy_uri += self.socks5_proxy_user
+                if self.socks5_proxy_pass is not None:
+                    socks_proxy_uri += f":{self.socks5_proxy_pass}"
+                socks_proxy_uri += "@"
+            socks_proxy_uri += f"{self.socks5_proxy_address}:{self.socks5_proxy_port}"
+            logger.info(f"Created SOCKS5 proxy URI: {socks_proxy_uri}")
+            self.request_socks5_proxies = {
+                'http': socks_proxy_uri,
+                'https': socks_proxy_uri
+            }
+
         if tld is not False:
             # Todo: Remove Block with tld!
             logger.warning("The parameter BinanceRestApiManager(tld=`com`) is obsolete, use parameter `exchange` "
@@ -447,7 +489,14 @@ class BinanceRestApiManager(object):
             kwargs['params'] = '&'.join('%s=%s' % (data[0], data[1]) for data in kwargs['data'])
             del(kwargs['data'])
 
-        self.response = getattr(self.session, method)(uri, **kwargs)
+        if self.socks5_proxy_address is not None and self.socks5_proxy_port is not None:
+            self.response = getattr(self.session, method)(uri,
+                                                          proxies=self.request_socks5_proxies,
+                                                          verify=self.socks5_proxy_ssl_verification,
+                                                          **kwargs)
+        else:
+            self.response = getattr(self.session, method)(uri, **kwargs)
+
         return self._handle_response()
 
     def _request_api(self, method, path, signed=False, version=PUBLIC_API_VERSION, **kwargs):
@@ -552,15 +601,20 @@ class BinanceRestApiManager(object):
         else:
             return "unknown"
 
-    @staticmethod
-    def get_latest_release_info():
+    def get_latest_release_info(self):
         """
         Get infos about the latest available release
         :return: dict or False
         """
         try:
-            respond = requests.get('https://api.github.com/repos/LUCIT-Systems-and-Development/unicorn-binance-rest-api/'
-                                   'releases/latest')
+            if self.socks5_proxy_address is not None and self.socks5_proxy_port is not None:
+                respond = requests.get('https://api.github.com/repos/LUCIT-Systems-and-Development/'
+                                       'unicorn-binance-rest-api/releases/latest',
+                                       proxies=self.request_socks5_proxies,
+                                       verify=self.socks5_proxy_ssl_verification)
+            else:
+                respond = requests.get('https://api.github.com/repos/LUCIT-Systems-and-Development/'
+                                       'unicorn-binance-rest-api/releases/latest')
             latest_release_info = respond.json()
             return latest_release_info
         except Exception:
