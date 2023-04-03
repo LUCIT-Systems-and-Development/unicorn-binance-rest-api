@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 [How to upgrade to the latest version!](https://unicorn-binance-rest-api.docs.lucit.tech/README.html#installation-and-upgrade)
 
 ## 1.7.0.dev (development stage/unreleased/unstable)
+### Added 
+- `output="value"` and `throw_exception=True` to: `stream_get_listen_key()`, `margin_stream_get_listen_key()`, `isolated_margin_stream_get_listen_key()`
+- `throw_exception=True` to: `_request()`, `_request_api()`, `_request_margin_api()`, `_request_website()`, `_request_futures_api()`, `_request_futures_data_api()`, `_request_futures_coin_api()`, `_request_futures_coin_data_api()`, `_handle_response()`, `stream_keepalive()`, `stream_close()`, `margin_stream_keepalive()`, `margin_stream_close()`, `isolated_margin_stream_keepalive()`, `isolated_margin_stream_close()`
+### Fixing issue in `get_used_weight()`
 
 ## 1.7.0
 ### Added

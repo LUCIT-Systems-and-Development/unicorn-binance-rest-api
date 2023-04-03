@@ -451,7 +451,7 @@ class BinanceRestApiManager(object):
             params.append(('signature', data['signature']))
         return params
 
-    def _request(self, method, uri, signed, force_params=False, **kwargs):
+    def _request(self, method, uri, signed, force_params=False, throw_exception=True, **kwargs):
 
         # set default requests timeout
         kwargs['timeout'] = 10
@@ -497,52 +497,53 @@ class BinanceRestApiManager(object):
         else:
             self.response = getattr(self.session, method)(uri, **kwargs)
 
-        return self._handle_response()
+        return self._handle_response(throw_exception=throw_exception)
 
-    def _request_api(self, method, path, signed=False, version=PUBLIC_API_VERSION, **kwargs):
+    def _request_api(self, method, path, signed=False, version=PUBLIC_API_VERSION, throw_exception=True, **kwargs):
         uri = self._create_api_uri(path, signed, version)
 
-        return self._request(method, uri, signed, **kwargs)
+        return self._request(method, uri, signed, throw_exception=throw_exception, **kwargs)
 
-    def _request_margin_api(self, method, path, signed=False, version=MARGIN_API_VERSION, **kwargs):
+    def _request_margin_api(self, method, path, signed=False, version=MARGIN_API_VERSION, throw_exception=True, **kwargs):
         uri = self._create_margin_api_uri(path, version)
 
-        return self._request(method, uri, signed, **kwargs)
+        return self._request(method, uri, signed, throw_exception=throw_exception, **kwargs)
 
-    def _request_website(self, method, path, signed=False, **kwargs):
+    def _request_website(self, method, path, signed=False, throw_exception=True, **kwargs):
         uri = self._create_website_uri(path)
 
-        return self._request(method, uri, signed, **kwargs)
+        return self._request(method, uri, signed, throw_exception=throw_exception, **kwargs)
 
-    def _request_futures_api(self, method, path, signed=False, **kwargs):
+    def _request_futures_api(self, method, path, signed=False, throw_exception=True, **kwargs):
         uri = self._create_futures_api_uri(path)
 
-        return self._request(method, uri, signed, True, **kwargs)
+        return self._request(method, uri, signed, True, throw_exception=throw_exception, **kwargs)
 
-    def _request_futures_data_api(self, method, path, signed=False, **kwargs):
+    def _request_futures_data_api(self, method, path, signed=False, throw_exception=True, **kwargs):
         uri = self._create_futures_data_api_uri(path)
 
-        return self._request(method, uri, signed, True, **kwargs)
+        return self._request(method, uri, signed, True, throw_exception=throw_exception, **kwargs)
 
-    def _request_futures_coin_api(self, method, path, signed=False, version=1, **kwargs):
+    def _request_futures_coin_api(self, method, path, signed=False, version=1, throw_exception=True, **kwargs):
         uri = self._create_futures_coin_api_url(path, version=version)
 
-        return self._request(method, uri, signed, True, **kwargs)
+        return self._request(method, uri, signed, True, throw_exception=throw_exception, **kwargs)
 
-    def _request_futures_coin_data_api(self, method, path, signed=False, version=1, **kwargs):
+    def _request_futures_coin_data_api(self, method, path, signed=False, version=1, throw_exception=True, **kwargs):
         uri = self._create_futures_coin_data_api_url(path, version=version)
 
-        return self._request(method, uri, signed, True, **kwargs)
+        return self._request(method, uri, signed, True, throw_exception=throw_exception, **kwargs)
 
-    def _handle_response(self):
+    def _handle_response(self, throw_exception=True):
         """
         Internal helper for handling API responses from the Binance server.
         Raises the appropriate exceptions when necessary; otherwise, returns the
         response.
 
         """
-        if not (200 <= self.response.status_code < 300):
-            raise BinanceAPIException(self.response)
+        if throw_exception is True:
+            if not (200 <= self.response.status_code < 300):
+                raise BinanceAPIException(self.response)
         try:
             return self.response.json()
         except ValueError:
@@ -551,8 +552,8 @@ class BinanceRestApiManager(object):
     def _get(self, path, signed=False, version=PUBLIC_API_VERSION, **kwargs):
         return self._request_api('get', path, signed, version, **kwargs)
 
-    def _post(self, path, signed=False, version=PUBLIC_API_VERSION, **kwargs):
-        return self._request_api('post', path, signed, version, **kwargs)
+    def _post(self, path, signed=False, version=PUBLIC_API_VERSION, throw_exception=True, **kwargs):
+        return self._request_api('post', path, signed, version, throw_exception, **kwargs)
 
     def _put(self, path, signed=False, version=PUBLIC_API_VERSION, **kwargs):
         return self._request_api('put', path, signed, version, **kwargs)
@@ -3124,7 +3125,7 @@ class BinanceRestApiManager(object):
 
     # User Stream Endpoints
 
-    def stream_get_listen_key(self):
+    def stream_get_listen_key(self, output="value", throw_exception=True):
         """Start a new user data stream and return the listen key
         If a stream already exists it should return the same key.
         If the stream becomes invalid a new key is returned.
@@ -3133,6 +3134,11 @@ class BinanceRestApiManager(object):
 
         https://binance-docs.github.io/apidocs/spot/en/#start-user-data-stream-user_stream
 
+        :param output: Set `output` to "raw_data" to receive the request resource, default is "value" which returns
+                        the plain listenKey.
+        :type output: str
+        :param throw_exception: Default `True`, if `False` the raw response will be returned.
+        :type throw_exception: bool
         :returns: API response
 
         .. code-block:: python
@@ -3144,16 +3150,24 @@ class BinanceRestApiManager(object):
         :raises: BinanceRequestException, BinanceAPIException
 
         """
-        res = self._post('userDataStream', False, data={}, version=self.PRIVATE_API_VERSION)
-        return res['listenKey']
+        res = self._post('userDataStream', False, data={}, version=self.PRIVATE_API_VERSION,
+                         throw_exception=throw_exception)
+        if output == "value":
+            return res['listenKey']
+        elif output == "raw_data":
+            return res
+        else:
+            return res['listenKey']
 
-    def stream_keepalive(self, listenKey):
+    def stream_keepalive(self, listenKey, throw_exception=True):
         """PING a user data stream to prevent a time out.
 
         https://binance-docs.github.io/apidocs/spot/en/#keepalive-user-data-stream-user_stream
 
         :param listenKey: required
         :type listenKey: str
+        :param throw_exception: Default `True`, if `False` the raw response will be returned.
+        :type throw_exception: bool
 
         :returns: API response
 
@@ -3167,15 +3181,18 @@ class BinanceRestApiManager(object):
         params = {
             'listenKey': listenKey
         }
-        return self._put('userDataStream', False, data=params, version=self.PRIVATE_API_VERSION)
+        return self._put('userDataStream', False, data=params, version=self.PRIVATE_API_VERSION,
+                         throw_exception=throw_exception)
 
-    def stream_close(self, listenKey):
+    def stream_close(self, listenKey, throw_exception=True):
         """Close out a user data stream.
 
         https://binance-docs.github.io/apidocs/spot/en/#close-user-data-stream-user_stream
 
         :param listenKey: required
         :type listenKey: str
+        :param throw_exception: Default `True`, if `False` the raw response will be returned.
+        :type throw_exception: bool
 
         :returns: API response
 
@@ -3189,7 +3206,8 @@ class BinanceRestApiManager(object):
         params = {
             'listenKey': listenKey
         }
-        return self._delete('userDataStream', False, data=params, version=self.PRIVATE_API_VERSION)
+        return self._delete('userDataStream', False, data=params, version=self.PRIVATE_API_VERSION,
+                         throw_exception=throw_exception)
 
     # Margin Trading Endpoints
 
@@ -4396,7 +4414,7 @@ class BinanceRestApiManager(object):
 
     # Cross-margin 
 
-    def margin_stream_get_listen_key(self):
+    def margin_stream_get_listen_key(self, output="value", throw_exception=True):
         """Start a new cross-margin data stream and return the listen key
         If a stream already exists it should return the same key.
         If the stream becomes invalid a new key is returned.
@@ -4405,6 +4423,11 @@ class BinanceRestApiManager(object):
 
         https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin
 
+        :param output: Set `output` to "raw_data" to receive the request resource, default is "value" which returns
+                        the plain listenKey.
+        :type output: str
+        :param throw_exception: Default `True`, if `False` the raw response will be returned.
+        :type throw_exception: bool
         :returns: API response
 
         .. code-block:: python
@@ -4416,16 +4439,23 @@ class BinanceRestApiManager(object):
         :raises: BinanceRequestException, BinanceAPIException
 
         """
-        res = self._request_margin_api('post', 'userDataStream', signed=False, data={})
-        return res['listenKey']
+        res = self._request_margin_api('post', 'userDataStream', signed=False, data={}, throw_exception=throw_exception)
+        if output == "value":
+            return res['listenKey']
+        elif output == "raw_data":
+            return res
+        else:
+            return res['listenKey']
 
-    def margin_stream_keepalive(self, listenKey):
+    def margin_stream_keepalive(self, listenKey, throw_exception=True):
         """PING a cross-margin data stream to prevent a time out.
 
         https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin
 
         :param listenKey: required
         :type listenKey: str
+        :param throw_exception: Default `True`, if `False` the raw response will be returned.
+        :type throw_exception: bool
 
         :returns: API response
 
@@ -4439,15 +4469,18 @@ class BinanceRestApiManager(object):
         params = {
             'listenKey': listenKey
         }
-        return self._request_margin_api('put', 'userDataStream', signed=False, data=params)
+        return self._request_margin_api('put', 'userDataStream', signed=False, data=params,
+                                        throw_exception=throw_exception)
 
-    def margin_stream_close(self, listenKey):
+    def margin_stream_close(self, listenKey, throw_exception=True):
         """Close out a cross-margin data stream.
 
         https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin
 
         :param listenKey: required
         :type listenKey: str
+        :param throw_exception: Default `True`, if `False` the raw response will be returned.
+        :type throw_exception: bool
 
         :returns: API response
 
@@ -4461,11 +4494,12 @@ class BinanceRestApiManager(object):
         params = {
             'listenKey': listenKey
         }
-        return self._request_margin_api('delete', 'userDataStream', signed=False, data=params)
+        return self._request_margin_api('delete', 'userDataStream', signed=False, data=params,
+                                        throw_exception=throw_exception)
 
     # Isolated margin 
 
-    def isolated_margin_stream_get_listen_key(self, symbol):
+    def isolated_margin_stream_get_listen_key(self, symbol, output="value", throw_exception=True):
         """Start a new isolated margin data stream and return the listen key
         If a stream already exists it should return the same key.
         If the stream becomes invalid a new key is returned.
@@ -4477,6 +4511,11 @@ class BinanceRestApiManager(object):
         :param symbol: required - symbol for the isolated margin account
         :type symbol: str
 
+        :param output: Set `output` to "raw_data" to receive the request resource, default is "value" which returns
+                        the plain listenKey.
+        :type output: str
+        :param throw_exception: Default `True`, if `False` the raw response will be returned.
+        :type throw_exception: bool
         :returns: API response
 
         .. code-block:: python
@@ -4491,10 +4530,16 @@ class BinanceRestApiManager(object):
         params = {
             'symbol': symbol
         }
-        res = self._request_margin_api('post', 'userDataStream/isolated', signed=False, data=params)
-        return res['listenKey']
+        res = self._request_margin_api('post', 'userDataStream/isolated', signed=False, data=params,
+                                       throw_exception=throw_exception)
+        if output == "value":
+            return res['listenKey']
+        elif output == "raw_data":
+            return res
+        else:
+            return res['listenKey']
 
-    def isolated_margin_stream_keepalive(self, symbol, listenKey):
+    def isolated_margin_stream_keepalive(self, symbol, listenKey, throw_exception=True):
         """PING an isolated margin data stream to prevent a time out.
 
         https://binance-docs.github.io/apidocs/spot/en/#listen-key-isolated-margin
@@ -4503,6 +4548,8 @@ class BinanceRestApiManager(object):
         :type symbol: str
         :param listenKey: required
         :type listenKey: str
+        :param throw_exception: Default `True`, if `False` the raw response will be returned.
+        :type throw_exception: bool
 
         :returns: API response
 
@@ -4517,9 +4564,10 @@ class BinanceRestApiManager(object):
             'symbol': symbol,
             'listenKey': listenKey
         }
-        return self._request_margin_api('put', 'userDataStream/isolated', signed=False, data=params)
+        return self._request_margin_api('put', 'userDataStream/isolated', signed=False, data=params,
+                                        throw_exception=throw_exception)
 
-    def isolated_margin_stream_close(self, symbol, listenKey):
+    def isolated_margin_stream_close(self, symbol, listenKey, throw_exception=True):
         """Close out an isolated margin data stream.
 
         https://binance-docs.github.io/apidocs/spot/en/#listen-key-isolated-margin
@@ -4528,6 +4576,8 @@ class BinanceRestApiManager(object):
         :type symbol: str
         :param listenKey: required
         :type listenKey: str
+        :param throw_exception: Default `True`, if `False` the raw response will be returned.
+        :type throw_exception: bool
 
         :returns: API response
 
@@ -4542,7 +4592,8 @@ class BinanceRestApiManager(object):
             'symbol': symbol,
             'listenKey': listenKey
         }
-        return self._request_margin_api('delete', 'userDataStream/isolated', signed=False, data=params)
+        return self._request_margin_api('delete', 'userDataStream/isolated', signed=False, data=params,
+                                        throw_exception=throw_exception)
 
     # Lending Endpoints
 
@@ -5624,14 +5675,13 @@ class BinanceRestApiManager(object):
         if make_new_request is True:
             self.get_exchange_info()
         binance_api_status['weight'] = self.response.headers.get('X-MBX-USED-WEIGHT')
+        binance_api_status['status_code'] = self.response.status_code
         try:
             date_time_obj = datetime.datetime.strptime(self.response.headers.get('Date'), '%a, %d %b %Y %I:%M:%S %Z')
         except ValueError:
             binance_api_status['timestamp'] = 0
-            binance_api_status['status_code'] = 0
             return binance_api_status
         binance_api_status['timestamp'] = date_time_obj.timestamp()
-        binance_api_status['status_code'] = self.response.status_code
         return binance_api_status
 
     # Futures API
