@@ -35,7 +35,7 @@
 # IN THE SOFTWARE.
 
 security-check() {
-    echo -n "Did you change the version in \`sphinx/source/conf.py\` and \`unicorn_binance_rest_api/manager.py\`? [yes|NO] "
+    echo -n "Did you change the version in \`CHANGELOG.md\`, \`sphinx/source/conf.py\` and \`unicorn_binance_rest_api/manager.py\`? [yes|NO] "
     local SURE
     read SURE
     if [ "$SURE" != "yes" ]; then
