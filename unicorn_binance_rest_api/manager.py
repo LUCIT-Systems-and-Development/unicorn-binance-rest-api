@@ -396,7 +396,7 @@ class BinanceRestApiManager(object):
         session = requests.session()
         session.headers.update({'Accept': 'application/json',
                                 'User-Agent': str(self.get_user_agent()),
-                                'X-MBX-APIKEY': self.API_KEY})
+                                'X-MBX-APIKEY': str(self.API_KEY)})
         return session
 
     def _create_api_uri(self, path, signed=True, version=PUBLIC_API_VERSION):

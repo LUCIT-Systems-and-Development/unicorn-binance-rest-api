@@ -9,7 +9,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 [How to upgrade to the latest version!](https://unicorn-binance-rest-api.docs.lucit.tech/README.html#installation-and-upgrade)
 
-## 1.8.0.dev (development stage/unreleased/unstable)
+## 1.8.1.dev (development stage/unreleased/unstable)
+
+## 1.8.1
+### Fixing
+- `requests.exceptions.InvalidHeader`: Header part (False) from {'X-MBX-APIKEY': False} must be of type str or bytes, not <class 'bool'>
 
 ## 1.8.0
 ### Added 
