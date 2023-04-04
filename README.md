@@ -245,6 +245,15 @@ jurisdiction.
 Under no circumstances will we be responsible or liable for any claims, damages, losses, expenses, costs or liabilities 
 of any kind, including but not limited to direct or indirect damages for loss of profits.
 
+### SOCKS5 Proxy / Geoblocking
+We would like to explicitly point out that in our opinion US citizens are exclusively authorized to trade on Binance.US 
+and that this restriction must not be circumvented!
+
+The purpose of supporting a SOCKS5 proxy in the UNICORN Binance Suite and its modules is to allow non-US citizens to use 
+US services. For example, Github actions with UBS will not work without a SOCKS5 proxy, as they will inevitably run on 
+servers in the US and be blocked by Binance.com. Moreover, it also seems justified that traders, data scientists and 
+companies from the US analyze binance.com market data - as long as they do not trade there.
+
 ## Commercial Support
 
 [![Get professional and fast support](https://raw.githubusercontent.com/LUCIT-Systems-and-Development/unicorn-binance-suite/master/images/support/LUCIT-get-professional-and-fast-support.png)](https://www.lucit.tech/get-support.html)
