@@ -102,6 +102,11 @@ Be aware that the Binance REST API is request based. if you want to receive high
 - Helpful management features like 
 [`get_used_weight()`](https://unicorn-binance-rest-api.docs.lucit.tech/unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_used_weight), 
 
+
+- Integration of [test cases](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/unit-tests.yml) and [examples](#examples).
+
+- Customizable base URL and request timeout.
+
 - *Socks5 Proxy* support:
   ```
   ubra = BinanceRestApiManager(exchange="binance.com", socks5_proxy_server="127.0.0.1:9050") 
