@@ -13,7 +13,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Added
 - `futures_stream_get_listen_key()`, `futures_stream_keepalive()` and `futures_stream_close()`
 - `futures_coin_stream_get_listen_key()`, `futures_coin_stream_keepalive()` and `futures_coin_stream_close()`
-
+### Removed
+- jex.com support
+- 
 ## 1.8.1
 ### Fixing
 - `requests.exceptions.InvalidHeader`: Header part (False) from {'X-MBX-APIKEY': False} must be of type str or bytes, not <class 'bool'>

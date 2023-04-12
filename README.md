@@ -72,13 +72,11 @@ provides an API to the Binance REST API`s of
 [Binance Futures](https://binance-docs.github.io/apidocs/futures/en/#websocket-market-streams) 
 ([+Testnet](https://testnet.binancefuture.com)), 
 [Binance COIN-M Futures](https://binance-docs.github.io/apidocs/delivery/en/#change-log),
-[Binance US](https://github.com/binance-us/binance-official-api-docs), 
-[Binance TR](https://www.trbinance.com/apidocs) and 
-[Binance JEX](https://jexapi.github.io/api-doc/spot.html#web-socket-streams) and needs to be used with a valid api_key and api_secret from the Binance Exchange 
+[Binance US](https://github.com/binance-us/binance-official-api-docs) and
+[Binance TR](https://www.trbinance.com/apidocs) and needs to be used with a valid api_key and api_secret from the Binance Exchange 
 [www.binance.com](https://www.binance.com/userCenter/createApi.html), 
-[testnet.binance.vision](https://testnet.binance.vision/), 
-[www.binance.us](https://www.binance.us/userCenter/createApi.html) or 
-[www.jex.com](https://www.jex.com/userCenter/createApi.html).
+[testnet.binance.vision](https://testnet.binance.vision/) or
+[www.binance.us](https://www.binance.us/userCenter/createApi.html).
 
 Be aware that the Binance REST API is request based. if you want to send and receive high frequency and high volume data, you can use the [UNICORN Binance Websocket API](https://www.lucit.tech/unicorn-binance-websocket-api.html) in combination. 
 
@@ -208,7 +206,6 @@ To receive news (like inspection windows/maintenance) about the Binance API`s su
 
 - [https://t.me/binance_api_announcements](https://t.me/binance_api_announcements)
 - [https://t.me/binance_api_english](https://t.me/binance_api_english)
-- [https://t.me/Binance_JEX_EN](https://t.me/Binance_JEX_EN)
 - [https://t.me/Binance_USA](https://t.me/Binance_USA)
 - [https://t.me/TRBinanceTR](https://t.me/TRBinanceTR)
 - [https://t.me/BinanceDEXchange](https://t.me/BinanceDEXchange)

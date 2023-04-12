@@ -54,7 +54,7 @@ logger = logging.getLogger("unicorn_binance_rest_api")
 class BinanceRestApiManager(object):
     """
     An unofficial Python API to use the Binance REST API`s (com+testnet, com-margin+testnet,
-    com-isolated_margin+testnet, com-futures+testnet, us, jex) in a easy, fast, flexible,
+    com-isolated_margin+testnet, com-futures+testnet, us) in a easy, fast, flexible,
     robust and fully-featured way.
 
     Binance.com rest API documentation:
@@ -65,8 +65,6 @@ class BinanceRestApiManager(object):
         -
     TRBinance.com rest API documentation:
         - https://www.trbinance.com/apidocs/#api-document-description
-    Jex.com websocket API documentation:
-        - https://github.com/JexApi/jex-official-api-docs
 
     Binance API Client constructor
 
@@ -82,8 +80,8 @@ class BinanceRestApiManager(object):
     :type warn_on_update: bool
     :param exchange: Select binance.com, binance.com-testnet, binance.com-margin, binance.com-margin-testnet,
              binance.com-isolated_margin, binance.com-isolated_margin-testnet, binance.com-futures,
-             binance.com-futures-testnet, binance.com-coin-futures, binance.us, trbinance.com
-             or jex.com (default: binance.com) This overules parameter `tld`.
+             binance.com-futures-testnet, binance.com-coin-futures, binance.us or trbinance.com (default: binance.com)
+             This overrules parameter `tld`.
     :type exchange: str
     :param debug: If True the lib adds additional information to logging outputs
     :type debug:  bool
@@ -332,15 +330,6 @@ class BinanceRestApiManager(object):
             self.FUTURES_DATA_URL = "https://fapi.trbinance.com/futures/data"
             self.FUTURES_COIN_URL = "https://fapi.trbinance.com/fapi"
             self.FUTURES_COIN_DATA_URL = "https://dapi.trbinance.com/futures/data"
-        elif self.exchange == "jex.com":
-            # Todo: Doesnt work!
-            self.API_URL = "https://www.jex.com/api"
-            self.MARGIN_API_URL = " https://www.jex.com/sapi"
-            self.WEBSITE_URL = "https://www.jex.com"
-            self.FUTURES_URL = "https://www.jex.com/fapi"
-            self.FUTURES_DATA_URL = "https://www.jex.com/futures/data"
-            self.FUTURES_COIN_URL = "https://www.jex.com/fapi"
-            self.FUTURES_COIN_DATA_URL = "https://www.jex.com/futures/data"
         elif self.exchange:
             # Unknown Exchange
             error_msg = f"Unknown exchange '{str(self.exchange)}'! Read the docs to see a list of supported " \
@@ -3150,8 +3139,12 @@ class BinanceRestApiManager(object):
         :raises: BinanceRequestException, BinanceAPIException
 
         """
-        res = self._post('userDataStream', False, data={}, version=self.PRIVATE_API_VERSION,
-                         throw_exception=throw_exception)
+        if self.exchange == "binance.us":
+            res = self._post('userDataStream', False, data={}, version=self.PRIVATE_API_VERSION,
+                             throw_exception=throw_exception)
+        else:
+            res = self._post('userDataStream', False, data={}, version=self.PRIVATE_API_VERSION,
+                             throw_exception=throw_exception)
         if output == "value":
             return res['listenKey']
         elif output == "raw_data":
