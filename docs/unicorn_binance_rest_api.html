@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>unicorn_binance_rest_api package &#8212; unicorn-binance-rest-api 1.8.1 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>unicorn_binance_rest_api package &#8212; unicorn-binance-rest-api 1.9.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?2022.1" />
@@ -223,6 +223,9 @@
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_coin_position_information"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_coin_position_information()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_coin_position_margin_history"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_coin_position_margin_history()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_coin_recent_trades"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_coin_recent_trades()</span></code></a></li>
+<li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_coin_stream_close"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_coin_stream_close()</span></code></a></li>
+<li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_coin_stream_get_listen_key"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_coin_stream_get_listen_key()</span></code></a></li>
+<li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_coin_stream_keepalive"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_coin_stream_keepalive()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_coin_symbol_ticker"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_coin_symbol_ticker()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_coin_ticker"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_coin_ticker()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_coin_time"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_coin_time()</span></code></a></li>
@@ -249,6 +252,9 @@
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_position_information"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_position_information()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_position_margin_history"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_position_margin_history()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_recent_trades"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_recent_trades()</span></code></a></li>
+<li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_stream_close"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_stream_close()</span></code></a></li>
+<li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_stream_get_listen_key"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_stream_get_listen_key()</span></code></a></li>
+<li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_stream_keepalive"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_stream_keepalive()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_symbol_ticker"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_symbol_ticker()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_ticker"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_ticker()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_time"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_time()</span></code></a></li>
@@ -600,7 +606,7 @@ None if interval suffix is not one of m, h, d, w</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">unicorn_binance_rest_api.manager.</span></span><span class="sig-name descname"><span class="pre">BinanceRestApiManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_secret</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requests_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tld</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warn_on_update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exchange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">disable_colorama</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socks5_proxy_server</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socks5_proxy_user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socks5_proxy_pass</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socks5_proxy_ssl_verification</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>An unofficial Python API to use the Binance REST API`s (com+testnet, com-margin+testnet,
-com-isolated_margin+testnet, com-futures+testnet, us, jex) in a easy, fast, flexible,
+com-isolated_margin+testnet, com-futures+testnet, us) in a easy, fast, flexible,
 robust and fully-featured way.</p>
 <dl class="simple">
 <dt>Binance.com rest API documentation:</dt><dd><ul class="simple">
@@ -619,10 +625,6 @@ robust and fully-featured way.</p>
 <li><p><a class="reference external" href="https://www.trbinance.com/apidocs/#api-document-description">https://www.trbinance.com/apidocs/#api-document-description</a></p></li>
 </ul>
 </dd>
-<dt>Jex.com websocket API documentation:</dt><dd><ul class="simple">
-<li><p><a class="reference external" href="https://github.com/JexApi/jex-official-api-docs">https://github.com/JexApi/jex-official-api-docs</a></p></li>
-</ul>
-</dd>
 </dl>
 <p>Binance API Client constructor</p>
 <dl class="field-list simple">
@@ -635,8 +637,8 @@ robust and fully-featured way.</p>
 <li><p><strong>warn_on_update</strong> (<em>bool</em>) – set to <cite>False</cite> to disable the update warning</p></li>
 <li><p><strong>exchange</strong> (<em>str</em>) – Select binance.com, binance.com-testnet, binance.com-margin, binance.com-margin-testnet,
 binance.com-isolated_margin, binance.com-isolated_margin-testnet, binance.com-futures,
-binance.com-futures-testnet, binance.com-coin-futures, binance.us, trbinance.com
-or jex.com (default: binance.com) This overules parameter <cite>tld</cite>.</p></li>
+binance.com-futures-testnet, binance.com-coin-futures, binance.us or trbinance.com (default: binance.com)
+This overrules parameter <cite>tld</cite>.</p></li>
 <li><p><strong>debug</strong> (<em>bool</em>) – If True the lib adds additional information to logging outputs</p></li>
 <li><p><strong>disable_colorama</strong> (<em>bool</em>) – set to True to disable the use of <a class="reference external" href="https://pypi.org/project/colorama/">colorama</a></p></li>
 <li><p><strong>socks5_proxy_server</strong> (<em>str</em>) – Set this to activate the usage of a socks5 proxy. Example: ‘127.0.0.1:9050’</p></li>
@@ -2259,6 +2261,90 @@ the url encoding is done on the special query param, batchOrders, in the early s
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_coin_stream_close">
+<span class="sig-name descname"><span class="pre">futures_coin_stream_close</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">listenKey</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">throw_exception</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_coin_stream_close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close out a coin futures data stream.</p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin">https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listenKey</strong> (<em>str</em>) – required</p></li>
+<li><p><strong>throw_exception</strong> (<em>bool</em>) – Default <cite>True</cite>, if <cite>False</cite> the raw response will be returned.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>API response</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_coin_stream_get_listen_key">
+<span class="sig-name descname"><span class="pre">futures_coin_stream_get_listen_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'value'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">throw_exception</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_coin_stream_get_listen_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start a new coin futures data stream and return the listen key
+If a stream already exists it should return the same key.
+If the stream becomes invalid a new key is returned.</p>
+<p>Can be used to keep the stream alive.</p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin">https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output</strong> (<em>str</em>) – Set <cite>output</cite> to “raw_data” to receive the request resource, default is “value” which returns
+the plain listenKey.</p></li>
+<li><p><strong>throw_exception</strong> (<em>bool</em>) – Default <cite>True</cite>, if <cite>False</cite> the raw response will be returned.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>API response</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;listenKey&quot;</span><span class="p">:</span> <span class="s2">&quot;pqia91ma19a5s61cv6a81va65sdf19v8a65a1a5s61cv6a81va65sdf19v8a65a1&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_coin_stream_keepalive">
+<span class="sig-name descname"><span class="pre">futures_coin_stream_keepalive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">listenKey</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">throw_exception</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_coin_stream_keepalive" title="Permalink to this definition">¶</a></dt>
+<dd><p>PING a coin futures data stream to prevent a time out.</p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin">https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listenKey</strong> (<em>str</em>) – required</p></li>
+<li><p><strong>throw_exception</strong> (<em>bool</em>) – Default <cite>True</cite>, if <cite>False</cite> the raw response will be returned.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>API response</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_coin_symbol_ticker">
 <span class="sig-name descname"><span class="pre">futures_coin_symbol_ticker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_coin_symbol_ticker" title="Permalink to this definition">¶</a></dt>
 <dd><p>Latest price for a symbol or symbols.</p>
@@ -2440,6 +2526,90 @@ the url encoding is done on the special query param, batchOrders, in the early s
 <span class="sig-name descname"><span class="pre">futures_recent_trades</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_recent_trades" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get recent trades (up to last 500).</p>
 <p><a class="reference external" href="https://binance-docs.github.io/apidocs/futures/en/#recent-trades-list-market_data">https://binance-docs.github.io/apidocs/futures/en/#recent-trades-list-market_data</a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_stream_close">
+<span class="sig-name descname"><span class="pre">futures_stream_close</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">listenKey</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">throw_exception</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_stream_close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close out a futures data stream.</p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin">https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listenKey</strong> (<em>str</em>) – required</p></li>
+<li><p><strong>throw_exception</strong> (<em>bool</em>) – Default <cite>True</cite>, if <cite>False</cite> the raw response will be returned.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>API response</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_stream_get_listen_key">
+<span class="sig-name descname"><span class="pre">futures_stream_get_listen_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'value'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">throw_exception</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_stream_get_listen_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start a new futures data stream and return the listen key
+If a stream already exists it should return the same key.
+If the stream becomes invalid a new key is returned.</p>
+<p>Can be used to keep the stream alive.</p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin">https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output</strong> (<em>str</em>) – Set <cite>output</cite> to “raw_data” to receive the request resource, default is “value” which returns
+the plain listenKey.</p></li>
+<li><p><strong>throw_exception</strong> (<em>bool</em>) – Default <cite>True</cite>, if <cite>False</cite> the raw response will be returned.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>API response</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;listenKey&quot;</span><span class="p">:</span> <span class="s2">&quot;pqia91ma19a5s61cv6a81va65sdf19v8a65a1a5s61cv6a81va65sdf19v8a65a1&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_stream_keepalive">
+<span class="sig-name descname"><span class="pre">futures_stream_keepalive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">listenKey</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">throw_exception</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_stream_keepalive" title="Permalink to this definition">¶</a></dt>
+<dd><p>PING a futures data stream to prevent a time out.</p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin">https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listenKey</strong> (<em>str</em>) – required</p></li>
+<li><p><strong>throw_exception</strong> (<em>bool</em>) – Default <cite>True</cite>, if <cite>False</cite> the raw response will be returned.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>API response</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -7011,6 +7181,9 @@ Default false.</p></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_coin_position_information"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_coin_position_information()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_coin_position_margin_history"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_coin_position_margin_history()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_coin_recent_trades"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_coin_recent_trades()</span></code></a></li>
+<li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_coin_stream_close"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_coin_stream_close()</span></code></a></li>
+<li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_coin_stream_get_listen_key"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_coin_stream_get_listen_key()</span></code></a></li>
+<li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_coin_stream_keepalive"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_coin_stream_keepalive()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_coin_symbol_ticker"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_coin_symbol_ticker()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_coin_ticker"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_coin_ticker()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_coin_time"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_coin_time()</span></code></a></li>
@@ -7037,6 +7210,9 @@ Default false.</p></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_position_information"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_position_information()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_position_margin_history"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_position_margin_history()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_recent_trades"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_recent_trades()</span></code></a></li>
+<li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_stream_close"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_stream_close()</span></code></a></li>
+<li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_stream_get_listen_key"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_stream_get_listen_key()</span></code></a></li>
+<li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_stream_keepalive"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_stream_keepalive()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_symbol_ticker"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_symbol_ticker()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_ticker"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_ticker()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_time"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.futures_time()</span></code></a></li>
@@ -7274,7 +7450,7 @@ Default false.</p></li>
     <div class="footer">
     &copy; <a href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api/blob/master/LICENSE">Copyright</a> 2021-2023, LUCIT Systems and Development and Oliver Zehentleitner.
     See <a href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api/blob/master/LICENSE">License</a> for more information.<br />
-    Last updated on Apr 04 2023 at 01:55 (CET).
+    Last updated on Apr 12 2023 at 22:16 (CET).
     <a href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api/issues/new/choose">Found a bug</a>?
     <br />
     Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.

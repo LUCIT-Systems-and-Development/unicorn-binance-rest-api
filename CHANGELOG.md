@@ -9,7 +9,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 [How to upgrade to the latest version!](https://unicorn-binance-rest-api.docs.lucit.tech/README.html#installation-and-upgrade)
 
-## 1.8.1.dev (development stage/unreleased/unstable)
+## 1.9.0.dev (development stage/unreleased/unstable)
+
+## 1.9.0
 ### Added
 - `futures_stream_get_listen_key()`, `futures_stream_keepalive()` and `futures_stream_close()`
 - `futures_coin_stream_get_listen_key()`, `futures_coin_stream_keepalive()` and `futures_coin_stream_close()`

@@ -72,15 +72,13 @@ provides an API to the Binance REST API`s of
 [Binance Futures](https://binance-docs.github.io/apidocs/futures/en/#websocket-market-streams) 
 ([+Testnet](https://testnet.binancefuture.com)), 
 [Binance COIN-M Futures](https://binance-docs.github.io/apidocs/delivery/en/#change-log),
-[Binance US](https://github.com/binance-us/binance-official-api-docs), 
-[Binance TR](https://www.trbinance.com/apidocs) and 
-[Binance JEX](https://jexapi.github.io/api-doc/spot.html#web-socket-streams) and needs to be used with a valid api_key and api_secret from the Binance Exchange 
+[Binance US](https://github.com/binance-us/binance-official-api-docs) and
+[Binance TR](https://www.trbinance.com/apidocs) and needs to be used with a valid api_key and api_secret from the Binance Exchange 
 [www.binance.com](https://www.binance.com/userCenter/createApi.html), 
-[testnet.binance.vision](https://testnet.binance.vision/), 
-[www.binance.us](https://www.binance.us/userCenter/createApi.html) or 
-[www.jex.com](https://www.jex.com/userCenter/createApi.html).
+[testnet.binance.vision](https://testnet.binance.vision/) or
+[www.binance.us](https://www.binance.us/userCenter/createApi.html).
 
-Be aware that the Binance REST API is request based. if you want to receive high frequency and high volume data, you can use the [UNICORN Binance Websocket API](https://www.lucit.tech/unicorn-binance-websocket-api.html) in combination. 
+Be aware that the Binance REST API is request based. if you want to send and receive high frequency and high volume data, you can use the [UNICORN Binance Websocket API](https://www.lucit.tech/unicorn-binance-websocket-api.html) in combination. 
 
 ### What are the benefits of the UNICORN Binance REST API?
 - Supported exchanges: 
@@ -101,6 +99,11 @@ Be aware that the Binance REST API is request based. if you want to receive high
 
 - Helpful management features like 
 [`get_used_weight()`](https://unicorn-binance-rest-api.docs.lucit.tech/unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_used_weight), 
+
+
+- Integration of [test cases](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/unit-tests.yml) and [examples](#examples).
+
+- Customizable base URL and request timeout.
 
 - *Socks5 Proxy* support:
   ```
@@ -173,6 +176,7 @@ or the [current master branch](https://github.com/LUCIT-Systems-and-Development/
 - [example_version_of_this_package.py](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_version_of_this_package.py)
 
 ## Howto
+- [Restful Binance Requests in Python with UNICORN Binance REST API](https://medium.lucit.tech/restful-binance-requests-in-python-with-unicorn-binance-rest-api-288f364e92a8)
 - [How to Download Klines from Binance using Python?](https://medium.lucit.tech/how-to-download-data-from-binance-using-python-8f1b6e8f19f3)
 - [How to Connect to binance.com REST API using Python via a SOCKS5 Proxy](https://medium.lucit.tech/how-to-connect-to-binance-com-rest-api-using-python-via-a-socks5-proxy-638dbbecacfd)
 
@@ -202,7 +206,6 @@ To receive news (like inspection windows/maintenance) about the Binance API`s su
 
 - [https://t.me/binance_api_announcements](https://t.me/binance_api_announcements)
 - [https://t.me/binance_api_english](https://t.me/binance_api_english)
-- [https://t.me/Binance_JEX_EN](https://t.me/Binance_JEX_EN)
 - [https://t.me/Binance_USA](https://t.me/Binance_USA)
 - [https://t.me/TRBinanceTR](https://t.me/TRBinanceTR)
 - [https://t.me/BinanceDEXchange](https://t.me/BinanceDEXchange)
@@ -240,10 +243,19 @@ endorsement or offer by us or any third party provider to buy or sell any securi
 this or any other jurisdiction in which such solicitation or offer would be unlawful under the securities laws of such 
 jurisdiction.
 
-***If you intend to use real money, use it at your own risk.***
+### If you intend to use real money, use it at your own risk!
 
 Under no circumstances will we be responsible or liable for any claims, damages, losses, expenses, costs or liabilities 
 of any kind, including but not limited to direct or indirect damages for loss of profits.
+
+### SOCKS5 Proxy / Geoblocking
+We would like to explicitly point out that in our opinion US citizens are exclusively authorized to trade on Binance.US 
+and that this restriction must not be circumvented!
+
+The purpose of supporting a SOCKS5 proxy in the UNICORN Binance Suite and its modules is to allow non-US citizens to use 
+US services. For example, Github actions with UBS will not work without a SOCKS5 proxy, as they will inevitably run on 
+servers in the US and be blocked by Binance.com. Moreover, it also seems justified that traders, data scientists and 
+companies from the US analyze binance.com market data - as long as they do not trade there.
 
 ## Commercial Support
 
