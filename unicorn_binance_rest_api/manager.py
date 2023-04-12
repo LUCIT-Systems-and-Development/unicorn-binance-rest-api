@@ -3139,12 +3139,8 @@ class BinanceRestApiManager(object):
         :raises: BinanceRequestException, BinanceAPIException
 
         """
-        if self.exchange == "binance.us":
-            res = self._post('userDataStream', False, data={}, version=self.PRIVATE_API_VERSION,
-                             throw_exception=throw_exception)
-        else:
-            res = self._post('userDataStream', False, data={}, version=self.PRIVATE_API_VERSION,
-                             throw_exception=throw_exception)
+        res = self._post('userDataStream', False, data={}, version=self.PRIVATE_API_VERSION,
+                         throw_exception=throw_exception)
         if output == "value":
             return res['listenKey']
         elif output == "raw_data":
