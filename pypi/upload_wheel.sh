@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 # -*- coding: utf-8 -*-
 #
 # File: upload_wheel.sh
