@@ -74,7 +74,9 @@ provides an API to the Binance REST API`s of
 ([+Testnet](https://testnet.binancefuture.com)), 
 [Binance COIN-M Futures](https://binance-docs.github.io/apidocs/delivery/en/#change-log),
 [Binance US](https://github.com/binance-us/binance-official-api-docs) and
-[Binance TR](https://www.trbinance.com/apidocs) and needs to be used with a valid api_key and api_secret from the Binance Exchange 
+[Binance TR](https://www.trbinance.com/apidocs) and needs to be used with a valid 
+[api_key and api_secret](https://medium.lucit.tech/how-to-create-a-binance-api-key-and-api-secret-3bb5f47e360d)
+from the Binance Exchange 
 [www.binance.com](https://www.binance.com/userCenter/createApi.html), 
 [testnet.binance.vision](https://testnet.binance.vision/) or
 [www.binance.us](https://www.binance.us/userCenter/createApi.html).
