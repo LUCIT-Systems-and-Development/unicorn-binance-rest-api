@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>unicorn_binance_rest_api package &#8212; unicorn-binance-rest-api 1.9.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>unicorn_binance_rest_api package &#8212; unicorn-binance-rest-api 1.10.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?2022.1" />
@@ -168,11 +168,13 @@
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.aggregate_trade_iter"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.aggregate_trade_iter()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.cancel_all_open_margin_orders"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.cancel_all_open_margin_orders()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.cancel_all_open_orders"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.cancel_all_open_orders()</span></code></a></li>
+<li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.cancel_margin_oco_order"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.cancel_margin_oco_order()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.cancel_margin_order"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.cancel_margin_order()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.cancel_order"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.cancel_order()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.change_fixed_activity_to_daily_position"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.change_fixed_activity_to_daily_position()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.create_isolated_margin_account"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.create_isolated_margin_account()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.create_margin_loan"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.create_margin_loan()</span></code></a></li>
+<li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.create_margin_oco_order"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.create_margin_oco_order()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.create_margin_order"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.create_margin_order()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.create_oco_order"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.create_oco_order()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.create_order"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.create_order()</span></code></a></li>
@@ -305,6 +307,7 @@
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_margin_account"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.get_margin_account()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_margin_asset"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.get_margin_asset()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_margin_loan_details"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.get_margin_loan_details()</span></code></a></li>
+<li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_margin_oco_order"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.get_margin_oco_order()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_margin_order"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.get_margin_order()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_margin_price_index"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.get_margin_price_index()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_margin_repay_details"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.get_margin_repay_details()</span></code></a></li>
@@ -314,6 +317,7 @@
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_max_margin_transfer"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.get_max_margin_transfer()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_my_trades"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.get_my_trades()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_open_isolated_margin_orders"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.get_open_isolated_margin_orders()</span></code></a></li>
+<li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_open_margin_oco_orders"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.get_open_margin_oco_orders()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_open_margin_orders"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.get_open_margin_orders()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_open_orders"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.get_open_orders()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_order"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.get_order()</span></code></a></li>
@@ -1298,6 +1302,85 @@ each object is identical to Client.aggregate_trades().</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="unicorn_binance_rest_api.manager.BinanceRestApiManager.cancel_margin_oco_order">
+<span class="sig-name descname"><span class="pre">cancel_margin_oco_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.cancel_margin_oco_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cancel an entire Order List for a margin account.</p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#margin-account-cancel-oco-trade">https://binance-docs.github.io/apidocs/spot/en/#margin-account-cancel-oco-trade</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>symbol</strong> (<em>str</em>) – required</p></li>
+<li><p><strong>isIsolated</strong> – for isolated margin or not, “TRUE”, “FALSE”，default “FALSE”</p></li>
+<li><p><strong>orderListId</strong> (<em>int</em>) – Either orderListId or listClientOrderId must be provided</p></li>
+<li><p><strong>listClientOrderId</strong> (<em>str</em>) – Either orderListId or listClientOrderId must be provided</p></li>
+<li><p><strong>newClientOrderId</strong> (<em>str</em>) – Used to uniquely identify this cancel. Automatically generated by default.</p></li>
+<li><p><strong>recvWindow</strong> (<em>int</em>) – the number of milliseconds the request is valid for</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>API response</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;orderListId&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;contingencyType&quot;</span><span class="p">:</span> <span class="s2">&quot;OCO&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;listStatusType&quot;</span><span class="p">:</span> <span class="s2">&quot;ALL_DONE&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;listOrderStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;ALL_DONE&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;listClientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;C3wyj4WVEktd7u9aVBRXcN&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;transactionTime&quot;</span><span class="p">:</span> <span class="mi">1574040868128</span><span class="p">,</span>
+    <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;LTCBTC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;isIsolated&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>       <span class="o">//</span> <span class="k">if</span> <span class="n">isolated</span> <span class="n">margin</span>
+    <span class="s2">&quot;orders&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;LTCBTC&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;orderId&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s2">&quot;clientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;pO9ufTiFGg3nw2fOdgeOXa&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;LTCBTC&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;orderId&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="s2">&quot;clientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;TXOvglzXuaubXAaENpaRCB&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;orderReports&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;LTCBTC&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;origClientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;pO9ufTiFGg3nw2fOdgeOXa&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;orderId&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s2">&quot;orderListId&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;clientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;unfWT8ig8i0uj6lPuYLez6&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="s2">&quot;1.00000000&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;origQty&quot;</span><span class="p">:</span> <span class="s2">&quot;10.00000000&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;executedQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00000000&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cummulativeQuoteQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00000000&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;CANCELED&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;timeInForce&quot;</span><span class="p">:</span> <span class="s2">&quot;GTC&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;STOP_LOSS_LIMIT&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;side&quot;</span><span class="p">:</span> <span class="s2">&quot;SELL&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;stopPrice&quot;</span><span class="p">:</span> <span class="s2">&quot;1.00000000&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;LTCBTC&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;origClientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;TXOvglzXuaubXAaENpaRCB&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;orderId&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="s2">&quot;orderListId&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;clientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;unfWT8ig8i0uj6lPuYLez6&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="s2">&quot;3.00000000&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;origQty&quot;</span><span class="p">:</span> <span class="s2">&quot;10.00000000&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;executedQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00000000&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cummulativeQuoteQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.00000000&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;CANCELED&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;timeInForce&quot;</span><span class="p">:</span> <span class="s2">&quot;GTC&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;LIMIT_MAKER&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;side&quot;</span><span class="p">:</span> <span class="s2">&quot;SELL&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="unicorn_binance_rest_api.manager.BinanceRestApiManager.cancel_margin_order">
 <span class="sig-name descname"><span class="pre">cancel_margin_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.cancel_margin_order" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cancel an active order for margin account.</p>
@@ -1452,6 +1535,104 @@ each object is identical to Client.aggregate_trades().</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><p>BinanceRequestException, BinanceAPIException</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="unicorn_binance_rest_api.manager.BinanceRestApiManager.create_margin_oco_order">
+<span class="sig-name descname"><span class="pre">create_margin_oco_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.create_margin_oco_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Post a new OCO trade for margin account.</p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#margin-account-new-oco-trade">https://binance-docs.github.io/apidocs/spot/en/#margin-account-new-oco-trade</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>symbol</strong> (<em>str</em>) – required</p></li>
+<li><p><strong>isIsolated</strong> – for isolated margin or not, “TRUE”, “FALSE”，default “FALSE”</p></li>
+<li><p><strong>listClientOrderId</strong> (<em>str</em>) – A unique id for the list order. Automatically generated if not sent.</p></li>
+<li><p><strong>side</strong> (<em>str</em>) – required</p></li>
+<li><p><strong>quantity</strong> (<em>decimal</em>) – required</p></li>
+<li><p><strong>limitClientOrderId</strong> (<em>str</em>) – A unique id for the limit order. Automatically generated if not sent.</p></li>
+<li><p><strong>price</strong> (<em>str</em>) – required</p></li>
+<li><p><strong>limitIcebergQty</strong> (<em>decimal</em>) – Used to make the LIMIT_MAKER leg an iceberg order.</p></li>
+<li><p><strong>stopClientOrderId</strong> (<em>str</em>) – A unique Id for the stop loss/stop loss limit leg. Automatically generated if not sent.</p></li>
+<li><p><strong>stopPrice</strong> (<em>str</em>) – required</p></li>
+<li><p><strong>stopLimitPrice</strong> (<em>str</em>) – If provided, stopLimitTimeInForce is required.</p></li>
+<li><p><strong>stopIcebergQty</strong> (<em>decimal</em>) – Used with STOP_LOSS_LIMIT leg to make an iceberg order.</p></li>
+<li><p><strong>stopLimitTimeInForce</strong> (<em>str</em>) – Valid values are GTC/FOK/IOC.</p></li>
+<li><p><strong>newOrderRespType</strong> (<em>str</em>) – Set the response JSON. ACK, RESULT, or FULL; default: RESULT.</p></li>
+<li><p><strong>sideEffectType</strong> (<em>str</em>) – NO_SIDE_EFFECT, MARGIN_BUY, AUTO_REPAY; default NO_SIDE_EFFECT.</p></li>
+<li><p><strong>recvWindow</strong> (<em>int</em>) – the number of milliseconds the request is valid for</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>API response</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;orderListId&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;contingencyType&quot;</span><span class="p">:</span> <span class="s2">&quot;OCO&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;listStatusType&quot;</span><span class="p">:</span> <span class="s2">&quot;EXEC_STARTED&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;listOrderStatus&quot;</span><span class="p">:</span> <span class="s2">&quot;EXECUTING&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;listClientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;JYVpp3F0f5CAG15DhtrqLp&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;transactionTime&quot;</span><span class="p">:</span> <span class="mi">1563417480525</span><span class="p">,</span>
+    <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;LTCBTC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;marginBuyBorrowAmount&quot;</span><span class="p">:</span> <span class="s2">&quot;5&quot;</span><span class="p">,</span>       <span class="o">//</span> <span class="n">will</span> <span class="ow">not</span> <span class="k">return</span> <span class="k">if</span> <span class="n">no</span> <span class="n">margin</span> <span class="n">trade</span> <span class="n">happens</span>
+    <span class="s2">&quot;marginBuyBorrowAsset&quot;</span><span class="p">:</span> <span class="s2">&quot;BTC&quot;</span><span class="p">,</span>    <span class="o">//</span> <span class="n">will</span> <span class="ow">not</span> <span class="k">return</span> <span class="k">if</span> <span class="n">no</span> <span class="n">margin</span> <span class="n">trade</span> <span class="n">happens</span>
+    <span class="s2">&quot;isIsolated&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>       <span class="o">//</span> <span class="k">if</span> <span class="n">isolated</span> <span class="n">margin</span>
+    <span class="s2">&quot;orders&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;LTCBTC&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;orderId&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s2">&quot;clientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;Kk7sqHb9J6mJWTMDVW7Vos&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;LTCBTC&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;orderId&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="s2">&quot;clientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;xTXKaGYd4bluPVp78IVRvl&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;orderReports&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;LTCBTC&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;orderId&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s2">&quot;orderListId&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;clientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;Kk7sqHb9J6mJWTMDVW7Vos&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;transactTime&quot;</span><span class="p">:</span> <span class="mi">1563417480525</span><span class="p">,</span>
+            <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="s2">&quot;0.000000&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;origQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.624363&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;executedQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.000000&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cummulativeQuoteQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.000000&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;NEW&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;timeInForce&quot;</span><span class="p">:</span> <span class="s2">&quot;GTC&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;STOP_LOSS&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;side&quot;</span><span class="p">:</span> <span class="s2">&quot;BUY&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;stopPrice&quot;</span><span class="p">:</span> <span class="s2">&quot;0.960664&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;symbol&quot;</span><span class="p">:</span> <span class="s2">&quot;LTCBTC&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;orderId&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="s2">&quot;orderListId&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;clientOrderId&quot;</span><span class="p">:</span> <span class="s2">&quot;xTXKaGYd4bluPVp78IVRvl&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;transactTime&quot;</span><span class="p">:</span> <span class="mi">1563417480525</span><span class="p">,</span>
+            <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="s2">&quot;0.036435&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;origQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.624363&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;executedQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.000000&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cummulativeQuoteQty&quot;</span><span class="p">:</span> <span class="s2">&quot;0.000000&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;NEW&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;timeInForce&quot;</span><span class="p">:</span> <span class="s2">&quot;GTC&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;LIMIT_MAKER&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;side&quot;</span><span class="p">:</span> <span class="s2">&quot;BUY&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p>BinanceRequestException, BinanceAPIException, BinanceOrderException, BinanceOrderMinAmountException,
+BinanceOrderMinPriceException, BinanceOrderMinTotalException, BinanceOrderUnknownSymbolException,
+BinanceOrderInactiveSymbolException</p>
 </dd>
 </dl>
 </dd></dl>
@@ -4131,6 +4312,58 @@ everything up to now)</p></li>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="unicorn_binance_rest_api.manager.BinanceRestApiManager.get_margin_oco_order">
+<span class="sig-name descname"><span class="pre">get_margin_oco_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_margin_oco_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves a specific OCO based on provided optional parameters</p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#query-margin-account-39-s-oco-user_data">https://binance-docs.github.io/apidocs/spot/en/#query-margin-account-39-s-oco-user_data</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isIsolated</strong> – for isolated margin or not, “TRUE”, “FALSE”，default “FALSE”</p></li>
+<li><p><strong>symbol</strong> (<em>str</em>) – mandatory for isolated margin, not supported for cross margin</p></li>
+<li><p><strong>orderListId</strong> (<em>int</em>) – Either orderListId or listClientOrderId must be provided</p></li>
+<li><p><strong>listClientOrderId</strong> (<em>str</em>) – Either orderListId or listClientOrderId must be provided</p></li>
+<li><p><strong>recvWindow</strong> (<em>int</em>) – the number of milliseconds the request is valid for</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>API response</p>
+<dl>
+<dt>{</dt><dd><p>“orderListId”: 27,
+“contingencyType”: “OCO”,
+“listStatusType”: “EXEC_STARTED”,
+“listOrderStatus”: “EXECUTING”,
+“listClientOrderId”: “h2USkA5YQpaXHPIrkd96xE”,
+“transactionTime”: 1565245656253,
+“symbol”: “LTCBTC”,
+“isIsolated”: false,       // if isolated margin
+“orders”: [</p>
+<blockquote>
+<div><dl class="simple">
+<dt>{</dt><dd><p>“symbol”: “LTCBTC”,
+“orderId”: 4,
+“clientOrderId”: “qD1gy3kc3Gx0rihm9Y3xwS”</p>
+</dd>
+</dl>
+<p>},
+{</p>
+<blockquote>
+<div><p>”symbol”: “LTCBTC”,
+“orderId”: 5,
+“clientOrderId”: “ARzZ9I00CPM8i3NhmU9Ega”</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>]</p>
+</dd>
+</dl>
+<p>}</p>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="unicorn_binance_rest_api.manager.BinanceRestApiManager.get_margin_order">
 <span class="sig-name descname"><span class="pre">get_margin_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_margin_order" title="Permalink to this definition">¶</a></dt>
 <dd><p>Query margin accounts order</p>
@@ -4497,6 +4730,93 @@ of symbols currently trading on the exchange.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><p>BinanceRequestException, BinanceAPIException</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="unicorn_binance_rest_api.manager.BinanceRestApiManager.get_open_margin_oco_orders">
+<span class="sig-name descname"><span class="pre">get_open_margin_oco_orders</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_open_margin_oco_orders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves open OCO trades</p>
+<p><a class="reference external" href="https://binance-docs.github.io/apidocs/spot/en/#query-margin-account-39-s-open-oco-user_data">https://binance-docs.github.io/apidocs/spot/en/#query-margin-account-39-s-open-oco-user_data</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>isIsolated</strong> – for isolated margin or not, “TRUE”, “FALSE”，default “FALSE”</p></li>
+<li><p><strong>symbol</strong> (<em>str</em>) – mandatory for isolated margin, not supported for cross margin</p></li>
+<li><p><strong>fromId</strong> (<em>int</em>) – If supplied, neither startTime or endTime can be provided</p></li>
+<li><p><strong>startTime</strong> (<em>int</em>) – optional</p></li>
+<li><p><strong>endTime</strong> (<em>int</em>) – optional</p></li>
+<li><p><strong>limit</strong> (<em>int</em>) – optional Default Value: 500; Max Value: 1000</p></li>
+<li><p><strong>recvWindow</strong> (<em>int</em>) – the number of milliseconds the request is valid for</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>API response</p>
+<dl>
+<dt>[</dt><dd><dl>
+<dt>{</dt><dd><p>“orderListId”: 29,
+“contingencyType”: “OCO”,
+“listStatusType”: “EXEC_STARTED”,
+“listOrderStatus”: “EXECUTING”,
+“listClientOrderId”: “amEEAXryFzFwYF1FeRpUoZ”,
+“transactionTime”: 1565245913483,
+“symbol”: “LTCBTC”,
+“isIsolated”: true,       // if isolated margin
+“orders”: [</p>
+<blockquote>
+<div><dl class="simple">
+<dt>{</dt><dd><p>“symbol”: “LTCBTC”,
+“orderId”: 4,
+“clientOrderId”: “oD7aesZqjEGlZrbtRpy5zB”</p>
+</dd>
+</dl>
+<p>},
+{</p>
+<blockquote>
+<div><p>”symbol”: “LTCBTC”,
+“orderId”: 5,
+“clientOrderId”: “Jr1h6xirOxgeJOUuYQS7V3”</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>]</p>
+</dd>
+</dl>
+<p>},
+{</p>
+<blockquote>
+<div><p>”orderListId”: 28,
+“contingencyType”: “OCO”,
+“listStatusType”: “EXEC_STARTED”,
+“listOrderStatus”: “EXECUTING”,
+“listClientOrderId”: “hG7hFNxJV6cZy3Ze4AUT4d”,
+“transactionTime”: 1565245913407,
+“symbol”: “LTCBTC”,
+“orders”: [</p>
+<blockquote>
+<div><dl class="simple">
+<dt>{</dt><dd><p>“symbol”: “LTCBTC”,
+“orderId”: 2,
+“clientOrderId”: “j6lFOfbmFMRjTYA7rRJ0LP”</p>
+</dd>
+</dl>
+<p>},
+{</p>
+<blockquote>
+<div><p>”symbol”: “LTCBTC”,
+“orderId”: 3,
+“clientOrderId”: “z0KCjOdditiLS5ekAFtK81”</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>}</p>
+</dd>
+</dl>
+<p>]</p>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -7134,11 +7454,13 @@ Default false.</p></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.aggregate_trade_iter"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.aggregate_trade_iter()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.cancel_all_open_margin_orders"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.cancel_all_open_margin_orders()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.cancel_all_open_orders"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.cancel_all_open_orders()</span></code></a></li>
+<li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.cancel_margin_oco_order"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.cancel_margin_oco_order()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.cancel_margin_order"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.cancel_margin_order()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.cancel_order"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.cancel_order()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.change_fixed_activity_to_daily_position"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.change_fixed_activity_to_daily_position()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.create_isolated_margin_account"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.create_isolated_margin_account()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.create_margin_loan"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.create_margin_loan()</span></code></a></li>
+<li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.create_margin_oco_order"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.create_margin_oco_order()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.create_margin_order"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.create_margin_order()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.create_oco_order"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.create_oco_order()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.create_order"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.create_order()</span></code></a></li>
@@ -7271,6 +7593,7 @@ Default false.</p></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_margin_account"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.get_margin_account()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_margin_asset"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.get_margin_asset()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_margin_loan_details"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.get_margin_loan_details()</span></code></a></li>
+<li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_margin_oco_order"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.get_margin_oco_order()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_margin_order"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.get_margin_order()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_margin_price_index"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.get_margin_price_index()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_margin_repay_details"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.get_margin_repay_details()</span></code></a></li>
@@ -7280,6 +7603,7 @@ Default false.</p></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_max_margin_transfer"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.get_max_margin_transfer()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_my_trades"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.get_my_trades()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_open_isolated_margin_orders"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.get_open_isolated_margin_orders()</span></code></a></li>
+<li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_open_margin_oco_orders"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.get_open_margin_oco_orders()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_open_margin_orders"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.get_open_margin_orders()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_open_orders"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.get_open_orders()</span></code></a></li>
 <li><a class="reference internal" href="#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_order"><code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager.get_order()</span></code></a></li>
@@ -7466,7 +7790,7 @@ Default false.</p></li>
     <div class="footer">
     &copy; <a href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api/blob/master/LICENSE">Copyright</a> 2021-2023, LUCIT Systems and Development and Oliver Zehentleitner.
     See <a href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api/blob/master/LICENSE">License</a> for more information.<br />
-    Last updated on Apr 15 2023 at 00:31 (CET).
+    Last updated on May 05 2023 at 17:20 (CET).
     <a href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api/issues/new/choose">Found a bug</a>?
     <br />
     Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
