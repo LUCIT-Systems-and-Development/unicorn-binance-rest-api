@@ -170,6 +170,7 @@ or the [current master branch](https://github.com/LUCIT-Systems-and-Development/
 - [Modules](https://unicorn-binance-rest-api.docs.lucit.tech/modules.html)
 
 ## Examples
+- [example_buy_and_sell_oco_order_isolated_margin.py](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_buy_and_sell_oco_order_isolated_margin.py)
 - [example_doing_something.py](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_doing_something.py)
 - [example_easy_migration_from_python-binance.py](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_easy_migration_from_python-binance.py)
 - [example_historical_data.py](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_historical_data.py)
@@ -182,6 +183,7 @@ or the [current master branch](https://github.com/LUCIT-Systems-and-Development/
 - [Restful Binance Requests in Python with UNICORN Binance REST API](https://medium.lucit.tech/restful-binance-requests-in-python-with-unicorn-binance-rest-api-288f364e92a8)
 - [How to Download Klines from Binance using Python?](https://medium.lucit.tech/how-to-download-data-from-binance-using-python-8f1b6e8f19f3)
 - [How to Connect to binance.com REST API using Python via a SOCKS5 Proxy](https://medium.lucit.tech/how-to-connect-to-binance-com-rest-api-using-python-via-a-socks5-proxy-638dbbecacfd)
+- [Buy an Asset and instantly create a Take Profit and Stop Loss OCO Sell Order using Python in Binance Isolated Margin](https://medium.lucit.tech/buy-an-asset-and-instantly-create-a-take-profit-and-stop-loss-oco-sell-order-using-python-in-5d68a5d22a9b)
 
 ## Project Homepage
 [https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api)

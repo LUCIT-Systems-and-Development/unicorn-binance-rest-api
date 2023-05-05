@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## 1.9.1.dev (development stage/unreleased/unstable)
 ### Added
 - `"s": 1,` to helpers.py to fix kline_1s support
+- `create_margin_oco_order()`, `cancel_margin_oco_order()`, `get_margin_oco_order()`, `get_open_margin_oco_orders()`
 
 ## 1.9.0
 ### Added
