@@ -39,6 +39,11 @@ from unicorn_binance_rest_api.enums import *
 import requests_mock
 import unittest
 
+import tracemalloc
+tracemalloc.start(25)
+
+print(f"Starting unittests!")
+
 ubra = BinanceRestApiManager('api_key', 'api_secret', exchange="binance.us")
 
 

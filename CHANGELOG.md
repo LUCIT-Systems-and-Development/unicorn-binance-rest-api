@@ -23,8 +23,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
   transparent and the user can be sure that the compilation of a version fully corresponds to the source code.
 - `manager.stop_manager()`
 - Support for `with`-context
-### Change
-- Removed `self.ping()` call in `manager.py`
+
+### Fixed
+- Memory leak with implementation of `manager.stop_manager()`
 
 ## 1.10.0
 ### Added

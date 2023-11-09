@@ -392,6 +392,10 @@ class BinanceRestApiManager(object):
             self.timestamp_offset = res['serverTime'] - int(time.time() * 1000)
         except KeyError:
             self.timestamp_offset = 0
+
+        # Cache DNS and init request session
+        self.ping()
+
         if warn_on_update and self.is_update_availabe():
             update_msg = f"Release {self.name}_" + self.get_latest_version() + " is available, " \
                          f"please consider updating! (Changelog: " \
@@ -7157,8 +7161,10 @@ class BinanceRestApiManager(object):
         """
         Stop the BinanceRestApiManager
         """
-        logger.info("BinanceWebSocketApiManager.stop_manager_with_all_streams() - Stopping "
-                    "unicorn_binance_websocket_api_manager " + self.version + " ...")
+        logger.info("BinanceWebSocketApiManager.stop_manager() - Stopping "
+                    "unicorn_binance_rest_api_manager " + self.version + " ...")
+        # close the request session
+        self.session.close()
         # close lucit license manger and the api session
         if close_api_session is True:
             self.llm.close()
