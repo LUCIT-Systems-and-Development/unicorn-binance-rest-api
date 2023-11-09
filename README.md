@@ -45,8 +45,8 @@ To run modules of the *UNICORN Binance Suite* you need a
 ```
 from unicorn_binance_rest_api.manager import BinanceRestApiManager
 
-ubra = BinanceRestApiManager(api_key="aaa", 
-                             api_secret="bbb, 
+ubra = BinanceRestApiManager(api_key="YOUR_BINANCE_API_KEY", 
+                             api_secret="YOUR_BINANCE_API_SECRET", 
                              exchange="binance.com")
 ```
 
@@ -63,6 +63,7 @@ print(f"All tickers:\r\n{ubra.get_all_tickers()}")
 ### Get the used weight 
 **Please Note:** 
 *https://github.com/binance-us/binance-official-api-docs/blob/master/rest-api.md#limits*
+
 ```
 print(f"Used weight: {ubra.get_used_weight()}")
 ```
@@ -74,9 +75,10 @@ logging.getLogger("unicorn_binance_rest_api")
 
 ## Send data to Binance REST API Endpoints
 ### Initiate the manager
+
 ```
-ubra = BinanceRestApiManager(api_key="aaa", 
-                             api_secret="bbb, 
+ubra = BinanceRestApiManager(api_key="YOUR_BINANCE_API_KEY", 
+                             api_secret="YOUR_BINANCE_API_SECRET", 
                              exchange="binance.com-isolated_margin")
 ```
 

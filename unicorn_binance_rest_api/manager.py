@@ -220,7 +220,7 @@ class BinanceRestApiManager(object):
                  lucit_license_token: str = None):
 
         self.name = "unicorn-binance-rest-api"
-        self.version = "2.0.0"
+        self.version = "2.0.0.dev"
         logger.info(f"New instance of {self.get_user_agent()}-{'compiled' if cython.compiled else 'source'} on "
                     f"{str(platform.system())} {str(platform.release())} for exchange {exchange} started ...")
 
