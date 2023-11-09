@@ -4009,7 +4009,7 @@ class BinanceRestApiManager(object):
         return self._request_margin_api('delete', 'margin/orderList', signed=True, data=params)
 
     def get_margin_oco_order(self, **params):
-        """Retrieves a specific OCO based on provided optional parameters
+        """ Retrieves a specific OCO based on provided optional parameters
 
         https://binance-docs.github.io/apidocs/spot/en/#query-margin-account-39-s-oco-user_data
 
@@ -4025,6 +4025,8 @@ class BinanceRestApiManager(object):
         :type recvWindow: int
 
         :returns: API response
+
+        .. code-block:: python
 
             {
                 "orderListId": 27,
@@ -4049,7 +4051,7 @@ class BinanceRestApiManager(object):
                 ]
             }
 
-    """
+        """
         return self._request_margin_api('get', 'margin/orderList', signed=True, data=params)
 
     def get_open_margin_oco_orders(self, **params):
@@ -4073,6 +4075,8 @@ class BinanceRestApiManager(object):
         :type recvWindow: int
 
         :returns: API response
+
+        .. code-block:: python
 
             [
                 {
@@ -4120,7 +4124,7 @@ class BinanceRestApiManager(object):
                 }
             ]
 
-    """
+        """
         return self._request_margin_api('get', 'margin/allOrderList', signed=True, data=params)
 
     def create_margin_order(self, **params):
