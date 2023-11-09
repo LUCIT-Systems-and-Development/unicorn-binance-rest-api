@@ -47,7 +47,7 @@ setup(
      ext_modules=cythonize(
         ['unicorn_binance_rest_api/__init__.py',
          'unicorn_binance_rest_api/enums.py',
-         'unicorn_binance_rest_api/exception.py',
+         'unicorn_binance_rest_api/exceptions.py',
          'unicorn_binance_rest_api/helpers.py',
          'unicorn_binance_rest_api/manager.py',
          'unicorn_binance_rest_api/manager.py'],

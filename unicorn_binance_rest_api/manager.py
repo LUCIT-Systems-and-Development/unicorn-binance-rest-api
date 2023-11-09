@@ -37,7 +37,14 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 # IN THE SOFTWARE.
 
+from lucit_licensing_python.manager import LucitLicensingManager
+from operator import itemgetter
+from typing import Optional
+from urllib.parse import urlencode
+from .helpers import date_to_milliseconds, interval_to_milliseconds
+from .exceptions import BinanceAPIException, BinanceRequestException, BinanceWithdrawException, UnknownExchange
 import colorama
+import cython
 import datetime
 import hashlib
 import hmac
@@ -45,11 +52,6 @@ import logging
 import requests
 import platform
 import time
-from operator import itemgetter
-from typing import Optional
-from urllib.parse import urlencode
-from .helpers import date_to_milliseconds, interval_to_milliseconds
-from .exceptions import BinanceAPIException, BinanceRequestException, BinanceWithdrawException, UnknownExchange
 
 logger = logging.getLogger("unicorn_binance_rest_api")
 
@@ -98,6 +100,12 @@ class BinanceRestApiManager(object):
     :type socks5_proxy_pass:  str
     :param socks5_proxy_ssl_verification: Set to `False` to disable SSL server verification. Default is `True`.
     :type socks5_proxy_ssl_verification:  bool
+    :param lucit_api_secret: The `api_secret` of your UNICORN Binance Suite license from
+                             https://shop.lucit.services/software/unicorn-binance-suite
+    :type lucit_api_secret:  str
+    :param lucit_license_token: The `license_token` of your UNICORN Binance Suite license from
+                                https://shop.lucit.services/software/unicorn-binance-suite
+    :type lucit_license_token:  str
     """
 
     API_URL = 'https://api.binance.{}/api'
@@ -201,12 +209,21 @@ class BinanceRestApiManager(object):
                  socks5_proxy_user: Optional[str] = None,
                  socks5_proxy_pass: Optional[str] = None,
                  socks5_proxy_ssl_verification: Optional[bool] = True,
-                 ):
+                 lucit_api_secret: str = None,
+                 lucit_license_token: str = None):
 
         self.name = "unicorn-binance-rest-api"
         self.version = "1.10.0"
-        logger.info(f"New instance of {self.get_user_agent()} on {str(platform.system())} {str(platform.release())} "
-                    f"for exchange {exchange} started ...")
+        logger.info(f"New instance of {self.get_user_agent()}-{'compiled' if cython.compiled else 'source'} on "
+                    f"{str(platform.system())} {str(platform.release())} for exchange {exchange} started ...")
+
+        self.lucit_api_secret = lucit_api_secret
+        self.lucit_license_token = lucit_license_token
+        self.llm = LucitLicensingManager(api_secret=self.lucit_api_secret, license_token=self.lucit_license_token,
+                                         parent_shutdown_function=self.stop_manager,
+                                         program_used="unicorn-binance-rest-api",
+                                         needed_license_type="UNICORN-BINANCE-SUITE", start=True)
+
         if disable_colorama is not True:
             logger.info(f"Initiating `colorama_{colorama.__version__}`")
             colorama.init()
@@ -369,8 +386,6 @@ class BinanceRestApiManager(object):
         self.session = self._init_session()
         self.timestamp_offset = 0
 
-        # init DNS and SSL cert
-        self.ping()
         # calculate timestamp offset between local and binance api server
         res = self.get_server_time()
         try:
@@ -383,6 +398,16 @@ class BinanceRestApiManager(object):
                          f"https://unicorn-binance-rest-api.docs.lucit.tech/CHANGELOG.html)"
             print(update_msg)
             logger.warning(update_msg)
+
+    def __enter__(self):
+        logger.debug(f"Entering 'with-context' ...")
+        return self
+
+    def __exit__(self, exc_type, exc_value, error_traceback):
+        logger.debug(f"Leaving 'with-context' ...")
+        self.stop_manager()
+        if exc_type:
+            logger.critical(f"An exception occurred: {exc_type} - {exc_value} - {error_traceback}")
 
     def _init_session(self):
         session = requests.session()
@@ -7127,3 +7152,14 @@ class BinanceRestApiManager(object):
 
         """
         return self._request_margin_api('post', 'enableFastWithdrawSwitch', True, data=params)
+
+    def stop_manager(self, close_api_session=True):
+        """
+        Stop the BinanceRestApiManager
+        """
+        logger.info("BinanceWebSocketApiManager.stop_manager_with_all_streams() - Stopping "
+                    "unicorn_binance_websocket_api_manager " + self.version + " ...")
+        # close lucit license manger and the api session
+        if close_api_session is True:
+            self.llm.close()
+        return True

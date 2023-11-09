@@ -39,12 +39,12 @@ from unicorn_binance_rest_api.enums import *
 import requests_mock
 import unittest
 
-client = BinanceRestApiManager('api_key', 'api_secret', exchange="binance.us")
+ubra = BinanceRestApiManager('api_key', 'api_secret', exchange="binance.us")
 
 
 class TestBinanceComRestManager(unittest.TestCase):
     def setUp(self):
-        self.client = client
+        self.ubra = ubra
         take_profit = FUTURE_ORDER_TYPE_TAKE_PROFIT
 
     # Test historical klines:
@@ -71,9 +71,9 @@ class TestBinanceComRestManager(unittest.TestCase):
                   json=first_res)
             m.get('https://api.binance.us/api/v3/klines?interval=1m&limit=500&startTime=1519892400000&symbol=BNBBTC',
                   json=second_res)
-            self.client.get_historical_klines(
+            self.ubra.get_historical_klines(
                 symbol="BNBBTC",
-                interval=self.client.KLINE_INTERVAL_1MINUTE,
+                interval=self.ubra.KLINE_INTERVAL_1MINUTE,
                 start_str="1st March 2018"
             )
             # self.assertEqual(len(kline), 500)
@@ -127,9 +127,9 @@ class TestBinanceComRestManager(unittest.TestCase):
                 "endTime=1519880400000&symbol=BNBBTC",
                 json=first_res,
             )
-            klines = self.client.get_historical_klines(
+            klines = self.ubra.get_historical_klines(
                 symbol="BNBBTC",
-                interval=self.client.KLINE_INTERVAL_1MINUTE,
+                interval=self.ubra.KLINE_INTERVAL_1MINUTE,
                 start_str="1st March 2018",
                 end_str="1st March 2018 05:00:00",
             )
@@ -183,9 +183,9 @@ class TestBinanceComRestManager(unittest.TestCase):
                 "endTime=1519880400000&symbol=BNBBTC",
                 json=first_res,
             )
-            klines = self.client.get_historical_klines(
+            klines = self.ubra.get_historical_klines(
                 symbol="BNBBTC",
-                interval=self.client.KLINE_INTERVAL_1MINUTE,
+                interval=self.ubra.KLINE_INTERVAL_1MINUTE,
                 start_str=1519862400000,
                 end_str=1519880400000,
             )
@@ -239,9 +239,9 @@ class TestBinanceComRestManager(unittest.TestCase):
                 "endTime=1519880400000&symbol=BNBBTC",
                 json=first_res,
             )
-            klines = self.client.get_historical_klines_generator(
+            klines = self.ubra.get_historical_klines_generator(
                 symbol="BNBBTC",
-                interval=self.client.KLINE_INTERVAL_1MINUTE,
+                interval=self.ubra.KLINE_INTERVAL_1MINUTE,
                 start_str=1519862400000,
                 end_str=1519880400000,
             )
@@ -268,6 +268,12 @@ class TestBinanceComRestManager(unittest.TestCase):
         """Test Withdraw API response Exception"""
         pass
 
+    def test_with_context(self):
+        with BinanceRestApiManager() as with_ubra:
+            self.assertIsInstance(with_ubra.get_version(), str)
+
+
+ubra.stop_manager()
 
 if __name__ == '__main__':
     unittest.main()

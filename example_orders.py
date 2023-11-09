@@ -47,7 +47,7 @@ logging.basicConfig(level=logging.DEBUG,
 api_key = ""
 api_secret = ""
 
-ubra = BinanceRestApiManager(api_key, api_secret, tld="com")
+ubra = BinanceRestApiManager(api_key=api_key, api_secret=api_secret, tld="com")
 
 # uncomment to access testnet endpoints
 # spot:
