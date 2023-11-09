@@ -6,6 +6,7 @@
 certifi
 colorama
 cryptography
+Cython
 dateparser
 pyOpenSSL
 PySocks

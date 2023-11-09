@@ -1,10 +1,11 @@
 name: unicorn_binance_rest_api
 dependencies:
-- python>=3.6.1
+- python>=3.7
 - pip:
   - certifi
   - colorama
   - cryptography
+  - Cython
   - dateparser
   - pyOpenSSL
   - PySocks
