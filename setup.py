@@ -64,7 +64,7 @@ setup(
      long_description_content_type="text/markdown",
      license='MIT License',
      install_requires=['certifi', 'colorama', 'cryptography', 'dateparser', 'pyOpenSSL', 'requests', 'requests[socks]',
-                       'service-identity', 'ujson', 'regex', 'PySocks', 'Cython'],
+                       'service-identity', 'ujson', 'regex', 'PySocks', 'Cython', 'lucit-licensing-python'],
      keywords='',
      project_urls={
          'Howto': 'https://www.lucit.tech/unicorn-binance-rest-api.html#howto',

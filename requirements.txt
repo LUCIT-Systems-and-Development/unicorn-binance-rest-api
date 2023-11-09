@@ -8,6 +8,7 @@ colorama
 cryptography
 Cython
 dateparser
+lucit-licensing-python
 pyOpenSSL
 PySocks
 pytz
