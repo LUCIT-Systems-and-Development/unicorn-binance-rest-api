@@ -103,6 +103,11 @@ class BinanceRestApiManager(object):
     :param lucit_api_secret: The `api_secret` of your UNICORN Binance Suite license from
                              https://shop.lucit.services/software/unicorn-binance-suite
     :type lucit_api_secret:  str
+    :param lucit_license_ini: Specify the path including filename to the config file (ex: `~/license_a.ini`). If not
+                              provided lucitlicmgr tries to load a `lucit_license.ini` from `/home/oliver/.lucit/`.
+    :type lucit_license_ini:  str
+    :param lucit_license_profile: The license profile to use. Default is 'LUCIT'.
+    :type lucit_license_profile:  str
     :param lucit_license_token: The `license_token` of your UNICORN Binance Suite license from
                                 https://shop.lucit.services/software/unicorn-binance-suite
     :type lucit_license_token:  str
@@ -210,18 +215,27 @@ class BinanceRestApiManager(object):
                  socks5_proxy_pass: Optional[str] = None,
                  socks5_proxy_ssl_verification: Optional[bool] = True,
                  lucit_api_secret: str = None,
+                 lucit_license_ini: str = None,
+                 lucit_license_profile: str = None,
                  lucit_license_token: str = None):
 
         self.name = "unicorn-binance-rest-api"
-        self.version = "1.10.0"
+        self.version = "2.0.0"
         logger.info(f"New instance of {self.get_user_agent()}-{'compiled' if cython.compiled else 'source'} on "
                     f"{str(platform.system())} {str(platform.release())} for exchange {exchange} started ...")
 
         self.lucit_api_secret = lucit_api_secret
         self.lucit_license_token = lucit_license_token
-        self.llm = LucitLicensingManager(api_secret=self.lucit_api_secret, license_token=self.lucit_license_token,
+        self.lucit_api_secret = lucit_api_secret
+        self.lucit_license_ini = lucit_license_ini
+        self.lucit_license_profile = lucit_license_profile
+        self.lucit_license_token = lucit_license_token
+        self.llm = LucitLicensingManager(api_secret=self.lucit_api_secret,
+                                         license_ini=self.lucit_license_ini,
+                                         license_profile=self.lucit_license_profile,
+                                         license_token=self.lucit_license_token,
                                          parent_shutdown_function=self.stop_manager,
-                                         program_used="unicorn-binance-rest-api",
+                                         program_used="unicorn-binance-websocket-api",
                                          needed_license_type="UNICORN-BINANCE-SUITE", start=True)
 
         if disable_colorama is not True:
@@ -373,7 +387,8 @@ class BinanceRestApiManager(object):
             print(f"tld: {tld}, exchange: {exchange}\r\n"
                   f"self.API_URL: {self.API_URL}\r\nself.MARGIN_API_URL: {self.MARGIN_API_URL}\r\n"
                   f"self.WEBSITE_URL: {self.WEBSITE_URL}\r\nself.FUTURES_URL: {self.FUTURES_URL}\r\n"
-                  f"self.FUTURES_DATA_URL: {self.FUTURES_DATA_URL}\r\nself.FUTURES_COIN_URL: {self.FUTURES_COIN_URL}\r\n"
+                  f"self.FUTURES_DATA_URL: {self.FUTURES_DATA_URL}\r\nself.FUTURES_COIN_URL: "
+                  f"{self.FUTURES_COIN_URL}\r\n"
                   f"self.FUTURES_COIN_DATA_URL: {self.FUTURES_COIN_DATA_URL}")
 
         self.API_KEY = api_key
@@ -525,7 +540,8 @@ class BinanceRestApiManager(object):
 
         return self._request(method, uri, signed, throw_exception=throw_exception, **kwargs)
 
-    def _request_margin_api(self, method, path, signed=False, version=MARGIN_API_VERSION, throw_exception=True, **kwargs):
+    def _request_margin_api(self, method, path, signed=False,
+                            version=MARGIN_API_VERSION, throw_exception=True, **kwargs):
         uri = self._create_margin_api_uri(path, version)
 
         return self._request(method, uri, signed, throw_exception=throw_exception, **kwargs)
@@ -735,7 +751,7 @@ class BinanceRestApiManager(object):
         """
         Return information about a symbol
 
-        :param symbol: required e.g BNBBTC
+        :param symbol: required e.g. BNBBTC
         :type symbol: str
 
         :returns: Dict if found, None if not
@@ -1012,12 +1028,11 @@ class BinanceRestApiManager(object):
                     "l": 27781,         # Last tradeId
                     "T": 1498793709153, # Timestamp
                     "m": true,          # Was the buyer the maker?
-                    "M": true           # Was the trade the best price match?
+                    "M": true,          # Was the trade the best price match?
                 }
             ]
 
         :raises: BinanceRequestException, BinanceAPIException
-
         """
         return self._get('aggTrades', data=params, version=self.PRIVATE_API_VERSION)
 
@@ -1155,9 +1170,9 @@ class BinanceRestApiManager(object):
 
     def _get_earliest_valid_timestamp(self, symbol, interval):
         """
-        Get earliest valid open timestamp from Binance
+        Get the earliest valid open timestamp from Binance
 
-        :param symbol: Name of symbol pair e.g BNBBTC
+        :param symbol: Name of symbol pair e.g. BNBBTC
         :type symbol: str
         :param interval: Binance Kline interval
         :type interval: str
@@ -1183,7 +1198,7 @@ class BinanceRestApiManager(object):
 
         If using offset strings for dates add "UTC" to date string e.g. "now UTC", "11 hours ago UTC"
 
-        :param symbol: Name of symbol pair e.g BNBBTC
+        :param symbol: Name of symbol pair e.g. BNBBTC
         :type symbol: str
         :param interval: Binance Kline interval
         :type interval: str
@@ -1266,7 +1281,7 @@ class BinanceRestApiManager(object):
 
         If using offset strings for dates add "UTC" to date string e.g. "now UTC", "11 hours ago UTC"
 
-        :param symbol: Name of symbol pair e.g BNBBTC
+        :param symbol: Name of symbol pair e.g. BNBBTC
         :type symbol: str
         :param interval: Binance Kline interval
         :type interval: str
@@ -1280,7 +1295,7 @@ class BinanceRestApiManager(object):
 
         """
 
-        # setup the max limit
+        # set up the max limit
         limit = 500
 
         # convert interval to useful value in seconds
@@ -2704,6 +2719,7 @@ class BinanceRestApiManager(object):
         :param recvWindow: the number of milliseconds the request is valid for
         :type recvWindow: int
 
+
         .. code:: python
 
             result = client.transfer_dust(asset='ONE')
@@ -2745,6 +2761,7 @@ class BinanceRestApiManager(object):
         :type endTime: long
         :param recvWindow: the number of milliseconds the request is valid for
         :type recvWindow: int
+
 
         .. code:: python
 
@@ -2796,6 +2813,7 @@ class BinanceRestApiManager(object):
         :type size: int
         :param recvWindow: the number of milliseconds the request is valid for
         :type recvWindow: int
+
 
         .. code:: python
 
@@ -2916,8 +2934,8 @@ class BinanceRestApiManager(object):
 
         Assumptions:
 
-        - You must have Withdraw permissions enabled on your API key
-        - You must have withdrawn to the address specified through the website and approved the transaction via email
+        - You must have withdrawal permissions enabled on your API key
+        - You must have withdrawal to the address specified through the website and approved the transaction via email
 
         :param coin: required
         :type coin: str
@@ -3409,6 +3427,7 @@ class BinanceRestApiManager(object):
         :param asset: name of the asset
         :type asset: str
 
+
         .. code:: python
 
             asset_details = client.get_margin_asset(asset='BNB')
@@ -3654,6 +3673,7 @@ class BinanceRestApiManager(object):
         :param recvWindow: the number of milliseconds the request is valid for
         :type recvWindow: int
 
+
         .. code:: python
 
             transfer = client.transfer_margin_to_spot(asset='BTC', amount='1.1')
@@ -3683,6 +3703,7 @@ class BinanceRestApiManager(object):
         :type amount: str
         :param recvWindow: the number of milliseconds the request is valid for
         :type recvWindow: int
+
 
         .. code:: python
 
@@ -3717,6 +3738,7 @@ class BinanceRestApiManager(object):
         :param recvWindow: the number of milliseconds the request is valid for
         :type recvWindow: int
 
+
         .. code:: python
 
             transfer = client.transfer_isolated_margin_to_spot(asset='BTC', 
@@ -3750,6 +3772,7 @@ class BinanceRestApiManager(object):
         :type amount: str
         :param recvWindow: the number of milliseconds the request is valid for
         :type recvWindow: int
+
 
         .. code:: python
 
@@ -3786,6 +3809,7 @@ class BinanceRestApiManager(object):
         :type symbol: str
         :param recvWindow: the number of milliseconds the request is valid for
         :type recvWindow: int
+
 
         .. code:: python
 
@@ -3824,6 +3848,7 @@ class BinanceRestApiManager(object):
         :type symbol: str
         :param recvWindow: the number of milliseconds the request is valid for
         :type recvWindow: int
+
 
         .. code:: python
 
@@ -3870,7 +3895,8 @@ class BinanceRestApiManager(object):
         :type price: str
         :param limitIcebergQty: Used to make the LIMIT_MAKER leg an iceberg order.
         :type limitIcebergQty: decimal
-        :param stopClientOrderId: A unique Id for the stop loss/stop loss limit leg. Automatically generated if not sent.
+        :param stopClientOrderId: A unique Id for the stop loss/stop loss limit leg. Automatically generated if not
+                                  sent.
         :type stopClientOrderId: str
         :param stopPrice: required
         :type stopPrice: str
@@ -4092,7 +4118,7 @@ class BinanceRestApiManager(object):
         :type symbol: str
         :param symbol: mandatory for isolated margin, not supported for cross margin
         :type symbol: str
-        :param fromId: If supplied, neither startTime or endTime can be provided
+        :param fromId: If supplied, neither startTime nor endTime can be provided
         :type fromId: int
         :param startTime: optional
         :type startTime: int
@@ -4338,7 +4364,7 @@ class BinanceRestApiManager(object):
         :type isolatedSymbol: str
         :param txId: the tranId in of the created loan
         :type txId: str
-        :param startTime: earliest timestamp to filter transactions
+        :param startTime: the earliest timestamp to filter transactions
         :type startTime: str
         :param endTime: Used to uniquely identify this cancel. Automatically generated by default.
         :type endTime: str
@@ -5434,7 +5460,7 @@ class BinanceRestApiManager(object):
                     "email":"123@test.com",      // user email
                     "isSubUserEnabled": true,    // true or false
                     "isUserActive": true,        // true or false
-                    "insertTime": 1570791523523  // sub account create time
+                    "insertTime": 1570791523523  // subaccount create time
                     "isMarginEnabled": true,     // true or false for margin
                     "isFutureEnabled": true      // true or false for futures.
                     "mobile": 1570791523523      // user mobile number
@@ -5849,7 +5875,7 @@ class BinanceRestApiManager(object):
         return self._request_margin_api('post', 'sub-account/transfer/subToMaster', True, data=params)
 
     def get_subaccount_transfer_history(self, **params):
-        """Sub-account Transfer History (For Sub-account)
+        """Subaccount Transfer History (For Sub-account)
 
         https://binance-docs.github.io/apidocs/spot/en/#transfer-to-master-for-sub-account
 

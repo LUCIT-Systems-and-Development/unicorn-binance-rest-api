@@ -9,7 +9,25 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 [How to upgrade to the latest version!](https://unicorn-binance-rest-api.docs.lucit.tech/README.html#installation-and-upgrade)
 
-## 1.10.0.dev (development stage/unreleased/unstable)
+## 2.0.0.dev (development stage/unreleased/unstable)
+
+## 2.0.0.
+### Added
+- Support for Python 3.11 and 3.12
+- Integration of the `lucit-licensing-python` library for verifying the UNICORN Binance Suite license. A license can be 
+  purchased in the LUCIT Online Shop: https://shop.lucit.services/software/unicorn-binance-suite
+- License change from MIT to LSOSL - LUCIT Synergetic Open Source License:
+  https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api/blob/master/LICENSE
+- Conversion to a C++ compiled Cython package with precompiled as well as PyPy and source code wheels.
+- Setup of a "Trusted Publisher" deployment chain. The source code is transparently packaged into wheels directly from
+  the GitHub repository by a GitHub action for all possible platforms and published directly as a new release on GitHub
+  and PyPi. A second process from Conda-Forge then uploads it to Anaconda. Thus, the entire deployment process is
+  transparent and the user can be sure that the compilation of a version fully corresponds to the source code.
+- `manager.stop_manager()`
+- Support for `with`-context
+
+### Fixed
+- Memory leak with implementation of `manager.stop_manager()`
 
 ## 1.10.0
 ### Added

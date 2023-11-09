@@ -39,31 +39,55 @@ Part of ['UNICORN Binance Suite'](https://www.lucit.tech/unicorn-binance-suite.h
 To run modules of the *UNICORN Binance Suite* you need a  
 [valid license](https://medium.lucit.tech/how-to-obtain-and-use-a-unicorn-binance-suite-license-key-and-run-the-ubs-module-according-to-best-87b0088124a8#4ca4)!
 
-## Receive Data from Binance REST endpoints
+## Receive Data from Binance REST API Endpoints
 
+### Initiate the manager
 ```
 from unicorn_binance_rest_api.manager import BinanceRestApiManager
 
-api_key = "aaa"
-api_secret = "bbb"
-ubra = BinanceRestApiManager(api_key, api_secret, exchange="binance.com")
+ubra = BinanceRestApiManager(api_key="aaa", 
+                             api_secret="bbb, 
+                             exchange="binance.com")
+```
 
-# get market depth
-depth = ubra.get_order_book(symbol='BNBBTC')
-print(f"{depth}")
+### Print a snapshot of an order book
+```
+print(f"BNBBTC order book: {ubra.get_order_book(symbol='BNBBTC')}")
+```
 
-# get all symbol prices
-prices = ubra.get_all_tickers()
-print(f"{prices}")
+### Get all symbol prices
+```
+print(f"All tickers:\r\n{ubra.get_all_tickers()}")
+```
 
-# get the used weight: 
-# https://github.com/binance-us/binance-official-api-docs/blob/master/rest-api.md#limits
+### Get the used weight 
+**Please Note:** 
+*https://github.com/binance-us/binance-official-api-docs/blob/master/rest-api.md#limits*
+```
 print(f"Used weight: {ubra.get_used_weight()}")
 ```
 
 ### Get the right [logger](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_logging.py):
 ```
 logging.getLogger("unicorn_binance_rest_api")
+```
+
+## Send data to Binance REST API Endpoints
+### Initiate the manager
+```
+ubra = BinanceRestApiManager(api_key="aaa", 
+                             api_secret="bbb, 
+                             exchange="binance.com-isolated_margin")
+```
+
+### Buy BTC with a market order using 100 USDT
+```
+buy_order = ubra.create_margin_order(symbol="BTCUSDT",
+                                     isIsolated="TRUE",
+                                     side="BUY",
+                                     type="MARKET",
+                                     quoteOrderQty=100)
+print(f"Buy Order Result: {buy_order}")
 ```
 
 ## Description
@@ -89,13 +113,15 @@ from the Binance Exchange
 [testnet.binance.vision](https://testnet.binance.vision/) or
 [www.binance.us](https://www.binance.us/userCenter/createApi.html).
 
-Be aware that the Binance REST API is request based. if you want to send and receive high frequency and high volume data, you can use the [UNICORN Binance Websocket API](https://www.lucit.tech/unicorn-binance-websocket-api.html) in combination. 
+Be aware that the Binance REST API is request based. if you want to send and receive high frequency and high volume 
+data, you can use the [UNICORN Binance Websocket API](https://www.lucit.tech/unicorn-binance-websocket-api.html) in 
+combination. 
 
 ### What are the benefits of the UNICORN Binance REST API?
-- Supported exchanges: 
+- Supported exchanges:
 
-| Exchange                                                           | Exchange string                       | 
-|--------------------------------------------------------------------|---------------------------------------| 
+| Exchange                                                           | Exchange string                       |
+|--------------------------------------------------------------------|---------------------------------------|
 | [Binance](https://www.binance.com)                                 | `binance.com`                         |
 | [Binance Testnet](https://testnet.binance.vision/)                 | `binance.com-testnet`                 |
 | [Binance Margin](https://www.binance.com)                          | `binance.com-margin`                  |

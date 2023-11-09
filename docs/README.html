@@ -66,8 +66,17 @@
     <ul>
 <li><a class="reference internal" href="#">UNICORN Binance REST API</a><ul>
 <li><a class="reference internal" href="#get-a-unicorn-binance-suite-license">Get a UNICORN Binance Suite License</a></li>
-<li><a class="reference internal" href="#receive-data-from-binance-rest-endpoints">Receive Data from Binance REST endpoints</a><ul>
+<li><a class="reference internal" href="#receive-data-from-binance-rest-api-endpoints">Receive Data from Binance REST API Endpoints</a><ul>
+<li><a class="reference internal" href="#initiate-the-manager">Initiate the manager</a></li>
+<li><a class="reference internal" href="#print-a-snapshot-of-an-order-book">Print a snapshot of an order book</a></li>
+<li><a class="reference internal" href="#get-all-symbol-prices">Get all symbol prices</a></li>
+<li><a class="reference internal" href="#get-the-used-weight">Get the used weight</a></li>
 <li><a class="reference internal" href="#get-the-right-logger">Get the right logger:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#send-data-to-binance-rest-api-endpoints">Send data to Binance REST API Endpoints</a><ul>
+<li><a class="reference internal" href="#id1">Initiate the manager</a></li>
+<li><a class="reference internal" href="#buy-btc-with-a-market-order-using-100-usdt">Buy BTC with a market order using 100 USDT</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#description">Description</a><ul>
@@ -251,30 +260,63 @@ com-futures+testnet, us, tr) in a easy, fast, flexible, robust and fully-feature
 <h2>Get a UNICORN Binance Suite License<a class="headerlink" href="#get-a-unicorn-binance-suite-license" title="Link to this heading">¶</a></h2>
 <p>To run modules of the <em>UNICORN Binance Suite</em> you need a<br /><a class="reference external" href="https://medium.lucit.tech/how-to-obtain-and-use-a-unicorn-binance-suite-license-key-and-run-the-ubs-module-according-to-best-87b0088124a8#4ca4">valid license</a>!</p>
 </section>
-<section id="receive-data-from-binance-rest-endpoints">
-<h2>Receive Data from Binance REST endpoints<a class="headerlink" href="#receive-data-from-binance-rest-endpoints" title="Link to this heading">¶</a></h2>
+<section id="receive-data-from-binance-rest-api-endpoints">
+<h2>Receive Data from Binance REST API Endpoints<a class="headerlink" href="#receive-data-from-binance-rest-api-endpoints" title="Link to this heading">¶</a></h2>
+<section id="initiate-the-manager">
+<h3>Initiate the manager<a class="headerlink" href="#initiate-the-manager" title="Link to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">unicorn_binance_rest_api.manager</span> <span class="kn">import</span> <span class="n">BinanceRestApiManager</span>
 
-<span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;aaa&quot;</span>
-<span class="n">api_secret</span> <span class="o">=</span> <span class="s2">&quot;bbb&quot;</span>
-<span class="n">ubra</span> <span class="o">=</span> <span class="n">BinanceRestApiManager</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">api_secret</span><span class="p">,</span> <span class="n">exchange</span><span class="o">=</span><span class="s2">&quot;binance.com&quot;</span><span class="p">)</span>
-
-<span class="c1"># get market depth</span>
-<span class="n">depth</span> <span class="o">=</span> <span class="n">ubra</span><span class="o">.</span><span class="n">get_order_book</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;BNBBTC&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">depth</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="c1"># get all symbol prices</span>
-<span class="n">prices</span> <span class="o">=</span> <span class="n">ubra</span><span class="o">.</span><span class="n">get_all_tickers</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">prices</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="c1"># get the used weight: </span>
-<span class="c1"># https://github.com/binance-us/binance-official-api-docs/blob/master/rest-api.md#limits</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Used weight: </span><span class="si">{</span><span class="n">ubra</span><span class="o">.</span><span class="n">get_used_weight</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">ubra</span> <span class="o">=</span> <span class="n">BinanceRestApiManager</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;aaa&quot;</span><span class="p">,</span> 
+                             <span class="n">api_secret</span><span class="o">=</span><span class="s2">&quot;bbb, </span>
+                             <span class="n">exchange</span><span class="o">=</span><span class="s2">&quot;binance.com&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+</section>
+<section id="print-a-snapshot-of-an-order-book">
+<h3>Print a snapshot of an order book<a class="headerlink" href="#print-a-snapshot-of-an-order-book" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;BNBBTC order book: </span><span class="si">{</span><span class="n">ubra</span><span class="o">.</span><span class="n">get_order_book</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;BNBBTC&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="get-all-symbol-prices">
+<h3>Get all symbol prices<a class="headerlink" href="#get-all-symbol-prices" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;All tickers:</span><span class="se">\r\n</span><span class="si">{</span><span class="n">ubra</span><span class="o">.</span><span class="n">get_all_tickers</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="get-the-used-weight">
+<h3>Get the used weight<a class="headerlink" href="#get-the-used-weight" title="Link to this heading">¶</a></h3>
+<p><strong>Please Note:</strong>
+<em>https://github.com/binance-us/binance-official-api-docs/blob/master/rest-api.md#limits</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Used weight: </span><span class="si">{</span><span class="n">ubra</span><span class="o">.</span><span class="n">get_used_weight</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 <section id="get-the-right-logger">
 <h3>Get the right <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_logging.py">logger</a>:<a class="headerlink" href="#get-the-right-logger" title="Link to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;unicorn_binance_rest_api&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="send-data-to-binance-rest-api-endpoints">
+<h2>Send data to Binance REST API Endpoints<a class="headerlink" href="#send-data-to-binance-rest-api-endpoints" title="Link to this heading">¶</a></h2>
+<section id="id1">
+<h3>Initiate the manager<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ubra</span> <span class="o">=</span> <span class="n">BinanceRestApiManager</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;aaa&quot;</span><span class="p">,</span> 
+                             <span class="n">api_secret</span><span class="o">=</span><span class="s2">&quot;bbb, </span>
+                             <span class="n">exchange</span><span class="o">=</span><span class="s2">&quot;binance.com-isolated_margin&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="buy-btc-with-a-market-order-using-100-usdt">
+<h3>Buy BTC with a market order using 100 USDT<a class="headerlink" href="#buy-btc-with-a-market-order-using-100-usdt" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">buy_order</span> <span class="o">=</span> <span class="n">ubra</span><span class="o">.</span><span class="n">create_margin_order</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;BTCUSDT&quot;</span><span class="p">,</span>
+                                     <span class="n">isIsolated</span><span class="o">=</span><span class="s2">&quot;TRUE&quot;</span><span class="p">,</span>
+                                     <span class="n">side</span><span class="o">=</span><span class="s2">&quot;BUY&quot;</span><span class="p">,</span>
+                                     <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;MARKET&quot;</span><span class="p">,</span>
+                                     <span class="n">quoteOrderQty</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Buy Order Result: </span><span class="si">{</span><span class="n">buy_order</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -301,7 +343,9 @@ from the Binance Exchange
 <a class="reference external" href="https://www.binance.com/userCenter/createApi.html">www.binance.com</a>,
 <a class="reference external" href="https://testnet.binance.vision/">testnet.binance.vision</a> or
 <a class="reference external" href="https://www.binance.us/userCenter/createApi.html">www.binance.us</a>.</p>
-<p>Be aware that the Binance REST API is request based. if you want to send and receive high frequency and high volume data, you can use the <a class="reference external" href="https://www.lucit.tech/unicorn-binance-websocket-api.html">UNICORN Binance Websocket API</a> in combination.</p>
+<p>Be aware that the Binance REST API is request based. if you want to send and receive high frequency and high volume
+data, you can use the <a class="reference external" href="https://www.lucit.tech/unicorn-binance-websocket-api.html">UNICORN Binance Websocket API</a> in
+combination.</p>
 <section id="what-are-the-benefits-of-the-unicorn-binance-rest-api">
 <h3>What are the benefits of the UNICORN Binance REST API?<a class="headerlink" href="#what-are-the-benefits-of-the-unicorn-binance-rest-api" title="Link to this heading">¶</a></h3>
 <ul class="simple">
@@ -579,8 +623,17 @@ companies from the US analyze binance.com market data - as long as they do not t
     <ul>
 <li><a class="reference internal" href="#">UNICORN Binance REST API</a><ul>
 <li><a class="reference internal" href="#get-a-unicorn-binance-suite-license">Get a UNICORN Binance Suite License</a></li>
-<li><a class="reference internal" href="#receive-data-from-binance-rest-endpoints">Receive Data from Binance REST endpoints</a><ul>
+<li><a class="reference internal" href="#receive-data-from-binance-rest-api-endpoints">Receive Data from Binance REST API Endpoints</a><ul>
+<li><a class="reference internal" href="#initiate-the-manager">Initiate the manager</a></li>
+<li><a class="reference internal" href="#print-a-snapshot-of-an-order-book">Print a snapshot of an order book</a></li>
+<li><a class="reference internal" href="#get-all-symbol-prices">Get all symbol prices</a></li>
+<li><a class="reference internal" href="#get-the-used-weight">Get the used weight</a></li>
 <li><a class="reference internal" href="#get-the-right-logger">Get the right logger:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#send-data-to-binance-rest-api-endpoints">Send data to Binance REST API Endpoints</a><ul>
+<li><a class="reference internal" href="#id1">Initiate the manager</a></li>
+<li><a class="reference internal" href="#buy-btc-with-a-market-order-using-100-usdt">Buy BTC with a market order using 100 USDT</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#description">Description</a><ul>
@@ -727,7 +780,7 @@ companies from the US analyze binance.com market data - as long as they do not t
     <div class="footer">
     &copy; <a href="/license.html">Copyright</a> 2021-2023, LUCIT Systems and Development and Oliver Zehentleitner.
     See <a href="/license.html">License</a> for more information.<br />
-    Last updated on Nov 09 2023 at 20:59 (CET).
+    Last updated on Nov 09 2023 at 23:41 (CET).
     <a href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues/new/choose">Found a bug</a>?
     <br />
     Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
