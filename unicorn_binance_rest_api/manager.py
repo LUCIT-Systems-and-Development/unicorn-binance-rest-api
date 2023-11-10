@@ -221,7 +221,7 @@ class BinanceRestApiManager(object):
                  lucit_license_token: str = None):
 
         self.name = "unicorn-binance-rest-api"
-        self.version = "2.0.0.dev"
+        self.version = "2.0.1"
         logger.info(f"New instance of {self.get_user_agent()}-{'compiled' if cython.compiled else 'source'} on "
                     f"{str(platform.system())} {str(platform.release())} for exchange {exchange} started ...")
         self.sigterm = False
@@ -236,7 +236,7 @@ class BinanceRestApiManager(object):
                                          license_profile=self.lucit_license_profile,
                                          license_token=self.lucit_license_token,
                                          parent_shutdown_function=self.stop_manager,
-                                         program_used="unicorn-binance-websocket-api",
+                                         program_used="unicorn-binance-rest-api",
                                          needed_license_type="UNICORN-BINANCE-SUITE", start=True)
 
         if self.sigterm is False:
@@ -496,6 +496,7 @@ class BinanceRestApiManager(object):
         if self.sigterm is True:
             logger.critical(f"Instance has already been stopped and cannot be used.")
             raise AlreadyStoppedError("Instance has already been stopped and cannot be used.")
+
         # set default requests timeout
         kwargs['timeout'] = 10
 
@@ -7194,14 +7195,14 @@ class BinanceRestApiManager(object):
         """
         Stop the BinanceRestApiManager
         """
-        logger.info("BinanceWebSocketApiManager.stop_manager() - Stopping "
+        logger.info("BinanceRestApiManager.stop_manager() - Stopping "
                     "unicorn_binance_rest_api_manager " + self.version + " ...")
         self.sigterm = True
         # close the request session
         try:
             self.session.close()
         except AttributeError as error_msg:
-            logger.debug(f"BinanceWebSocketApiManager.stop_manager() - AttributeError: {error_msg}")
+            logger.debug(f"BinanceRestApiManager.stop_manager() - AttributeError: {error_msg}")
         # close lucit license manger and the api session
         if close_api_session is True:
             self.llm.close()

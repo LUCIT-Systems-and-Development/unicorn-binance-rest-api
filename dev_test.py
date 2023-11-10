@@ -47,13 +47,9 @@ logging.basicConfig(level=logging.DEBUG,
 
 api_key = "aaa"
 api_secret = "bbb"
-ubra = BinanceRestApiManager(api_key, api_secret)
 
-# get market depth
-depth = ubra.get_order_book(symbol='BNBBTC')
-print(f"{depth}")
-
-# get all symbol prices
-prices = ubra.get_all_tickers()
-#print(f"{prices}")
+with BinanceRestApiManager(api_key, api_secret) as ubra:
+    print(ubra.get_version())
+    print(ubra.get_server_time())
+    print(ubra.get_ticker(symbol="BNBUSDT"))
 

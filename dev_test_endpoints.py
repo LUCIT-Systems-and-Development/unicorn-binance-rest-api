@@ -47,5 +47,10 @@ logging.basicConfig(level=logging.DEBUG,
 api_key = ""
 api_secret = ""
 
-ubra = BinanceRestApiManager(api_key, api_secret, exchange="binance.com-margin", tld="us", debug=True)
+ubra = BinanceRestApiManager(api_key, api_secret, exchange="binance.com-margin", tld="us", debug=False,
+                             lucit_license_profile="LUCIT")
 
+print(ubra.get_server_time())
+print(ubra.get_ticker(symbol="BNBUSDT"))
+
+ubra.stop_manager()

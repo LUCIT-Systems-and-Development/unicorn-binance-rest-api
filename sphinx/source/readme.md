@@ -45,8 +45,8 @@ To run modules of the *UNICORN Binance Suite* you need a
 ```
 from unicorn_binance_rest_api.manager import BinanceRestApiManager
 
-ubra = BinanceRestApiManager(api_key="aaa", 
-                             api_secret="bbb, 
+ubra = BinanceRestApiManager(api_key="YOUR_BINANCE_API_KEY", 
+                             api_secret="YOUR_BINANCE_API_SECRET", 
                              exchange="binance.com")
 ```
 
@@ -61,8 +61,9 @@ print(f"All tickers:\r\n{ubra.get_all_tickers()}")
 ```
 
 ### Get the used weight 
-**Please Note:** 
-*https://github.com/binance-us/binance-official-api-docs/blob/master/rest-api.md#limits*
+***Please Note:*** 
+https://github.com/binance-us/binance-official-api-docs/blob/master/rest-api.md#limits
+
 ```
 print(f"Used weight: {ubra.get_used_weight()}")
 ```
@@ -74,9 +75,10 @@ logging.getLogger("unicorn_binance_rest_api")
 
 ## Send data to Binance REST API Endpoints
 ### Initiate the manager
+
 ```
-ubra = BinanceRestApiManager(api_key="aaa", 
-                             api_secret="bbb, 
+ubra = BinanceRestApiManager(api_key="YOUR_BINANCE_API_KEY", 
+                             api_secret="YOUR_BINANCE_API_SECRET", 
                              exchange="binance.com-isolated_margin")
 ```
 
@@ -182,10 +184,10 @@ Run in bash:
 `pip install https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/$(curl -s https://api.github.com/repos/lucit-systems-and-development/unicorn-binance-rest-api/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")').tar.gz --upgrade`
 
 #### Windows
-Use the below command with the version (such as 2.0.0) you determined 
+Use the below command with the version (such as 2.0.1) you determined 
 [here](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases/latest):
 
-`pip install https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/2.0.0.tar.gz --upgrade`
+`pip install https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/2.0.1.tar.gz --upgrade`
 
 ### From the latest source (dev-stage) with PIP from [Github](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api)
 This is not a release version and can not be considered to be stable!

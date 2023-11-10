@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>UNICORN Binance REST API &#8212; unicorn-binance-rest-api 2.0.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNICORN Binance REST API &#8212; unicorn-binance-rest-api 2.0.1 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
     <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?v=fdf8e9ae" />
@@ -240,25 +240,26 @@
 <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/codeql-analysis.yml"><img alt="CodeQL" src="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/codeql-analysis.yml/badge.svg" /></a>
 <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/unit-tests.yml"><img alt="Unit Tests" src="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/unit-tests.yml/badge.svg" /></a>
 <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/build_wheels.yml"><img alt="Build and Publish" src="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/build_wheels.yml/badge.svg" /></a>
-<a class="reference external" href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15697&amp;branchName=main"><img alt="Azure Pipelines" src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/unicorn-binance-rest-api-feedstock?branchName=main" /></a>
+<a class="reference external" href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15697&amp;amp;branchName=main"><img alt="Azure Pipelines" src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/unicorn-binance-rest-api-feedstock?branchName=main" /></a>
 <a class="reference external" href="https://codecov.io/gh/LUCIT-Systems-and-Development/unicorn-binance-rest-api"><img alt="codecov" src="https://codecov.io/gh/LUCIT-Systems-and-Development/unicorn-binance-rest-api/branch/master/graph/badge.svg?token=5I03AZ3F5S" /></a>
 <a class="reference external" href="https://unicorn-binance-rest-api.docs.lucit.tech/"><img alt="Read the Docs" src="https://img.shields.io/badge/read-%20docs-yellow" /></a>
 <a class="reference external" href="https://medium.lucit.tech"><img alt="Read How To`s" src="https://img.shields.io/badge/read-%20howto-yellow" /></a>
 <a class="reference external" href="https://t.me/unicorndevs"><img alt="Telegram" src="https://img.shields.io/badge/chat-telegram-41ab8c" /></a>
-<a class="reference external" href="https://gitter.im/unicorn-binance-suite/unicorn-binance-rest-api?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img alt="Gitter" src="https://badges.gitter.im/unicorn-binance-suite/unicorn-binance-rest-api.svg" /></a></p>
+<a class="reference external" href="https://gitter.im/unicorn-binance-suite/unicorn-binance-rest-api?utm_source=badge&amp;amp;utm_medium=badge&amp;amp;utm_campaign=pr-badge&amp;amp;utm_content=badge"><img alt="Gitter" src="https://badges.gitter.im/unicorn-binance-suite/unicorn-binance-rest-api.svg" /></a></p>
 <p><a class="reference external" href="https://www.lucit.tech/unicorn-binance-rest-api.html"><img alt="LUCIT-UBRA-Banner" src="https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-rest-api/master/images/logo/LUCIT-UBRA-Banner-Readme.png" /></a></p>
 <section id="unicorn-binance-rest-api">
 <h1>UNICORN Binance REST API<a class="headerlink" href="#unicorn-binance-rest-api" title="Link to this heading">¶</a></h1>
-<p><a class="reference external" href="#description">Description</a> | <a class="reference external" href="#installation-and-upgrade">Installation</a> | <a class="reference external" href="#howto">How To</a> |
-<a class="reference external" href="#documentation">Documentation</a> | <a class="reference external" href="#examples">Examples</a> | <a class="reference external" href="#change-log">Change Log</a> | <a class="reference external" href="#wiki">Wiki</a> | <a class="reference external" href="#social">Social</a> |
-<a class="reference external" href="#receive-notifications">Notifications</a> | <a class="reference external" href="#how-to-report-bugs-or-suggest-improvements">Bugs</a> |
-<a class="reference external" href="#contributing">Contributing</a> | <a class="reference external" href="#you-want-to-say-thank-you">Leave a review</a> | <a class="reference external" href="#disclaimer">Disclaimer</a> | <a class="reference external" href="#commercial-support">Commercial Support</a></p>
+<p><a class="reference internal" href="#description">Description</a> | <a class="reference internal" href="#installation-and-upgrade">Installation</a> | <a class="reference internal" href="#howto">How To</a> |
+<a class="reference internal" href="#documentation">Documentation</a> | <a class="reference internal" href="#examples">Examples</a> | <a class="reference internal" href="#change-log">Change Log</a> | <a class="reference internal" href="#wiki">Wiki</a> | <a class="reference internal" href="#social">Social</a> |
+<a class="reference internal" href="#receive-notifications">Notifications</a> | <a class="reference internal" href="#how-to-report-bugs-or-suggest-improvements">Bugs</a> |
+<a class="reference internal" href="#contributing">Contributing</a> | <a class="reference internal" href="#you-want-to-say-thank-you">Leave a review</a> | <a class="reference internal" href="#disclaimer">Disclaimer</a> | <a class="reference internal" href="#commercial-support">Commercial Support</a></p>
 <p>An unofficial Python API to use the Binance REST API`s (com+testnet, com-margin+testnet, com-isolated_margin+testnet,
 com-futures+testnet, us, tr) in a easy, fast, flexible, robust and fully-featured way.</p>
 <p>Part of <a class="reference external" href="https://www.lucit.tech/unicorn-binance-suite.html">‘UNICORN Binance Suite’</a>.</p>
 <section id="get-a-unicorn-binance-suite-license">
 <h2>Get a UNICORN Binance Suite License<a class="headerlink" href="#get-a-unicorn-binance-suite-license" title="Link to this heading">¶</a></h2>
-<p>To run modules of the <em>UNICORN Binance Suite</em> you need a<br /><a class="reference external" href="https://medium.lucit.tech/how-to-obtain-and-use-a-unicorn-binance-suite-license-key-and-run-the-ubs-module-according-to-best-87b0088124a8#4ca4">valid license</a>!</p>
+<p>To run modules of the <em>UNICORN Binance Suite</em> you need a<br />
+<a class="reference external" href="https://medium.lucit.tech/how-to-obtain-and-use-a-unicorn-binance-suite-license-key-and-run-the-ubs-module-according-to-best-87b0088124a8#4ca4">valid license</a>!</p>
 </section>
 <section id="receive-data-from-binance-rest-api-endpoints">
 <h2>Receive Data from Binance REST API Endpoints<a class="headerlink" href="#receive-data-from-binance-rest-api-endpoints" title="Link to this heading">¶</a></h2>
@@ -266,8 +267,8 @@ com-futures+testnet, us, tr) in a easy, fast, flexible, robust and fully-feature
 <h3>Initiate the manager<a class="headerlink" href="#initiate-the-manager" title="Link to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">unicorn_binance_rest_api.manager</span> <span class="kn">import</span> <span class="n">BinanceRestApiManager</span>
 
-<span class="n">ubra</span> <span class="o">=</span> <span class="n">BinanceRestApiManager</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;aaa&quot;</span><span class="p">,</span> 
-                             <span class="n">api_secret</span><span class="o">=</span><span class="s2">&quot;bbb, </span>
+<span class="n">ubra</span> <span class="o">=</span> <span class="n">BinanceRestApiManager</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;YOUR_BINANCE_API_KEY&quot;</span><span class="p">,</span> 
+                             <span class="n">api_secret</span><span class="o">=</span><span class="s2">&quot;YOUR_BINANCE_API_SECRET&quot;</span><span class="p">,</span> 
                              <span class="n">exchange</span><span class="o">=</span><span class="s2">&quot;binance.com&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -286,8 +287,8 @@ com-futures+testnet, us, tr) in a easy, fast, flexible, robust and fully-feature
 </section>
 <section id="get-the-used-weight">
 <h3>Get the used weight<a class="headerlink" href="#get-the-used-weight" title="Link to this heading">¶</a></h3>
-<p><strong>Please Note:</strong>
-<em>https://github.com/binance-us/binance-official-api-docs/blob/master/rest-api.md#limits</em></p>
+<p><em><strong>Please Note:</strong></em>
+https://github.com/binance-us/binance-official-api-docs/blob/master/rest-api.md#limits</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Used weight: </span><span class="si">{</span><span class="n">ubra</span><span class="o">.</span><span class="n">get_used_weight</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -303,8 +304,8 @@ com-futures+testnet, us, tr) in a easy, fast, flexible, robust and fully-feature
 <h2>Send data to Binance REST API Endpoints<a class="headerlink" href="#send-data-to-binance-rest-api-endpoints" title="Link to this heading">¶</a></h2>
 <section id="id1">
 <h3>Initiate the manager<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ubra</span> <span class="o">=</span> <span class="n">BinanceRestApiManager</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;aaa&quot;</span><span class="p">,</span> 
-                             <span class="n">api_secret</span><span class="o">=</span><span class="s2">&quot;bbb, </span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ubra</span> <span class="o">=</span> <span class="n">BinanceRestApiManager</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;YOUR_BINANCE_API_KEY&quot;</span><span class="p">,</span> 
+                             <span class="n">api_secret</span><span class="o">=</span><span class="s2">&quot;YOUR_BINANCE_API_SECRET&quot;</span><span class="p">,</span> 
                              <span class="n">exchange</span><span class="o">=</span><span class="s2">&quot;binance.com-isolated_margin&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -404,10 +405,11 @@ combination.</p>
 <td><code>trbinance.com</code></td>
 </tr>
 </tbody>
-</table><ul>
+</table>
+<ul>
 <li><p>Helpful management features like
 <a class="reference external" href="https://unicorn-binance-rest-api.docs.lucit.tech/unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_used_weight"><code class="docutils literal notranslate"><span class="pre">get_used_weight()</span></code></a>,</p></li>
-<li><p>Integration of <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/unit-tests.yml">test cases</a> and <a class="reference external" href="#examples">examples</a>.</p></li>
+<li><p>Integration of <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/unit-tests.yml">test cases</a> and <a class="reference internal" href="#examples">examples</a>.</p></li>
 <li><p>Customizable base URL and request timeout.</p></li>
 <li><p><em>Socks5 Proxy</em> support:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ubra</span> <span class="o">=</span> <span class="n">BinanceRestApiManager</span><span class="p">(</span><span class="n">exchange</span><span class="o">=</span><span class="s2">&quot;binance.com&quot;</span><span class="p">,</span> <span class="n">socks5_proxy_server</span><span class="o">=</span><span class="s2">&quot;127.0.0.1:9050&quot;</span><span class="p">)</span> 
@@ -450,9 +452,9 @@ processing.</p>
 </section>
 <section id="windows">
 <h4>Windows<a class="headerlink" href="#windows" title="Link to this heading">¶</a></h4>
-<p>Use the below command with the version (such as 2.0.0) you determined
+<p>Use the below command with the version (such as 2.0.1) you determined
 <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases/latest">here</a>:</p>
-<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/2.0.0.tar.gz</span> <span class="pre">--upgrade</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/2.0.1.tar.gz</span> <span class="pre">--upgrade</span></code></p>
 </section>
 </section>
 <section id="from-the-latest-source-dev-stage-with-pip-from-github">
@@ -778,9 +780,9 @@ companies from the US analyze binance.com market data - as long as they do not t
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="/license.html">Copyright</a> 2021-2023, LUCIT Systems and Development and Oliver Zehentleitner.
+    &copy; <a href="/license.html">Copyright</a> 2023-2023, LUCIT Systems and Development. All Rights Reserved..
     See <a href="/license.html">License</a> for more information.<br />
-    Last updated on Nov 09 2023 at 23:41 (CET).
+    Last updated on Nov 10 2023 at 17:08 (CET).
     <a href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues/new/choose">Found a bug</a>?
     <br />
     Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.

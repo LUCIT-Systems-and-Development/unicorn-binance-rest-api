@@ -53,7 +53,7 @@ setup(
          'unicorn_binance_rest_api/manager.py'],
         annotate=False),
      name='unicorn-binance-rest-api',
-     version="2.0.0",
+     version="2.0.1",
      author="LUCIT Systems and Development",
      author_email='info@lucit.tech',
      url="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api",
@@ -77,6 +77,7 @@ setup(
          'Chat': 'https://gitter.im/unicorn-binance-suite/unicorn-binance-rest-api',
          'Telegram': 'https://t.me/unicorndevs',
          'Get Support': 'https://www.lucit.tech/get-support.html',
+         'LUCIT Online Shop': 'https://shop.lucit.services/software',
      },
      python_requires='>=3.7.0',
      classifiers=[
