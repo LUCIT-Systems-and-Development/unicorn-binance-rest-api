@@ -123,3 +123,8 @@ class UnknownExchange(Exception):
     Exception for if the manager class is started with an unkown exchange.
     """
     pass
+
+
+class AlreadyStoppedError(Exception):
+    """Exception raised when an attempt is made to use an instance that has already been stopped."""
+    pass

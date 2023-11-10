@@ -47,7 +47,7 @@ logging.basicConfig(level=logging.DEBUG,
 
 api_key = "aaa"
 api_secret = "bbb"
-client = Client(api_key, api_secret, tld="com")
+client = Client(api_key, api_secret, tld="com", lucit_license_profile="BAD")
 
 # get market depth
 depth = client.get_order_book(symbol='BNBBTC')
@@ -56,4 +56,6 @@ print(f"{depth}")
 # get all symbol prices
 prices = client.get_all_tickers()
 print(f"{prices}")
+
+client.stop_manager()
 

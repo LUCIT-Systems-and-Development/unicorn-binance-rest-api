@@ -42,7 +42,8 @@ from operator import itemgetter
 from typing import Optional
 from urllib.parse import urlencode
 from .helpers import date_to_milliseconds, interval_to_milliseconds
-from .exceptions import BinanceAPIException, BinanceRequestException, BinanceWithdrawException, UnknownExchange
+from .exceptions import BinanceAPIException, BinanceRequestException, BinanceWithdrawException, UnknownExchange, \
+    AlreadyStoppedError
 import colorama
 import cython
 import datetime
@@ -223,7 +224,7 @@ class BinanceRestApiManager(object):
         self.version = "2.0.0.dev"
         logger.info(f"New instance of {self.get_user_agent()}-{'compiled' if cython.compiled else 'source'} on "
                     f"{str(platform.system())} {str(platform.release())} for exchange {exchange} started ...")
-
+        self.sigterm = False
         self.lucit_api_secret = lucit_api_secret
         self.lucit_license_token = lucit_license_token
         self.lucit_api_secret = lucit_api_secret
@@ -238,143 +239,51 @@ class BinanceRestApiManager(object):
                                          program_used="unicorn-binance-websocket-api",
                                          needed_license_type="UNICORN-BINANCE-SUITE", start=True)
 
-        if disable_colorama is not True:
-            logger.info(f"Initiating `colorama_{colorama.__version__}`")
-            colorama.init()
-        self.exchange = exchange
-        self.debug = debug
+        if self.sigterm is False:
+            if disable_colorama is not True:
+                logger.info(f"Initiating `colorama_{colorama.__version__}`")
+                colorama.init()
+            self.exchange = exchange
+            self.debug = debug
 
-        if socks5_proxy_server is None:
-            self.socks5_proxy_address: Optional[str] = None
-            self.socks5_proxy_user: Optional[str] = None
-            self.socks5_proxy_pass: Optional[str] = None
-            self.socks5_proxy_port: Optional[str] = None
-            self.socks5_proxy_ssl_verification: Optional[bool] = True
-        else:
-            # Prepare Socks Proxy usage
-            self.socks5_proxy_ssl_verification = socks5_proxy_ssl_verification
-            self.socks5_proxy_user = socks5_proxy_user
-            self.socks5_proxy_pass = socks5_proxy_pass
-            self.socks5_proxy_address, self.socks5_proxy_port = socks5_proxy_server.split(":")
-            socks_proxy_uri = "socks5://"
-            if self.socks5_proxy_user is not None:
-                socks_proxy_uri += self.socks5_proxy_user
-                if self.socks5_proxy_pass is not None:
-                    socks_proxy_uri += f":{self.socks5_proxy_pass}"
-                socks_proxy_uri += "@"
-            socks_proxy_uri += f"{self.socks5_proxy_address}:{self.socks5_proxy_port}"
-            logger.info(f"Created SOCKS5 proxy URI: {socks_proxy_uri}")
-            self.request_socks5_proxies = {
-                'http': socks_proxy_uri,
-                'https': socks_proxy_uri
-            }
+            if socks5_proxy_server is None:
+                self.socks5_proxy_address: Optional[str] = None
+                self.socks5_proxy_user: Optional[str] = None
+                self.socks5_proxy_pass: Optional[str] = None
+                self.socks5_proxy_port: Optional[str] = None
+                self.socks5_proxy_ssl_verification: Optional[bool] = True
+            else:
+                # Prepare Socks Proxy usage
+                self.socks5_proxy_ssl_verification = socks5_proxy_ssl_verification
+                self.socks5_proxy_user = socks5_proxy_user
+                self.socks5_proxy_pass = socks5_proxy_pass
+                self.socks5_proxy_address, self.socks5_proxy_port = socks5_proxy_server.split(":")
+                socks_proxy_uri = "socks5://"
+                if self.socks5_proxy_user is not None:
+                    socks_proxy_uri += self.socks5_proxy_user
+                    if self.socks5_proxy_pass is not None:
+                        socks_proxy_uri += f":{self.socks5_proxy_pass}"
+                    socks_proxy_uri += "@"
+                socks_proxy_uri += f"{self.socks5_proxy_address}:{self.socks5_proxy_port}"
+                logger.info(f"Created SOCKS5 proxy URI: {socks_proxy_uri}")
+                self.request_socks5_proxies = {
+                    'http': socks_proxy_uri,
+                    'https': socks_proxy_uri
+                }
 
-        if tld is not False:
-            # Todo: Remove Block with tld!
-            logger.warning("The parameter BinanceRestApiManager(tld=`com`) is obsolete, use parameter `exchange` "
-                           "instead! Attention: parameter `exchange` overrules `tld`!! ")
-            self.API_URL = self.API_URL.format(tld)
-            self.MARGIN_API_URL = self.MARGIN_API_URL.format(tld)
-            self.WEBSITE_URL = self.WEBSITE_URL.format(tld)
-            self.FUTURES_URL = self.FUTURES_URL.format(tld)
-            self.FUTURES_DATA_URL = self.FUTURES_DATA_URL.format(tld)
-            self.FUTURES_COIN_URL = self.FUTURES_COIN_URL.format(tld)
-            self.FUTURES_COIN_DATA_URL = self.FUTURES_COIN_DATA_URL.format(tld)
+            if tld is not False:
+                # Todo: Remove Block with tld!
+                logger.warning("The parameter BinanceRestApiManager(tld=`com`) is obsolete, use parameter `exchange` "
+                               "instead! Attention: parameter `exchange` overrules `tld`!! ")
+                self.API_URL = self.API_URL.format(tld)
+                self.MARGIN_API_URL = self.MARGIN_API_URL.format(tld)
+                self.WEBSITE_URL = self.WEBSITE_URL.format(tld)
+                self.FUTURES_URL = self.FUTURES_URL.format(tld)
+                self.FUTURES_DATA_URL = self.FUTURES_DATA_URL.format(tld)
+                self.FUTURES_COIN_URL = self.FUTURES_COIN_URL.format(tld)
+                self.FUTURES_COIN_DATA_URL = self.FUTURES_COIN_DATA_URL.format(tld)
 
-        if self.exchange == "binance.com":
-            self.API_URL = "https://api.binance.com/api"
-            self.MARGIN_API_URL = " https://api.binance.com/sapi"
-            self.WEBSITE_URL = "https://www.binance.com"
-            self.FUTURES_URL = "https://fapi.binance.com/fapi"
-            self.FUTURES_DATA_URL = "https://fapi.binance.com/futures/data"
-            self.FUTURES_COIN_URL = "https://fapi.binance.com/fapi"
-            self.FUTURES_COIN_DATA_URL = "https://dapi.binance.com/futures/data"
-        elif self.exchange == "binance.com-testnet" or self.exchange == "binance.com-futures-testnet":
-            # https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues/20
-            self.API_URL = "https://testnet.binance.vision/api"
-            self.MARGIN_API_URL = " https://api.binance.com/sapi"
-            self.WEBSITE_URL = "https://testnet.binance.vision"
-            self.FUTURES_URL = "https://testnet.binancefuture.com/fapi"
-            self.FUTURES_DATA_URL = "https://testnet.binancefuture.com/futures/data"
-            self.FUTURES_COIN_URL = "https://testnet.binancefuture.com/dapi"
-            self.FUTURES_COIN_DATA_URL = "https://testnet.binancefuture.com/futures/data"
-        elif self.exchange == "binance.com-margin":
-            self.API_URL = "https://api.binance.com/api"
-            self.MARGIN_API_URL = " https://api.binance.com/sapi"
-            self.WEBSITE_URL = "https://www.binance.com"
-            self.FUTURES_URL = "https://fapi.binance.com/fapi"
-            self.FUTURES_DATA_URL = "https://fapi.binance.com/futures/data"
-            self.FUTURES_COIN_URL = "https://fapi.binance.com/fapi"
-            self.FUTURES_COIN_DATA_URL = "https://dapi.binance.com/futures/data"
-        elif self.exchange == "binance.com-margin-testnet":
-            self.API_URL = "https://testnet.binance.vision/api"
-            self.MARGIN_API_URL = " https://api.binance.com/sapi"
-            self.WEBSITE_URL = "https://testnet.binance.vision"
-            self.FUTURES_URL = "https://testnet.binancefuture.com/fapi"
-            self.FUTURES_DATA_URL = "https://testnet.binancefuture.com/futures/data"
-            self.FUTURES_COIN_URL = "https://testnet.binancefuture.com/dapi"
-            self.FUTURES_COIN_DATA_URL = "https://testnet.binancefuture.com/futures/data"
-        elif self.exchange == "binance.com-isolated_margin":
-            self.API_URL = "https://api.binance.com/api"
-            self.MARGIN_API_URL = " https://api.binance.com/sapi"
-            self.WEBSITE_URL = "https://www.binance.com"
-            self.FUTURES_URL = "https://fapi.binance.com/fapi"
-            self.FUTURES_DATA_URL = "https://fapi.binance.com/futures/data"
-            self.FUTURES_COIN_URL = "https://fapi.binance.com/fapi"
-            self.FUTURES_COIN_DATA_URL = "https://dapi.binance.com/futures/data"
-        elif self.exchange == "binance.com-isolated_margin-testnet":
-            self.API_URL = "https://testnet.binance.vision/api"
-            self.MARGIN_API_URL = " https://api.binance.com/sapi"
-            self.WEBSITE_URL = "https://testnet.binance.vision"
-            self.FUTURES_URL = "https://testnet.binancefuture.com/fapi"
-            self.FUTURES_DATA_URL = "https://testnet.binancefuture.com/futures/data"
-            self.FUTURES_COIN_URL = "https://testnet.binancefuture.com/dapi"
-            self.FUTURES_COIN_DATA_URL = "https://testnet.binancefuture.com/futures/data"
-        elif self.exchange == "binance.com-futures":
-            self.API_URL = "https://api.binance.com/api"
-            self.MARGIN_API_URL = " https://api.binance.com/sapi"
-            self.WEBSITE_URL = "https://www.binance.com"
-            self.FUTURES_URL = "https://fapi.binance.com/fapi"
-            self.FUTURES_DATA_URL = "https://fapi.binance.com/futures/data"
-            self.FUTURES_COIN_URL = "https://fapi.binance.com/fapi"
-            self.FUTURES_COIN_DATA_URL = "https://dapi.binance.com/futures/data"
-        elif self.exchange == "binance.com-coin-futures":
-            self.API_URL = "https://api.binance.com/api"
-            self.MARGIN_API_URL = " https://api.binance.com/sapi"
-            self.WEBSITE_URL = "https://www.binance.com"
-            self.FUTURES_URL = "https://fapi.binance.com/fapi"
-            self.FUTURES_DATA_URL = "https://fapi.binance.com/futures/data"
-            self.FUTURES_COIN_URL = "https://fapi.binance.com/fapi"
-            self.FUTURES_COIN_DATA_URL = "https://dapi.binance.com/futures/data"
-        elif self.exchange == "binance.us":
-            # Todo: Needs a test
-            self.API_URL = "https://api.binance.us/api"
-            self.MARGIN_API_URL = " https://api.binance.us/sapi"
-            self.WEBSITE_URL = "https://www.binance.us"
-            self.FUTURES_URL = "https://fapi.binance.us/fapi"
-            self.FUTURES_DATA_URL = "https://fapi.binance.us/futures/data"
-            self.FUTURES_COIN_URL = "https://fapi.binance.us/fapi"
-            self.FUTURES_COIN_DATA_URL = "https://dapi.binance.us/futures/data"
-        elif self.exchange == "trbinance.com":
-            # Todo: Needs a test
-            self.API_URL = "https://www.trbinance.com/api"
-            self.MARGIN_API_URL = " https://api.trbinance.com/sapi"
-            self.WEBSITE_URL = "https://www.trbinance.com"
-            self.FUTURES_URL = "https://fapi.trbinance.com/fapi"
-            self.FUTURES_DATA_URL = "https://fapi.trbinance.com/futures/data"
-            self.FUTURES_COIN_URL = "https://fapi.trbinance.com/fapi"
-            self.FUTURES_COIN_DATA_URL = "https://dapi.trbinance.com/futures/data"
-        elif self.exchange:
-            # Unknown Exchange
-            error_msg = f"Unknown exchange '{str(self.exchange)}'! Read the docs to see a list of supported " \
-                        "exchanges: https://unicorn-binance-rest-api.docs.lucit.tech/unicorn_" \
-                        "binance_rest_api.html#module-unicorn_binance_rest_api.unicorn_binance_rest_" \
-                        "api_manager"
-            logger.critical(error_msg)
-
-            raise UnknownExchange(error_msg)
-        else:
-            if tld is False:
+            if self.exchange == "binance.com":
                 self.API_URL = "https://api.binance.com/api"
                 self.MARGIN_API_URL = " https://api.binance.com/sapi"
                 self.WEBSITE_URL = "https://www.binance.com"
@@ -382,44 +291,140 @@ class BinanceRestApiManager(object):
                 self.FUTURES_DATA_URL = "https://fapi.binance.com/futures/data"
                 self.FUTURES_COIN_URL = "https://fapi.binance.com/fapi"
                 self.FUTURES_COIN_DATA_URL = "https://dapi.binance.com/futures/data"
+            elif self.exchange == "binance.com-testnet" or self.exchange == "binance.com-futures-testnet":
+                # https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues/20
+                self.API_URL = "https://testnet.binance.vision/api"
+                self.MARGIN_API_URL = " https://api.binance.com/sapi"
+                self.WEBSITE_URL = "https://testnet.binance.vision"
+                self.FUTURES_URL = "https://testnet.binancefuture.com/fapi"
+                self.FUTURES_DATA_URL = "https://testnet.binancefuture.com/futures/data"
+                self.FUTURES_COIN_URL = "https://testnet.binancefuture.com/dapi"
+                self.FUTURES_COIN_DATA_URL = "https://testnet.binancefuture.com/futures/data"
+            elif self.exchange == "binance.com-margin":
+                self.API_URL = "https://api.binance.com/api"
+                self.MARGIN_API_URL = " https://api.binance.com/sapi"
+                self.WEBSITE_URL = "https://www.binance.com"
+                self.FUTURES_URL = "https://fapi.binance.com/fapi"
+                self.FUTURES_DATA_URL = "https://fapi.binance.com/futures/data"
+                self.FUTURES_COIN_URL = "https://fapi.binance.com/fapi"
+                self.FUTURES_COIN_DATA_URL = "https://dapi.binance.com/futures/data"
+            elif self.exchange == "binance.com-margin-testnet":
+                self.API_URL = "https://testnet.binance.vision/api"
+                self.MARGIN_API_URL = " https://api.binance.com/sapi"
+                self.WEBSITE_URL = "https://testnet.binance.vision"
+                self.FUTURES_URL = "https://testnet.binancefuture.com/fapi"
+                self.FUTURES_DATA_URL = "https://testnet.binancefuture.com/futures/data"
+                self.FUTURES_COIN_URL = "https://testnet.binancefuture.com/dapi"
+                self.FUTURES_COIN_DATA_URL = "https://testnet.binancefuture.com/futures/data"
+            elif self.exchange == "binance.com-isolated_margin":
+                self.API_URL = "https://api.binance.com/api"
+                self.MARGIN_API_URL = " https://api.binance.com/sapi"
+                self.WEBSITE_URL = "https://www.binance.com"
+                self.FUTURES_URL = "https://fapi.binance.com/fapi"
+                self.FUTURES_DATA_URL = "https://fapi.binance.com/futures/data"
+                self.FUTURES_COIN_URL = "https://fapi.binance.com/fapi"
+                self.FUTURES_COIN_DATA_URL = "https://dapi.binance.com/futures/data"
+            elif self.exchange == "binance.com-isolated_margin-testnet":
+                self.API_URL = "https://testnet.binance.vision/api"
+                self.MARGIN_API_URL = " https://api.binance.com/sapi"
+                self.WEBSITE_URL = "https://testnet.binance.vision"
+                self.FUTURES_URL = "https://testnet.binancefuture.com/fapi"
+                self.FUTURES_DATA_URL = "https://testnet.binancefuture.com/futures/data"
+                self.FUTURES_COIN_URL = "https://testnet.binancefuture.com/dapi"
+                self.FUTURES_COIN_DATA_URL = "https://testnet.binancefuture.com/futures/data"
+            elif self.exchange == "binance.com-futures":
+                self.API_URL = "https://api.binance.com/api"
+                self.MARGIN_API_URL = " https://api.binance.com/sapi"
+                self.WEBSITE_URL = "https://www.binance.com"
+                self.FUTURES_URL = "https://fapi.binance.com/fapi"
+                self.FUTURES_DATA_URL = "https://fapi.binance.com/futures/data"
+                self.FUTURES_COIN_URL = "https://fapi.binance.com/fapi"
+                self.FUTURES_COIN_DATA_URL = "https://dapi.binance.com/futures/data"
+            elif self.exchange == "binance.com-coin-futures":
+                self.API_URL = "https://api.binance.com/api"
+                self.MARGIN_API_URL = " https://api.binance.com/sapi"
+                self.WEBSITE_URL = "https://www.binance.com"
+                self.FUTURES_URL = "https://fapi.binance.com/fapi"
+                self.FUTURES_DATA_URL = "https://fapi.binance.com/futures/data"
+                self.FUTURES_COIN_URL = "https://fapi.binance.com/fapi"
+                self.FUTURES_COIN_DATA_URL = "https://dapi.binance.com/futures/data"
+            elif self.exchange == "binance.us":
+                # Todo: Needs a test
+                self.API_URL = "https://api.binance.us/api"
+                self.MARGIN_API_URL = " https://api.binance.us/sapi"
+                self.WEBSITE_URL = "https://www.binance.us"
+                self.FUTURES_URL = "https://fapi.binance.us/fapi"
+                self.FUTURES_DATA_URL = "https://fapi.binance.us/futures/data"
+                self.FUTURES_COIN_URL = "https://fapi.binance.us/fapi"
+                self.FUTURES_COIN_DATA_URL = "https://dapi.binance.us/futures/data"
+            elif self.exchange == "trbinance.com":
+                # Todo: Needs a test
+                self.API_URL = "https://www.trbinance.com/api"
+                self.MARGIN_API_URL = " https://api.trbinance.com/sapi"
+                self.WEBSITE_URL = "https://www.trbinance.com"
+                self.FUTURES_URL = "https://fapi.trbinance.com/fapi"
+                self.FUTURES_DATA_URL = "https://fapi.trbinance.com/futures/data"
+                self.FUTURES_COIN_URL = "https://fapi.trbinance.com/fapi"
+                self.FUTURES_COIN_DATA_URL = "https://dapi.trbinance.com/futures/data"
+            elif self.exchange:
+                # Unknown Exchange
+                error_msg = f"Unknown exchange '{str(self.exchange)}'! Read the docs to see a list of supported " \
+                            "exchanges: https://unicorn-binance-rest-api.docs.lucit.tech/unicorn_" \
+                            "binance_rest_api.html#module-unicorn_binance_rest_api.unicorn_binance_rest_" \
+                            "api_manager"
+                logger.critical(error_msg)
 
-        if self.debug:
-            print(f"tld: {tld}, exchange: {exchange}\r\n"
-                  f"self.API_URL: {self.API_URL}\r\nself.MARGIN_API_URL: {self.MARGIN_API_URL}\r\n"
-                  f"self.WEBSITE_URL: {self.WEBSITE_URL}\r\nself.FUTURES_URL: {self.FUTURES_URL}\r\n"
-                  f"self.FUTURES_DATA_URL: {self.FUTURES_DATA_URL}\r\nself.FUTURES_COIN_URL: "
-                  f"{self.FUTURES_COIN_URL}\r\n"
-                  f"self.FUTURES_COIN_DATA_URL: {self.FUTURES_COIN_DATA_URL}")
+                raise UnknownExchange(error_msg)
+            else:
+                if tld is False:
+                    self.API_URL = "https://api.binance.com/api"
+                    self.MARGIN_API_URL = " https://api.binance.com/sapi"
+                    self.WEBSITE_URL = "https://www.binance.com"
+                    self.FUTURES_URL = "https://fapi.binance.com/fapi"
+                    self.FUTURES_DATA_URL = "https://fapi.binance.com/futures/data"
+                    self.FUTURES_COIN_URL = "https://fapi.binance.com/fapi"
+                    self.FUTURES_COIN_DATA_URL = "https://dapi.binance.com/futures/data"
 
-        self.API_KEY = api_key
-        self.API_SECRET = api_secret
-        self.last_update_check_github = {'timestamp': time.time(),
-                                         'status': None}
+            if self.debug:
+                print(f"tld: {tld}, exchange: {exchange}\r\n"
+                      f"self.API_URL: {self.API_URL}\r\nself.MARGIN_API_URL: {self.MARGIN_API_URL}\r\n"
+                      f"self.WEBSITE_URL: {self.WEBSITE_URL}\r\nself.FUTURES_URL: {self.FUTURES_URL}\r\n"
+                      f"self.FUTURES_DATA_URL: {self.FUTURES_DATA_URL}\r\nself.FUTURES_COIN_URL: "
+                      f"{self.FUTURES_COIN_URL}\r\n"
+                      f"self.FUTURES_COIN_DATA_URL: {self.FUTURES_COIN_DATA_URL}")
 
-        self._requests_params = requests_params
-        self.response = None
-        self.session = self._init_session()
-        self.timestamp_offset = 0
+            self.API_KEY = api_key
+            self.API_SECRET = api_secret
+            self.last_update_check_github = {'timestamp': time.time(),
+                                             'status': None}
 
-        # calculate timestamp offset between local and binance api server
-        res = self.get_server_time()
-        try:
-            self.timestamp_offset = res['serverTime'] - int(time.time() * 1000)
-        except KeyError:
+            self._requests_params = requests_params
+            self.response = None
+            self.session = self._init_session()
             self.timestamp_offset = 0
 
-        # Cache DNS and init request session
-        self.ping()
+            # calculate timestamp offset between local and binance api server
+            res = self.get_server_time()
+            try:
+                self.timestamp_offset = res['serverTime'] - int(time.time() * 1000)
+            except KeyError:
+                self.timestamp_offset = 0
 
-        if warn_on_update and self.is_update_availabe():
-            update_msg = f"Release {self.name}_" + self.get_latest_version() + " is available, " \
-                         f"please consider updating! (Changelog: " \
-                         f"https://unicorn-binance-rest-api.docs.lucit.tech/changelog.html)"
-            print(update_msg)
-            logger.warning(update_msg)
+            # Cache DNS and init request session
+            self.ping()
+
+            if warn_on_update and self.is_update_availabe():
+                update_msg = f"Release {self.name}_" + self.get_latest_version() + " is available, " \
+                             f"please consider updating! (Changelog: " \
+                             f"https://unicorn-binance-rest-api.docs.lucit.tech/changelog.html)"
+                print(update_msg)
+                logger.warning(update_msg)
 
     def __enter__(self):
         logger.debug(f"Entering 'with-context' ...")
+        if self.sigterm is True:
+            logger.critical(f"Instance has already been stopped and cannot be used.")
+            raise AlreadyStoppedError("Instance has already been stopped and cannot be used.")
         return self
 
     def __exit__(self, exc_type, exc_value, error_traceback):
@@ -488,7 +493,9 @@ class BinanceRestApiManager(object):
         return params
 
     def _request(self, method, uri, signed, force_params=False, throw_exception=True, **kwargs):
-
+        if self.sigterm is True:
+            logger.critical(f"Instance has already been stopped and cannot be used.")
+            raise AlreadyStoppedError("Instance has already been stopped and cannot be used.")
         # set default requests timeout
         kwargs['timeout'] = 10
 
@@ -7189,8 +7196,12 @@ class BinanceRestApiManager(object):
         """
         logger.info("BinanceWebSocketApiManager.stop_manager() - Stopping "
                     "unicorn_binance_rest_api_manager " + self.version + " ...")
+        self.sigterm = True
         # close the request session
-        self.session.close()
+        try:
+            self.session.close()
+        except AttributeError as error_msg:
+            logger.debug(f"BinanceWebSocketApiManager.stop_manager() - AttributeError: {error_msg}")
         # close lucit license manger and the api session
         if close_api_session is True:
             self.llm.close()
