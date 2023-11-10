@@ -62,7 +62,7 @@ setup(
                  "fully-featured way. ",
      long_description=long_description,
      long_description_content_type="text/markdown",
-     license='MIT License',
+     license='LSOSL - LUCIT Synergetic Open Source License',
      install_requires=['certifi', 'colorama', 'cryptography', 'dateparser', 'pyOpenSSL', 'requests', 'requests[socks]',
                        'service-identity', 'ujson', 'regex', 'PySocks', 'Cython', 'lucit-licensing-python'],
      keywords='',
