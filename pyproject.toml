@@ -20,7 +20,7 @@ repository = "https://github.com/LUCIT-Systems-and-Development/unicorn-binance-r
 'Telegram' = 'https://t.me/unicorndevs'
 'Chat' = 'https://app.gitter.im/#/room/#unicorn-binance-rest-api:gitter.im'
 'Get Support' = 'https://www.lucit.tech/get-support.html'
-'LUCIT Online Shop' = 'https://shop.lucit.services/software'
+'LUCIT Online Shop' = 'https://shop.lucit.services/software/unicorn-binance-suite'
 
 [tool.poetry.dependencies]
 python = ">=3.7.0"
