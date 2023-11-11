@@ -44,14 +44,15 @@ logging.basicConfig(level=logging.DEBUG,
                     style="{")
 
 # create instance of BinanceRestApiManager
-binance_rest_api_manager = unicorn_binance_rest_api.BinanceRestApiManager(exchange="binance.com")
+# To use this library you need a valid UNICORN Binance Suite License: https://medium.lucit.tech/87b0088124a8
+ubra = unicorn_binance_rest_api.BinanceRestApiManager(exchange="binance.com")
 
 # get version of the used UNICORN Binance REST API package
-if binance_rest_api_manager.is_update_availabe():
-    print("Please upgrade to " + binance_rest_api_manager.get_latest_version() + ", you are on",
-          binance_rest_api_manager.get_version())
+if ubra.is_update_availabe():
+    print("Please upgrade to " + ubra.get_latest_version() + ", you are on",
+          ubra.get_version())
 
-    latest_release_info = binance_rest_api_manager.get_latest_release_info()
+    latest_release_info = ubra.get_latest_release_info()
     if latest_release_info:
         print("Please download the latest release or run `pip install unicorn-binance-rest-api --upgrade`: ")
         print("\ttar: " + latest_release_info["tarball_url"])
@@ -59,4 +60,6 @@ if binance_rest_api_manager.is_update_availabe():
         print("release info:")
         print(latest_release_info["body"])
 else:
-    print(binance_rest_api_manager.get_version(), "is the latest version!")
+    print(ubra.get_version(), "is the latest version!")
+
+ubra.stop_manager()

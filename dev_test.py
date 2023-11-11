@@ -35,6 +35,8 @@
 # IN THE SOFTWARE.
 
 from unicorn_binance_rest_api.manager import BinanceRestApiManager
+from unicorn_binance_rest_api.exceptions import AlreadyStoppedError, UnknownExchange
+from lucit_licensing_python.exceptions import NoValidatedLucitLicense
 import logging
 import os
 
@@ -48,8 +50,34 @@ logging.basicConfig(level=logging.DEBUG,
 api_key = "aaa"
 api_secret = "bbb"
 
-with BinanceRestApiManager(api_key, api_secret, lucit_license_profile="LUCIT") as ubra:
-    print(ubra.get_version())
-    print(ubra.get_server_time())
-    print(ubra.get_ticker(symbol="BNBUSDT"))
+try:
+    # To use this library you need a valid UNICORN Binance Suite License:
+    # https://medium.lucit.tech/87b0088124a8
+    with BinanceRestApiManager(api_key, api_secret, lucit_license_profile="LUCIT") as ubra:
+        print(ubra.get_version())
+        print(ubra.get_server_time())
+        print(ubra.get_ticker(symbol="BNBUSDT"))
 
+    print(f"Leaving ubra context manager")
+    print(ubra.get_ticker(symbol="BNBUSDT"))
+except NoValidatedLucitLicense as error_msg:
+    print(f"ERROR LEVEL 1: {error_msg}")
+except AlreadyStoppedError as error_msg:
+    print(f"ERROR LEVEL 1: {error_msg}")
+
+try:
+    # To use this library you need a valid UNICORN Binance Suite License:
+    # https://medium.lucit.tech/87b0088124a8
+    with BinanceRestApiManager(api_key, api_secret, exchange="test-error") as ubra:
+        print(ubra.get_version())
+        print(ubra.get_server_time())
+        print(ubra.get_ticker(symbol="BNBUSDT"))
+
+    print(f"Leaving ubra context manager")
+    print(ubra.get_ticker(symbol="BNBUSDT"))
+except NoValidatedLucitLicense as error_msg:
+    print(f"ERROR LEVEL 1: {error_msg}")
+except UnknownExchange as error_msg:
+    print(f"ERROR LEVEL 1: {error_msg}")
+except AlreadyStoppedError as error_msg:
+    print(f"ERROR LEVEL 1: {error_msg}")

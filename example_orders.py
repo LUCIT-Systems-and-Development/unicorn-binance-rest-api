@@ -47,6 +47,7 @@ logging.basicConfig(level=logging.DEBUG,
 api_key = ""
 api_secret = ""
 
+# To use this library you need a valid UNICORN Binance Suite License: https://medium.lucit.tech/87b0088124a8
 ubra = BinanceRestApiManager(api_key=api_key, api_secret=api_secret, tld="com")
 
 # uncomment to access testnet endpoints
@@ -76,3 +77,4 @@ existing_orders = ubra.get_open_orders(symbol='BTCUSDT')
 for order in existing_orders:
     print(ubra.cancel_order(symbol="BTCUSDT", orderId=order['orderId']))
 
+ubra.stop_manager()

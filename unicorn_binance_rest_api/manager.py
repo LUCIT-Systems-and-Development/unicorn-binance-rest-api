@@ -38,6 +38,7 @@
 # IN THE SOFTWARE.
 
 from lucit_licensing_python.manager import LucitLicensingManager
+from lucit_licensing_python.exceptions import NoValidatedLucitLicense
 from operator import itemgetter
 from typing import Optional
 from urllib.parse import urlencode
@@ -221,10 +222,11 @@ class BinanceRestApiManager(object):
                  lucit_license_token: str = None):
 
         self.name = "unicorn-binance-rest-api"
-        self.version = "2.0.1"
+        self.version = "2.0.2"
         logger.info(f"New instance of {self.get_user_agent()}-{'compiled' if cython.compiled else 'source'} on "
                     f"{str(platform.system())} {str(platform.release())} for exchange {exchange} started ...")
         self.sigterm = False
+        self.session = None
         self.lucit_api_secret = lucit_api_secret
         self.lucit_license_token = lucit_license_token
         self.lucit_api_secret = lucit_api_secret
@@ -238,6 +240,9 @@ class BinanceRestApiManager(object):
                                          parent_shutdown_function=self.stop_manager,
                                          program_used="unicorn-binance-rest-api",
                                          needed_license_type="UNICORN-BINANCE-SUITE", start=True)
+        licensing_exception = self.llm.get_license_exception()
+        if licensing_exception is not None:
+            raise NoValidatedLucitLicense(licensing_exception)
 
         if self.sigterm is False:
             if disable_colorama is not True:
@@ -369,11 +374,10 @@ class BinanceRestApiManager(object):
             elif self.exchange:
                 # Unknown Exchange
                 error_msg = f"Unknown exchange '{str(self.exchange)}'! Read the docs to see a list of supported " \
-                            "exchanges: https://unicorn-binance-rest-api.docs.lucit.tech/unicorn_" \
-                            "binance_rest_api.html#module-unicorn_binance_rest_api.unicorn_binance_rest_" \
-                            "api_manager"
+                            "exchanges: https://unicorn-binance-rest-api.docs.lucit.tech/readme.html#what-are-the-" \
+                            "benefits-of-the-unicorn-binance-rest-api"
                 logger.critical(error_msg)
-
+                self.stop_manager()
                 raise UnknownExchange(error_msg)
             else:
                 if tld is False:
@@ -423,8 +427,9 @@ class BinanceRestApiManager(object):
     def __enter__(self):
         logger.debug(f"Entering 'with-context' ...")
         if self.sigterm is True:
-            logger.critical(f"Instance has already been stopped and cannot be used.")
-            raise AlreadyStoppedError("Instance has already been stopped and cannot be used.")
+            info = f"`BinanceRestApiManager()` instance has already been stopped and cannot be used."
+            logger.critical(info)
+            raise AlreadyStoppedError(info)
         return self
 
     def __exit__(self, exc_type, exc_value, error_traceback):
@@ -494,8 +499,9 @@ class BinanceRestApiManager(object):
 
     def _request(self, method, uri, signed, force_params=False, throw_exception=True, **kwargs):
         if self.sigterm is True:
-            logger.critical(f"Instance has already been stopped and cannot be used.")
-            raise AlreadyStoppedError("Instance has already been stopped and cannot be used.")
+            info = f"`BinanceRestApiManager()` instance has already been stopped and cannot be used."
+            logger.critical(info)
+            raise AlreadyStoppedError(info)
 
         # set default requests timeout
         kwargs['timeout'] = 10
@@ -7200,7 +7206,8 @@ class BinanceRestApiManager(object):
         self.sigterm = True
         # close the request session
         try:
-            self.session.close()
+            if self.session is not None:
+                self.session.close()
         except AttributeError as error_msg:
             logger.debug(f"BinanceRestApiManager.stop_manager() - AttributeError: {error_msg}")
         # close lucit license manger and the api session

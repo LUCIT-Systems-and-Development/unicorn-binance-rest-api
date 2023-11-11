@@ -67,6 +67,7 @@ STOP_LOSS_TRIGGER_GAP_USDT = 0.01
 TAKE_PROFIT_GAP_TO_BUY_PRICE_IN_PERCENT = 2
 
 # Create a BinanceRestApiManager instance with the exchange and API credentials
+# To use this library you need a valid UNICORN Binance Suite License: https://medium.lucit.tech/87b0088124a8
 ubra = BinanceRestApiManager(exchange="binance.com-isolated_margin", api_key=API_KEY, api_secret=API_SECRET)
 
 # Buy BTC with a market order using the specified USDT quantity

@@ -47,6 +47,7 @@ logging.basicConfig(level=logging.DEBUG,
 api_key = "aaa"
 api_secret = "bbb"
 
+# To use this library you need a valid UNICORN Binance Suite License: https://medium.lucit.tech/87b0088124a8
 with BinanceRestApiManager(api_key, api_secret) as ubra:
     # get market depth
     depth = ubra.get_order_book(symbol='BNBBTC')

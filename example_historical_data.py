@@ -37,6 +37,8 @@ from unicorn_binance_rest_api.manager import BinanceRestApiManager
 
 api_key = "*"
 api_secret = "*"
+
+# To use this library you need a valid UNICORN Binance Suite License: https://medium.lucit.tech/87b0088124a8
 ubra = BinanceRestApiManager(api_key, api_secret)
 
 # Retrieve 1-minute klines for the last day so far
@@ -50,3 +52,5 @@ print(f"klines_30m:\r\n{klines_30m}")
 # Retrieve weekly klines since they are listed
 klines_1w = ubra.get_historical_klines("BNBBTC", "1w", "1 Jan, 2017")
 print(f"klines_1w:\r\n{klines_1w}")
+
+ubra.stop_manager()

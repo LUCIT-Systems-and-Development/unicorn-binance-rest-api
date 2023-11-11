@@ -9,12 +9,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 [How to upgrade to the latest version!](https://unicorn-binance-rest-api.docs.lucit.tech/README.html#installation-and-upgrade)
 
-## 2.0.1.dev (development stage/unreleased/unstable)
+## 2.0.2.dev (development stage/unreleased/unstable)
+
+## 2.0.2
+### Changed
+- Replaced URLs
+### Fixed
+- Stopping manager automatically if an unknown exchange string was used before the exception gets raised.
 
 ## 2.0.1
 ### Fixed
-- New exception `AlreadyStoppedError` is thrown if a stopped instance gets used
-- Memory leak with implementation of `manager.stop_manager()`
+- New exception `AlreadyStoppedError` is thrown if a stopped instance gets used.
+- Memory leak with implementation of `manager.stop_manager()`.
 
 ## 2.0.0
 ### Added

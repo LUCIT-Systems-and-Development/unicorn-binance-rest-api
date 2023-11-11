@@ -34,6 +34,7 @@
 # IN THE SOFTWARE.
 
 from unicorn_binance_rest_api.manager import BinanceRestApiManager
+from lucit_licensing_python.exceptions import NoValidatedLucitLicense
 import logging
 import os
 
@@ -47,8 +48,13 @@ logging.basicConfig(level=logging.DEBUG,
 api_key = ""
 api_secret = ""
 
-ubra = BinanceRestApiManager(api_key, api_secret, exchange="binance.com-margin", tld="us", debug=False,
-                             lucit_license_profile="LUCIT")
+try:
+    # To use this library you need a valid UNICORN Binance Suite License:
+    # https://medium.lucit.tech/87b0088124a8
+    ubra = BinanceRestApiManager(api_key, api_secret, exchange="binance.com-margin", tld="us", debug=False,
+                                 lucit_license_profile="LUCIT")
+except NoValidatedLucitLicense as error_msg:
+    print(f"ERROR_L_1: {error_msg}")
 
 print(ubra.get_server_time())
 print(ubra.get_ticker(symbol="BNBUSDT"))

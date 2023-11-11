@@ -47,7 +47,9 @@ logging.basicConfig(level=logging.DEBUG,
 
 api_key = "aaa"
 api_secret = "bbb"
-client = Client(api_key, api_secret, tld="com", lucit_license_profile="BAD")
+
+# To use this library you need a valid UNICORN Binance Suite License: https://medium.lucit.tech/87b0088124a8
+client = Client(api_key, api_secret, tld="com")
 
 # get market depth
 depth = client.get_order_book(symbol='BNBBTC')

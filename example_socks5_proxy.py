@@ -52,6 +52,7 @@ if __name__ == "__main__":
                         format="{asctime} [{levelname:8}] {process} {thread} {module}: {message}",
                         style="{")
 
+    # To use this library you need a valid UNICORN Binance Suite License: https://medium.lucit.tech/87b0088124a8
     ubra = BinanceRestApiManager(exchange="binance.com",
                                  socks5_proxy_server=socks5_proxy,
                                  socks5_proxy_user=socks5_user,
@@ -60,3 +61,5 @@ if __name__ == "__main__":
 
     klines_1m = ubra.get_historical_klines("BTCUSDT", ubra.KLINE_INTERVAL_1MINUTE, "1 day ago UTC")
     print(f"klines_1m:\r\n{klines_1m}")
+
+    ubra.stop_manager()
