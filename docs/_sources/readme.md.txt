@@ -68,12 +68,6 @@ https://github.com/binance-us/binance-official-api-docs/blob/master/rest-api.md#
 print(f"Used weight: {ubra.get_used_weight()}")
 ```
 
-### Stop `ubra` after usage to avoid memory leaks
-
-```
-ubra.stop_manager()
-```
-
 ## Send data to Binance REST API Endpoints
 ### Initiate `BinanceRestApiManager()`
 

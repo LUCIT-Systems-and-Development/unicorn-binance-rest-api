@@ -71,13 +71,12 @@
 <li><a class="reference internal" href="#print-a-snapshot-of-an-order-book">Print a snapshot of an order book</a></li>
 <li><a class="reference internal" href="#get-all-symbol-prices">Get all symbol prices</a></li>
 <li><a class="reference internal" href="#get-the-used-weight">Get the used weight</a></li>
-<li><a class="reference internal" href="#stop-ubra-after-usage-to-avoid-memory-leaks">Stop <code class="docutils literal notranslate"><span class="pre">ubra</span></code> after usage to avoid memory leaks</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#send-data-to-binance-rest-api-endpoints">Send data to Binance REST API Endpoints</a><ul>
 <li><a class="reference internal" href="#id1">Initiate <code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager()</span></code></a></li>
 <li><a class="reference internal" href="#buy-btc-with-a-market-order-using-100-usdt">Buy BTC with a market order using 100 USDT</a></li>
-<li><a class="reference internal" href="#id2">Stop <code class="docutils literal notranslate"><span class="pre">ubra</span></code> after usage to avoid memory leaks</a></li>
+<li><a class="reference internal" href="#stop-ubra-after-usage-to-avoid-memory-leaks">Stop <code class="docutils literal notranslate"><span class="pre">ubra</span></code> after usage to avoid memory leaks</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#get-the-right-logger">Get the right logger:</a></li>
@@ -295,12 +294,6 @@ https://github.com/binance-us/binance-official-api-docs/blob/master/rest-api.md#
 </pre></div>
 </div>
 </section>
-<section id="stop-ubra-after-usage-to-avoid-memory-leaks">
-<h3>Stop <code class="docutils literal notranslate"><span class="pre">ubra</span></code> after usage to avoid memory leaks<a class="headerlink" href="#stop-ubra-after-usage-to-avoid-memory-leaks" title="Link to this heading">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ubra</span><span class="o">.</span><span class="n">stop_manager</span><span class="p">()</span>
-</pre></div>
-</div>
-</section>
 </section>
 <section id="send-data-to-binance-rest-api-endpoints">
 <h2>Send data to Binance REST API Endpoints<a class="headerlink" href="#send-data-to-binance-rest-api-endpoints" title="Link to this heading">¶</a></h2>
@@ -323,8 +316,8 @@ https://github.com/binance-us/binance-official-api-docs/blob/master/rest-api.md#
 </pre></div>
 </div>
 </section>
-<section id="id2">
-<h3>Stop <code class="docutils literal notranslate"><span class="pre">ubra</span></code> after usage to avoid memory leaks<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<section id="stop-ubra-after-usage-to-avoid-memory-leaks">
+<h3>Stop <code class="docutils literal notranslate"><span class="pre">ubra</span></code> after usage to avoid memory leaks<a class="headerlink" href="#stop-ubra-after-usage-to-avoid-memory-leaks" title="Link to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ubra</span><span class="o">.</span><span class="n">stop_manager</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -644,13 +637,12 @@ companies from the US analyze binance.com market data - as long as they do not t
 <li><a class="reference internal" href="#print-a-snapshot-of-an-order-book">Print a snapshot of an order book</a></li>
 <li><a class="reference internal" href="#get-all-symbol-prices">Get all symbol prices</a></li>
 <li><a class="reference internal" href="#get-the-used-weight">Get the used weight</a></li>
-<li><a class="reference internal" href="#stop-ubra-after-usage-to-avoid-memory-leaks">Stop <code class="docutils literal notranslate"><span class="pre">ubra</span></code> after usage to avoid memory leaks</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#send-data-to-binance-rest-api-endpoints">Send data to Binance REST API Endpoints</a><ul>
 <li><a class="reference internal" href="#id1">Initiate <code class="docutils literal notranslate"><span class="pre">BinanceRestApiManager()</span></code></a></li>
 <li><a class="reference internal" href="#buy-btc-with-a-market-order-using-100-usdt">Buy BTC with a market order using 100 USDT</a></li>
-<li><a class="reference internal" href="#id2">Stop <code class="docutils literal notranslate"><span class="pre">ubra</span></code> after usage to avoid memory leaks</a></li>
+<li><a class="reference internal" href="#stop-ubra-after-usage-to-avoid-memory-leaks">Stop <code class="docutils literal notranslate"><span class="pre">ubra</span></code> after usage to avoid memory leaks</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#get-the-right-logger">Get the right logger:</a></li>
@@ -798,7 +790,7 @@ companies from the US analyze binance.com market data - as long as they do not t
     <div class="footer">
     &copy; <a href="/license.html">Copyright</a> 2023-2023, LUCIT Systems and Development. All Rights Reserved..
     See <a href="/license.html">License</a> for more information.<br />
-    Last updated on Nov 11 2023 at 16:58 (CET).
+    Last updated on Nov 11 2023 at 16:59 (CET).
     <a href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues/new/choose">Found a bug</a>?
     <br />
     Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
