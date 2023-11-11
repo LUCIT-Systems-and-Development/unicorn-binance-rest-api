@@ -9,7 +9,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 [How to upgrade to the latest version!](https://unicorn-binance-rest-api.docs.lucit.tech/README.html#installation-and-upgrade)
 
-## 2.0.2.dev (development stage/unreleased/unstable)
+## 2.0.3.dev (development stage/unreleased/unstable)
+## 2.0.3
+- Same as 2.0.2, error during pypi upload.
 
 ## 2.0.2
 ### Changed
