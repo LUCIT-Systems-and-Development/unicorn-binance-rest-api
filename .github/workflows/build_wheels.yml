@@ -1,7 +1,6 @@
 name: Build and Publish
 on:
   workflow_dispatch:
-
 jobs:
   build_wheels:
     name: Build wheels on ${{ matrix.os }}
@@ -32,7 +31,6 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           path: ./wheelhouse/*.whl
-
   build_sdist:
     name: Build source distribution
     runs-on: ubuntu-latest
@@ -43,7 +41,6 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           path: dist/*.tar.gz
-
   Release:
     needs: [build_wheels, build_sdist]
     runs-on: ubuntu-latest
