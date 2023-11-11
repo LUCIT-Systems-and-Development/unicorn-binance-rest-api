@@ -43,6 +43,9 @@ import unittest
 import tracemalloc
 tracemalloc.start(25)
 
+# os.environ["LUCIT_API_SECRET"] = ""
+# os.environ["LUCIT_LICENSE_TOKEN"] = ""
+
 logging.getLogger("unicorn_binance_rest_api")
 logging.basicConfig(level=logging.DEBUG,
                     filename=os.path.basename(__file__) + '.log',

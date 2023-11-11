@@ -25,6 +25,9 @@ jobs:
         pip install -r test-requirements.txt
         pip install coveralls
     - name: Unit test
+      env:
+        LUCIT_API_SECRET: ${{ secrets.LUCIT_API_SECRET }}
+        LUCIT_LICENSE_TOKEN: ${{ secrets.LUCIT_LICENSE_TOKEN }}
       run: coverage run --source unicorn_binance_rest_api unittest_binance_rest_api.py
     - name: "Upload coverage to Codecov"
       uses: codecov/codecov-action@v3
