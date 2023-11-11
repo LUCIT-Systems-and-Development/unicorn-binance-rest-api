@@ -290,7 +290,7 @@ class TestBinanceUsRestManager(unittest.TestCase):
         pass
 
     def test_with_context(self):
-        with BinanceRestApiManager() as with_ubra:
+        with BinanceRestApiManager(exchange="binance.us") as with_ubra:
             self.assertIsInstance(with_ubra.get_version(), str)
 
 
