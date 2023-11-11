@@ -86,7 +86,7 @@ buy_order = ubra.create_margin_order(symbol="BTCUSDT",
 print(f"Buy Order Result: {buy_order}")
 ```
 
-### Stop `ubra` after usage to avoid memory leaks
+## Stop `ubra` after usage to avoid memory leaks
 
 ```
 ubra.stop_manager()
