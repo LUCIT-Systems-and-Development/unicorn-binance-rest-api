@@ -1,9 +1,6 @@
 name: Build and Publish
 on:
   workflow_dispatch:
-permissions:
-  contents: write
-  discussions: write
 
 jobs:
   build_wheels:
@@ -52,6 +49,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: pypi
     permissions:
+      contents: write
+      discussions: write
       id-token: write
     steps:
       - uses: actions/download-artifact@v3
