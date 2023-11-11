@@ -41,7 +41,7 @@ To run modules of the *UNICORN Binance Suite* you need a
 
 ## Receive Data from Binance REST API Endpoints
 
-### Initiate the manager
+### Initiate `BinanceRestApiManager()`
 ```
 from unicorn_binance_rest_api.manager import BinanceRestApiManager
 
@@ -80,7 +80,7 @@ logging.getLogger("unicorn_binance_rest_api")
 ```
 
 ## Send data to Binance REST API Endpoints
-### Initiate the manager
+### Initiate `BinanceRestApiManager()`
 
 ```
 ubra = BinanceRestApiManager(api_key="YOUR_BINANCE_API_KEY", 
