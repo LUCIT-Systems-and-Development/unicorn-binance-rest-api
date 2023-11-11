@@ -73,4 +73,3 @@ jobs:
           name: unicorn-binance-rest-api
           prerelease: false
           tag_name: 2.0.2
-          token: ${{ secrets.RELEASE_TOKEN }}

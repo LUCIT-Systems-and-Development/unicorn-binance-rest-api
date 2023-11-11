@@ -68,6 +68,12 @@ https://github.com/binance-us/binance-official-api-docs/blob/master/rest-api.md#
 print(f"Used weight: {ubra.get_used_weight()}")
 ```
 
+### Stop `ubra` after usage to avoid memory leaks
+
+```
+ubra.stop_manager()
+```
+
 ### Get the right [logger](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_logging.py):
 ```
 logging.getLogger("unicorn_binance_rest_api")
@@ -90,6 +96,12 @@ buy_order = ubra.create_margin_order(symbol="BTCUSDT",
                                      type="MARKET",
                                      quoteOrderQty=100)
 print(f"Buy Order Result: {buy_order}")
+```
+
+### Stop `ubra` after usage to avoid memory leaks
+
+```
+ubra.stop_manager()
 ```
 
 ## Description
