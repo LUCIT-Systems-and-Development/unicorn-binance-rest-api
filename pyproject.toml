@@ -27,6 +27,18 @@ python = ">=3.7.0"
 Cython = "*"
 requests = "*"
 simplejson = "*"
+certifi = "*"
+colorama = "*"
+cryptography = "*"
+Cython = "*"
+dateparser = "*"
+lucit-licensing-python = "*"
+pyopenssl = "*"
+pysocks = "*"
+requests = "*"
+regex = "*"
+service-identity = "*"
+ujson = "*"
 
 [tool.poetry.dev-dependencies]
 
