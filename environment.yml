@@ -17,7 +17,7 @@ dependencies:
   - pysocks
   - requests
   - regex
-  - service-identity
   - ujson
   - pip:
+    - service-identity
     - requests[socks]
