@@ -94,7 +94,9 @@ jobs:
           sed -i 's/^build:$/build:\n  noarch: python/' meta.yaml
 
       - name: "conda search lucit::lucit-licensing-python"
-        run: conda search lucit::lucit-licensing-python
+        run: |
+          conda config --show channels
+          conda search lucit::lucit-licensing-python
 
       - name: Build noarch Conda package
         run: |
