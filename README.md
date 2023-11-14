@@ -204,7 +204,11 @@ For optimal compatibility and performance, it is recommended to source the neces
 [`conda-forge` channel](https://anaconda.org/conda-forge). 
 
 #### Installation
-`conda install -c lucit unicorn-binance-rest-api`
+```
+conda config --add channels conda-forge
+conda config --add channels lucit
+conda install -c lucit unicorn-binance-rest-api
+```
 
 #### Update
 `conda update -c lucit unicorn-binance-rest-api`
