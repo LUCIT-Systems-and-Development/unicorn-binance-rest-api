@@ -12,7 +12,7 @@ dependencies:
   - cryptography
   - cython
   - dateparser
-  - lucit-licensing-python
+  - lucit::lucit-licensing-python
   - pyopenssl
   - pysocks
   - requests
