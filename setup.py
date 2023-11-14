@@ -10,7 +10,7 @@
 # PyPI: https://pypi.org/project/unicorn-binance-rest-api
 #
 # License: LSOSL - LUCIT Synergetic Open Source License
-# https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/main/LICENSE
+# https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/LICENSE
 #
 # Author: LUCIT Systems and Development
 #

@@ -10,6 +10,9 @@
 # PyPI: https://pypi.org/project/lucit-licensing-python
 # LUCIT Online Shop: https://shop.lucit.services/software
 #
+# License: LSOSL - LUCIT Synergetic Open Source License
+# https://github.com/LUCIT-Systems-and-Development/lucit-licensing-python/blob/master/LICENSE
+#
 # Author: LUCIT Systems and Development
 #
 # Copyright (c) 2021-2023, LUCIT Systems and Development (https://www.lucit.tech)

@@ -3,7 +3,7 @@ name: Build and Publish Anaconda
 on:
   workflow_dispatch:
     branches:
-      - main
+      - master
 
 jobs:
   build_conda_packages:

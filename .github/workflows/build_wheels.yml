@@ -3,7 +3,7 @@ name: Build and Publish GH+PyPi
 on:
   workflow_dispatch:
     branches:
-      - main
+      - master
 
 jobs:
   build_wheels:
@@ -58,7 +58,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           body: |
-            Please read the [CHANGELOG](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/main/CHANGELOG.md) for further information.
+            Please read the [CHANGELOG](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/CHANGELOG.md) for further information.
           discussion_category_name: releases
           draft: false
           files: | 
