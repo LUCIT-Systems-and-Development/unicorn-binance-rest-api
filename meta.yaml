@@ -23,6 +23,7 @@ requirements:
     - cryptography
     - cython
     - dateparser
+    - lucit-licensing-python
     - pyopenssl
     - PySocks
     - regex
@@ -37,6 +38,7 @@ requirements:
     - cryptography
     - cython
     - dateparser
+    - lucit-licensing-python
     - pyopenssl
     - PySocks
     - regex

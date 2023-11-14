@@ -1,7 +1,8 @@
 # Changes must also be made in the following files:
 # ./environment.yml
+# ./meta.yaml
+# ./pyproject.toml
 # ./setup.py
-# https://github.com/conda-forge/unicorn-binance-rest-api-feedstock/blob/main/recipe/meta.yaml
 
 certifi
 colorama
