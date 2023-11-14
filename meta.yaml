@@ -15,17 +15,6 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
-    - certifi
-    - colorama
-    - cryptography
-    - dateparser
-    - pyopenssl
-    - PySocks
-    - regex
-    - requests
-    - requests  # [socks]
-    - service_identity
-    - ujson
   host:
     - pip
     - python

@@ -34,5 +34,7 @@ simplejson = "*"
 requires = ["setuptools", "wheel", "Cython", "pip"]
 build-backend = "setuptools.build_meta"
 
+[tool.poetry.scripts]
+
 [tool.poetry.package_data]
 unicorn_binance_rest_api = ["*.so", "*.dll"]
