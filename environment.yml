@@ -6,18 +6,18 @@ channels:
   - defaults
 
 dependencies:
-- python>=3.7
-- pip:
+  - python>=3.7
   - certifi
   - colorama
   - cryptography
-  - Cython
+  - cython
   - dateparser
   - lucit::lucit-licensing-python
-  - pyOpenSSL
-  - PySocks
+  - pyopenssl
+  - pysocks
   - requests
-  - requests[socks]
   - regex
   - service-identity
   - ujson
+  - pip:
+    - requests[socks]
