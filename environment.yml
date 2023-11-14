@@ -13,6 +13,7 @@ dependencies:
   - cython
   - dateparser
   - lucit::lucit-licensing-python
+  - importlib-metadata  # [py<38]
   - pyopenssl
   - pysocks
   - requests
