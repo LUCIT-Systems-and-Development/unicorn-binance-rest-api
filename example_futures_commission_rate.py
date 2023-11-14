@@ -7,11 +7,12 @@
 # Project website: https://www.lucit.tech/unicorn-binance-rest-api.html
 # Github: https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api
 # Documentation: https://unicorn-binance-rest-api.docs.lucit.tech/
-# PyPI: https://pypi.org/project/unicorn-binance-rest-api/
+# PyPI: https://pypi.org/project/lucit-licensing-python
+# LUCIT Online Shop: https://shop.lucit.services/software
 #
 # Author: LUCIT Systems and Development
 #
-# Copyright (c) 2021-2023, LUCIT Systems and Development (https://www.lucit.tech) and Oliver Zehentleitner
+# Copyright (c) 2021-2023, LUCIT Systems and Development (https://www.lucit.tech)
 # All rights reserved.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a

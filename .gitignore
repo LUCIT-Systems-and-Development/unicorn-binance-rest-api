@@ -1,5 +1,7 @@
 .idea
 
+dev/unicorn_binance_rest_api
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

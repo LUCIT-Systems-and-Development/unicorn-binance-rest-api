@@ -53,13 +53,13 @@ setup(
          'unicorn_binance_rest_api/manager.py'],
         annotate=False),
      name='unicorn-binance-rest-api',
-     version="2.0.4",
+     version="2.0.5",
      author="LUCIT Systems and Development",
      author_email='info@lucit.tech',
      url="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api",
      description="An unofficial Python API to use the Binance REST API`s (com+testnet, com-margin+testnet, "
                  "com-isolated_margin+testnet, com-futures+testnet, us, tr) in a easy, fast, flexible, robust and "
-                 "fully-featured way. ",
+                 "fully-featured way.",
      long_description=long_description,
      long_description_content_type="text/markdown",
      license='LSOSL - LUCIT Synergetic Open Source License',

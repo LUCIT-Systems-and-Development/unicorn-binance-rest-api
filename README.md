@@ -3,18 +3,18 @@
 [![Github](https://img.shields.io/badge/source-github-cbc2c8)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api)
 [![GitHub Release](https://img.shields.io/github/release/LUCIT-Systems-and-Development/unicorn-binance-rest-api.svg?label=github)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases)
 [![GitHub Downloads](https://img.shields.io/github/downloads/LUCIT-Systems-and-Development/unicorn-binance-rest-api/total?color=blue)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases)
-[![Conda Release](https://img.shields.io/conda/vn/conda-forge/unicorn-binance-rest-api.svg?color=blue)](https://anaconda.org/conda-forge/unicorn-binance-rest-api)
-[![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/unicorn-binance-rest-api.svg?color=blue)](https://anaconda.org/conda-forge/unicorn-binance-rest-api)
+[![Anaconda Release](https://anaconda.org/lucit/unicorn-binance-rest-api/badges/version.svg)](https://anaconda.org/lucit/unicorn-binance-rest-api)
+[![Anaconda Downloads](https://anaconda.org/lucit/unicorn-binance-rest-api/badges/downloads.svg)](https://anaconda.org/lucit/unicorn-binance-rest-api)
 [![PyPi Release](https://img.shields.io/pypi/v/unicorn-binance-rest-api?color=blue)](https://pypi.org/project/unicorn-binance-rest-api/)
 [![PyPi Downloads](https://pepy.tech/badge/unicorn-binance-rest-api)](https://pepy.tech/project/unicorn-binance-rest-api)
 [![License](https://img.shields.io/badge/license-LSOSL-blue)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/LICENSE)
 [![Supported Python Version](https://img.shields.io/pypi/pyversions/unicorn_binance_rest_api.svg)](https://www.python.org/downloads/)
 [![PyPI - Status](https://img.shields.io/pypi/status/unicorn_binance_rest_api.svg)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues)
 [![CodeQL](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/codeql-analysis.yml)
-[![Unit Tests](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/unit-tests.yml)
-[![Build and Publish](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/build_wheels.yml/badge.svg)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/build_wheels.yml)
-[![Azure Pipelines](https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/unicorn-binance-rest-api-feedstock?branchName=main)](https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15697&branchName=main)
 [![codecov](https://codecov.io/gh/LUCIT-Systems-and-Development/unicorn-binance-rest-api/branch/master/graph/badge.svg?token=5I03AZ3F5S)](https://codecov.io/gh/LUCIT-Systems-and-Development/unicorn-binance-rest-api)
+[![Unittests](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/unit-tests.yml)
+[![Build and Publish GH+PyPi](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/build_wheels.yml/badge.svg)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/build_wheels.yml)
+[![Build and Publish Anaconda](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/build_conda.yml/badge.svg)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/build_conda.yml)
 [![Read the Docs](https://img.shields.io/badge/read-%20docs-yellow)](https://unicorn-binance-rest-api.docs.lucit.tech/)
 [![Read How To`s](https://img.shields.io/badge/read-%20howto-yellow)](https://medium.lucit.tech)
 [![Telegram](https://img.shields.io/badge/chat-telegram-41ab8c)](https://t.me/unicorndevs)
@@ -175,12 +175,39 @@ The current dependencies are listed
 If you run into errors during the installation take a look [here](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/wiki/Installation).
 
 ### A Cython binary, PyPy or source code based CPython wheel of the latest version with `pip` from [PyPI](https://pypi.org/project/unicorn-binance-rest-api/)
+Our [Cython](https://cython.org/) and [PyPy](https://www.pypy.org/) Wheels are available on [PyPI](https://pypi.org/), 
+these wheels offer significant advantages for Python developers:
+- ***Performance Boost with Cython Wheels:*** 
+  Cython is a programming language that supplements Python with static typing and C-level performance. By compiling 
+  Python code into C, Cython Wheels can significantly enhance the execution speed of Python code, especially in 
+  computationally intensive tasks. This means faster runtimes and more efficient processing for users of our package. 
+- ***PyPy Wheels for Enhanced Efficiency:*** 
+  PyPy is an alternative Python interpreter known for its speed and efficiency. It uses Just-In-Time (JIT) compilation, 
+  which can dramatically improve the performance of Python code. Our PyPy Wheels are tailored for compatibility with 
+  PyPy, allowing users to leverage this speed advantage seamlessly.
+
+Both Cython and PyPy Wheels on PyPI make the installation process simpler and more straightforward. They ensure that 
+you get the optimized version of our package with minimal setup, allowing you to focus on development rather than 
+configuration.
+
+#### Installation
+`pip install unicorn-binance-rest-api`
+
+#### Update
 `pip install unicorn-binance-rest-api --upgrade`
 
-### A conda package of the latest release with `conda` from [Anaconda](https://anaconda.org/conda-forge/unicorn-binance-rest-api) via [CONDA-FORGE](https://conda-forge.org).
-`conda install -c conda-forge unicorn-binance-rest-api`
+### A Conda Package of the latest version with `conda` from [Anaconda](https://anaconda.org/lucit)
+The `unicorn-binance-rest-api` package is available with [Conda](https://docs.conda.io/en/latest/) through the 
+[`lucit` channel](https://anaconda.org/lucit). 
 
-`conda update -c conda-forge unicorn-binance-rest-api`
+For optimal compatibility and performance, it is recommended to source the necessary dependencies from the 
+[`conda-forge` channel](https://anaconda.org/conda-forge). 
+
+#### Installation
+`conda install -c lucit unicorn-binance-rest-api`
+
+#### Update
+`conda update -c lucit unicorn-binance-rest-api`
 
 ### From source of the latest release with PIP from [Github](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api)
 #### Linux, macOS, ...
@@ -189,10 +216,10 @@ Run in bash:
 `pip install https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/$(curl -s https://api.github.com/repos/lucit-systems-and-development/unicorn-binance-rest-api/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")').tar.gz --upgrade`
 
 #### Windows
-Use the below command with the version (such as 2.0.2) you determined 
+Use the below command with the version (such as 2.0.5) you determined 
 [here](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases/latest):
 
-`pip install https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/2.0.2.tar.gz --upgrade`
+`pip install https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/2.0.5.tar.gz --upgrade`
 
 ### From the latest source (dev-stage) with PIP from [Github](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api)
 This is not a release version and can not be considered to be stable!
@@ -205,6 +232,7 @@ or the [current master branch](https://github.com/LUCIT-Systems-and-Development/
  and use:
  
 - ./environment.yml
+- ./meta.yaml
 - ./pyproject.toml
 - ./requirements.txt
 - ./setup.py
@@ -253,7 +281,10 @@ the repository on [GitHub](https://github.com/LUCIT-Systems-and-Development/unic
 with using 
 [`is_update_availabe()`](https://unicorn-binance-rest-api.docs.lucit.tech/unicorn_binance_rest_api.html?highlight=is_update_availabe#unicorn_binance_rest_api.manager.BinanceRestApiManager.is_update_availabe).
 
-Follow us on [Twitter](https://twitter.com/LUCIT_SysDev) or on [Facebook](https://www.facebook.com/lucit.systems.and.development) for general news about the [unicorn-binance-suite](https://www.lucit.tech/unicorn-binance-suite.html)!
+Follow us on [GitHub](https://github.com/LUCIT-Systems-and-Development), [Medium](https://medium.lucit.tech/),
+[YouTube](https://www.youtube.com/@LUCIT_Systems_and_Development), 
+[LinkedIn](https://www.linkedin.com/company/lucit-systems-and-development), 
+[X](https://twitter.com/LUCIT_SysDev) or [Facebook](https://www.facebook.com/lucit.systems.and.development)!
 
 To receive news (like inspection windows/maintenance) about the Binance API`s subscribe to their telegram groups: 
 

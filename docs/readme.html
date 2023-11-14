@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>UNICORN Binance REST API &#8212; unicorn-binance-rest-api 2.0.4 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNICORN Binance REST API &#8212; unicorn-binance-rest-api 2.0.5 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
     <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?v=fdf8e9ae" />
@@ -85,8 +85,16 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#installation-and-upgrade">Installation and Upgrade</a><ul>
-<li><a class="reference internal" href="#a-cython-binary-pypy-or-source-code-based-cpython-wheel-of-the-latest-version-with-pip-from-pypi">A Cython binary, PyPy or source code based CPython wheel of the latest version with <code class="docutils literal notranslate"><span class="pre">pip</span></code> from PyPI</a></li>
-<li><a class="reference internal" href="#a-conda-package-of-the-latest-release-with-conda-from-anaconda-via-conda-forge">A conda package of the latest release with <code class="docutils literal notranslate"><span class="pre">conda</span></code> from Anaconda via CONDA-FORGE.</a></li>
+<li><a class="reference internal" href="#a-cython-binary-pypy-or-source-code-based-cpython-wheel-of-the-latest-version-with-pip-from-pypi">A Cython binary, PyPy or source code based CPython wheel of the latest version with <code class="docutils literal notranslate"><span class="pre">pip</span></code> from PyPI</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#update">Update</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#a-conda-package-of-the-latest-version-with-conda-from-anaconda">A Conda Package of the latest version with <code class="docutils literal notranslate"><span class="pre">conda</span></code> from Anaconda</a><ul>
+<li><a class="reference internal" href="#id2">Installation</a></li>
+<li><a class="reference internal" href="#id3">Update</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#from-source-of-the-latest-release-with-pip-from-github">From source of the latest release with PIP from Github</a><ul>
 <li><a class="reference internal" href="#linux-macos">Linux, macOS, …</a></li>
 <li><a class="reference internal" href="#windows">Windows</a></li>
@@ -231,18 +239,18 @@
 <p><a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api"><img alt="Github" src="https://img.shields.io/badge/source-github-cbc2c8" /></a>
 <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases"><img alt="GitHub Release" src="https://img.shields.io/github/release/LUCIT-Systems-and-Development/unicorn-binance-rest-api.svg?label=github" /></a>
 <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases"><img alt="GitHub Downloads" src="https://img.shields.io/github/downloads/LUCIT-Systems-and-Development/unicorn-binance-rest-api/total?color=blue" /></a>
-<a class="reference external" href="https://anaconda.org/conda-forge/unicorn-binance-rest-api"><img alt="Conda Release" src="https://img.shields.io/conda/vn/conda-forge/unicorn-binance-rest-api.svg?color=blue" /></a>
-<a class="reference external" href="https://anaconda.org/conda-forge/unicorn-binance-rest-api"><img alt="Conda Downloads" src="https://img.shields.io/conda/dn/conda-forge/unicorn-binance-rest-api.svg?color=blue" /></a>
+<a class="reference external" href="https://anaconda.org/lucit/unicorn-binance-rest-api"><img alt="Anaconda Release" src="https://anaconda.org/lucit/unicorn-binance-rest-api/badges/version.svg" /></a>
+<a class="reference external" href="https://anaconda.org/lucit/unicorn-binance-rest-api"><img alt="Anaconda Downloads" src="https://anaconda.org/lucit/unicorn-binance-rest-api/badges/downloads.svg" /></a>
 <a class="reference external" href="https://pypi.org/project/unicorn-binance-rest-api/"><img alt="PyPi Release" src="https://img.shields.io/pypi/v/unicorn-binance-rest-api?color=blue" /></a>
 <a class="reference external" href="https://pepy.tech/project/unicorn-binance-rest-api"><img alt="PyPi Downloads" src="https://pepy.tech/badge/unicorn-binance-rest-api" /></a>
 <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/badge/license-LSOSL-blue" /></a>
 <a class="reference external" href="https://www.python.org/downloads/"><img alt="Supported Python Version" src="https://img.shields.io/pypi/pyversions/unicorn_binance_rest_api.svg" /></a>
 <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues"><img alt="PyPI - Status" src="https://img.shields.io/pypi/status/unicorn_binance_rest_api.svg" /></a>
 <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/codeql-analysis.yml"><img alt="CodeQL" src="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/codeql-analysis.yml/badge.svg" /></a>
-<a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/unit-tests.yml"><img alt="Unit Tests" src="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/unit-tests.yml/badge.svg" /></a>
-<a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/build_wheels.yml"><img alt="Build and Publish" src="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/build_wheels.yml/badge.svg" /></a>
-<a class="reference external" href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15697&amp;amp;branchName=main"><img alt="Azure Pipelines" src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/unicorn-binance-rest-api-feedstock?branchName=main" /></a>
 <a class="reference external" href="https://codecov.io/gh/LUCIT-Systems-and-Development/unicorn-binance-rest-api"><img alt="codecov" src="https://codecov.io/gh/LUCIT-Systems-and-Development/unicorn-binance-rest-api/branch/master/graph/badge.svg?token=5I03AZ3F5S" /></a>
+<a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/unit-tests.yml"><img alt="Unittests" src="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/unit-tests.yml/badge.svg" /></a>
+<a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/build_wheels.yml"><img alt="Build and Publish GH+PyPi" src="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/build_wheels.yml/badge.svg" /></a>
+<a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/build_conda.yml"><img alt="Build and Publish Anaconda" src="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/build_conda.yml/badge.svg" /></a>
 <a class="reference external" href="https://unicorn-binance-rest-api.docs.lucit.tech/"><img alt="Read the Docs" src="https://img.shields.io/badge/read-%20docs-yellow" /></a>
 <a class="reference external" href="https://medium.lucit.tech"><img alt="Read How To`s" src="https://img.shields.io/badge/read-%20howto-yellow" /></a>
 <a class="reference external" href="https://t.me/unicorndevs"><img alt="Telegram" src="https://img.shields.io/badge/chat-telegram-41ab8c" /></a>
@@ -442,12 +450,44 @@ processing.</p>
 <p>If you run into errors during the installation take a look <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/wiki/Installation">here</a>.</p>
 <section id="a-cython-binary-pypy-or-source-code-based-cpython-wheel-of-the-latest-version-with-pip-from-pypi">
 <h3>A Cython binary, PyPy or source code based CPython wheel of the latest version with <code class="docutils literal notranslate"><span class="pre">pip</span></code> from <a class="reference external" href="https://pypi.org/project/unicorn-binance-rest-api/">PyPI</a><a class="headerlink" href="#a-cython-binary-pypy-or-source-code-based-cpython-wheel-of-the-latest-version-with-pip-from-pypi" title="Link to this heading">¶</a></h3>
+<p>Our <a class="reference external" href="https://cython.org/">Cython</a> and <a class="reference external" href="https://www.pypy.org/">PyPy</a> Wheels are available on <a class="reference external" href="https://pypi.org/">PyPI</a>,
+these wheels offer significant advantages for Python developers:</p>
+<ul class="simple">
+<li><p><em><strong>Performance Boost with Cython Wheels:</strong></em>
+Cython is a programming language that supplements Python with static typing and C-level performance. By compiling
+Python code into C, Cython Wheels can significantly enhance the execution speed of Python code, especially in
+computationally intensive tasks. This means faster runtimes and more efficient processing for users of our package.</p></li>
+<li><p><em><strong>PyPy Wheels for Enhanced Efficiency:</strong></em>
+PyPy is an alternative Python interpreter known for its speed and efficiency. It uses Just-In-Time (JIT) compilation,
+which can dramatically improve the performance of Python code. Our PyPy Wheels are tailored for compatibility with
+PyPy, allowing users to leverage this speed advantage seamlessly.</p></li>
+</ul>
+<p>Both Cython and PyPy Wheels on PyPI make the installation process simpler and more straightforward. They ensure that
+you get the optimized version of our package with minimal setup, allowing you to focus on development rather than
+configuration.</p>
+<section id="installation">
+<h4>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">unicorn-binance-rest-api</span></code></p>
+</section>
+<section id="update">
+<h4>Update<a class="headerlink" href="#update" title="Link to this heading">¶</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">unicorn-binance-rest-api</span> <span class="pre">--upgrade</span></code></p>
 </section>
-<section id="a-conda-package-of-the-latest-release-with-conda-from-anaconda-via-conda-forge">
-<h3>A conda package of the latest release with <code class="docutils literal notranslate"><span class="pre">conda</span></code> from <a class="reference external" href="https://anaconda.org/conda-forge/unicorn-binance-rest-api">Anaconda</a> via <a class="reference external" href="https://conda-forge.org">CONDA-FORGE</a>.<a class="headerlink" href="#a-conda-package-of-the-latest-release-with-conda-from-anaconda-via-conda-forge" title="Link to this heading">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">unicorn-binance-rest-api</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">update</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">unicorn-binance-rest-api</span></code></p>
+</section>
+<section id="a-conda-package-of-the-latest-version-with-conda-from-anaconda">
+<h3>A Conda Package of the latest version with <code class="docutils literal notranslate"><span class="pre">conda</span></code> from <a class="reference external" href="https://anaconda.org/lucit">Anaconda</a><a class="headerlink" href="#a-conda-package-of-the-latest-version-with-conda-from-anaconda" title="Link to this heading">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">unicorn-binance-rest-api</span></code> package is available with <a class="reference external" href="https://docs.conda.io/en/latest/">Conda</a> through the
+<a class="reference external" href="https://anaconda.org/lucit"><code class="docutils literal notranslate"><span class="pre">lucit</span></code> channel</a>.</p>
+<p>For optimal compatibility and performance, it is recommended to source the necessary dependencies from the
+<a class="reference external" href="https://anaconda.org/conda-forge"><code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> channel</a>.</p>
+<section id="id2">
+<h4>Installation<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">lucit</span> <span class="pre">unicorn-binance-rest-api</span></code></p>
+</section>
+<section id="id3">
+<h4>Update<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">update</span> <span class="pre">-c</span> <span class="pre">lucit</span> <span class="pre">unicorn-binance-rest-api</span></code></p>
+</section>
 </section>
 <section id="from-source-of-the-latest-release-with-pip-from-github">
 <h3>From source of the latest release with PIP from <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api">Github</a><a class="headerlink" href="#from-source-of-the-latest-release-with-pip-from-github" title="Link to this heading">¶</a></h3>
@@ -458,9 +498,9 @@ processing.</p>
 </section>
 <section id="windows">
 <h4>Windows<a class="headerlink" href="#windows" title="Link to this heading">¶</a></h4>
-<p>Use the below command with the version (such as 2.0.2) you determined
+<p>Use the below command with the version (such as 2.0.5) you determined
 <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases/latest">here</a>:</p>
-<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/2.0.2.tar.gz</span> <span class="pre">--upgrade</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/2.0.5.tar.gz</span> <span class="pre">--upgrade</span></code></p>
 </section>
 </section>
 <section id="from-the-latest-source-dev-stage-with-pip-from-github">
@@ -475,6 +515,7 @@ or the <a class="reference external" href="https://github.com/LUCIT-Systems-and-
 and use:</p>
 <ul class="simple">
 <li><p>./environment.yml</p></li>
+<li><p>./meta.yaml</p></li>
 <li><p>./pyproject.toml</p></li>
 <li><p>./requirements.txt</p></li>
 <li><p>./setup.py</p></li>
@@ -540,7 +581,10 @@ the repository on <a class="reference external" href="https://github.com/LUCIT-S
 <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_version_of_this_package.py">own script</a>
 with using
 <a class="reference external" href="https://unicorn-binance-rest-api.docs.lucit.tech/unicorn_binance_rest_api.html?highlight=is_update_availabe#unicorn_binance_rest_api.manager.BinanceRestApiManager.is_update_availabe"><code class="docutils literal notranslate"><span class="pre">is_update_availabe()</span></code></a>.</p>
-<p>Follow us on <a class="reference external" href="https://twitter.com/LUCIT_SysDev">Twitter</a> or on <a class="reference external" href="https://www.facebook.com/lucit.systems.and.development">Facebook</a> for general news about the <a class="reference external" href="https://www.lucit.tech/unicorn-binance-suite.html">unicorn-binance-suite</a>!</p>
+<p>Follow us on <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development">GitHub</a>, <a class="reference external" href="https://medium.lucit.tech/">Medium</a>,
+<a class="reference external" href="https://www.youtube.com/&#64;LUCIT_Systems_and_Development">YouTube</a>,
+<a class="reference external" href="https://www.linkedin.com/company/lucit-systems-and-development">LinkedIn</a>,
+<a class="reference external" href="https://twitter.com/LUCIT_SysDev">X</a> or <a class="reference external" href="https://www.facebook.com/lucit.systems.and.development">Facebook</a>!</p>
 <p>To receive news (like inspection windows/maintenance) about the Binance API`s subscribe to their telegram groups:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://t.me/binance_api_announcements">https://t.me/binance_api_announcements</a></p></li>
@@ -650,8 +694,16 @@ companies from the US analyze binance.com market data - as long as they do not t
 </ul>
 </li>
 <li><a class="reference internal" href="#installation-and-upgrade">Installation and Upgrade</a><ul>
-<li><a class="reference internal" href="#a-cython-binary-pypy-or-source-code-based-cpython-wheel-of-the-latest-version-with-pip-from-pypi">A Cython binary, PyPy or source code based CPython wheel of the latest version with <code class="docutils literal notranslate"><span class="pre">pip</span></code> from PyPI</a></li>
-<li><a class="reference internal" href="#a-conda-package-of-the-latest-release-with-conda-from-anaconda-via-conda-forge">A conda package of the latest release with <code class="docutils literal notranslate"><span class="pre">conda</span></code> from Anaconda via CONDA-FORGE.</a></li>
+<li><a class="reference internal" href="#a-cython-binary-pypy-or-source-code-based-cpython-wheel-of-the-latest-version-with-pip-from-pypi">A Cython binary, PyPy or source code based CPython wheel of the latest version with <code class="docutils literal notranslate"><span class="pre">pip</span></code> from PyPI</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#update">Update</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#a-conda-package-of-the-latest-version-with-conda-from-anaconda">A Conda Package of the latest version with <code class="docutils literal notranslate"><span class="pre">conda</span></code> from Anaconda</a><ul>
+<li><a class="reference internal" href="#id2">Installation</a></li>
+<li><a class="reference internal" href="#id3">Update</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#from-source-of-the-latest-release-with-pip-from-github">From source of the latest release with PIP from Github</a><ul>
 <li><a class="reference internal" href="#linux-macos">Linux, macOS, …</a></li>
 <li><a class="reference internal" href="#windows">Windows</a></li>
@@ -789,7 +841,7 @@ companies from the US analyze binance.com market data - as long as they do not t
     <div class="footer">
     &copy; <a href="/license.html">Copyright</a> 2023-2023, LUCIT Systems and Development. All Rights Reserved..
     See <a href="/license.html">License</a> for more information.<br />
-    Last updated on Nov 12 2023 at 00:04 (CET).
+    Last updated on Nov 14 2023 at 12:33 (CET).
     <a href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues/new/choose">Found a bug</a>?
     <br />
     Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.

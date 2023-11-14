@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # -*- coding: utf-8 -*-
 #
-# File: pypi/create_wheel.sh
+# File: sphinx/create_docs.sh
 #
 # Part of ‘UNICORN Binance REST API’
 # Project website: https://www.lucit.tech/unicorn-binance-rest-api.html
@@ -37,28 +37,25 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 # IN THE SOFTWARE.
 
+rm dev/sphinx/source/changelog.md
+rm dev/sphinx/source/code_of_conduct.md
+rm dev/sphinx/source/contributing.md
+rm dev/sphinx/source/license.rst
+rm dev/sphinx/source/readme.md
+rm dev/sphinx/source/security.md
 
-security-check() {
-    echo -n "Did you change the version in \`build_wheels.yml\`, \`CHANGELOG.md\`, \`sphinx/source/conf.py\`, \`setup.py\`, \`pyproject.toml\` and \`/manager.py\`? [yes|NO] "
-    local SURE
-    read SURE
-    if [ "$SURE" != "yes" ]; then
-        exit 1
-    fi
-    echo "https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/build_wheels.yml"
-    echo "Refresh conda-forge recipe!"
-}
+cp CHANGELOG.md dev/sphinx/source/changelog.md
+cp CODE_OF_CONDUCT.md dev/sphinx/source/code_of_conduct.md
+cp CONTRIBUTING.md dev/sphinx/source/contributing.md
+cp LICENSE dev/sphinx/source/license.rst
+cp README.md dev/sphinx/source/readme.md
+cp SECURITY.md dev/sphinx/source/security.md
 
-compile-check() {
-    echo -n "Compile local? [yes|NO] "
-    local SURE
-    read SURE
-    if [ "$SURE" != "yes" ]; then
-        exit 1
-    fi
-    echo "ok, lets go ..."
-    python3 setup.py bdist_wheel sdist
-}
+mkdir -vp dev/sphinx/build
 
-security-check
-compile-check
+cd dev/sphinx
+rm build/html
+ln -s ../../../docs build/html
+make html -d
+echo "Creating CNAME file for GitHub."
+echo "unicorn-binance-rest-api.docs.lucit.tech" >> build/html/CNAME

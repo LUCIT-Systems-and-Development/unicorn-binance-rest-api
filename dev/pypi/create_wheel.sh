@@ -1,17 +1,21 @@
-#!/usr/bin/env python3
+#!/usr/bin/env bash
 # -*- coding: utf-8 -*-
 #
-# File: example_exchange_endpoints.py
+# File: pypi/create_wheel.sh
 #
 # Part of ‘UNICORN Binance REST API’
 # Project website: https://www.lucit.tech/unicorn-binance-rest-api.html
 # Github: https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api
-# Documentation: https://unicorn-binance-rest-api.docs.lucit.tech/
-# PyPI: https://pypi.org/project/unicorn-binance-rest-api/
+# Documentation: https://unicorn-binance-rest-api.docs.lucit.tech
+# PyPI: https://pypi.org/project/unicorn-binance-rest-api
+#
+# License: LSOSL - LUCIT Synergetic Open Source License
+# https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/main/LICENSE
 #
 # Author: LUCIT Systems and Development
 #
-# Copyright (c) 2021-2023, LUCIT Systems and Development (https://www.lucit.tech) and Oliver Zehentleitner
+# Copyright (c) 2017-2021, MIT License, Sam McHardy (https://github.com/sammchardy)
+# Copyright (c) 2021-2023, LSOSL License, LUCIT Systems and Development (https://www.lucit.tech)
 # All rights reserved.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
@@ -33,30 +37,28 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 # IN THE SOFTWARE.
 
-from unicorn_binance_rest_api.manager import BinanceRestApiManager
-from lucit_licensing_python.exceptions import NoValidatedLucitLicense
-import logging
-import os
 
-# https://docs.python.org/3/library/logging.html#logging-levels
-logging.getLogger("unicorn_binance_rest_api")
-logging.basicConfig(level=logging.DEBUG,
-                    filename=os.path.basename(__file__) + '.log',
-                    format="{asctime} [{levelname:8}] {process} {thread} {module}: {message}",
-                    style="{")
+security-check() {
+    echo -n "Did you change the version in \`CHANGELOG.md\` and used \`dev/set_version.py\`? [yes|NO] "
+    local SURE
+    read SURE
+    if [ "$SURE" != "yes" ]; then
+        exit 1
+    fi
+    echo "https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/build_wheels.yml"
+    echo "https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/build_conda.yml"
+}
 
-api_key = ""
-api_secret = ""
+compile-check() {
+    echo -n "Compile local? [yes|NO] "
+    local SURE
+    read SURE
+    if [ "$SURE" != "yes" ]; then
+        exit 1
+    fi
+    echo "ok, lets go ..."
+    python3 setup.py bdist_wheel sdist
+}
 
-try:
-    # To use this library you need a valid UNICORN Binance Suite License:
-    # https://medium.lucit.tech/87b0088124a8
-    ubra = BinanceRestApiManager(api_key, api_secret, exchange="binance.com-margin", tld="us", debug=False,
-                                 lucit_license_profile="LUCIT")
-except NoValidatedLucitLicense as error_msg:
-    print(f"ERROR_L_1: {error_msg}")
-
-print(ubra.get_server_time())
-print(ubra.get_ticker(symbol="BNBUSDT"))
-
-ubra.stop_manager()
+security-check
+compile-check
