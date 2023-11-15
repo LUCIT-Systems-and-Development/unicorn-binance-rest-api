@@ -12,7 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## 2.0.5.dev (development stage/unreleased/unstable)
 
 ## 2.0.5
-- Building conda packages and distribute them via anaconda.org/lucit
+- Building conda packages and distribute them via https://anaconda.org/lucit
 
 ## 2.0.4
 - Same as 2.0.2, error during github upload.
