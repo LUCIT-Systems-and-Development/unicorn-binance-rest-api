@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 
 cd dev
 ln -s ../unicorn_binance_rest_api

@@ -504,6 +504,23 @@ class BinanceRestApiManager(object):
             logger.critical(info)
             raise AlreadyStoppedError(info)
 
+        # if an api_secret and api_key are provided the request session gets reset with new settings
+        try:
+            api_key = kwargs['api_key']
+            api_secret = kwargs['api_secret']
+            del kwargs['api_key']
+            del kwargs['api_secret']
+        except KeyError:
+            api_key = None
+            api_secret = None
+        if api_key is not None and api_secret is not None:
+            logger.debug(f"manager._request() - Resetting request session.")
+            self.API_KEY = api_key
+            self.API_SECRET = api_secret
+            if self.session is not None:
+                self.session.close()
+            self.session = self._init_session()
+
         # set default requests timeout
         kwargs['timeout'] = 10
 
@@ -3179,7 +3196,7 @@ class BinanceRestApiManager(object):
 
     # User Stream Endpoints
 
-    def stream_get_listen_key(self, output="value", throw_exception=True):
+    def stream_get_listen_key(self, output="value", throw_exception=True, **kwargs):
         """Start a new user data stream and return the listen key
         If a stream already exists it should return the same key.
         If the stream becomes invalid a new key is returned.
@@ -3205,7 +3222,7 @@ class BinanceRestApiManager(object):
 
         """
         res = self._post('userDataStream', False, data={}, version=self.PRIVATE_API_VERSION,
-                         throw_exception=throw_exception)
+                         throw_exception=throw_exception, **kwargs)
         if output == "value":
             return res['listenKey']
         elif output == "raw_data":
@@ -3213,8 +3230,8 @@ class BinanceRestApiManager(object):
         else:
             return res['listenKey']
 
-    def stream_keepalive(self, listenKey, throw_exception=True):
-        """PING a user data stream to prevent a time out.
+    def stream_keepalive(self, listenKey, throw_exception=True, **kwargs):
+        """PING a user data stream to prevent a timeout.
 
         https://binance-docs.github.io/apidocs/spot/en/#keepalive-user-data-stream-user_stream
 
@@ -3236,9 +3253,9 @@ class BinanceRestApiManager(object):
             'listenKey': listenKey
         }
         return self._put('userDataStream', False, data=params, version=self.PRIVATE_API_VERSION,
-                         throw_exception=throw_exception)
+                         throw_exception=throw_exception, **kwargs)
 
-    def stream_close(self, listenKey, throw_exception=True):
+    def stream_close(self, listenKey, throw_exception=True, **kwargs):
         """Close out a user data stream.
 
         https://binance-docs.github.io/apidocs/spot/en/#close-user-data-stream-user_stream
@@ -3261,7 +3278,7 @@ class BinanceRestApiManager(object):
             'listenKey': listenKey
         }
         return self._delete('userDataStream', False, data=params, version=self.PRIVATE_API_VERSION,
-                         throw_exception=throw_exception)
+                         throw_exception=throw_exception, **kwargs)
 
     # Margin Trading Endpoints
 
@@ -4787,7 +4804,7 @@ class BinanceRestApiManager(object):
 
     # Cross-margin 
 
-    def margin_stream_get_listen_key(self, output="value", throw_exception=True):
+    def margin_stream_get_listen_key(self, output="value", throw_exception=True, **kwargs):
         """Start a new cross-margin data stream and return the listen key
         If a stream already exists it should return the same key.
         If the stream becomes invalid a new key is returned.
@@ -4812,7 +4829,8 @@ class BinanceRestApiManager(object):
         :raises: BinanceRequestException, BinanceAPIException
 
         """
-        res = self._request_margin_api('post', 'userDataStream', signed=False, data={}, throw_exception=throw_exception)
+        res = self._request_margin_api('post', 'userDataStream', signed=False, data={},
+                                       throw_exception=throw_exception, **kwargs)
         if output == "value":
             return res['listenKey']
         elif output == "raw_data":
@@ -4820,8 +4838,8 @@ class BinanceRestApiManager(object):
         else:
             return res['listenKey']
 
-    def margin_stream_keepalive(self, listenKey, throw_exception=True):
-        """PING a cross-margin data stream to prevent a time out.
+    def margin_stream_keepalive(self, listenKey, throw_exception=True, **kwargs):
+        """PING a cross-margin data stream to prevent a timeout.
 
         https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin
 
@@ -4843,9 +4861,9 @@ class BinanceRestApiManager(object):
             'listenKey': listenKey
         }
         return self._request_margin_api('put', 'userDataStream', signed=False, data=params,
-                                        throw_exception=throw_exception)
+                                        throw_exception=throw_exception, **kwargs)
 
-    def margin_stream_close(self, listenKey, throw_exception=True):
+    def margin_stream_close(self, listenKey, throw_exception=True, **kwargs):
         """Close out a cross-margin data stream.
 
         https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin
@@ -4868,11 +4886,11 @@ class BinanceRestApiManager(object):
             'listenKey': listenKey
         }
         return self._request_margin_api('delete', 'userDataStream', signed=False, data=params,
-                                        throw_exception=throw_exception)
+                                        throw_exception=throw_exception, **kwargs)
 
     # Isolated margin 
 
-    def isolated_margin_stream_get_listen_key(self, symbol, output="value", throw_exception=True):
+    def isolated_margin_stream_get_listen_key(self, symbol, output="value", throw_exception=True, **kwargs):
         """Start a new isolated margin data stream and return the listen key
         If a stream already exists it should return the same key.
         If the stream becomes invalid a new key is returned.
@@ -4904,7 +4922,7 @@ class BinanceRestApiManager(object):
             'symbol': symbol
         }
         res = self._request_margin_api('post', 'userDataStream/isolated', signed=False, data=params,
-                                       throw_exception=throw_exception)
+                                       throw_exception=throw_exception, **kwargs)
         if output == "value":
             return res['listenKey']
         elif output == "raw_data":
@@ -4912,8 +4930,8 @@ class BinanceRestApiManager(object):
         else:
             return res['listenKey']
 
-    def isolated_margin_stream_keepalive(self, symbol, listenKey, throw_exception=True):
-        """PING an isolated margin data stream to prevent a time out.
+    def isolated_margin_stream_keepalive(self, symbol, listenKey, throw_exception=True, **kwargs):
+        """PING an isolated margin data stream to prevent a timeout.
 
         https://binance-docs.github.io/apidocs/spot/en/#listen-key-isolated-margin
 
@@ -4938,9 +4956,9 @@ class BinanceRestApiManager(object):
             'listenKey': listenKey
         }
         return self._request_margin_api('put', 'userDataStream/isolated', signed=False, data=params,
-                                        throw_exception=throw_exception)
+                                        throw_exception=throw_exception, **kwargs)
 
-    def isolated_margin_stream_close(self, symbol, listenKey, throw_exception=True):
+    def isolated_margin_stream_close(self, symbol, listenKey, throw_exception=True, **kwargs):
         """Close out an isolated margin data stream.
 
         https://binance-docs.github.io/apidocs/spot/en/#listen-key-isolated-margin
@@ -4966,7 +4984,7 @@ class BinanceRestApiManager(object):
             'listenKey': listenKey
         }
         return self._request_margin_api('delete', 'userDataStream/isolated', signed=False, data=params,
-                                        throw_exception=throw_exception)
+                                        throw_exception=throw_exception, **kwargs)
 
     # Lending Endpoints
 
@@ -6417,7 +6435,7 @@ class BinanceRestApiManager(object):
         """
         return self._request_futures_api('get', 'positionSide/dual', True, data=params)
 
-    def futures_stream_get_listen_key(self, output="value", throw_exception=True):
+    def futures_stream_get_listen_key(self, output="value", throw_exception=True, **kwargs):
         """Start a new futures data stream and return the listen key
         If a stream already exists it should return the same key.
         If the stream becomes invalid a new key is returned.
@@ -6442,7 +6460,8 @@ class BinanceRestApiManager(object):
         :raises: BinanceRequestException, BinanceAPIException
 
         """
-        res = self._request_futures_api('post', 'listenKey', signed=False, data={}, throw_exception=throw_exception)
+        res = self._request_futures_api('post', 'listenKey', signed=False, data={},
+                                        throw_exception=throw_exception, **kwargs)
         if output == "value":
             return res['listenKey']
         elif output == "raw_data":
@@ -6450,8 +6469,8 @@ class BinanceRestApiManager(object):
         else:
             return res['listenKey']
 
-    def futures_stream_keepalive(self, listenKey, throw_exception=True):
-        """PING a futures data stream to prevent a time out.
+    def futures_stream_keepalive(self, listenKey, throw_exception=True, **kwargs):
+        """PING a futures data stream to prevent a timeout.
 
         https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin
 
@@ -6473,9 +6492,9 @@ class BinanceRestApiManager(object):
             'listenKey': listenKey
         }
         return self._request_futures_api('put', 'listenKey', signed=False, data=params,
-                                         throw_exception=throw_exception)
+                                         throw_exception=throw_exception, **kwargs)
 
-    def futures_stream_close(self, listenKey, throw_exception=True):
+    def futures_stream_close(self, listenKey, throw_exception=True, **kwargs):
         """Close out a futures data stream.
 
         https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin
@@ -6498,7 +6517,7 @@ class BinanceRestApiManager(object):
             'listenKey': listenKey
         }
         return self._request_futures_api('delete', 'listenKey', signed=False, data=params,
-                                         throw_exception=throw_exception)
+                                         throw_exception=throw_exception, **kwargs)
 
     # COIN Futures API
     def futures_coin_ping(self):
@@ -6889,7 +6908,7 @@ class BinanceRestApiManager(object):
         """
         return self._request_futures_coin_api("get", "positionSide/dual", True, data=params)
 
-    def futures_coin_stream_get_listen_key(self, output="value", throw_exception=True):
+    def futures_coin_stream_get_listen_key(self, output="value", throw_exception=True, **kwargs):
         """Start a new coin futures data stream and return the listen key
         If a stream already exists it should return the same key.
         If the stream becomes invalid a new key is returned.
@@ -6915,7 +6934,7 @@ class BinanceRestApiManager(object):
 
         """
         res = self._request_futures_coin_api('post', 'listenKey', signed=False, data={},
-                                             throw_exception=throw_exception)
+                                             throw_exception=throw_exception, **kwargs)
         if output == "value":
             return res['listenKey']
         elif output == "raw_data":
@@ -6923,8 +6942,8 @@ class BinanceRestApiManager(object):
         else:
             return res['listenKey']
 
-    def futures_coin_stream_keepalive(self, listenKey, throw_exception=True):
-        """PING a coin futures data stream to prevent a time out.
+    def futures_coin_stream_keepalive(self, listenKey, throw_exception=True, **kwargs):
+        """PING a coin futures data stream to prevent a timeout.
 
         https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin
 
@@ -6946,9 +6965,9 @@ class BinanceRestApiManager(object):
             'listenKey': listenKey
         }
         return self._request_futures_coin_api('put', 'listenKey', signed=False, data=params,
-                                              throw_exception=throw_exception)
+                                              throw_exception=throw_exception, **kwargs)
 
-    def futures_coin_stream_close(self, listenKey, throw_exception=True):
+    def futures_coin_stream_close(self, listenKey, throw_exception=True, **kwargs):
         """Close out a coin futures data stream.
 
         https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin
@@ -6971,8 +6990,7 @@ class BinanceRestApiManager(object):
             'listenKey': listenKey
         }
         return self._request_futures_coin_api('delete', 'listenKey', signed=False, data=params,
-                                              throw_exception=throw_exception)
-
+                                              throw_exception=throw_exception, **kwargs)
 
     def get_all_coins_info(self, **params):
         """

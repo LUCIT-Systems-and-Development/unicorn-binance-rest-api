@@ -7,7 +7,8 @@
 # Project website: https://www.lucit.tech/unicorn-binance-rest-api.html
 # Github: https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api
 # Documentation: https://unicorn-binance-rest-api.docs.lucit.tech/
-# PyPI: https://pypi.org/project/unicorn-binance-rest-api# LUCIT Online Shop: https://shop.lucit.services/software LUCIT Online Shop: https://shop.lucit.services/software
+# PyPI: https://pypi.org/project/unicorn-binance-rest-api
+# LUCIT Online Shop: https://shop.lucit.services/software
 #
 # License: LSOSL - LUCIT Synergetic Open Source License
 # https://github.com/LUCIT-Systems-and-Development/lucit-licensing-python/blob/master/LICENSE
@@ -52,12 +53,15 @@ api_key = ""
 api_secret = ""
 
 try:
-    # To use this library you need a valid UNICORN Binance Suite License:
-    # https://medium.lucit.tech/87b0088124a8
-    ubra = BinanceRestApiManager(api_key, api_secret, exchange="binance.com-margin", tld="us", debug=False,
+    # To use this library you need a valid UNICORN Binance Suite License: https://medium.lucit.tech/87b0088124a8
+    ubra = BinanceRestApiManager(api_key=api_key,
+                                 api_secret=api_secret,
+                                 debug=False,
+                                 exchange="binance.com",
                                  lucit_license_profile="LUCIT")
-except NoValidatedLucitLicense as error_msg:
-    print(f"ERROR_L_1: {error_msg}")
+except Exception as error_msg:
+    print(f"UBRA_INIT_ERROR: {error_msg}")
+    exit(1)
 
 print(ubra.get_server_time())
 print(ubra.get_ticker(symbol="BNBUSDT"))
