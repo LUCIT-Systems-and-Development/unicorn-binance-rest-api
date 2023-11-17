@@ -212,7 +212,7 @@ class BinanceRestApiManager(object):
                  api_key: Optional[str] = None,
                  api_secret: Optional[str] = None,
                  requests_params: dict = None,
-                 tld: Optional[str] = False,
+                 tld: Optional[str] = None,
                  warn_on_update: bool = True,
                  exchange: Optional[str] = None,
                  disable_colorama: bool = False,
