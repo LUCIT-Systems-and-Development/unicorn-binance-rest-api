@@ -54,7 +54,7 @@ setup(
          'unicorn_binance_rest_api/manager.py'],
         annotate=False),
      name='unicorn-binance-rest-api',
-     version="2.1.0",
+     version="2.1.1",
      author="LUCIT Systems and Development",
      author_email='info@lucit.tech',
      url="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api",

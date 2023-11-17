@@ -9,7 +9,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 [How to upgrade to the latest version!](https://unicorn-binance-rest-api.docs.lucit.tech/readme.html#installation-and-upgrade)
 
-## 2.1.0.dev (development stage/unreleased/unstable)
+## 2.1.1.dev (development stage/unreleased/unstable)
+
+## 2.1.1
+### Fixed
+- Used `False` instead of `None` in `manager.__init__()` parameter `tld`.
 
 ## 2.1.0
 ### Adding
