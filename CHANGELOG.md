@@ -9,7 +9,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 [How to upgrade to the latest version!](https://unicorn-binance-rest-api.docs.lucit.tech/README.html#installation-and-upgrade)
 
-## 2.0.5.dev (development stage/unreleased/unstable)
+## 2.1.0.dev (development stage/unreleased/unstable)
+
+## 2.1.0
 ### Adding
 - Support of multiple tenants with `kwargs['api_key']`, `kwargs['api_secret']` in `manager._request()` - every private
   rest function now supports specific `api_key` and `api_secret` values via `**kwargs`.

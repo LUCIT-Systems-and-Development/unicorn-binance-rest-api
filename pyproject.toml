@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "unicorn-binance-rest-api"
-version = "2.0.5"
+version = "2.1.0"
 description = "An unofficial Python API to use the Binance REST API’s in a easy, fast, flexible, robust and fully-featured way."
 authors = ["LUCIT Systems and Development <info@lucit.tech>"]
 license = "LSOSL - LUCIT Synergetic Open Source License"
