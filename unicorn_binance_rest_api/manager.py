@@ -282,7 +282,7 @@ class BinanceRestApiManager(object):
                     'https': socks_proxy_uri
                 }
 
-            if tld is not False:
+            if tld is not None:
                 # Todo: Remove Block with tld!
                 logger.warning("The parameter BinanceRestApiManager(tld=`com`) is obsolete, use parameter `exchange` "
                                "instead! Attention: parameter `exchange` overrules `tld`!! ")
