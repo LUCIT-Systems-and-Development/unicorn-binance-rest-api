@@ -7,7 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 [Discussions about unicorn-binance-rest-api releases!](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/discussions/categories/releases)
 
-[How to upgrade to the latest version!](https://unicorn-binance-rest-api.docs.lucit.tech/README.html#installation-and-upgrade)
+[How to upgrade to the latest version!](https://unicorn-binance-rest-api.docs.lucit.tech/readme.html#installation-and-upgrade)
 
 ## 2.1.0.dev (development stage/unreleased/unstable)
 
