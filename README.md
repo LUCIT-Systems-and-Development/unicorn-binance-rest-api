@@ -242,7 +242,7 @@ or the [current master branch](https://github.com/LUCIT-Systems-and-Development/
 - ./setup.py
 
 ## Change Log
-[https://unicorn-binance-rest-api.docs.lucit.tech/CHANGELOG.html](https://unicorn-binance-rest-api.docs.lucit.tech/CHANGELOG.html)
+[https://unicorn-binance-rest-api.docs.lucit.tech/changelog.html](https://unicorn-binance-rest-api.docs.lucit.tech/CHANGELOG.html)
 
 ## Documentation
 - [General](https://unicorn-binance-rest-api.docs.lucit.tech/)
