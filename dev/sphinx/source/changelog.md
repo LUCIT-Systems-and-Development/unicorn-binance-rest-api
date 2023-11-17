@@ -9,7 +9,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 [How to upgrade to the latest version!](https://unicorn-binance-rest-api.docs.lucit.tech/readme.html#installation-and-upgrade)
 
-## 2.1.1.dev (development stage/unreleased/unstable)
+## 2.1.2.dev (development stage/unreleased/unstable)
+
+## 2.1.2
+### Added 
+- Typing for a few more parameters.
+### Removed
+- `version=1` parameter in `manager._create_futures_coin_data_api_url()`.
 
 ## 2.1.1
 ### Fixed

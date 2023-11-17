@@ -58,7 +58,7 @@ import time
 
 
 __app_name__: str = "unicorn-binance-rest-api"
-__version__: str = "2.1.1"
+__version__: str = "2.1.2"
 
 logger = logging.getLogger("unicorn_binance_rest_api")
 
@@ -226,25 +226,25 @@ class BinanceRestApiManager(object):
                  lucit_license_profile: Optional[str] = None,
                  lucit_license_token: Optional[str] = None):
 
-        self.name = __app_name__
-        self.version = __version__
+        self.name: Optional[str] = __app_name__
+        self.version: Optional[str] = __version__
         logger.info(f"New instance of {self.get_user_agent()}-{'compiled' if cython.compiled else 'source'} on "
                     f"{str(platform.system())} {str(platform.release())} for exchange {exchange} started ...")
         self.sigterm = False
         self.session = None
-        self.lucit_api_secret = lucit_api_secret
-        self.lucit_license_token = lucit_license_token
-        self.lucit_api_secret = lucit_api_secret
-        self.lucit_license_ini = lucit_license_ini
-        self.lucit_license_profile = lucit_license_profile
-        self.lucit_license_token = lucit_license_token
-        self.llm = LucitLicensingManager(api_secret=self.lucit_api_secret,
+        self.lucit_api_secret: Optional[str] = lucit_api_secret
+        self.lucit_license_token: Optional[str] = lucit_license_token
+        self.lucit_license_ini: Optional[str] = lucit_license_ini
+        self.lucit_license_profile: Optional[str] = lucit_license_profile
+        self.lucit_license_token: Optional[str] = lucit_license_token
+        license_type: Optional[str] = "UNICORN-BINANCE-SUITE"
+        self.llm = LucitLicensingManager(lucit_api_secret=self.lucit_api_secret,
                                          license_ini=self.lucit_license_ini,
                                          license_profile=self.lucit_license_profile,
                                          license_token=self.lucit_license_token,
                                          parent_shutdown_function=self.stop_manager,
                                          program_used=self.name,
-                                         needed_license_type="UNICORN-BINANCE-SUITE",
+                                         needed_license_type=license_type,
                                          start=True)
         licensing_exception = self.llm.get_license_exception()
         if licensing_exception is not None:
@@ -471,8 +471,7 @@ class BinanceRestApiManager(object):
         options = {1: self.FUTURES_API_VERSION, 2: self.FUTURES_API_VERSION2}
         return self.FUTURES_COIN_URL + "/" + options[version] + "/" + path
 
-    def _create_futures_coin_data_api_url(self, path, version=1):
-        # Todo: version is obsolete?
+    def _create_futures_coin_data_api_url(self, path):
         return self.FUTURES_COIN_DATA_URL + "/" + path
 
     def _generate_signature(self, data):
