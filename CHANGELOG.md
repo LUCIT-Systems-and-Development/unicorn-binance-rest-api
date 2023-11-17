@@ -14,6 +14,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## 2.1.2
 ### Added 
 - Typing for a few more parameters.
+### Fixed
+- Fixed handling of `tld` in `manager.__init__()`.
 ### Removed
 - `version=1` parameter in `manager._create_futures_coin_data_api_url()`.
 

@@ -385,7 +385,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">lucit_license_profile</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">lucit_license_profile</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lucit_license_token</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">lucit_license_token</span>
         <span class="n">license_type</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;UNICORN-BINANCE-SUITE&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">llm</span> <span class="o">=</span> <span class="n">LucitLicensingManager</span><span class="p">(</span><span class="n">lucit_api_secret</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lucit_api_secret</span><span class="p">,</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">llm</span> <span class="o">=</span> <span class="n">LucitLicensingManager</span><span class="p">(</span><span class="n">api_secret</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lucit_api_secret</span><span class="p">,</span>
                                          <span class="n">license_ini</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lucit_license_ini</span><span class="p">,</span>
                                          <span class="n">license_profile</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lucit_license_profile</span><span class="p">,</span>
                                          <span class="n">license_token</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lucit_license_token</span><span class="p">,</span>
@@ -533,7 +533,7 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">stop_manager</span><span class="p">()</span>
                 <span class="k">raise</span> <span class="n">UnknownExchange</span><span class="p">(</span><span class="n">error_msg</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">tld</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">tld</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">API_URL</span> <span class="o">=</span> <span class="s2">&quot;https://api.binance.com/api&quot;</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">MARGIN_API_URL</span> <span class="o">=</span> <span class="s2">&quot; https://api.binance.com/sapi&quot;</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">WEBSITE_URL</span> <span class="o">=</span> <span class="s2">&quot;https://www.binance.com&quot;</span>
@@ -8166,7 +8166,7 @@
     <div class="footer">
     &copy; <a href="/license.html">Copyright</a> 2023-2023, LUCIT Systems and Development. All Rights Reserved..
     See <a href="/license.html">License</a> for more information.<br />
-    Last updated on Nov 17 2023 at 19:01 (CET).
+    Last updated on Nov 17 2023 at 19:38 (CET).
     <a href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues/new/choose">Found a bug</a>?
     <br />
     Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.

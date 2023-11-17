@@ -238,7 +238,7 @@ class BinanceRestApiManager(object):
         self.lucit_license_profile: Optional[str] = lucit_license_profile
         self.lucit_license_token: Optional[str] = lucit_license_token
         license_type: Optional[str] = "UNICORN-BINANCE-SUITE"
-        self.llm = LucitLicensingManager(lucit_api_secret=self.lucit_api_secret,
+        self.llm = LucitLicensingManager(api_secret=self.lucit_api_secret,
                                          license_ini=self.lucit_license_ini,
                                          license_profile=self.lucit_license_profile,
                                          license_token=self.lucit_license_token,
@@ -386,7 +386,7 @@ class BinanceRestApiManager(object):
                 self.stop_manager()
                 raise UnknownExchange(error_msg)
             else:
-                if tld is False:
+                if tld is None:
                     self.API_URL = "https://api.binance.com/api"
                     self.MARGIN_API_URL = " https://api.binance.com/sapi"
                     self.WEBSITE_URL = "https://www.binance.com"
