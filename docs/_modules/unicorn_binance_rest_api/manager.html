@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>unicorn_binance_rest_api.manager &#8212; unicorn-binance-rest-api 2.0.5 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>unicorn_binance_rest_api.manager &#8212; unicorn-binance-rest-api 2.1.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=92fd9be5" />
     <link rel="stylesheet" type="text/css" href="../../_static/pydoctheme.css?v=fdf8e9ae" />
@@ -153,6 +153,7 @@
 <span class="c1"># Github: https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api</span>
 <span class="c1"># Documentation: https://unicorn-binance-rest-api.docs.lucit.tech</span>
 <span class="c1"># PyPI: https://pypi.org/project/unicorn-binance-rest-api</span>
+<span class="c1"># LUCIT Online Shop: https://shop.lucit.services/software</span>
 <span class="c1">#</span>
 <span class="c1"># License: LSOSL - LUCIT Synergetic Open Source License</span>
 <span class="c1"># https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/LICENSE</span>
@@ -199,6 +200,10 @@
 <span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">platform</span>
 <span class="kn">import</span> <span class="nn">time</span>
+
+
+<span class="n">__app_name__</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;unicorn-binance-rest-api&quot;</span>
+<span class="n">__version__</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;2.1.0&quot;</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;unicorn_binance_rest_api&quot;</span><span class="p">)</span>
 
@@ -351,25 +356,25 @@
     <span class="n">MINING_TO_FIAT</span> <span class="o">=</span> <span class="s2">&quot;MINING_C2C&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                 <span class="n">api_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">api_secret</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">requests_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">tld</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                 <span class="n">warn_on_update</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                 <span class="n">exchange</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                 <span class="n">disable_colorama</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                 <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">api_key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">api_secret</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">requests_params</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">tld</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="n">warn_on_update</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                 <span class="n">exchange</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">disable_colorama</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="n">debug</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
                  <span class="n">socks5_proxy_server</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
                  <span class="n">socks5_proxy_user</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
                  <span class="n">socks5_proxy_pass</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
                  <span class="n">socks5_proxy_ssl_verification</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-                 <span class="n">lucit_api_secret</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-                 <span class="n">lucit_license_ini</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-                 <span class="n">lucit_license_profile</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-                 <span class="n">lucit_license_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+                 <span class="n">lucit_api_secret</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">lucit_license_ini</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">lucit_license_profile</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">lucit_license_token</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;unicorn-binance-rest-api&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="s2">&quot;2.0.5&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">__app_name__</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="n">__version__</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New instance of </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">get_user_agent</span><span class="p">()</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="s1">&#39;compiled&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">cython</span><span class="o">.</span><span class="n">compiled</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;source&#39;</span><span class="si">}</span><span class="s2"> on &quot;</span>
                     <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">())</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">platform</span><span class="o">.</span><span class="n">release</span><span class="p">())</span><span class="si">}</span><span class="s2"> for exchange </span><span class="si">{</span><span class="n">exchange</span><span class="si">}</span><span class="s2"> started ...&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sigterm</span> <span class="o">=</span> <span class="kc">False</span>
@@ -385,8 +390,9 @@
                                          <span class="n">license_profile</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lucit_license_profile</span><span class="p">,</span>
                                          <span class="n">license_token</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lucit_license_token</span><span class="p">,</span>
                                          <span class="n">parent_shutdown_function</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">stop_manager</span><span class="p">,</span>
-                                         <span class="n">program_used</span><span class="o">=</span><span class="s2">&quot;unicorn-binance-rest-api&quot;</span><span class="p">,</span>
-                                         <span class="n">needed_license_type</span><span class="o">=</span><span class="s2">&quot;UNICORN-BINANCE-SUITE&quot;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                                         <span class="n">program_used</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                                         <span class="n">needed_license_type</span><span class="o">=</span><span class="s2">&quot;UNICORN-BINANCE-SUITE&quot;</span><span class="p">,</span>
+                                         <span class="n">start</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">licensing_exception</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">llm</span><span class="o">.</span><span class="n">get_license_exception</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">licensing_exception</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">NoValidatedLucitLicense</span><span class="p">(</span><span class="n">licensing_exception</span><span class="p">)</span>
@@ -649,6 +655,23 @@
             <span class="n">info</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;`BinanceRestApiManager()` instance has already been stopped and cannot be used.&quot;</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
             <span class="k">raise</span> <span class="n">AlreadyStoppedError</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+
+        <span class="c1"># if an api_secret and api_key are provided the request session gets reset with new settings</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">api_key</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;api_key&#39;</span><span class="p">]</span>
+            <span class="n">api_secret</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;api_secret&#39;</span><span class="p">]</span>
+            <span class="k">del</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;api_key&#39;</span><span class="p">]</span>
+            <span class="k">del</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;api_secret&#39;</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="n">api_key</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">api_secret</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">api_key</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">api_secret</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_request() - Got `api_key` and `api_secret` via `**kwargs`, resetting request session.&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">API_KEY</span> <span class="o">=</span> <span class="n">api_key</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">API_SECRET</span> <span class="o">=</span> <span class="n">api_secret</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">session</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_session</span><span class="p">()</span>
 
         <span class="c1"># set default requests timeout</span>
         <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;timeout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
@@ -3501,7 +3524,7 @@
 
 <div class="viewcode-block" id="BinanceRestApiManager.stream_get_listen_key">
 <a class="viewcode-back" href="../../unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.stream_get_listen_key">[docs]</a>
-    <span class="k">def</span> <span class="nf">stream_get_listen_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">stream_get_listen_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Start a new user data stream and return the listen key</span>
 <span class="sd">        If a stream already exists it should return the same key.</span>
 <span class="sd">        If the stream becomes invalid a new key is returned.</span>
@@ -3527,7 +3550,7 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_post</span><span class="p">(</span><span class="s1">&#39;userDataStream&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{},</span> <span class="n">version</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">PRIVATE_API_VERSION</span><span class="p">,</span>
-                         <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">)</span>
+                         <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">output</span> <span class="o">==</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;listenKey&#39;</span><span class="p">]</span>
         <span class="k">elif</span> <span class="n">output</span> <span class="o">==</span> <span class="s2">&quot;raw_data&quot;</span><span class="p">:</span>
@@ -3538,8 +3561,8 @@
 
 <div class="viewcode-block" id="BinanceRestApiManager.stream_keepalive">
 <a class="viewcode-back" href="../../unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.stream_keepalive">[docs]</a>
-    <span class="k">def</span> <span class="nf">stream_keepalive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">listenKey</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;PING a user data stream to prevent a time out.</span>
+    <span class="k">def</span> <span class="nf">stream_keepalive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">listenKey</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;PING a user data stream to prevent a timeout.</span>
 
 <span class="sd">        https://binance-docs.github.io/apidocs/spot/en/#keepalive-user-data-stream-user_stream</span>
 
@@ -3561,12 +3584,12 @@
             <span class="s1">&#39;listenKey&#39;</span><span class="p">:</span> <span class="n">listenKey</span>
         <span class="p">}</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_put</span><span class="p">(</span><span class="s1">&#39;userDataStream&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">PRIVATE_API_VERSION</span><span class="p">,</span>
-                         <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">)</span></div>
+                         <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="BinanceRestApiManager.stream_close">
 <a class="viewcode-back" href="../../unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.stream_close">[docs]</a>
-    <span class="k">def</span> <span class="nf">stream_close</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">listenKey</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">stream_close</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">listenKey</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Close out a user data stream.</span>
 
 <span class="sd">        https://binance-docs.github.io/apidocs/spot/en/#close-user-data-stream-user_stream</span>
@@ -3589,7 +3612,7 @@
             <span class="s1">&#39;listenKey&#39;</span><span class="p">:</span> <span class="n">listenKey</span>
         <span class="p">}</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span><span class="s1">&#39;userDataStream&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">PRIVATE_API_VERSION</span><span class="p">,</span>
-                         <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">)</span></div>
+                         <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
     <span class="c1"># Margin Trading Endpoints</span>
@@ -5211,7 +5234,7 @@
 
 <div class="viewcode-block" id="BinanceRestApiManager.margin_stream_get_listen_key">
 <a class="viewcode-back" href="../../unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.margin_stream_get_listen_key">[docs]</a>
-    <span class="k">def</span> <span class="nf">margin_stream_get_listen_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">margin_stream_get_listen_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Start a new cross-margin data stream and return the listen key</span>
 <span class="sd">        If a stream already exists it should return the same key.</span>
 <span class="sd">        If the stream becomes invalid a new key is returned.</span>
@@ -5236,7 +5259,8 @@
 <span class="sd">        :raises: BinanceRequestException, BinanceAPIException</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_margin_api</span><span class="p">(</span><span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="s1">&#39;userDataStream&#39;</span><span class="p">,</span> <span class="n">signed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{},</span> <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_margin_api</span><span class="p">(</span><span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="s1">&#39;userDataStream&#39;</span><span class="p">,</span> <span class="n">signed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{},</span>
+                                       <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">output</span> <span class="o">==</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;listenKey&#39;</span><span class="p">]</span>
         <span class="k">elif</span> <span class="n">output</span> <span class="o">==</span> <span class="s2">&quot;raw_data&quot;</span><span class="p">:</span>
@@ -5247,8 +5271,8 @@
 
 <div class="viewcode-block" id="BinanceRestApiManager.margin_stream_keepalive">
 <a class="viewcode-back" href="../../unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.margin_stream_keepalive">[docs]</a>
-    <span class="k">def</span> <span class="nf">margin_stream_keepalive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">listenKey</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;PING a cross-margin data stream to prevent a time out.</span>
+    <span class="k">def</span> <span class="nf">margin_stream_keepalive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">listenKey</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;PING a cross-margin data stream to prevent a timeout.</span>
 
 <span class="sd">        https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin</span>
 
@@ -5270,12 +5294,12 @@
             <span class="s1">&#39;listenKey&#39;</span><span class="p">:</span> <span class="n">listenKey</span>
         <span class="p">}</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_margin_api</span><span class="p">(</span><span class="s1">&#39;put&#39;</span><span class="p">,</span> <span class="s1">&#39;userDataStream&#39;</span><span class="p">,</span> <span class="n">signed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
-                                        <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">)</span></div>
+                                        <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="BinanceRestApiManager.margin_stream_close">
 <a class="viewcode-back" href="../../unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.margin_stream_close">[docs]</a>
-    <span class="k">def</span> <span class="nf">margin_stream_close</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">listenKey</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">margin_stream_close</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">listenKey</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Close out a cross-margin data stream.</span>
 
 <span class="sd">        https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin</span>
@@ -5298,14 +5322,14 @@
             <span class="s1">&#39;listenKey&#39;</span><span class="p">:</span> <span class="n">listenKey</span>
         <span class="p">}</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_margin_api</span><span class="p">(</span><span class="s1">&#39;delete&#39;</span><span class="p">,</span> <span class="s1">&#39;userDataStream&#39;</span><span class="p">,</span> <span class="n">signed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
-                                        <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">)</span></div>
+                                        <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
     <span class="c1"># Isolated margin </span>
 
 <div class="viewcode-block" id="BinanceRestApiManager.isolated_margin_stream_get_listen_key">
 <a class="viewcode-back" href="../../unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.isolated_margin_stream_get_listen_key">[docs]</a>
-    <span class="k">def</span> <span class="nf">isolated_margin_stream_get_listen_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">isolated_margin_stream_get_listen_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Start a new isolated margin data stream and return the listen key</span>
 <span class="sd">        If a stream already exists it should return the same key.</span>
 <span class="sd">        If the stream becomes invalid a new key is returned.</span>
@@ -5337,7 +5361,7 @@
             <span class="s1">&#39;symbol&#39;</span><span class="p">:</span> <span class="n">symbol</span>
         <span class="p">}</span>
         <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_margin_api</span><span class="p">(</span><span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="s1">&#39;userDataStream/isolated&#39;</span><span class="p">,</span> <span class="n">signed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
-                                       <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">)</span>
+                                       <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">output</span> <span class="o">==</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;listenKey&#39;</span><span class="p">]</span>
         <span class="k">elif</span> <span class="n">output</span> <span class="o">==</span> <span class="s2">&quot;raw_data&quot;</span><span class="p">:</span>
@@ -5348,8 +5372,8 @@
 
 <div class="viewcode-block" id="BinanceRestApiManager.isolated_margin_stream_keepalive">
 <a class="viewcode-back" href="../../unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.isolated_margin_stream_keepalive">[docs]</a>
-    <span class="k">def</span> <span class="nf">isolated_margin_stream_keepalive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">listenKey</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;PING an isolated margin data stream to prevent a time out.</span>
+    <span class="k">def</span> <span class="nf">isolated_margin_stream_keepalive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">listenKey</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;PING an isolated margin data stream to prevent a timeout.</span>
 
 <span class="sd">        https://binance-docs.github.io/apidocs/spot/en/#listen-key-isolated-margin</span>
 
@@ -5374,12 +5398,12 @@
             <span class="s1">&#39;listenKey&#39;</span><span class="p">:</span> <span class="n">listenKey</span>
         <span class="p">}</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_margin_api</span><span class="p">(</span><span class="s1">&#39;put&#39;</span><span class="p">,</span> <span class="s1">&#39;userDataStream/isolated&#39;</span><span class="p">,</span> <span class="n">signed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
-                                        <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">)</span></div>
+                                        <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="BinanceRestApiManager.isolated_margin_stream_close">
 <a class="viewcode-back" href="../../unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.isolated_margin_stream_close">[docs]</a>
-    <span class="k">def</span> <span class="nf">isolated_margin_stream_close</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">listenKey</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">isolated_margin_stream_close</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">listenKey</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Close out an isolated margin data stream.</span>
 
 <span class="sd">        https://binance-docs.github.io/apidocs/spot/en/#listen-key-isolated-margin</span>
@@ -5405,7 +5429,7 @@
             <span class="s1">&#39;listenKey&#39;</span><span class="p">:</span> <span class="n">listenKey</span>
         <span class="p">}</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_margin_api</span><span class="p">(</span><span class="s1">&#39;delete&#39;</span><span class="p">,</span> <span class="s1">&#39;userDataStream/isolated&#39;</span><span class="p">,</span> <span class="n">signed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
-                                        <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">)</span></div>
+                                        <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
     <span class="c1"># Lending Endpoints</span>
@@ -7087,7 +7111,7 @@
 
 <div class="viewcode-block" id="BinanceRestApiManager.futures_stream_get_listen_key">
 <a class="viewcode-back" href="../../unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_stream_get_listen_key">[docs]</a>
-    <span class="k">def</span> <span class="nf">futures_stream_get_listen_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">futures_stream_get_listen_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Start a new futures data stream and return the listen key</span>
 <span class="sd">        If a stream already exists it should return the same key.</span>
 <span class="sd">        If the stream becomes invalid a new key is returned.</span>
@@ -7112,7 +7136,8 @@
 <span class="sd">        :raises: BinanceRequestException, BinanceAPIException</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_futures_api</span><span class="p">(</span><span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="s1">&#39;listenKey&#39;</span><span class="p">,</span> <span class="n">signed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{},</span> <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_futures_api</span><span class="p">(</span><span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="s1">&#39;listenKey&#39;</span><span class="p">,</span> <span class="n">signed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{},</span>
+                                        <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">output</span> <span class="o">==</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;listenKey&#39;</span><span class="p">]</span>
         <span class="k">elif</span> <span class="n">output</span> <span class="o">==</span> <span class="s2">&quot;raw_data&quot;</span><span class="p">:</span>
@@ -7123,8 +7148,8 @@
 
 <div class="viewcode-block" id="BinanceRestApiManager.futures_stream_keepalive">
 <a class="viewcode-back" href="../../unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_stream_keepalive">[docs]</a>
-    <span class="k">def</span> <span class="nf">futures_stream_keepalive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">listenKey</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;PING a futures data stream to prevent a time out.</span>
+    <span class="k">def</span> <span class="nf">futures_stream_keepalive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">listenKey</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;PING a futures data stream to prevent a timeout.</span>
 
 <span class="sd">        https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin</span>
 
@@ -7146,12 +7171,12 @@
             <span class="s1">&#39;listenKey&#39;</span><span class="p">:</span> <span class="n">listenKey</span>
         <span class="p">}</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_futures_api</span><span class="p">(</span><span class="s1">&#39;put&#39;</span><span class="p">,</span> <span class="s1">&#39;listenKey&#39;</span><span class="p">,</span> <span class="n">signed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
-                                         <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">)</span></div>
+                                         <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="BinanceRestApiManager.futures_stream_close">
 <a class="viewcode-back" href="../../unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_stream_close">[docs]</a>
-    <span class="k">def</span> <span class="nf">futures_stream_close</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">listenKey</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">futures_stream_close</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">listenKey</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Close out a futures data stream.</span>
 
 <span class="sd">        https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin</span>
@@ -7174,7 +7199,7 @@
             <span class="s1">&#39;listenKey&#39;</span><span class="p">:</span> <span class="n">listenKey</span>
         <span class="p">}</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_futures_api</span><span class="p">(</span><span class="s1">&#39;delete&#39;</span><span class="p">,</span> <span class="s1">&#39;listenKey&#39;</span><span class="p">,</span> <span class="n">signed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
-                                         <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">)</span></div>
+                                         <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
     <span class="c1"># COIN Futures API</span>
@@ -7691,7 +7716,7 @@
 
 <div class="viewcode-block" id="BinanceRestApiManager.futures_coin_stream_get_listen_key">
 <a class="viewcode-back" href="../../unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_coin_stream_get_listen_key">[docs]</a>
-    <span class="k">def</span> <span class="nf">futures_coin_stream_get_listen_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">futures_coin_stream_get_listen_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Start a new coin futures data stream and return the listen key</span>
 <span class="sd">        If a stream already exists it should return the same key.</span>
 <span class="sd">        If the stream becomes invalid a new key is returned.</span>
@@ -7717,7 +7742,7 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_futures_coin_api</span><span class="p">(</span><span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="s1">&#39;listenKey&#39;</span><span class="p">,</span> <span class="n">signed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{},</span>
-                                             <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">)</span>
+                                             <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">output</span> <span class="o">==</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;listenKey&#39;</span><span class="p">]</span>
         <span class="k">elif</span> <span class="n">output</span> <span class="o">==</span> <span class="s2">&quot;raw_data&quot;</span><span class="p">:</span>
@@ -7728,8 +7753,8 @@
 
 <div class="viewcode-block" id="BinanceRestApiManager.futures_coin_stream_keepalive">
 <a class="viewcode-back" href="../../unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_coin_stream_keepalive">[docs]</a>
-    <span class="k">def</span> <span class="nf">futures_coin_stream_keepalive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">listenKey</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;PING a coin futures data stream to prevent a time out.</span>
+    <span class="k">def</span> <span class="nf">futures_coin_stream_keepalive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">listenKey</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;PING a coin futures data stream to prevent a timeout.</span>
 
 <span class="sd">        https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin</span>
 
@@ -7751,12 +7776,12 @@
             <span class="s1">&#39;listenKey&#39;</span><span class="p">:</span> <span class="n">listenKey</span>
         <span class="p">}</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_futures_coin_api</span><span class="p">(</span><span class="s1">&#39;put&#39;</span><span class="p">,</span> <span class="s1">&#39;listenKey&#39;</span><span class="p">,</span> <span class="n">signed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
-                                              <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">)</span></div>
+                                              <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="BinanceRestApiManager.futures_coin_stream_close">
 <a class="viewcode-back" href="../../unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.futures_coin_stream_close">[docs]</a>
-    <span class="k">def</span> <span class="nf">futures_coin_stream_close</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">listenKey</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">futures_coin_stream_close</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">listenKey</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Close out a coin futures data stream.</span>
 
 <span class="sd">        https://binance-docs.github.io/apidocs/spot/en/#listen-key-margin</span>
@@ -7779,8 +7804,7 @@
             <span class="s1">&#39;listenKey&#39;</span><span class="p">:</span> <span class="n">listenKey</span>
         <span class="p">}</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_futures_coin_api</span><span class="p">(</span><span class="s1">&#39;delete&#39;</span><span class="p">,</span> <span class="s1">&#39;listenKey&#39;</span><span class="p">,</span> <span class="n">signed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
-                                              <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">)</span></div>
-
+                                              <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="BinanceRestApiManager.get_all_coins_info">
@@ -8143,7 +8167,7 @@
     <div class="footer">
     &copy; <a href="/license.html">Copyright</a> 2023-2023, LUCIT Systems and Development. All Rights Reserved..
     See <a href="/license.html">License</a> for more information.<br />
-    Last updated on Nov 14 2023 at 12:33 (CET).
+    Last updated on Nov 17 2023 at 13:05 (CET).
     <a href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues/new/choose">Found a bug</a>?
     <br />
     Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.

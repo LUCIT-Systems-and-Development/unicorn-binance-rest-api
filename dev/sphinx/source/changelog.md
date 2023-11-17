@@ -9,10 +9,33 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 [How to upgrade to the latest version!](https://unicorn-binance-rest-api.docs.lucit.tech/README.html#installation-and-upgrade)
 
-## 2.0.5.dev (development stage/unreleased/unstable)
+## 2.1.0.dev (development stage/unreleased/unstable)
+
+## 2.1.0
+### Adding
+- Support of multiple tenants with `kwargs['api_key']`, `kwargs['api_secret']` in `manager._request()` - every private
+  rest function now supports specific `api_key` and `api_secret` values via `**kwargs`.
+- Support of `**params` in:
+    - `manager.stream_get_listen_key()`
+    - `manager.stream_keepalive()`
+    - `manager.stream_close()`
+    - `manager.margin_stream_get_listen_key()`
+    - `manager.margin_stream_keepalive()`
+    - `manager.margin_stream_close()`
+    - `manager.isolated_margin_stream_get_listen_key()`
+    - `manager.isolated_margin_stream_keepalive()`
+    - `manager.isolated_margin_stream_close()`
+    - `manager.futures_stream_get_listen_key()`
+    - `manager.futures_stream_keepalive()`
+    - `manager.futures_stream_close()`
+    - `manager.futures_coin_stream_get_listen_key()`
+    - `manager.futures_coin_stream_keepalive()`
+    - `manager.futures_coin_stream_close()`
+### Changed
+- Using types in `manager.__init__()`.
 
 ## 2.0.5
-- Building conda packages and distribute them via anaconda.org/lucit
+- Building conda packages and distribute them via https://anaconda.org/lucit
 
 ## 2.0.4
 - Same as 2.0.2, error during github upload.

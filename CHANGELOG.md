@@ -31,7 +31,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
     - `manager.futures_coin_stream_get_listen_key()`
     - `manager.futures_coin_stream_keepalive()`
     - `manager.futures_coin_stream_close()`
-
+### Changed
+- Using types in `manager.__init__()`.
 
 ## 2.0.5
 - Building conda packages and distribute them via https://anaconda.org/lucit
