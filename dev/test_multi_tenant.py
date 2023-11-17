@@ -6,14 +6,8 @@ import os
 api_key = ""
 api_secret = ""
 
-logging.getLogger("unicorn_binance_rest_api")
-logging.basicConfig(level=logging.DEBUG,
-                    filename=os.path.basename(__file__) + '.log',
-                    format="{asctime} [{levelname:8}] {process} {thread} {module}: {message}",
-                    style="{")
 
-
-async def main():
+async def main(ubra):
     kwargs = {'api_key': api_key,
               'api_secret': api_secret}
 
@@ -28,11 +22,13 @@ async def main():
 
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.DEBUG,
+                        filename=os.path.basename(__file__) + '.log',
+                        format="{asctime} [{levelname:8}] {process} {thread} {module}: {message}",
+                        style="{")
+
     try:
-        ubra = BinanceRestApiManager(exchange="binance.com")
-        asyncio.run(main())
+        with BinanceRestApiManager(exchange="binance.com") as ubra_manager:
+            asyncio.run(main(ubra_manager))
     except Exception as error_msg:
         print(f"ERROR: {error_msg}")
-        exit(1)
-    ubra.stop_manager()
-

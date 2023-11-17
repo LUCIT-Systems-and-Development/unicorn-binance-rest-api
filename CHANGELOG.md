@@ -11,7 +11,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## 2.0.5.dev (development stage/unreleased/unstable)
 ### Adding
-- Support of multiple tenants with `kwargs['api_key']`, `kwargs['api_secret']` in `manager._request()`.
+- Support of multiple tenants with `kwargs['api_key']`, `kwargs['api_secret']` in `manager._request()` - every private
+  rest function now supports specific `api_key` and `api_secret` values via `**kwargs`.
 - Support of `**params` in:
     - `manager.stream_get_listen_key()`
     - `manager.stream_keepalive()`

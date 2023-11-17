@@ -56,6 +56,10 @@ import requests
 import platform
 import time
 
+
+__app_name__: str = "unicorn-binance-rest-api"
+__version__: str = "2.0.5"
+
 logger = logging.getLogger("unicorn_binance_rest_api")
 
 
@@ -205,25 +209,25 @@ class BinanceRestApiManager(object):
     MINING_TO_FIAT = "MINING_C2C"
 
     def __init__(self,
-                 api_key=None,
-                 api_secret=None,
-                 requests_params=None,
-                 tld=False,
-                 warn_on_update=True,
-                 exchange=False,
-                 disable_colorama=False,
-                 debug=False,
+                 api_key: Optional[str] = None,
+                 api_secret: Optional[str] = None,
+                 requests_params: dict = None,
+                 tld: Optional[str] = False,
+                 warn_on_update: bool = True,
+                 exchange: Optional[str] = None,
+                 disable_colorama: bool = False,
+                 debug: bool = False,
                  socks5_proxy_server: Optional[str] = None,
                  socks5_proxy_user: Optional[str] = None,
                  socks5_proxy_pass: Optional[str] = None,
                  socks5_proxy_ssl_verification: Optional[bool] = True,
-                 lucit_api_secret: str = None,
-                 lucit_license_ini: str = None,
-                 lucit_license_profile: str = None,
-                 lucit_license_token: str = None):
+                 lucit_api_secret: Optional[str] = None,
+                 lucit_license_ini: Optional[str] = None,
+                 lucit_license_profile: Optional[str] = None,
+                 lucit_license_token: Optional[str] = None):
 
-        self.name = "unicorn-binance-rest-api"
-        self.version = "2.0.5"
+        self.name = __app_name__
+        self.version = __version__
         logger.info(f"New instance of {self.get_user_agent()}-{'compiled' if cython.compiled else 'source'} on "
                     f"{str(platform.system())} {str(platform.release())} for exchange {exchange} started ...")
         self.sigterm = False
@@ -239,8 +243,9 @@ class BinanceRestApiManager(object):
                                          license_profile=self.lucit_license_profile,
                                          license_token=self.lucit_license_token,
                                          parent_shutdown_function=self.stop_manager,
-                                         program_used="unicorn-binance-rest-api",
-                                         needed_license_type="UNICORN-BINANCE-SUITE", start=True)
+                                         program_used=self.name,
+                                         needed_license_type="UNICORN-BINANCE-SUITE",
+                                         start=True)
         licensing_exception = self.llm.get_license_exception()
         if licensing_exception is not None:
             raise NoValidatedLucitLicense(licensing_exception)
@@ -514,7 +519,7 @@ class BinanceRestApiManager(object):
             api_key = None
             api_secret = None
         if api_key is not None and api_secret is not None:
-            logger.debug(f"manager._request() - Resetting request session.")
+            logger.debug(f"_request() - Got `api_key` and `api_secret` via `**kwargs`, resetting request session.")
             self.API_KEY = api_key
             self.API_SECRET = api_secret
             if self.session is not None:
