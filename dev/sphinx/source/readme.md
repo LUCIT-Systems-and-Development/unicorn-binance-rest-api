@@ -87,14 +87,8 @@ print(f"Buy Order Result: {buy_order}")
 ```
 
 ## Stop `ubra` after usage to avoid memory leaks
-
 ```
 ubra.stop_manager()
-```
-
-## Get the right [logger](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_logging.py):
-```
-logging.getLogger("unicorn_binance_rest_api")
 ```
 
 ## Description
