@@ -718,7 +718,7 @@ class BinanceRestApiManager(object):
         products = self._request_website('get', 'exchange-api/v1/public/asset-service/product/get-products')
         return products
 
-    def get_exchange_info(self):
+    def get_exchange_info(self, **params):
         """
         Return rate limits and list of symbols
 
@@ -781,7 +781,7 @@ class BinanceRestApiManager(object):
 
         """
 
-        return self._get('exchangeInfo', version=self.PRIVATE_API_VERSION)
+        return self._get('exchangeInfo', version=self.PRIVATE_API_VERSION, data=params)
 
     def get_symbol_info(self, symbol):
         """
@@ -6097,13 +6097,13 @@ class BinanceRestApiManager(object):
         """
         return self._request_futures_api('get', 'time')
 
-    def futures_exchange_info(self):
+    def futures_exchange_info(self, **params):
         """Current exchange trading rules and symbol information
 
         https://binance-docs.github.io/apidocs/futures/en/#exchange-information-market_data
 
         """
-        return self._request_futures_api('get', 'exchangeInfo')
+        return self._request_futures_api('get', 'exchangeInfo', data=params)
 
     def futures_order_book(self, **params):
         """Get the Order Book for the market
@@ -6542,14 +6542,14 @@ class BinanceRestApiManager(object):
         """
         return self._request_futures_coin_api("get", "time")
 
-    def futures_coin_exchange_info(self):
+    def futures_coin_exchange_info(self, **params):
         """
         Current exchange trading rules and symbol information
 
         https://binance-docs.github.io/apidocs/delivery/en/#exchange-information
 
         """
-        return self._request_futures_coin_api("get", "exchangeInfo")
+        return self._request_futures_coin_api("get", "exchangeInfo", data=params)
 
     def futures_coin_order_book(self, **params):
         """

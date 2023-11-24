@@ -9,7 +9,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 [How to upgrade to the latest version!](https://unicorn-binance-rest-api.docs.lucit.tech/readme.html#installation-and-upgrade)
 
-## 2.1.2.dev (development stage/unreleased/unstable)
+## 2.2.0.dev (development stage/unreleased/unstable)
+
+## 2.2.0
+### Added
+- Support of `params` in `manager.py`:
+  - `get_exchange_info()`
+  - `futures_exchange_info()`
+  - `futures_coin_exchange_info()`
 
 ## 2.1.2
 ### Added 
