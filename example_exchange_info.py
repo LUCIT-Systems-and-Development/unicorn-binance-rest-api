@@ -53,6 +53,6 @@ api_secret = ""
 
 # To use this library you need a valid UNICORN Binance Suite License: https://medium.lucit.tech/87b0088124a8
 with BinanceRestApiManager(api_key=api_key, api_secret=api_secret, exchange="binance.com") as ubra:
-    get_exchange_info = ubra.get_exchange_info(**{'symbol': 'BNBBTC'})
+    get_exchange_info = ubra.get_exchange_info(**{'symbol': 'ETHUSDT'})
     print(f"get_exchange_info: {get_exchange_info}")
 
