@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>UNICORN Binance REST API &#8212; unicorn-binance-rest-api 2.1.2 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNICORN Binance REST API &#8212; unicorn-binance-rest-api 2.2.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
     <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css?v=fdf8e9ae" />
@@ -116,7 +116,6 @@
 <li><a class="reference internal" href="#contributors">Contributors</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#you-want-to-say-thank-you">You want to say Thank You?</a></li>
 <li><a class="reference internal" href="#disclaimer">Disclaimer</a><ul>
 <li><a class="reference internal" href="#if-you-intend-to-use-real-money-use-it-at-your-own-risk">If you intend to use real money, use it at your own risk!</a></li>
 <li><a class="reference internal" href="#socks5-proxy-geoblocking">SOCKS5 Proxy / Geoblocking</a></li>
@@ -242,7 +241,7 @@
 <a class="reference external" href="https://anaconda.org/lucit/unicorn-binance-rest-api"><img alt="Anaconda Downloads" src="https://anaconda.org/lucit/unicorn-binance-rest-api/badges/downloads.svg" /></a>
 <a class="reference external" href="https://pypi.org/project/unicorn-binance-rest-api/"><img alt="PyPi Release" src="https://img.shields.io/pypi/v/unicorn-binance-rest-api?color=blue" /></a>
 <a class="reference external" href="https://pepy.tech/project/unicorn-binance-rest-api"><img alt="PyPi Downloads" src="https://pepy.tech/badge/unicorn-binance-rest-api" /></a>
-<a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/badge/license-LSOSL-blue" /></a>
+<a class="reference external" href="https://unicorn-binance-rest-api.docs.lucit.tech/license.html"><img alt="License" src="https://img.shields.io/badge/license-LSOSL-blue" /></a>
 <a class="reference external" href="https://www.python.org/downloads/"><img alt="Supported Python Version" src="https://img.shields.io/pypi/pyversions/unicorn_binance_rest_api.svg" /></a>
 <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues"><img alt="PyPI - Status" src="https://img.shields.io/pypi/status/unicorn_binance_rest_api.svg" /></a>
 <a class="reference external" href="https://codecov.io/gh/LUCIT-Systems-and-Development/unicorn-binance-rest-api"><img alt="codecov" src="https://codecov.io/gh/LUCIT-Systems-and-Development/unicorn-binance-rest-api/branch/master/graph/badge.svg?token=5I03AZ3F5S" /></a>
@@ -260,7 +259,7 @@
 <p><a class="reference internal" href="#description">Description</a> | <a class="reference internal" href="#installation-and-upgrade">Installation</a> | <a class="reference internal" href="#howto">How To</a> |
 <a class="reference internal" href="#documentation">Documentation</a> | <a class="reference internal" href="#examples">Examples</a> | <a class="reference internal" href="#change-log">Change Log</a> | <a class="reference internal" href="#wiki">Wiki</a> | <a class="reference internal" href="#social">Social</a> |
 <a class="reference internal" href="#receive-notifications">Notifications</a> | <a class="reference internal" href="#how-to-report-bugs-or-suggest-improvements">Bugs</a> |
-<a class="reference internal" href="#contributing">Contributing</a> | <a class="reference internal" href="#you-want-to-say-thank-you">Leave a review</a> | <a class="reference internal" href="#disclaimer">Disclaimer</a> | <a class="reference internal" href="#commercial-support">Commercial Support</a></p>
+<a class="reference internal" href="#contributing">Contributing</a> | <a class="reference internal" href="#disclaimer">Disclaimer</a> | <a class="reference internal" href="#commercial-support">Commercial Support</a></p>
 <p>An unofficial Python API to use the Binance REST API`s (com+testnet, com-margin+testnet, com-isolated_margin+testnet,
 com-futures+testnet, us, tr) in a easy, fast, flexible, robust and fully-featured way.</p>
 <p>Part of <a class="reference external" href="https://www.lucit.tech/unicorn-binance-suite.html">‘UNICORN Binance Suite’</a>.</p>
@@ -446,12 +445,10 @@ processing.</p>
 <p>Our <a class="reference external" href="https://cython.org/">Cython</a> and <a class="reference external" href="https://www.pypy.org/">PyPy</a> Wheels are available on <a class="reference external" href="https://pypi.org/">PyPI</a>,
 these wheels offer significant advantages for Python developers:</p>
 <ul class="simple">
-<li><p><em><strong>Performance Boost with Cython Wheels:</strong></em>
-Cython is a programming language that supplements Python with static typing and C-level performance. By compiling
+<li><p><em><strong>Performance Boost with Cython Wheels:</strong></em> Cython is a programming language that supplements Python with static typing and C-level performance. By compiling
 Python code into C, Cython Wheels can significantly enhance the execution speed of Python code, especially in
 computationally intensive tasks. This means faster runtimes and more efficient processing for users of our package.</p></li>
-<li><p><em><strong>PyPy Wheels for Enhanced Efficiency:</strong></em>
-PyPy is an alternative Python interpreter known for its speed and efficiency. It uses Just-In-Time (JIT) compilation,
+<li><p><em><strong>PyPy Wheels for Enhanced Efficiency:</strong></em> PyPy is an alternative Python interpreter known for its speed and efficiency. It uses Just-In-Time (JIT) compilation,
 which can dramatically improve the performance of Python code. Our PyPy Wheels are tailored for compatibility with
 PyPy, allowing users to leverage this speed advantage seamlessly.</p></li>
 </ul>
@@ -469,7 +466,8 @@ configuration.</p>
 </section>
 <section id="a-conda-package-of-the-latest-version-with-conda-from-anaconda">
 <h3>A Conda Package of the latest version with <code class="docutils literal notranslate"><span class="pre">conda</span></code> from <a class="reference external" href="https://anaconda.org/lucit">Anaconda</a><a class="headerlink" href="#a-conda-package-of-the-latest-version-with-conda-from-anaconda" title="Link to this heading">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">unicorn-binance-rest-api</span></code> package is available with <a class="reference external" href="https://docs.conda.io/en/latest/">Conda</a> through the
+<p>The <code class="docutils literal notranslate"><span class="pre">unicorn-binance-rest-api</span></code> package is also available as a Cython version for the <code class="docutils literal notranslate"><span class="pre">linux-64</span></code>, <code class="docutils literal notranslate"><span class="pre">osx-64</span></code>
+and <code class="docutils literal notranslate"><span class="pre">win-64</span></code> architectures with <a class="reference external" href="https://docs.conda.io/en/latest/">Conda</a> through the
 <a class="reference external" href="https://anaconda.org/lucit"><code class="docutils literal notranslate"><span class="pre">lucit</span></code> channel</a>.</p>
 <p>For optimal compatibility and performance, it is recommended to source the necessary dependencies from the
 <a class="reference external" href="https://anaconda.org/conda-forge"><code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> channel</a>.</p>
@@ -495,9 +493,9 @@ configuration.</p>
 </section>
 <section id="windows">
 <h4>Windows<a class="headerlink" href="#windows" title="Link to this heading">¶</a></h4>
-<p>Use the below command with the version (such as 2.1.2) you determined
+<p>Use the below command with the version (such as 2.2.0) you determined
 <a class="reference external" href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases/latest">here</a>:</p>
-<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/2.1.2.tar.gz</span> <span class="pre">--upgrade</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/2.2.0.tar.gz</span> <span class="pre">--upgrade</span></code></p>
 </section>
 </section>
 <section id="from-the-latest-source-dev-stage-with-pip-from-github">
@@ -613,10 +611,6 @@ contribute follow
 <p>We <img alt="love" src="https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-rest-api/master/images/misc/heart.png" /> open source!</p>
 </section>
 </section>
-<section id="you-want-to-say-thank-you">
-<h2>You want to say Thank You?<a class="headerlink" href="#you-want-to-say-thank-you" title="Link to this heading">¶</a></h2>
-<p>We hope you are enjoying using our libraries and that they are proving to be useful to you. If you have a moment, we would greatly appreciate it if you could leave us a <a class="reference external" href="https://g.page/r/CbfHlcs8BfG8EAg/review">review on Google</a>. Thank you for your support!</p>
-</section>
 <section id="disclaimer">
 <h2>Disclaimer<a class="headerlink" href="#disclaimer" title="Link to this heading">¶</a></h2>
 <p>This project is for informational purposes only. You should not construe this information or any other material as
@@ -722,7 +716,6 @@ companies from the US analyze binance.com market data - as long as they do not t
 <li><a class="reference internal" href="#contributors">Contributors</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#you-want-to-say-thank-you">You want to say Thank You?</a></li>
 <li><a class="reference internal" href="#disclaimer">Disclaimer</a><ul>
 <li><a class="reference internal" href="#if-you-intend-to-use-real-money-use-it-at-your-own-risk">If you intend to use real money, use it at your own risk!</a></li>
 <li><a class="reference internal" href="#socks5-proxy-geoblocking">SOCKS5 Proxy / Geoblocking</a></li>
@@ -837,7 +830,7 @@ companies from the US analyze binance.com market data - as long as they do not t
     <div class="footer">
     &copy; <a href="/license.html">Copyright</a> 2023-2023, LUCIT Systems and Development. All Rights Reserved..
     See <a href="/license.html">License</a> for more information.<br />
-    Last updated on Nov 18 2023 at 15:48 (CET).
+    Last updated on Nov 27 2023 at 15:49 (CET).
     <a href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues/new/choose">Found a bug</a>?
     <br />
     Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
