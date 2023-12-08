@@ -50,7 +50,6 @@ setup(
          'unicorn_binance_rest_api/enums.py',
          'unicorn_binance_rest_api/exceptions.py',
          'unicorn_binance_rest_api/helpers.py',
-         'unicorn_binance_rest_api/manager.py',
          'unicorn_binance_rest_api/manager.py'],
         annotate=False),
      name='unicorn-binance-rest-api',
@@ -58,7 +57,7 @@ setup(
      author="LUCIT Systems and Development",
      author_email='info@lucit.tech',
      url="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api",
-     description="An unofficial Python API to use the Binance REST API`s (com+testnet, com-margin+testnet, "
+     description="A Python API by LUCIT to use the Binance REST API`s (com+testnet, com-margin+testnet, "
                  "com-isolated_margin+testnet, com-futures+testnet, us, tr) in a easy, fast, flexible, robust and "
                  "fully-featured way.",
      long_description=long_description,
