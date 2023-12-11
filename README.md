@@ -48,7 +48,7 @@ To run modules of the *UNICORN Binance Suite* you need a [valid license](https:/
 
 ### Initiate `BinanceRestApiManager()`
 ```
-from unicorn_binance_rest_api.manager import BinanceRestApiManager
+from unicorn_binance_rest_api import BinanceRestApiManager
 
 ubra = BinanceRestApiManager(api_key="YOUR_BINANCE_API_KEY", 
                              api_secret="YOUR_BINANCE_API_SECRET", 
