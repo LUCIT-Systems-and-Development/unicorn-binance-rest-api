@@ -80,6 +80,9 @@ setup(
          'LUCIT Online Shop': 'https://shop.lucit.services/software',
      },
      python_requires='>=3.7.0',
+     package_data={'': ['unicorn_binance_rest_api/*.so',
+                        'unicorn_binance_rest_api/*.dll',
+                        'unicorn_binance_rest_api/*.py']},
      classifiers=[
          "Development Status :: 5 - Production/Stable",
          "Programming Language :: Python :: 3.7",

@@ -9,7 +9,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 [How to upgrade to the latest version!](https://unicorn-binance-rest-api.docs.lucit.tech/readme.html#installation-and-upgrade)
 
-## 2.2.0.dev (development stage/unreleased/unstable)
+## 2.2.1.dev (development stage/unreleased/unstable)
+
+## 2.2.1
+`unicorn-binance-rest-api` can now also be installed on all architectures on which there are no precompiled packages from 
+LUCIT. PIP now automatically recognises whether there is a suitable precompiled package and if not, the source is 
+automatically compiled on the target system during the installation process with Cython. Even if you don't have to do 
+anything special, please note that this process takes some time!
 
 ## 2.2.0
 ### Added

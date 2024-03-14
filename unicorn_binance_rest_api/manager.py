@@ -58,7 +58,7 @@ import time
 
 
 __app_name__: str = "unicorn-binance-rest-api"
-__version__: str = "2.2.0.dev"
+__version__: str = "2.2.0"
 
 logger = logging.getLogger("unicorn_binance_rest_api")
 
@@ -431,7 +431,7 @@ class BinanceRestApiManager(object):
                 logger.warning(update_msg)
 
     def __enter__(self):
-        logger.debug(f"Entering 'with-context' ...")
+        logger.debug(f"Entering with-context of BinanceRestApiManager() ...")
         if self.sigterm is True:
             info = f"`BinanceRestApiManager()` instance has already been stopped and cannot be used."
             logger.critical(info)
@@ -439,7 +439,7 @@ class BinanceRestApiManager(object):
         return self
 
     def __exit__(self, exc_type, exc_value, error_traceback):
-        logger.debug(f"Leaving 'with-context' ...")
+        logger.debug(f"Leaving with-context of BinanceRestApiManager() ...")
         self.stop_manager()
         if exc_type:
             logger.critical(f"An exception occurred: {exc_type} - {exc_value} - {error_traceback}")
