@@ -48,7 +48,7 @@ To run modules of the *UNICORN Binance Suite* you need a [valid license](https:/
 
 ### Initiate `BinanceRestApiManager()`
 ```
-from unicorn_binance_rest_api.manager import BinanceRestApiManager
+from unicorn_binance_rest_api import BinanceRestApiManager
 
 ubra = BinanceRestApiManager(api_key="YOUR_BINANCE_API_KEY", 
                              api_secret="YOUR_BINANCE_API_SECRET", 
@@ -190,6 +190,10 @@ Both Cython and PyPy Wheels on PyPI make the installation process simpler and mo
 you get the optimized version of our package with minimal setup, allowing you to focus on development rather than 
 configuration.
 
+On Raspberry Pi and other architectures for which there are no pre-compiled versions, the package can still be 
+installed with PIP. PIP then compiles the package locally on the target system during installation. Please be patient, 
+this may take some time!
+
 #### Installation
 `pip install unicorn-binance-rest-api`
 
@@ -221,10 +225,10 @@ Run in bash:
 `pip install https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/$(curl -s https://api.github.com/repos/lucit-systems-and-development/unicorn-binance-rest-api/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")').tar.gz --upgrade`
 
 #### Windows
-Use the below command with the version (such as 2.2.0) you determined 
+Use the below command with the version (such as 2.2.1) you determined 
 [here](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases/latest):
 
-`pip install https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/2.2.0.tar.gz --upgrade`
+`pip install https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/2.2.1.tar.gz --upgrade`
 
 ### From the latest source (dev-stage) with PIP from [Github](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api)
 This is not a release version and can not be considered to be stable!
