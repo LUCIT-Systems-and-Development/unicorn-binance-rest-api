@@ -92,7 +92,7 @@ class BinanceRestApiManager(object):
     :type warn_on_update: bool
     :param exchange: Select binance.com, binance.com-testnet, binance.com-margin, binance.com-margin-testnet,
              binance.com-isolated_margin, binance.com-isolated_margin-testnet, binance.com-futures,
-             binance.com-futures-testnet, binance.com-coin-futures, binance.us or trbinance.com (default: binance.com)
+             binance.com-futures-testnet, binance.com-coin_futures, binance.us or trbinance.com (default: binance.com)
              This overrules parameter `tld`.
     :type exchange: str
     :param debug: If True the lib adds additional information to logging outputs
@@ -351,7 +351,7 @@ class BinanceRestApiManager(object):
                 self.FUTURES_DATA_URL = "https://fapi.binance.com/futures/data"
                 self.FUTURES_COIN_URL = "https://fapi.binance.com/fapi"
                 self.FUTURES_COIN_DATA_URL = "https://dapi.binance.com/futures/data"
-            elif self.exchange == "binance.com-coin-futures":
+            elif self.exchange == "binance.com-coin-futures" or self.exchange == "binance.com-coin_futures":
                 self.API_URL = "https://api.binance.com/api"
                 self.MARGIN_API_URL = " https://api.binance.com/sapi"
                 self.WEBSITE_URL = "https://www.binance.com"

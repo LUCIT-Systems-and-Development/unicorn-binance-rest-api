@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 [How to upgrade to the latest version!](https://unicorn-binance-rest-api.docs.lucit.tech/readme.html#installation-and-upgrade)
 
 ## 2.2.1.dev (development stage/unreleased/unstable)
+### Changed
+- Renamed `binance.com-coin-futures` to `binance.com-coin_futures`
+
 
 ## 2.2.1
 `unicorn-binance-rest-api` can now also be installed on all architectures on which there are no precompiled packages from 
