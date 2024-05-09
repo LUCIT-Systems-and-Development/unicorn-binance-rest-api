@@ -469,15 +469,16 @@ class BinanceRestApiManager(object):
     def _create_futures_data_api_uri(self, path):
         return self.FUTURES_DATA_URL + '/' + path
 
-    def _create_futures_coin_api_url(self, path, version=1):
+    def _create_futures_coin_api_url(self, path: str, version: int = 1) -> str:
         options = {1: self.FUTURES_API_VERSION, 2: self.FUTURES_API_VERSION2}
         return self.FUTURES_COIN_URL + "/" + options[version] + "/" + path
 
-    def _create_futures_coin_data_api_url(self, path):
-        return self.FUTURES_COIN_DATA_URL + "/" + path
+    def _create_futures_coin_data_api_url(self, path: str, version: int = 1) -> str:
+        url = self.FUTURES_COIN_DATA_URL
+        options = {1: self.FUTURES_API_VERSION, 2: self.FUTURES_API_VERSION2}
+        return url + "/" + options[version] + "/" + path
 
     def _generate_signature(self, data):
-
         ordered_data = self._order_params(data)
         query_string = '&'.join(["{}={}".format(d[0], d[1]) for d in ordered_data])
         m = hmac.new(self.API_SECRET.encode('utf-8'), query_string.encode('utf-8'), hashlib.sha256)
@@ -542,7 +543,7 @@ class BinanceRestApiManager(object):
             if 'requests_params' in kwargs['data']:
                 # merge requests params into kwargs
                 kwargs.update(kwargs['data']['requests_params'])
-                del(kwargs['data']['requests_params'])
+                del kwargs['data']['requests_params']
 
         if signed:
             # generate signature
@@ -561,7 +562,7 @@ class BinanceRestApiManager(object):
         # if get request assign data array to params value for requests lib
         if data and (method == 'get' or force_params):
             kwargs['params'] = '&'.join('%s=%s' % (data[0], data[1]) for data in kwargs['data'])
-            del(kwargs['data'])
+            del kwargs['data']
 
         if self.socks5_proxy_address is not None and self.socks5_proxy_port is not None:
             self.response = getattr(self.session, method)(uri,

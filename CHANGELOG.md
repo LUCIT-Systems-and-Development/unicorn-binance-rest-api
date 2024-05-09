@@ -13,7 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## 2.3.0
 ### Added
-- Parameter `version` to `_request_futures_api()` and `_create_futures_api_uri()`
+- Parameter `version` to `_request_futures_api()`, `_create_futures_coin_data_api_url()` and `_create_futures_api_uri()`
 - Since UBRA is delivered as a compiled C extension, IDEs such as Pycharm and Visual Code cannot use information about 
   available methods, parameters and their types for autocomplete and other intellisense functions. As a solution, from 
   now on stub files (PYI) will be created in the build process and attached to the packages. The IDEs can automatically 
