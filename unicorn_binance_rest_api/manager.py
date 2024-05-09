@@ -38,14 +38,13 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 # IN THE SOFTWARE.
 
-from lucit_licensing_python.manager import LucitLicensingManager
-from lucit_licensing_python.exceptions import NoValidatedLucitLicense
 from operator import itemgetter
 from typing import Optional
 from urllib.parse import urlencode
 from .helpers import date_to_milliseconds, interval_to_milliseconds
 from .exceptions import BinanceAPIException, BinanceRequestException, BinanceWithdrawException, UnknownExchange, \
     AlreadyStoppedError
+from .licensing_manager import LucitLicensingManager, NoValidatedLucitLicense
 import colorama
 import cython
 import datetime
