@@ -75,7 +75,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
-     name='unicorn-binance-rest-api',
+     name=name,
      version="2.3.0",
      author="LUCIT Systems and Development",
      author_email='info@lucit.tech',
