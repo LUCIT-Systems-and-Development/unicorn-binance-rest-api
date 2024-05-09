@@ -58,7 +58,7 @@ import time
 
 
 __app_name__: str = "unicorn-binance-rest-api"
-__version__: str = "2.2.1.dev"
+__version__: str = "2.3.0.dev"
 
 logger = logging.getLogger("unicorn_binance_rest_api")
 
@@ -425,8 +425,8 @@ class BinanceRestApiManager(object):
 
             if warn_on_update and self.is_update_availabe():
                 update_msg = f"Release {self.name}_" + self.get_latest_version() + " is available, " \
-                             f"please consider updating! (Changelog: " \
-                             f"https://unicorn-binance-rest-api.docs.lucit.tech/changelog.html)"
+                             f"please consider updating! Changelog: " \
+                             f"https://unicorn-binance-rest-api.docs.lucit.tech/changelog.html"
                 print(update_msg)
                 logger.warning(update_msg)
 

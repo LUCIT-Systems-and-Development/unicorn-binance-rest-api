@@ -9,7 +9,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 [How to upgrade to the latest version!](https://unicorn-binance-rest-api.docs.lucit.tech/readme.html#installation-and-upgrade)
 
-## 2.2.1.dev (development stage/unreleased/unstable)
+## 2.3.0.dev (development stage/unreleased/unstable)
+
+## 2.3.0
+### Added
+- Parameter `version` to `_request_futures_api()` and `_create_futures_api_uri()`
+- Since UBRA is delivered as a compiled C extension, IDEs such as Pycharm and Visual Code cannot use information about 
+  available methods, parameters and their types for autocomplete and other intellisense functions. As a solution, from 
+  now on stub files (PYI) will be created in the build process and attached to the packages. The IDEs can automatically 
+  obtain the required information from these.
+### Changed
+- Renamed `binance.com-coin-futures` to `binance.com-coin_futures`
+### Fixed
+- `futures_account()`, `futures_account_balance()` and `futures_position_information()`  [issue#65](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues/65)
+- Projects `__init__.py` - did not correct import
 
 ## 2.2.1
 `unicorn-binance-rest-api` can now also be installed on all architectures on which there are no precompiled packages from 

@@ -93,6 +93,16 @@ print(f"Buy Order Result: {buy_order}")
 ```
 
 ## Stop `ubra` after usage to avoid memory leaks
+
+When you instantiate UBRA with `with`, `ubra.stop_manager()` is automatically executed upon exiting the `with`-block.
+
+```
+with BinanceRestApiManager() as ubra:
+    depth = ubra.get_order_book(symbol='BNBBTC')
+```
+
+Without `with`, you must explicitly execute `ubra.stop_manager()` yourself.
+
 ```
 ubra.stop_manager()
 ```
@@ -176,6 +186,17 @@ The current dependencies are listed
 
 If you run into errors during the installation take a look [here](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-suite/wiki/Installation).
 
+### Packages are created automatically with GitHub Actions
+When a new release is to be created, we start two GitHubActions: 
+
+- [Build and Publish Anaconda](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/build_conda.yml)
+- [Build and Publish GH+PyPi](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/build_wheels.yml) 
+
+Both start virtual Windows/Linux/Mac servers provided by GitHub in the cloud with preconfigured environments and 
+create the respective compilations and stub files, pack them into wheels and conda packages and then publish them on 
+GitHub, PYPI and Anaconda. This is a transparent method that makes it possible to trace the source code behind a 
+compilation.
+
 ### A Cython binary, PyPy or source code based CPython wheel of the latest version with `pip` from [PyPI](https://pypi.org/project/unicorn-binance-rest-api/)
 Our [Cython](https://cython.org/) and [PyPy](https://www.pypy.org/) Wheels are available on [PyPI](https://pypi.org/), 
 these wheels offer significant advantages for Python developers:
@@ -227,10 +248,10 @@ Run in bash:
 `pip install https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/$(curl -s https://api.github.com/repos/lucit-systems-and-development/unicorn-binance-rest-api/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")').tar.gz --upgrade`
 
 #### Windows
-Use the below command with the version (such as 2.2.1) you determined 
+Use the below command with the version (such as 2.3.0) you determined 
 [here](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases/latest):
 
-`pip install https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/2.2.1.tar.gz --upgrade`
+`pip install https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/2.3.0.tar.gz --upgrade`
 
 ### From the latest source (dev-stage) with PIP from [Github](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api)
 This is not a release version and can not be considered to be stable!
@@ -256,14 +277,7 @@ or the [current master branch](https://github.com/LUCIT-Systems-and-Development/
 - [Modules](https://unicorn-binance-rest-api.docs.lucit.tech/modules.html)
 
 ## Examples
-- [example_buy_and_sell_oco_order_isolated_margin.py](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_buy_and_sell_oco_order_isolated_margin.py)
-- [example_doing_something.py](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_doing_something.py)
-- [example_easy_migration_from_python-binance.py](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_easy_migration_from_python-binance.py)
-- [example_historical_data.py](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_historical_data.py)
-- [example_logging.py](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_logging.py)
-- [example_orders.py](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_orders.py)
-- [example_socks5_proxy.py](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-websocket-api/blob/master/example_socks5_proxy.py)
-- [example_version_of_this_package.py](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_version_of_this_package.py)
+- [Look here!](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/tree/master/examples/)
 
 ## Howto
 - [How to Obtain and Use a Unicorn Binance Suite License Key and Run the UBS Module According to Best Practice](https://medium.lucit.tech/how-to-obtain-and-use-a-unicorn-binance-suite-license-key-and-run-the-ubs-module-according-to-best-87b0088124a8)

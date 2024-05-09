@@ -38,22 +38,45 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 # IN THE SOFTWARE.
 
-from setuptools import setup
 from Cython.Build import cythonize
+from setuptools import setup, find_packages, Extension
+import os
+import shutil
+import subprocess
+
+name = "unicorn-binance-rest-api"
+source_dir = "unicorn_binance_rest_api"
+
+stubs_dir = "stubs"
+extensions = [
+    Extension("*", [f"{source_dir}/*.py"]),
+]
+
+# Setup
+print("Generating stub files ...")
+os.makedirs(stubs_dir, exist_ok=True)
+for filename in os.listdir(source_dir):
+    if filename.endswith('.py'):
+        source_path = os.path.join(source_dir, filename)
+        subprocess.run(['stubgen', '-o', stubs_dir, source_path], check=True)
+for stub_file in os.listdir(os.path.join(stubs_dir, source_dir)):
+    if stub_file.endswith('.pyi'):
+        source_stub_path = os.path.join(stubs_dir, source_dir, stub_file)
+        if os.path.exists(os.path.join(source_dir, stub_file)):
+            print(f"Skipped moving {source_stub_path} because {os.path.join(source_dir, stub_file)} already exists!")
+        else:
+            shutil.move(source_stub_path, source_dir)
+            print(f"Moved {source_stub_path} to {source_dir}!")
+shutil.rmtree(os.path.join(stubs_dir))
+print("Stub files generated and moved successfully.")
 
 with open("README.md", "r") as fh:
+    print("Using README.md content as `long_description` ...")
     long_description = fh.read()
 
 setup(
-     ext_modules=cythonize(
-        ['unicorn_binance_rest_api/__init__.py',
-         'unicorn_binance_rest_api/enums.py',
-         'unicorn_binance_rest_api/exceptions.py',
-         'unicorn_binance_rest_api/helpers.py',
-         'unicorn_binance_rest_api/manager.py'],
-        annotate=False),
      name='unicorn-binance-rest-api',
-     version="2.2.1",
+     version="2.3.0",
      author="LUCIT Systems and Development",
      author_email='info@lucit.tech',
      url="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api",
@@ -79,10 +102,11 @@ setup(
          'Get Support': 'https://www.lucit.tech/get-support.html',
          'LUCIT Online Shop': 'https://shop.lucit.services/software',
      },
+     packages=find_packages(include=[source_dir]),
+     ext_modules=cythonize(extensions, compiler_directives={'language_level': "3"}),
      python_requires='>=3.7.0',
-     package_data={'': ['unicorn_binance_rest_api/*.so',
-                        'unicorn_binance_rest_api/*.dll',
-                        'unicorn_binance_rest_api/*.py']},
+     package_data={'': ['*.so', '*.dll', '*.py', '*.pyd', '*.pyi']},
+     include_package_data=True,
      classifiers=[
          "Development Status :: 5 - Production/Stable",
          "Programming Language :: Python :: 3.7",

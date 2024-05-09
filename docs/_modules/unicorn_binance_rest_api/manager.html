@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>unicorn_binance_rest_api.manager &#8212; unicorn-binance-rest-api 2.2.1 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>unicorn_binance_rest_api.manager &#8212; unicorn-binance-rest-api 2.3.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=92fd9be5" />
     <link rel="stylesheet" type="text/css" href="../../_static/pydoctheme.css?v=fdf8e9ae" />
@@ -204,7 +204,7 @@
 
 
 <span class="n">__app_name__</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;unicorn-binance-rest-api&quot;</span>
-<span class="n">__version__</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;2.2.1&quot;</span>
+<span class="n">__version__</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;2.3.0.dev&quot;</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;unicorn_binance_rest_api&quot;</span><span class="p">)</span>
 
@@ -240,7 +240,7 @@
 <span class="sd">    :type warn_on_update: bool</span>
 <span class="sd">    :param exchange: Select binance.com, binance.com-testnet, binance.com-margin, binance.com-margin-testnet,</span>
 <span class="sd">             binance.com-isolated_margin, binance.com-isolated_margin-testnet, binance.com-futures,</span>
-<span class="sd">             binance.com-futures-testnet, binance.com-coin-futures, binance.us or trbinance.com (default: binance.com)</span>
+<span class="sd">             binance.com-futures-testnet, binance.com-coin_futures, binance.us or trbinance.com (default: binance.com)</span>
 <span class="sd">             This overrules parameter `tld`.</span>
 <span class="sd">    :type exchange: str</span>
 <span class="sd">    :param debug: If True the lib adds additional information to logging outputs</span>
@@ -499,7 +499,7 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">FUTURES_DATA_URL</span> <span class="o">=</span> <span class="s2">&quot;https://fapi.binance.com/futures/data&quot;</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">FUTURES_COIN_URL</span> <span class="o">=</span> <span class="s2">&quot;https://fapi.binance.com/fapi&quot;</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">FUTURES_COIN_DATA_URL</span> <span class="o">=</span> <span class="s2">&quot;https://dapi.binance.com/futures/data&quot;</span>
-            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">exchange</span> <span class="o">==</span> <span class="s2">&quot;binance.com-coin-futures&quot;</span><span class="p">:</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">exchange</span> <span class="o">==</span> <span class="s2">&quot;binance.com-coin-futures&quot;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">exchange</span> <span class="o">==</span> <span class="s2">&quot;binance.com-coin_futures&quot;</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">API_URL</span> <span class="o">=</span> <span class="s2">&quot;https://api.binance.com/api&quot;</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">MARGIN_API_URL</span> <span class="o">=</span> <span class="s2">&quot; https://api.binance.com/sapi&quot;</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">WEBSITE_URL</span> <span class="o">=</span> <span class="s2">&quot;https://www.binance.com&quot;</span>
@@ -573,8 +573,8 @@
 
             <span class="k">if</span> <span class="n">warn_on_update</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_update_availabe</span><span class="p">():</span>
                 <span class="n">update_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Release </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">_&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_latest_version</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot; is available, &quot;</span> \
-                             <span class="sa">f</span><span class="s2">&quot;please consider updating! (Changelog: &quot;</span> \
-                             <span class="sa">f</span><span class="s2">&quot;https://unicorn-binance-rest-api.docs.lucit.tech/changelog.html)&quot;</span>
+                             <span class="sa">f</span><span class="s2">&quot;please consider updating! Changelog: &quot;</span> \
+                             <span class="sa">f</span><span class="s2">&quot;https://unicorn-binance-rest-api.docs.lucit.tech/changelog.html&quot;</span>
                 <span class="nb">print</span><span class="p">(</span><span class="n">update_msg</span><span class="p">)</span>
                 <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">update_msg</span><span class="p">)</span>
 
@@ -609,8 +609,10 @@
     <span class="k">def</span> <span class="nf">_create_website_uri</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">WEBSITE_URL</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">path</span>
 
-    <span class="k">def</span> <span class="nf">_create_futures_api_uri</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">FUTURES_URL</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">FUTURES_API_VERSION</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">path</span>
+    <span class="k">def</span> <span class="nf">_create_futures_api_uri</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">FUTURES_URL</span>
+        <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">FUTURES_API_VERSION</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">FUTURES_API_VERSION2</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">url</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">options</span><span class="p">[</span><span class="n">version</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">path</span>
 
     <span class="k">def</span> <span class="nf">_create_futures_data_api_uri</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">FUTURES_DATA_URL</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">path</span>
@@ -735,9 +737,8 @@
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">uri</span><span class="p">,</span> <span class="n">signed</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_request_futures_api</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">signed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="n">uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_futures_api_uri</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-
+    <span class="k">def</span> <span class="nf">_request_futures_api</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">signed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_futures_api_uri</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="n">version</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">uri</span><span class="p">,</span> <span class="n">signed</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="n">throw_exception</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_request_futures_data_api</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">signed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">throw_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -6987,7 +6988,7 @@
 <span class="sd">        https://binance-docs.github.io/apidocs/futures/en/#future-account-balance-user_data</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_futures_api</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;balance&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">params</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_futures_api</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;balance&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">params</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="BinanceRestApiManager.futures_account">
@@ -6999,7 +7000,7 @@
 <span class="sd">        https://binance-docs.github.io/apidocs/futures/en/#account-information-user_data</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_futures_api</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;account&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">params</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_futures_api</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;account&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">params</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="BinanceRestApiManager.futures_change_leverage">
@@ -7058,7 +7059,7 @@
 <span class="sd">        https://binance-docs.github.io/apidocs/futures/en/#position-information-user_data</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_futures_api</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;positionRisk&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">params</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_futures_api</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;positionRisk&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">params</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="BinanceRestApiManager.futures_account_trades">
@@ -8169,7 +8170,7 @@
     <a href="https://docs.lucit.tech">Index of all LUCIT Software Documentation</a><br />
     &copy; <a href="/license.html">Copyright</a> 2023-2023, LUCIT Systems and Development. All Rights Reserved..
     See <a href="/license.html">License</a> for more information.<br />
-    Last updated on Mar 14 2024 at 13:36 (CET).
+    Last updated on May 09 2024 at 18:56 (CET).
     <a href="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues/new/choose">Found a bug</a>?
     <br />
     Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
