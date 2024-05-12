@@ -73,7 +73,7 @@ test:
 about:
   summary: | 
     A Python SDK by LUCIT to use the Binance REST API`s (com+testnet, com-margin+testnet, com-isolated_margin+testnet, 
-    com-futures+testnet, us, tr) in a easy, fast, flexible, robust and fully-featured way.
+    com-futures+testnet, us, tr) in a simple, fast, flexible, robust and fully-featured way.
   description: |
     [![Get a UNICORN Binance Suite License](https://raw.githubusercontent.com/LUCIT-Systems-and-Development/unicorn-binance-suite/master/images/logo/LUCIT-UBS-License-Offer.png)](https://shop.lucit.services)
     
@@ -107,7 +107,7 @@ about:
     [Contributing](#contributing) | [Disclaimer](#disclaimer) | [Commercial Support](#commercial-support)
     
     A Python SDK by [LUCIT](https://www.lucit.tech) to use the Binance REST API`s (com+testnet, com-margin+testnet, 
-    com-isolated_margin+testnet, com-futures+testnet, us, tr) in a easy, fast, flexible, robust and fully-featured way. 
+    com-isolated_margin+testnet, com-futures+testnet, us, tr) in a simple, fast, flexible, robust and fully-featured way. 
     
     Part of ['UNICORN Binance Suite'](https://www.lucit.tech/unicorn-binance-suite.html).
     

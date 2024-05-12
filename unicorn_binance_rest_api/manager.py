@@ -58,15 +58,14 @@ import time
 
 __app_name__: str = "unicorn-binance-rest-api"
 __version__: str = "2.3.0.dev"
-
-logger = logging.getLogger("unicorn_binance_rest_api")
+__logger__ = logging.getLogger("unicorn_binance_rest_api")
+logger = __logger__
 
 
 class BinanceRestApiManager(object):
     """
-    An unofficial Python API to use the Binance REST API`s (com+testnet, com-margin+testnet,
-    com-isolated_margin+testnet, com-futures+testnet, us) in a easy, fast, flexible,
-    robust and fully-featured way.
+    A Python SDK by LUCIT to use the Binance REST API`s (com+testnet, com-margin+testnet, com-isolated_margin+testnet,
+    com-futures+testnet, us, tr) in a simple, fast, flexible, robust and fully-featured way.
 
     Binance.com rest API documentation:
         -

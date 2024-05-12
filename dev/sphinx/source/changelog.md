@@ -10,6 +10,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 [How to upgrade to the latest version!](https://unicorn-binance-rest-api.docs.lucit.tech/readme.html#installation-and-upgrade)
 
 ## 2.3.0.dev (development stage/unreleased/unstable)
+### Changed
+- Updated description text in all files.
+### Fixed
+- Import in `licensing_manager.py`.
+- Type of global `logger` and `connect` variable.
 
 ## 2.3.0
 ### Added

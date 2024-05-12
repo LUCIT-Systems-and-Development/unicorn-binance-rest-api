@@ -35,11 +35,12 @@ from requests.exceptions import ConnectionError, RequestException, HTTPError
 from simplejson.errors import JSONDecodeError
 from typing import Optional, Callable
 try:
-    from licensing_exceptions import NoValidatedLucitLicense
+    from .licensing_exceptions import NoValidatedLucitLicense
 except ModuleNotFoundError:
     from unicorn_binance_rest_api.licensing_exceptions import NoValidatedLucitLicense
 
-logger = logging.getLogger("lucit_licensing_python")
+__logger__: logging.getLogger = logging.getLogger("lucit_licensing_python")
+logger = __logger__
 
 
 class LucitLicensingManager(threading.Thread):

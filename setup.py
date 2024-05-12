@@ -81,7 +81,7 @@ setup(
      author_email='info@lucit.tech',
      url="https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api",
      description="A Python SDK by LUCIT to use the Binance REST API`s (com+testnet, com-margin+testnet, "
-                 "com-isolated_margin+testnet, com-futures+testnet, us, tr) in a easy, fast, flexible, robust and "
+                 "com-isolated_margin+testnet, com-futures+testnet, us, tr) in a simple, fast, flexible, robust and "
                  "fully-featured way.",
      long_description=long_description,
      long_description_content_type="text/markdown",
