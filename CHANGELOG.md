@@ -14,7 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Updated description text in all files.
 ### Fixed
 - Import in `licensing_manager.py`.
-- Type of global `logger` and `connect` variable.
+- Type of global `logger` variable.
 
 ## 2.3.0
 ### Added
