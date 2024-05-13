@@ -57,7 +57,7 @@ import time
 
 
 __app_name__: str = "unicorn-binance-rest-api"
-__version__: str = "2.3.0.dev"
+__version__: str = "2.4.0"
 __logger__ = logging.getLogger("unicorn_binance_rest_api")
 logger = __logger__
 
@@ -6048,35 +6048,26 @@ class BinanceRestApiManager(object):
         """
         return self._request_margin_api('get', 'sub-account/universalTransfer', True, data=params)
 
-    def get_used_weight(self, make_new_request=False):
+    def get_used_weight(self):
         """Get the used weight from Binance endpoints
 
         https://binance-docs.github.io/apidocs/spot/en/
 
-        :param make_new_request: Set to True to make a new request before returning the used_weight.
-        :type make_new_request: int
-
-        :return: int - used weight
+        :return: dict
 
         .. code-block:: python
 
             {
-             'weight': '5',
+             'status_code': 200,
              'timestamp': 1626079769.0,
-             'status_code': 200
+             'weight': '5'
             }
         """
-        binance_api_status = {}
-        if make_new_request is True:
-            self.get_exchange_info()
-        binance_api_status['weight'] = self.response.headers.get('X-MBX-USED-WEIGHT')
-        binance_api_status['status_code'] = self.response.status_code
-        try:
-            date_time_obj = datetime.datetime.strptime(self.response.headers.get('Date'), '%a, %d %b %Y %I:%M:%S %Z')
-        except ValueError:
-            binance_api_status['timestamp'] = 0
-            return binance_api_status
-        binance_api_status['timestamp'] = date_time_obj.timestamp()
+        self.ping()
+        binance_api_status = {'status_code':self.response.status_code,
+                              'timestamp': datetime.datetime.strptime(self.response.headers.get('Date'),
+                                                                      "%a, %d %b %Y %H:%M:%S GMT").timestamp(),
+                              'weight': self.response.headers.get('X-MBX-USED-WEIGHT')}
         return binance_api_status
 
     # Futures API
