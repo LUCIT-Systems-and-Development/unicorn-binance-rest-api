@@ -7,18 +7,17 @@ channels:
 
 dependencies:
   - python>=3.7
-  - certifi
+  - certifi>=2023.7.22
   - colorama
-  - cryptography
+  - cryptography>=42.0.4
   - cython
   - dateparser
-  - lucit::lucit-licensing-python
+  - lucit::lucit-licensing-python>=1.8.2
   - importlib-metadata  # [py<38]
   - pyopenssl
   - pysocks
-  - requests
+  - requests>=2.31.0
   - regex
   - ujson
   - pip:
     - service-identity
-    - requests[socks]

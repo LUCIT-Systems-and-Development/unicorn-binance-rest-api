@@ -40,6 +40,7 @@
 
 from unicorn_binance_rest_api.manager import *
 from unicorn_binance_rest_api.enums import *
+from unicorn_binance_rest_api.exceptions import *
 import os
 import requests_mock
 import unittest
@@ -71,6 +72,7 @@ class TestBinanceUsRestManager(unittest.TestCase):
 
     def setUp(self):
         take_profit = FUTURE_ORDER_TYPE_TAKE_PROFIT
+        print(take_profit)
 
     # Test historical klines:
     def test_exact_amount(self):
@@ -277,25 +279,69 @@ class TestBinanceUsRestManager(unittest.TestCase):
     def test_historical_kline_generator_empty_response(self):
         pass
 
-    def test_invalid_json(self):
-        """Test Invalid response Exception"""
-        pass
-
     def test_api_exception(self):
         """Test API response Exception"""
-        pass
+        ubra = BinanceRestApiManager(exchange="binance.com")
+        with self.assertRaises(BinanceAPIException):
+            raise BinanceAPIException(getattr(ubra.session, "get")("https://www.binance.com/testerror.uri"))
+        ubra.stop_manager()
 
-    def test_api_exception_invalid_json(self):
+    def test_request_exception(self):
+        """Test Withdraw API request Exception"""
+        with self.assertRaises(BinanceRequestException):
+            raise BinanceRequestException(message="blah")
+
+    def test_order_exception(self):
+        """Test Withdraw API order Exception"""
+        with self.assertRaises(BinanceOrderException):
+            raise BinanceOrderException(message="blah", code="codeXY")
+
+    def test_order_min_amount_exception(self):
         """Test API response Exception"""
-        pass
+        with self.assertRaises(BinanceOrderMinAmountException):
+            raise BinanceOrderMinAmountException(10)
 
-    def test_withdraw_api_exception(self):
-        """Test Withdraw API response Exception"""
-        pass
+    def test_order_min_price_exception(self):
+        """Test API response Exception"""
+        with self.assertRaises(BinanceOrderMinPriceException):
+            raise BinanceOrderMinPriceException(10)
+
+    def test_order_min_total_exception(self):
+        """Test API response Exception"""
+        with self.assertRaises(BinanceOrderMinTotalException):
+            raise BinanceOrderMinTotalException(10)
+
+    def test_order_unknown_symbol_exception(self):
+        """Test API response Exception"""
+        with self.assertRaises(BinanceOrderUnknownSymbolException):
+            raise BinanceOrderUnknownSymbolException("blub")
+
+    def test_order_inactive_symbol_exception(self):
+        """Test API response Exception"""
+        with self.assertRaises(BinanceOrderInactiveSymbolException):
+            raise BinanceOrderInactiveSymbolException("blob")
+
+    def test_withdraw_exception(self):
+        """Test API response Exception"""
+        with self.assertRaises(BinanceWithdrawException):
+            raise BinanceWithdrawException("blob")
 
     def test_with_context(self):
         with BinanceRestApiManager(exchange="binance.us") as with_ubra:
             self.assertIsInstance(with_ubra.get_version(), str)
+
+    def test_live_run(self):
+        ubra_us = BinanceRestApiManager(exchange="binance.us")
+        ubra_com = BinanceRestApiManager(exchange="binance.com")
+        ubra_com_futures = BinanceRestApiManager(exchange="binance.com-futures")
+
+        ubra_us.get_used_weight()
+        ubra_com.get_exchange_info()
+        ubra_com_futures.futures_time()
+
+        ubra_us.stop_manager()
+        ubra_com.stop_manager()
+        ubra_com_futures.stop_manager()
 
 
 if __name__ == '__main__':

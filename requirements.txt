@@ -4,17 +4,16 @@
 # ./pyproject.toml
 # ./setup.py
 
-certifi
+certifi>=2023.7.22
 colorama
-cryptography
+cryptography>=42.0.4
 Cython
 dateparser
-lucit-licensing-python
+lucit-licensing-python>=1.8.2
 pyOpenSSL
 PySocks
 pytz
 regex
-requests
-requests[socks]
+requests>=2.31.0
 service-identity
 ujson
