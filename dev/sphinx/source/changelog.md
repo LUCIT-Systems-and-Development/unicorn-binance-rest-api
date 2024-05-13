@@ -14,7 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Updated description text in all files.
 ### Fixed
 - Import in `licensing_manager.py`.
-- Type of global `logger` and `connect` variable.
+- Type of global `logger` variable.
 
 ## 2.3.0
 ### Added
@@ -24,10 +24,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
   now on stub files (PYI) will be created in the build process and attached to the packages. The IDEs can automatically 
   obtain the required information from these.
 ### Changed
-- Renamed `binance.com-coin-futures` to `binance.com-coin_futures`
+- Renamed `binance.com-coin-futures` to `binance.com-coin_futures`.
 ### Fixed
 - `futures_account()`, `futures_account_balance()` and `futures_position_information()`  [issue#65](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues/65)
-- Projects `__init__.py` - did not correct import
+- Projects `__init__.py` - did not correct import.
 
 ## 2.2.1
 `unicorn-binance-rest-api` can now also be installed on all architectures on which there are no precompiled packages from 

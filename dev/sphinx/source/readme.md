@@ -20,7 +20,6 @@
 [![Telegram](https://img.shields.io/badge/community-telegram-41ab8c)](https://t.me/unicorndevs)
 [![Gitter](https://img.shields.io/badge/community-gitter-41ab8c)](https://gitter.im/unicorn-binance-suite/unicorn-binance-rest-api?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Get Free Professional Support](https://img.shields.io/badge/chat-lucit%20support-004166)](https://www.lucit.tech/get-support.html)
-[![ChatGPT UNICORN Binance Suite Assistant](https://img.shields.io/badge/chatgpt-%20ubs%20assistant-DA70D6)](https://chat.openai.com/g/g-VjCOjRhCJ-unicorn-binance-suite-assistant)
 
 [![LUCIT-UBRA-Banner](https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-rest-api/master/images/logo/LUCIT-UBRA-Banner-Readme.png)](https://www.lucit.tech/unicorn-binance-rest-api.html)
 
@@ -36,9 +35,7 @@ com-isolated_margin+testnet, com-futures+testnet, us, tr) in a simple, fast, fle
 
 Part of ['UNICORN Binance Suite'](https://www.lucit.tech/unicorn-binance-suite.html).
 
-Get help with the integration of the `UNICORN Binance Suite` modules from the 
-[`UNICORN Binance Suite Assistant` GPT](https://chat.openai.com/g/g-VjCOjRhCJ-unicorn-binance-suite-assistant) or 
-[a real human LUCIT employee](https://www.lucit.tech/get-support.html).
+[Get help](https://www.lucit.tech/get-support.html) with the integration of the `UNICORN Binance Suite` modules!
 
 ## Get a UNICORN Binance Suite License
 
@@ -166,7 +163,7 @@ combination.
   Read the [docs](https://unicorn-binance-rest-api.docs.lucit.tech/unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager)
   or this [how to](https://medium.com/@oliverzehentleitner/how-to-connect-to-binance-com-rest-api-using-python-via-a-socks5-proxy-638dbbecacfd) 
   for more information or try 
-  [example_socks5_proxy.py](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_socks5_proxy.py).
+  [example_socks5_proxy.py](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/examples/_archive/example_socks5_proxy.py).
 
 - Excessively tested on Linux, Mac and Windows
 
@@ -302,7 +299,7 @@ or the [current master branch](https://github.com/LUCIT-Systems-and-Development/
 To receive notifications on available updates you can 
 [![watch](https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-rest-api/master/images/misc/watch.png)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/watchers) 
 the repository on [GitHub](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api), write your 
-[own script](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_version_of_this_package.py) 
+[own script](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/examples/_archive/example_version_of_this_package.py) 
 with using 
 [`is_update_availabe()`](https://unicorn-binance-rest-api.docs.lucit.tech/unicorn_binance_rest_api.html?highlight=is_update_availabe#unicorn_binance_rest_api.manager.BinanceRestApiManager.is_update_availabe).
 

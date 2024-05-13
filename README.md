@@ -163,7 +163,7 @@ combination.
   Read the [docs](https://unicorn-binance-rest-api.docs.lucit.tech/unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager)
   or this [how to](https://medium.com/@oliverzehentleitner/how-to-connect-to-binance-com-rest-api-using-python-via-a-socks5-proxy-638dbbecacfd) 
   for more information or try 
-  [example_socks5_proxy.py](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_socks5_proxy.py).
+  [example_socks5_proxy.py](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/examples/_archive/example_socks5_proxy.py).
 
 - Excessively tested on Linux, Mac and Windows
 
@@ -299,7 +299,7 @@ or the [current master branch](https://github.com/LUCIT-Systems-and-Development/
 To receive notifications on available updates you can 
 [![watch](https://raw.githubusercontent.com/lucit-systems-and-development/unicorn-binance-rest-api/master/images/misc/watch.png)](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/watchers) 
 the repository on [GitHub](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api), write your 
-[own script](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/example_version_of_this_package.py) 
+[own script](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/blob/master/examples/_archive/example_version_of_this_package.py) 
 with using 
 [`is_update_availabe()`](https://unicorn-binance-rest-api.docs.lucit.tech/unicorn_binance_rest_api.html?highlight=is_update_availabe#unicorn_binance_rest_api.manager.BinanceRestApiManager.is_update_availabe).
 
