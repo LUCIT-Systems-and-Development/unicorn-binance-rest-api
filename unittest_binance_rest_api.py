@@ -341,6 +341,10 @@ class TestBinanceUsRestManager(unittest.TestCase):
                 ubra_com_futures.futures_time()
         except BinanceAPIException as error_msg:
             print(f"ERROR: {error_msg}")
+            try:
+                ubra_com.stop_manager()
+            except Exception as error_msg:
+                print(f"ERROR: {error_msg}")
 
 
 if __name__ == '__main__':
