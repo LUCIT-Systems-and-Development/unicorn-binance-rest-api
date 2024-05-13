@@ -42,8 +42,7 @@ from operator import itemgetter
 from typing import Optional
 from urllib.parse import urlencode
 from .helpers import date_to_milliseconds, interval_to_milliseconds
-from .exceptions import BinanceAPIException, BinanceRequestException, BinanceWithdrawException, UnknownExchange, \
-    AlreadyStoppedError
+from .exceptions import *
 from .licensing_manager import LucitLicensingManager, NoValidatedLucitLicense
 import colorama
 import cython
@@ -57,7 +56,7 @@ import time
 
 
 __app_name__: str = "unicorn-binance-rest-api"
-__version__: str = "2.4.0"
+__version__: str = "2.4.0.dev"
 __logger__ = logging.getLogger("unicorn_binance_rest_api")
 logger = __logger__
 
@@ -6047,7 +6046,7 @@ class BinanceRestApiManager(object):
         return self._request_margin_api('get', 'sub-account/universalTransfer', True, data=params)
 
     def get_used_weight(self):
-        """Get the used weight from Binance endpoints
+        """Get the used weight from Binance endpoints (weight costs: 1)
 
         https://binance-docs.github.io/apidocs/spot/en/
 
