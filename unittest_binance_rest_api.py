@@ -281,7 +281,7 @@ class TestBinanceUsRestManager(unittest.TestCase):
 
     def test_api_exception(self):
         """Test API response Exception"""
-        ubra = BinanceRestApiManager(exchange="binance.com")
+        ubra = BinanceRestApiManager(exchange="binance.us")
         with self.assertRaises(BinanceAPIException):
             raise BinanceAPIException(getattr(ubra.session, "get")("https://www.binance.com/testerror.uri"))
         ubra.stop_manager()
