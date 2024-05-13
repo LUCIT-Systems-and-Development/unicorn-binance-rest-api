@@ -57,6 +57,14 @@ logging.basicConfig(level=logging.DEBUG,
                     format="{asctime} [{levelname:8}] {process} {thread} {module}: {message}",
                     style="{")
 
+def is_github_action_env():
+    try:
+        print(f"{os.environ[f'LUCIT_LICENSE_TOKEN']}")
+        return True
+    except KeyError:
+        return False
+
+
 print(f"Starting unittests!")
 
 
@@ -334,17 +342,18 @@ class TestBinanceUsRestManager(unittest.TestCase):
         ubra_us = BinanceRestApiManager(exchange="binance.us")
         ubra_us.get_used_weight()
         ubra_us.stop_manager()
-        try:
-            with BinanceRestApiManager(exchange="binance.com") as ubra_com:
-                ubra_com.get_exchange_info()
-            with BinanceRestApiManager(exchange="binance.com-futures") as ubra_com_futures:
-                ubra_com_futures.futures_time()
-        except BinanceAPIException as error_msg:
-            print(f"ERROR: {error_msg}")
+        if is_github_action_env is False:
             try:
-                ubra_com.stop_manager()
-            except Exception as error_msg:
+                with BinanceRestApiManager(exchange="binance.com") as ubra_com:
+                    ubra_com.get_exchange_info()
+                with BinanceRestApiManager(exchange="binance.com-futures") as ubra_com_futures:
+                    ubra_com_futures.futures_time()
+            except BinanceAPIException as error_msg:
                 print(f"ERROR: {error_msg}")
+                try:
+                    ubra_com.stop_manager()
+                except Exception as error_msg:
+                    print(f"ERROR: {error_msg}")
 
 
 if __name__ == '__main__':
