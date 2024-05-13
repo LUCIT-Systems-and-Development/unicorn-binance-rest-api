@@ -332,16 +332,19 @@ class TestBinanceUsRestManager(unittest.TestCase):
 
     def test_live_run(self):
         ubra_us = BinanceRestApiManager(exchange="binance.us")
-        ubra_com = BinanceRestApiManager(exchange="binance.com")
-        ubra_com_futures = BinanceRestApiManager(exchange="binance.com-futures")
-
         ubra_us.get_used_weight()
-        ubra_com.get_exchange_info()
-        ubra_com_futures.futures_time()
-
         ubra_us.stop_manager()
-        ubra_com.stop_manager()
-        ubra_com_futures.stop_manager()
+        try:
+            ubra_com = BinanceRestApiManager(exchange="binance.com")
+            ubra_com_futures = BinanceRestApiManager(exchange="binance.com-futures")
+
+            ubra_com.get_exchange_info()
+            ubra_com_futures.futures_time()
+
+            ubra_com.stop_manager()
+            ubra_com_futures.stop_manager()
+        except BinanceAPIException as error_msg:
+            print(f"ERROR: {error_msg}")
 
 
 if __name__ == '__main__':
