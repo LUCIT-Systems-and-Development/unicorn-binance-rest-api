@@ -80,7 +80,7 @@ class TestBinanceUsRestManager(unittest.TestCase):
 
     def setUp(self):
         take_profit = FUTURE_ORDER_TYPE_TAKE_PROFIT
-        print(take_profit)
+        test = take_profit + ""
 
     # Test historical klines:
     def test_exact_amount(self):
