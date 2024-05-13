@@ -335,14 +335,10 @@ class TestBinanceUsRestManager(unittest.TestCase):
         ubra_us.get_used_weight()
         ubra_us.stop_manager()
         try:
-            ubra_com = BinanceRestApiManager(exchange="binance.com")
-            ubra_com_futures = BinanceRestApiManager(exchange="binance.com-futures")
-
-            ubra_com.get_exchange_info()
-            ubra_com_futures.futures_time()
-
-            ubra_com.stop_manager()
-            ubra_com_futures.stop_manager()
+            with BinanceRestApiManager(exchange="binance.com") as ubra_com:
+                ubra_com.get_exchange_info()
+            with BinanceRestApiManager(exchange="binance.com-futures") as ubra_com_futures:
+                ubra_com_futures.futures_time()
         except BinanceAPIException as error_msg:
             print(f"ERROR: {error_msg}")
 
