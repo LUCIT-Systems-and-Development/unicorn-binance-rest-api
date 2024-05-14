@@ -667,7 +667,7 @@ class BinanceRestApiManager(object):
         """
         return self.version
 
-    def get_latest_version(self):
+    def get_latest_version(self) -> Optional[str]:
         """
         Get the version of the latest available release (cache time 1 hour)
         :return: str or False
