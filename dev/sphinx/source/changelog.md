@@ -15,6 +15,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Added
 - `_save_used_weight()` to cache the used weight on every request.
 - Updated `get_used_weight()` and added parameter `cached=False`.
+### Changed
+- `type(start_str) == int` to `type(start_str) is int` a couple of times.
 
 ## 2.4.0
 Exclude known security vulnerabilities in dependencies by increasing the minimum version numbers of the dependencies.

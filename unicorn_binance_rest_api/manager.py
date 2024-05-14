@@ -64,7 +64,7 @@ logger = __logger__
 class BinanceRestApiManager(object):
     """
     A Python SDK by LUCIT to use the Binance REST API`s (com+testnet, com-margin+testnet, com-isolated_margin+testnet,
-    com-futures+testnet, us, tr) in a simple, fast, flexible, robust and fully-featured way.
+    com-futures+testnet, us, "tr") in a simple, fast, flexible, robust and fully-featured way.
 
     Binance.com rest API documentation:
         -
@@ -478,7 +478,8 @@ class BinanceRestApiManager(object):
         m = hmac.new(self.API_SECRET.encode('utf-8'), query_string.encode('utf-8'), hashlib.sha256)
         return m.hexdigest()
 
-    def _order_params(self, data):
+    @staticmethod
+    def _order_params(data):
         """
         Convert params to list with signature as last element
 
@@ -605,7 +606,7 @@ class BinanceRestApiManager(object):
 
     def _save_used_weight(self) -> bool:
         try:
-            self.used_weight = {'status_code':self.response.status_code,
+            self.used_weight = {'status_code': self.response.status_code,
                                 'timestamp': datetime.datetime.strptime(self.response.headers.get('Date'),
                                                                         "%a, %d %b %Y %H:%M:%S GMT").timestamp(),
                                 'weight': self.response.headers.get('X-MBX-USED-WEIGHT')}
@@ -699,7 +700,8 @@ class BinanceRestApiManager(object):
                                        'unicorn-binance-rest-api/releases/latest')
             latest_release_info = respond.json()
             return latest_release_info
-        except Exception:
+        except Exception as error_msg:
+            logger.debug(f"BinanceRestApiManager.get_latest_release_info() - Exception: {error_msg}")
             return False
 
     def get_user_agent(self):
@@ -1128,7 +1130,7 @@ class BinanceRestApiManager(object):
                 # The difference between startTime and endTime should be less
                 # or equal than an hour and the result set should contain at
                 # least one trade.
-                if type(start_str) == int:
+                if type(start_str) is int:
                     start_ts = start_str
                 else:
                     start_ts = date_to_milliseconds(start_str)
@@ -1264,7 +1266,7 @@ class BinanceRestApiManager(object):
         timeframe = interval_to_milliseconds(interval)
 
         # convert our date strings to milliseconds
-        if type(start_str) == int:
+        if type(start_str) is int:
             start_ts = start_str
         else:
             start_ts = date_to_milliseconds(start_str)
@@ -1276,7 +1278,7 @@ class BinanceRestApiManager(object):
         # if an end time was passed convert it
         end_ts = None
         if end_str:
-            if type(end_str) == int:
+            if type(end_str) is int:
                 end_ts = end_str
             else:
                 end_ts = date_to_milliseconds(end_str)
@@ -1346,7 +1348,7 @@ class BinanceRestApiManager(object):
         timeframe = interval_to_milliseconds(interval)
 
         # convert our date strings to milliseconds
-        if type(start_str) == int:
+        if type(start_str) is int:
             start_ts = start_str
         else:
             start_ts = date_to_milliseconds(start_str)
@@ -1358,7 +1360,7 @@ class BinanceRestApiManager(object):
         # if an end time was passed convert it
         end_ts = None
         if end_str:
-            if type(end_str) == int:
+            if type(end_str) is int:
                 end_ts = end_str
             else:
                 end_ts = date_to_milliseconds(end_str)
@@ -3290,7 +3292,7 @@ class BinanceRestApiManager(object):
             'listenKey': listenKey
         }
         return self._delete('userDataStream', False, data=params, version=self.PRIVATE_API_VERSION,
-                         throw_exception=throw_exception, **kwargs)
+                            throw_exception=throw_exception, **kwargs)
 
     # Margin Trading Endpoints
 
@@ -3403,7 +3405,8 @@ class BinanceRestApiManager(object):
                         "symbol": "BTCUSDT"
                         "isolatedCreated": true, 
                         "marginLevel": "0.00000000", 
-                        "marginLevelStatus": "EXCESSIVE", // "EXCESSIVE", "NORMAL", "MARGIN_CALL", "PRE_LIQUIDATION", "FORCE_LIQUIDATION"
+                        "marginLevelStatus": "EXCESSIVE", // "EXCESSIVE", "NORMAL", "MARGIN_CALL", "PRE_LIQUIDATION", "
+                                              FORCE_LIQUIDATION"
                         "marginRatio": "0.00000000",
                         "indexPrice": "10000.00000000"
                         "liquidatePrice": "1000.00000000",
@@ -3450,7 +3453,8 @@ class BinanceRestApiManager(object):
                         "symbol": "BTCUSDT"
                         "isolatedCreated": true, 
                         "marginLevel": "0.00000000", 
-                        "marginLevelStatus": "EXCESSIVE", // "EXCESSIVE", "NORMAL", "MARGIN_CALL", "PRE_LIQUIDATION", "FORCE_LIQUIDATION"
+                        "marginLevelStatus": "EXCESSIVE", // "EXCESSIVE", "NORMAL", "MARGIN_CALL", "PRE_LIQUIDATION", "
+                                              FORCE_LIQUIDATION"
                         "marginRatio": "0.00000000",
                         "indexPrice": "10000.00000000"
                         "liquidatePrice": "1000.00000000",
@@ -3554,7 +3558,6 @@ class BinanceRestApiManager(object):
 
         """
         return self._request_margin_api('post', 'margin/isolated/create', signed=True, data=params)
-
 
     def get_isolated_margin_symbol(self, **params):
         """Query isolated margin symbol info
@@ -3767,7 +3770,6 @@ class BinanceRestApiManager(object):
         params['type'] = 1
         return self._request_margin_api('post', 'margin/transfer', signed=True, data=params)
 
-
     def transfer_isolated_margin_to_spot(self, **params):
         """Execute transfer between isolated margin account and spot account.
 
@@ -3914,9 +3916,7 @@ class BinanceRestApiManager(object):
         """
         return self._request_margin_api('post', 'margin/repay', signed=True, data=params)
 
-
     # Margin OCO
-
     def create_margin_oco_order(self, **params):
         """Post a new OCO trade for margin account.
 
@@ -4428,8 +4428,9 @@ class BinanceRestApiManager(object):
                     {
                         "asset": "BNB",
                         "principal": "0.84624403",
-                        "timestamp": 1555056425000,
-                        //one of PENDING (pending to execution), CONFIRMED (successfully loaned), FAILED (execution failed, nothing happened to your account);
+                        "timestamp": 1555056425000, # one of PENDING (pending to execution), CONFIRMED (successfully
+                                                    # loaned), FAILED (execution failed, nothing happened to your
+                                                    # account);
                         "status": "CONFIRMED"
                     }
                 ],
@@ -4479,8 +4480,9 @@ class BinanceRestApiManager(object):
                         //Interest repaid
                         "interest": "0.01866667",
                         //Principal repaid
-                        "principal": "13.98133333",
-                        //one of PENDING (pending to execution), CONFIRMED (successfully loaned), FAILED (execution failed, nothing happened to your account);
+                        "principal": "13.98133333", # one of PENDING (pending to execution), CONFIRMED (successfully
+                                                    # loaned), FAILED (execution failed, nothing happened to your
+                                                    # account);
                         "status": "CONFIRMED",
                         "timestamp": 1563438204000,
                         "txId": 2970933056
@@ -7030,7 +7032,8 @@ class BinanceRestApiManager(object):
                         "withdrawEnable": true,
                         "depositDesc": "",
                         "withdrawDesc": "",
-                        "specialTips": "Both a MEMO and an Address are required to successfully deposit your BEP2-BTCB tokens to Binance.",
+                        "specialTips": "Both a MEMO and an Address are required to successfully deposit your BEP2-BTCB
+                                        tokens to Binance.",
                         "name": "BEP2",
                         "resetAddressStatus": false,
                         "addressRegex": "^(bnb1)[0-9a-z]{38}$",
