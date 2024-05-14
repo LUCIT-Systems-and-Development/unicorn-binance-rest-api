@@ -174,8 +174,7 @@ If you like the project, please [![star](https://raw.githubusercontent.com/lucit
 [GitHub](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api)!
 
 ## Installation and Upgrade
-The module requires Python 3.7 or above, as it depends on Pythons latest asyncio features for asynchronous/concurrent 
-processing. 
+The module requires Python 3.7 and runs smoothly up to and including Python 3.12.
 
 Anaconda packages are available from Python version 3.8 and higher, but only in the latest version!
 
