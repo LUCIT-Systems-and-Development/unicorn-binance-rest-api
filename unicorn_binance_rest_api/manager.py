@@ -56,7 +56,7 @@ import time
 
 
 __app_name__: str = "unicorn-binance-rest-api"
-__version__: str = "2.5.0.dev"
+__version__: str = "2.5.1"
 __logger__ = logging.getLogger("unicorn_binance_rest_api")
 logger = __logger__
 
@@ -6070,9 +6070,9 @@ class BinanceRestApiManager(object):
         .. code-block:: python
 
             {
-             'status_code': 200,
-             'timestamp': 1626079769.0,
-             'weight': '5'
+             'status_code': 200, (int)
+             'timestamp': 1626079769.0, (float)
+             'weight': '5' (int)
             }
         """
         if cached is False:

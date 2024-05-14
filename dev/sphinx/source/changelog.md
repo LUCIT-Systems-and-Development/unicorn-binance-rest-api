@@ -9,7 +9,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 [How to upgrade to the latest version!](https://unicorn-binance-rest-api.docs.lucit.tech/readme.html#installation-and-upgrade)
 
-## 2.5.0.dev (development stage/unreleased/unstable)
+## 2.5.1.dev (development stage/unreleased/unstable)
+
+## 2.5.1
+### Changed
+- Returned type of `get_used_weight()['weight']` to int
 
 ## 2.5.0
 ### Added
