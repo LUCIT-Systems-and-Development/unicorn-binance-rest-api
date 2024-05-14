@@ -56,7 +56,7 @@ import time
 
 
 __app_name__: str = "unicorn-binance-rest-api"
-__version__: str = "2.5.1.dev"
+__version__: str = "2.5.1"
 __logger__ = logging.getLogger("unicorn_binance_rest_api")
 logger = __logger__
 
@@ -673,7 +673,7 @@ class BinanceRestApiManager(object):
         :return: str or False
         """
         # Do a fresh request if status is None or last timestamp is older 1 hour
-        if self.last_update_check_github['status']['tag_name'] == "" or \
+        if self.last_update_check_github['status'].get('tag_name') == "" or \
                 (self.last_update_check_github['timestamp']+(60*60) < time.time()):
             self.last_update_check_github['status'] = self.get_latest_release_info()
         if self.last_update_check_github['status']:
