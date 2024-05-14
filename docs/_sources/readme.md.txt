@@ -104,6 +104,10 @@ Without `with`, you must explicitly execute `ubra.stop_manager()` yourself.
 ubra.stop_manager()
 ```
 
+## More?
+[Discover even more possibilities](https://unicorn-binance-rest-api.docs.lucit.tech/unicorn_binance_rest_api.html) 
+or try our [examples](#examples)!
+
 ## Description
 The Python module [UNICORN Binance REST API](https://www.lucit.tech/unicorn-binance-rest-api.html) 
 provides an API to the Binance REST API`s of 
