@@ -606,10 +606,10 @@ class BinanceRestApiManager(object):
 
     def _save_used_weight(self) -> bool:
         try:
-            self.used_weight = {'status_code': self.response.status_code,
+            self.used_weight = {'status_code': int(self.response.status_code),
                                 'timestamp': datetime.datetime.strptime(self.response.headers.get('Date'),
                                                                         "%a, %d %b %Y %H:%M:%S GMT").timestamp(),
-                                'weight': self.response.headers.get('X-MBX-USED-WEIGHT')}
+                                'weight': int(self.response.headers.get('X-MBX-USED-WEIGHT'))}
         except Exception as error_msg:
             logger.debug(f"BinanceRestApiManager.stop_manager() - Exception: {error_msg}")
             return False
