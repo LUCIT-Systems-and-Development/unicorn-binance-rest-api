@@ -105,9 +105,6 @@ ubra.stop_manager()
 ```
 
 ## Description
-This is a fork of Sam McHardy`s [python-binance 0.7.10](https://github.com/sammchardy/python-binance) - package. 
-Extended, cleaned up and reduced to pure REST tasks, with PRs added and improved. No asyncio support!!
-
 The Python module [UNICORN Binance REST API](https://www.lucit.tech/unicorn-binance-rest-api.html) 
 provides an API to the Binance REST API`s of 
 [Binance](https://github.com/binance-exchange/binance-official-api-docs) 
