@@ -9,7 +9,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 [How to upgrade to the latest version!](https://unicorn-binance-rest-api.docs.lucit.tech/readme.html#installation-and-upgrade)
 
-## 2.4.0.dev (development stage/unreleased/unstable)
+## 2.5.0.dev (development stage/unreleased/unstable)
+
+## 2.5.0
+### Added
+- `_save_used_weight()` to cache the used weight on every request.
+- Updated `get_used_weight()` and added parameter `cached=False`.
 
 ## 2.4.0
 Exclude known security vulnerabilities in dependencies by increasing the minimum version numbers of the dependencies.

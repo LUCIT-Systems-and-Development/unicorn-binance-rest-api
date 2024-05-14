@@ -56,7 +56,7 @@ import time
 
 
 __app_name__: str = "unicorn-binance-rest-api"
-__version__: str = "2.4.0.dev"
+__version__: str = "2.5.0"
 __logger__ = logging.getLogger("unicorn_binance_rest_api")
 logger = __logger__
 
@@ -406,17 +406,16 @@ class BinanceRestApiManager(object):
             self._requests_params = requests_params
             self.response = None
             self.session = self._init_session()
+            self.used_weight: Optional[dict] = None
             self.timestamp_offset = 0
 
-            # calculate timestamp offset between local and binance api server
+            # Cache DNS, init request session, get `used_weight` and calculate timestamp offset between local and
+            # binance api server
             res = self.get_server_time()
             try:
                 self.timestamp_offset = res['serverTime'] - int(time.time() * 1000)
             except KeyError:
                 self.timestamp_offset = 0
-
-            # Cache DNS and init request session
-            self.ping()
 
             if warn_on_update and self.is_update_availabe():
                 update_msg = f"Release {self.name}_" + self.get_latest_version() + " is available, " \
@@ -604,6 +603,13 @@ class BinanceRestApiManager(object):
 
         return self._request(method, uri, signed, True, throw_exception=throw_exception, **kwargs)
 
+    def _save_used_weight(self) -> bool:
+        self.used_weight = {'status_code':self.response.status_code,
+                            'timestamp': datetime.datetime.strptime(self.response.headers.get('Date'),
+                                                                    "%a, %d %b %Y %H:%M:%S GMT").timestamp(),
+                            'weight': self.response.headers.get('X-MBX-USED-WEIGHT')}
+        return True
+
     def _handle_response(self, throw_exception=True):
         """
         Internal helper for handling API responses from the Binance server.
@@ -615,6 +621,7 @@ class BinanceRestApiManager(object):
             if not (200 <= self.response.status_code < 300):
                 raise BinanceAPIException(self.response)
         try:
+            self._save_used_weight()
             return self.response.json()
         except ValueError:
             raise BinanceRequestException('Invalid Response: %s' % self.response.text)
@@ -6045,11 +6052,13 @@ class BinanceRestApiManager(object):
         """
         return self._request_margin_api('get', 'sub-account/universalTransfer', True, data=params)
 
-    def get_used_weight(self):
+    def get_used_weight(self, cached=False) -> Optional[dict]:
         """Get the used weight from Binance endpoints (weight costs: 1)
 
         https://binance-docs.github.io/apidocs/spot/en/
 
+        :param cached: Set to `True` if you want to get the cached instead of the current `used_weight`.
+        :type cached: bool
         :return: dict
 
         .. code-block:: python
@@ -6060,15 +6069,11 @@ class BinanceRestApiManager(object):
              'weight': '5'
             }
         """
-        self.ping()
-        binance_api_status = {'status_code':self.response.status_code,
-                              'timestamp': datetime.datetime.strptime(self.response.headers.get('Date'),
-                                                                      "%a, %d %b %Y %H:%M:%S GMT").timestamp(),
-                              'weight': self.response.headers.get('X-MBX-USED-WEIGHT')}
-        return binance_api_status
+        if cached is False:
+            self.ping()
+        return self.used_weight
 
     # Futures API
-
     def futures_ping(self):
         """Test connectivity to the Rest API
 
