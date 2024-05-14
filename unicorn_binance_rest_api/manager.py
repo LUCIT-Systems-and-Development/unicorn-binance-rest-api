@@ -604,10 +604,14 @@ class BinanceRestApiManager(object):
         return self._request(method, uri, signed, True, throw_exception=throw_exception, **kwargs)
 
     def _save_used_weight(self) -> bool:
-        self.used_weight = {'status_code':self.response.status_code,
-                            'timestamp': datetime.datetime.strptime(self.response.headers.get('Date'),
-                                                                    "%a, %d %b %Y %H:%M:%S GMT").timestamp(),
-                            'weight': self.response.headers.get('X-MBX-USED-WEIGHT')}
+        try:
+            self.used_weight = {'status_code':self.response.status_code,
+                                'timestamp': datetime.datetime.strptime(self.response.headers.get('Date'),
+                                                                        "%a, %d %b %Y %H:%M:%S GMT").timestamp(),
+                                'weight': self.response.headers.get('X-MBX-USED-WEIGHT')}
+        except Exception as error_msg:
+            logger.debug(f"BinanceRestApiManager.stop_manager() - Exception: {error_msg}")
+            return False
         return True
 
     def _handle_response(self, throw_exception=True):
