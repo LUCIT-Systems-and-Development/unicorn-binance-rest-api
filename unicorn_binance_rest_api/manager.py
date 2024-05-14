@@ -402,7 +402,7 @@ class BinanceRestApiManager(object):
 
             self.API_KEY = api_key
             self.API_SECRET = api_secret
-            self.last_update_check_github = {'timestamp': time.time(), 'status': {'tag_name': ""}}
+            self.last_update_check_github = {'timestamp': time.time(), 'status': {'tag_name': None}}
             self._requests_params = requests_params
             self.response = None
             self.session = self._init_session()
@@ -673,7 +673,7 @@ class BinanceRestApiManager(object):
         :return: str or False
         """
         # Do a fresh request if status is None or last timestamp is older 1 hour
-        if self.last_update_check_github['status'].get('tag_name') == "" or \
+        if self.last_update_check_github['status'].get('tag_name') == None or \
                 (self.last_update_check_github['timestamp']+(60*60) < time.time()):
             self.last_update_check_github['status'] = self.get_latest_release_info()
         if self.last_update_check_github['status']:
