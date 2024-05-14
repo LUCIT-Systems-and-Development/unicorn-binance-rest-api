@@ -56,7 +56,7 @@ import time
 
 
 __app_name__: str = "unicorn-binance-rest-api"
-__version__: str = "2.5.1"
+__version__: str = "2.5.1.dev"
 __logger__ = logging.getLogger("unicorn_binance_rest_api")
 logger = __logger__
 
