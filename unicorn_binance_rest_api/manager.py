@@ -607,12 +607,15 @@ class BinanceRestApiManager(object):
 
     def _save_used_weight(self) -> bool:
         try:
+            weight = self.response.headers.get('X-MBX-USED-WEIGHT')
+            if weight is None:
+                return False
             self.used_weight = {'status_code': int(self.response.status_code),
                                 'timestamp': datetime.datetime.strptime(self.response.headers.get('Date'),
                                                                         "%a, %d %b %Y %H:%M:%S GMT").timestamp(),
-                                'weight': int(self.response.headers.get('X-MBX-USED-WEIGHT'))}
+                                'weight': int(weight)}
         except Exception as error_msg:
-            logger.debug(f"BinanceRestApiManager.stop_manager() - Exception: {error_msg}")
+            logger.debug(f"BinanceRestApiManager._save_used_weight() - Exception: {error_msg}")
             return False
         return True
 
@@ -7225,8 +7228,7 @@ class BinanceRestApiManager(object):
         """
         Stop the BinanceRestApiManager
         """
-        logger.info("BinanceRestApiManager.stop_manager() - Stopping "
-                    "unicorn_binance_rest_api_manager " + self.version + " ...")
+        logger.info(f"BinanceRestApiManager.stop_manager() - Stopping ...")
         self.sigterm = True
         # close the request session
         try:
