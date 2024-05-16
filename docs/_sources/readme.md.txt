@@ -152,6 +152,8 @@ combination.
 - Helpful management features like 
 [`get_used_weight()`](https://unicorn-binance-rest-api.docs.lucit.tech/unicorn_binance_rest_api.html#unicorn_binance_rest_api.manager.BinanceRestApiManager.get_used_weight), 
 
+- Available as a package via `pip` and `conda` as precompiled C extension with stub files for improved Intellisense 
+  functions and source code for easier debugging of the source code. [To the installation.](#installation-and-upgrade)
 
 - Integration of [test cases](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/actions/workflows/unit-tests.yml) and [examples](#examples).
 
@@ -172,10 +174,9 @@ If you like the project, please [![star](https://raw.githubusercontent.com/lucit
 [GitHub](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api)!
 
 ## Installation and Upgrade
-The module requires Python 3.7 or above, as it depends on Pythons latest asyncio features for asynchronous/concurrent 
-processing. 
+The module requires Python 3.7 and runs smoothly up to and including Python 3.12.
 
-For Anaconda we offer packages only from Python version 3.8 and higher.
+Anaconda packages are available from Python version 3.8 and higher, but only in the latest version!
 
 For the PyPy interpreter we offer packages only from Python version 3.9 and higher.
 
@@ -239,19 +240,19 @@ conda install -c lucit unicorn-binance-rest-api
 #### Update
 `conda update -c lucit unicorn-binance-rest-api`
 
-### From source of the latest release with PIP from [Github](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api)
+### From source of the latest release with PIP from [GitHub](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api)
 #### Linux, macOS, ...
 Run in bash:
 
 `pip install https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/$(curl -s https://api.github.com/repos/lucit-systems-and-development/unicorn-binance-rest-api/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")').tar.gz --upgrade`
 
 #### Windows
-Use the below command with the version (such as 2.5.1) you determined 
+Use the below command with the version (such as 2.6.0) you determined 
 [here](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/releases/latest):
 
-`pip install https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/2.5.1.tar.gz --upgrade`
+`pip install https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/archive/2.6.0.tar.gz --upgrade`
 
-### From the latest source (dev-stage) with PIP from [Github](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api)
+### From the latest source (dev-stage) with PIP from [GitHub](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api)
 This is not a release version and can not be considered to be stable!
 
 `pip install https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/tarball/master --upgrade`
@@ -325,7 +326,7 @@ click ![thumbs-up](https://raw.githubusercontent.com/lucit-systems-and-developme
 Before you report a bug, [try the latest release](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api#installation-and-upgrade). If the issue still exists, provide the error trace, OS 
 and Python version and explain how to reproduce the error. A demo script is appreciated.
 
-If you dont find an issue related to your topic, please open a new [issue](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues)!
+If you don't find an issue related to your topic, please open a new [issue](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/issues)!
 
 [Report a security bug!](https://github.com/LUCIT-Systems-and-Development/unicorn-binance-rest-api/security/policy)
 
@@ -357,7 +358,7 @@ We would like to explicitly point out that in our opinion US citizens are exclus
 and that this restriction must not be circumvented!
 
 The purpose of supporting a SOCKS5 proxy in the UNICORN Binance Suite and its modules is to allow non-US citizens to use 
-US services. For example, Github actions with UBS will not work without a SOCKS5 proxy, as they will inevitably run on 
+US services. For example, GitHub actions with UBS will not work without a SOCKS5 proxy, as they will inevitably run on 
 servers in the US and be blocked by Binance.com. Moreover, it also seems justified that traders, data scientists and 
 companies from the US analyze binance.com market data - as long as they do not trade there.
 

@@ -44,6 +44,7 @@ from urllib.parse import urlencode
 from .helpers import date_to_milliseconds, interval_to_milliseconds
 from .exceptions import *
 from .licensing_manager import LucitLicensingManager, NoValidatedLucitLicense
+
 import colorama
 import cython
 import datetime
@@ -56,7 +57,7 @@ import time
 
 
 __app_name__: str = "unicorn-binance-rest-api"
-__version__: str = "2.5.1.dev"
+__version__: str = "2.6.0"
 __logger__: logging.getLogger = logging.getLogger("unicorn_binance_rest_api")
 
 logger = __logger__
@@ -6062,13 +6063,16 @@ class BinanceRestApiManager(object):
         """
         return self._request_margin_api('get', 'sub-account/universalTransfer', True, data=params)
 
-    def get_used_weight(self, cached=False) -> Optional[dict]:
-        """Get the used weight from Binance endpoints (weight costs: 1)
-
-        https://binance-docs.github.io/apidocs/spot/en/
+    def get_used_weight(self, cached: bool = False, cached_timeout: float = None) -> Optional[dict]:
+        """
+        Get the used weight from Binance endpoints (weight costs: 1)
 
         :param cached: Set to `True` if you want to get the cached instead of the current `used_weight`.
         :type cached: bool
+        :param cached_timeout: If the cache is older than the timeout window, a new request is sent to the Binance API
+                               for a current value.
+        :type cached_timeout: float
+
         :return: dict
 
         .. code-block:: python
@@ -6079,7 +6083,10 @@ class BinanceRestApiManager(object):
              'weight': '5' (int)
             }
         """
-        if cached is False:
+        if cached is True:
+            if self.used_weight['timestamp'] < (time.time() - cached_timeout):
+                self.ping()
+        else:
             self.ping()
         return self.used_weight
 
