@@ -6068,6 +6068,8 @@ class BinanceRestApiManager(object):
         """
         Get the used weight from Binance endpoints (weight costs: 1)
 
+        https://github.com/binance-us/binance-official-api-docs/blob/master/rest-api.md#limits
+
         :param cached: Set to `True` if you want to get the cached instead of the current `used_weight`.
         :type cached: bool
         :param cached_timeout: If the cache is older than the timeout window, a new request is sent to the Binance API
