@@ -9,7 +9,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 [How to upgrade to the latest version!](https://unicorn-binance-rest-api.docs.lucit.tech/readme.html#installation-and-upgrade)
 
-## 2.6.0.dev (development stage/unreleased/unstable)
+## 2.6.1.dev (development stage/unreleased/unstable)
+
+## 2.6.1
+### Fixed
+- TypeError: unsupported operand type(s) for -: 'float' and 'NoneType' in `get_used_weight()`
 
 ## 2.6.0
 ### Added

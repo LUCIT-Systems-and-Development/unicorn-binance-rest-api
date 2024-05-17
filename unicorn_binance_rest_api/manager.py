@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# ¯\_(ツ)_/¯
 #
 # File: unicorn_binance_rest_api/manager.py
 #
@@ -57,7 +58,7 @@ import time
 
 
 __app_name__: str = "unicorn-binance-rest-api"
-__version__: str = "2.6.0.dev"
+__version__: str = "2.6.1"
 __logger__: logging.getLogger = logging.getLogger("unicorn_binance_rest_api")
 
 logger = __logger__
@@ -6063,7 +6064,7 @@ class BinanceRestApiManager(object):
         """
         return self._request_margin_api('get', 'sub-account/universalTransfer', True, data=params)
 
-    def get_used_weight(self, cached: bool = False, cached_timeout: float = None) -> Optional[dict]:
+    def get_used_weight(self, cached: bool = False, cached_timeout: Optional[float] = None) -> Optional[dict]:
         """
         Get the used weight from Binance endpoints (weight costs: 1)
 
@@ -6084,8 +6085,11 @@ class BinanceRestApiManager(object):
             }
         """
         if cached is True:
-            if self.used_weight['timestamp'] < (time.time() - cached_timeout):
+            if cached_timeout is not None and self.used_weight is None:
                 self.ping()
+            elif cached_timeout is not None and self.used_weight is not None:
+                if self.used_weight['timestamp'] < (time.time() - cached_timeout):
+                    self.ping()
         else:
             self.ping()
         return self.used_weight
